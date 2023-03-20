@@ -11,7 +11,7 @@
 					leave-active-class="transition duration-200 ease-in"
 					leave-from-class="transform scale-100 opacity-100" leave-to-class="transform scale-90 opacity-0">
 					<MenuItems as="ul"
-						class="absolute left-0 z-50 flex flex-col gap-2 p-2 mt-4 origin-top-left shadow-lg menu menu-compact rounded-box bg-base-200 w-44">
+						class="absolute left-0 z-50 flex flex-col gap-2 p-2 mt-4 origin-top-left shadow-lg whitespace-nowrap w-min menu menu-compact rounded-box bg-base-200">
 						<MenuItem as="li">
 							<a href="/">
 								<Icon icon="fluent:home-24-filled" class="w-5 h-5" aria-hidden="true" />
@@ -101,23 +101,23 @@
 					leave-active-class="transition duration-200 ease-in"
 					leave-from-class="transform scale-100 opacity-100" leave-to-class="transform scale-90 opacity-0">
 					<MenuItems as="ul"
-						class="absolute right-0 z-50 flex flex-col gap-2 p-2 mt-4 origin-top-right shadow-lg menu menu-compact rounded-box bg-base-200 w-44">
+						class="absolute right-0 z-50 flex flex-col items-end gap-2 p-2 mt-4 origin-top-right shadow-lg w-min menu menu-compact rounded-box bg-base-200">
 						<MenuItem as="li">
 							<a href="/">
-								<Icon icon="ph:gear-six-fill" class="w-5 h-5" aria-hidden="true" />
 								Settings
+								<Icon icon="ph:gear-six-fill" class="w-5 h-5" aria-hidden="true" />
 							</a>
 						</MenuItem>
 						<MenuItem as="li">
 							<a href="https://discord.gg">
-								<Icon icon="ic:round-discord" class="w-5 h-5" aria-hidden="true" />
 								Discord
+								<Icon icon="ic:round-discord" class="w-5 h-5" aria-hidden="true" />
 							</a>
 						</MenuItem>
 						<MenuItem as="li">
 							<a href="https://paypal.me/danyalwe">
-								<Icon icon="ic:round-paypal" class="w-5 h-5" aria-hidden="true" />
 								Donate
+								<Icon icon="ic:round-paypal" class="w-5 h-5" aria-hidden="true" />
 							</a>
 						</MenuItem>
 					</MenuItems>

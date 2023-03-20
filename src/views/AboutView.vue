@@ -14,7 +14,7 @@ interface Member {
 const devTeam: Member[] = [
 	{
 		name: 'Daniele Nicosia',
-		avatar: "/main_dev.png",
+		avatar: "/dany.png",
 		description: 'Project Manager\nFull-Stack Developer',
 		links: [
 			{
@@ -33,12 +33,12 @@ const devTeam: Member[] = [
 	},
 	{
 		name: 'Federico Agnello',
-		avatar: "https://via.placeholder.com/128x128.png",
-		description: 'Tester & Bug Finder\nDesigner',
+		avatar: "/fede.jpg",
+		description: 'Ideator\nDesigner',
 		links: [
 			{
-				icon: 'bxl:twitter',
-				url: '#'
+				icon: 'bxl:instagram',
+				url: 'https://www.instagram.com/fededc512/'
 			},
 			{
 				icon: 'bxl:github',
