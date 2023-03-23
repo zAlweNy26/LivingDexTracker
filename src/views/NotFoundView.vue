@@ -4,8 +4,8 @@ import { Icon } from '@iconify/vue'
 
 <template>
 	<div class="flex flex-col items-center justify-center gap-8 text-center grow">
-		<div class="flex flex-col items-center">
-			<img alt="Page Not Found Image" class="w-1/2 h-auto" src="/luxio.webp" />
+		<div class="flex flex-col items-center gap-4">
+			<img alt="Page Not Found Image" class="w-1/3 h-auto" src="/luxio.webp" />
 			<h1 class="text-3xl font-bold">A wild Luxio appeared!</h1>
 		</div>
 		<div>

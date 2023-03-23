@@ -3,18 +3,9 @@ import { Icon } from '@iconify/vue'
 import { ref, computed } from 'vue'
 import Modal from '@components/Modal.vue'
 import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from '@headlessui/vue'
-import pokJson from '@assets/pokemon_all.json'
+import { Region, Game, Pokemon } from '@/utility'
 
-type Pokemon = typeof pokJson[0]
-
-enum Game {
-  "RBY", "GS", "C", "RS", "FRLG", "EM", "DP", "HGSS", "Pt", "BW", "B2W2", "XY", "ORAS", "SM", "USUM", 
-  "LGPE", "Go", "SwSh", "SwSh DLC1 IoA", "SwSh DLC2 CT", "PLA", "SV", "SV DLC1 TM", "SV DLC2 ID"
-}
-
-enum Region {
-  "Kanto", "Johto", "Hoenn", "Sinnoh", "Unova", "Kalos", "Alola", "Real World", "Galar", "Hisui", "Paldea"
-}
+const pokJson: Pokemon[] = await fetch('/pokemon_all.json').then(d => d.json())
 
 const orderOptions = [ "National Dex", "Release", "Region", "Generation", "Alphabetical" ]
 const whereAltsOptions = [ "Near the original", /*"After everything",*/ "Hidden" ]
@@ -341,7 +332,7 @@ const showLabel = (pok: Pokemon) => { //TODO: typeof brutto da fixare
                 `/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_n.webp`"
               @error="(e) => (e.target as HTMLImageElement).src = '/sprites/webps/poke_icon_0000_000_uk_n_00000000_f_n.webp'">
             <span class="font-semibold">#{{ pok.ndex }}</span>
-            <span class="font-medium text-center whitespace-pre-wrap">{{ pok.name }}</span>
+            <span class="font-medium text-center text-xs whitespace-pre-wrap">{{ pok.name }}</span>
             <span v-if="showLabel(pok)" 
               class="font-medium text-center whitespace-pre-wrap text-neutral-focus text-3xs">{{ pok.form }}</span>
           </div>
