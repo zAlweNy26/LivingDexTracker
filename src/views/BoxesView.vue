@@ -7,15 +7,20 @@ import pokJson from '@assets/pokemon_all.json'
 
 type Pokemon = typeof pokJson[0]
 
+enum Game {
+  "RBY", "GS", "C", "RS", "FRLG", "EM", "DP", "HGSS", "Pt", "BW", "B2W2", "XY", "ORAS", "SM", "USUM", 
+  "LGPE", "Go", "SwSh", "SwSh DLC1 IoA", "SwSh DLC2 CT", "PLA", "SV", "SV DLC1 TM", "SV DLC2 ID"
+}
+
 enum Region {
-  Kanto, Johto, Hoenn, Sinnoh, Unova, Kalos, Alola, RealWorld, Galar, Hisui, Paldea
+  "Kanto", "Johto", "Hoenn", "Sinnoh", "Unova", "Kalos", "Alola", "Real World", "Galar", "Hisui", "Paldea"
 }
 
 const orderOptions = [ "National Dex", "Release", "Region", "Generation", "Alphabetical" ]
-const whereAltsOptions = [ "After everything", "Near the original", "Hidden" ]
-const variantsOptions = [ "Regional", "Generic", "Gender", "Cap Pikachu", "Unown", "Vivillon", "Alcremie", "Totem", "Partner LGPE" ]
+const whereAltsOptions = [ "Near the original", /*"After everything",*/ "Hidden" ]
+const variantsOptions = [ "Regional", "Generic", "Gender", "Cap Pikachu", "Unown", "Vivillon", "Alcremie", "Totem", "Titan", "Partner LGPE" ]
 const transformsOptions = [ "Mega Evolution", "Primal Reversion", "Bond Phenomenon", "Ultra Burst", "Gigantamax", "Eternamax" ]
-const selectWhereAlts = ref(whereAltsOptions[2])
+const selectWhereAlts = ref(whereAltsOptions[0])
 const selectVariants = ref<string[]>([])
 const selectTransforms = ref<string[]>([])
 const selectOrder = ref(orderOptions[0])
@@ -24,18 +29,23 @@ const basicFilter = (name: string, formIndex: number) => {
   return !(
     (name == 'Scatterbug' && ![0, 1].includes(formIndex)) || 
     (name == 'Spewpa' && formIndex != 0) || 
-    (name == 'Mothim' && formIndex != 0)
+    (name == 'Mothim' && formIndex != 0) ||
+    (name == "Minior" && (formIndex != 0 && formIndex < 7)) ||
+    (name == 'Koraidon' && ![0, 1].includes(formIndex)) || 
+    (name == 'Miraidon' && ![0, 1].includes(formIndex))
   )
 }
 const onlyRegionals = (form: string) => ["Alolan", "Galarian", "Hisuian", "Paldean"].some(r => form.includes(r))
 const onlyTotems = (form: string) => form.includes("Totem")
 const onlyMega = (form: string) => form.includes("Mega")
 const onlyGiga = (form: string) => form.includes("Gigantamax")
+const onlyTitan = (form: string) => form.includes("Titan")
 const onlyBonds = (form: string) => form.includes("Battle Bond")
 const onlyFemale = (form: string) => form.includes("Female")
 const onlyPrimal = (form: string) => form.includes("Primal")
+const onlyEterna = (form: string) => form.includes("Eternamax")
 const onlyCaps = (form: string) => form.includes("Cap")
-const onlyLGPE = (subGen: string) => subGen.includes("LGPE")
+const onlyLGPE = (name: string, subGen: string) => subGen.includes("LGPE") && (name == "Pikachu" || name == "Eevee")
 const onlyAlcremie = (name: string, formType: string) => name == "Alcremie" && formType != "Default"
 const onlyUnown = (name: string, formIndex: number) => name == 'Unown' && formIndex != 5
 const onlyVivillon = (name: string, formIndex: number) => {
@@ -58,7 +68,23 @@ const onlyGeneric = (name: string, formIndex: number) => {
     (name == 'Flabébé' && formIndex != 0) || (name == 'Floette' && formIndex != 0) ||
     (name == 'Florges' && formIndex != 0) || (name == 'Furfrou' && formIndex != 0) ||
     (name == 'Aegislash' && formIndex != 0) || (name == 'Pumpkaboo' && formIndex != 0) ||
-    (name == 'Gourgeist' && formIndex != 0)
+    (name == 'Gourgeist' && formIndex != 0) || (name == "Minior" && formIndex != 7) ||
+    (name.includes("Pichu") && formIndex != 0) || (name == 'Xerneas' && formIndex != 1) || 
+    (name == 'Zygarde' && formIndex != 0) || (name == 'Rockruff' && formIndex != 0) || 
+    (name == 'Lycanroc' && formIndex != 0) || (name == 'Wishiwashi' && formIndex != 0) || 
+    (name == 'Hoopa' && formIndex != 0) || (name == 'Oricorio' && formIndex != 0) || 
+    (name == 'Silvally' && formIndex != 0) || (name == 'Mimikyu' && ![0, 2].includes(formIndex)) || 
+    (name.includes("Necrozma") && formIndex != 0) || (name == 'Magearna' && formIndex != 0) ||
+    (name == 'Sinistea' && formIndex != 0) || (name == 'Polteageist' && formIndex != 0) ||
+    (name == 'Cramorant' && formIndex != 0) || (name == 'Toxtricity' && formIndex != 0) ||
+    (name == 'Eiscue' && formIndex != 0) || (name == 'Morpeko' && formIndex != 0) ||
+    (name == 'Zacian' && formIndex != 1) || (name == 'Zamazenta' && formIndex != 1) ||
+    (name == 'Urshifu' && formIndex != 0) || (name.includes('Zarude') && formIndex != 0) ||
+    (name.includes('Calyrex') && formIndex != 0) || (name == 'Enamorus' && formIndex != 0) || 
+    (name == 'Maushold' && formIndex != 1) || (name == 'Squawkabilly' && formIndex != 0) ||
+    (name == 'Palafin' && formIndex != 0) || (name == 'Tatsugiri' && formIndex != 0) ||
+    (name == 'Dudunsparce' && formIndex != 0) || (name == 'Gimmighoul' && formIndex != 0) ||
+    (name == 'Koraidon' && formIndex != 0) || (name == 'Miraidon' && formIndex != 0)
   )
 }
 
@@ -66,6 +92,7 @@ const allPok = (JSON.parse(JSON.stringify(pokJson)) as typeof pokJson).filter(p 
 const catchedPok = ref<boolean[]>(new Array(allPok.length).fill(false))
 const boxNames = ref<string[][]>(new Array(Math.ceil(allPok.length / 30)).fill([]))
 const selectedPok = ref<typeof allPok[0]>()
+const showShiny = ref(false)
 const modalCard = ref<InstanceType<typeof Modal>>()
 
 const orderBy = computed(() => {
@@ -77,20 +104,24 @@ const orderBy = computed(() => {
       return !(
         onlyRegionals(p.form ?? "") || onlyTotems(p.form ?? "") || onlyMega(p.form ?? "") ||
         onlyGiga(p.form ?? "") || onlyFemale(p.form ?? "") || onlyPrimal(p.form ?? "") ||
-        onlyCaps(p.form ?? "") || onlyLGPE(p.sub_gen) || onlyAlcremie(p.name, p.form_type) ||
+        onlyCaps(p.form ?? "") || onlyLGPE(p.name, p.sub_gen) || onlyAlcremie(p.name, p.form_type) ||
         onlyUnown(p.name, parseInt(p.form_index)) || onlyVivillon(p.name, parseInt(p.form_index)) ||
-        onlyGeneric(p.name, parseInt(p.form_index)) || onlyBonds(p.form ?? "")
+        onlyGeneric(p.name, parseInt(p.form_index)) || onlyBonds(p.form ?? "") || 
+        onlyEterna(p.form ?? "") || onlyTitan(p.form ?? "")
       )
     } else {
       return !(
         (!selectVariants.value.includes("Regional") && onlyRegionals(p.form ?? "")) || 
         (!selectVariants.value.includes("Totem") && onlyTotems(p.form ?? "")) ||
+        (!selectVariants.value.includes("Titan") && onlyTitan(p.form ?? "")) ||
         (!selectTransforms.value.includes("Mega Evolution") && onlyMega(p.form ?? "")) ||
         (!selectTransforms.value.includes("Gigantamax") && onlyGiga(p.form ?? "")) ||
         (!selectTransforms.value.includes("Bond Phenomenon") && onlyBonds(p.form ?? "")) ||
+        (!selectTransforms.value.includes("Eternamax") && onlyEterna(p.form ?? "")) ||
+        (!selectTransforms.value.includes("Primal Reversion") && onlyPrimal(p.form ?? "")) ||
         (!selectVariants.value.includes("Gender") && onlyFemale(p.form ?? "")) ||
         (!selectVariants.value.includes("Cap Pikachu") && onlyCaps(p.form ?? "")) ||
-        (!selectVariants.value.includes("Partner LGPE") && onlyLGPE(p.sub_gen)) ||
+        (!selectVariants.value.includes("Partner LGPE") && onlyLGPE(p.name, p.sub_gen)) ||
         (!selectVariants.value.includes("Alcremie") && onlyAlcremie(p.name, p.form_type)) ||
         (!selectVariants.value.includes("Unown") && onlyUnown(p.name, parseInt(p.form_index))) ||
         (!selectVariants.value.includes("Vivillon") && onlyVivillon(p.name, parseInt(p.form_index))) ||
@@ -114,7 +145,7 @@ const orderBy = computed(() => {
       if (!boxNames.value[j].includes(Region[e.region])) boxNames.value[j].push(Region[e.region])
     })
   } else if (selectOrder.value == "Generation") {
-    orderedPok = orderedPok.sort((p1, p2) => p1.gen - p2.gen)
+    orderedPok = orderedPok.sort((p1, p2) => p1.gen - p2.gen || p1.ndex.localeCompare(p2.ndex))
     orderedPok.forEach((e, i) => {
       if (i > 0 && i % 30 == 0) boxNames.value[++j] = []
       if (!boxNames.value[j].includes(`Gen. ${e.gen}`)) boxNames.value[j].push(`Gen. ${e.gen}`)
@@ -126,7 +157,17 @@ const orderBy = computed(() => {
       if ((i > 0 && i % 30 == 0)) boxNames.value[++j] = []
       if (boxNames.value[j].length == 0) boxNames.value[j].push(e.ndex)
     })
+  } else if (selectOrder.value == "Release") {
+    orderedPok = orderedPok.sort((p1, p2) => p1.game - p2.game || p1.ndex.localeCompare(p2.ndex))
+    orderedPok.forEach((e, i) => {
+      if (i > 0 && i % 30 == 0) boxNames.value[++j] = []
+      if (!boxNames.value[j].includes(Game[e.game])) boxNames.value[j].push(Game[e.game])
+    })
   }
+
+  /*if (selectWhereAlts.value == "After everything") {
+    orderedPok = orderedPok.sort((p1, p2) => (((p2.original ?? false) ? 1 : 0) - ((p1.original ?? false) ? 1 : 0)) || p1.ndex.localeCompare(p2.ndex))
+  }*/
 
   return orderedPok
 })
@@ -141,19 +182,28 @@ const showLabel = (pok: Pokemon) => { //TODO: typeof brutto da fixare
   const genderIncluded = selectVariants.value.includes("Gender")
   const vivillonIncluded = selectVariants.value.includes("Vivillon")
   const unownIncluded = selectVariants.value.includes("Unown")
+  const alcremieIncluded = selectVariants.value.includes("Alcremie")
   const genericIncluded = selectVariants.value.includes("Generic")
+  const totemIncluded = selectVariants.value.includes("Totem")
   const ndex = parseInt(pok.ndex, 10)
   
   if (pok.form === 'Male') return genderIncluded && !hidden
   if ([664, 665, 666].includes(ndex)) return vivillonIncluded && !hidden
   if (pok.form === 'F') return unownIncluded && !hidden
+  if (pok.name === 'Alcremie') return alcremieIncluded && !hidden
+  if (pok.name === 'Mimikyu' && !pok.form?.includes("Totem")) return genericIncluded && !hidden
+  else if (pok.name === 'Mimikyu') return totemIncluded && !hidden
 
   if (!genericIncluded || hidden) {
     const excludedNames = [
       "Castform", "Deoxys", "Burmy", "Wormadam", "Cherrim", "Shellos", "Gastrodon", 
       "Rotom", "Dialga", "Palkia", "Giratina", "Shaymin", "Arceus", "Basculin", "Deerling", 
       "Sawsbuck", "Darmanitan", "Tornadus", "Thundurus", "Landorus", "Keldeo", "Meloetta", "Genesect",
-      "Flabébé", "Floette", "Florges", "Furfrou", "Aegislash", "Pumpkaboo", "Gourgeist"
+      "Flabébé", "Floette", "Florges", "Furfrou", "Aegislash", "Pumpkaboo", "Gourgeist", "Xerneas",
+      "Zygarde", "Rockruff", "Lycanroc", "Wishiwashi", "Hoopa", "Oricorio", "Silvally",
+      "Sinistea", "Polteageist", "Toxtricity", "Eiscue", "Morpeko", "Zacian", "Zamazenta", "Urshifu",
+      "Enamorus", "Maushold", "Squawkabilly", "Palafin", "Tatsugiri", "Dudunsparce", "Gimmighoul",
+      "Koraidon", "Miraidon"
     ]
     return !excludedNames.includes(pok.name)
   }
@@ -263,6 +313,10 @@ const showLabel = (pok: Pokemon) => { //TODO: typeof brutto da fixare
           </Transition>
         </div>
       </Listbox>
+      <label class="flex items-center justify-between gap-2 cursor-pointer">
+        <input v-model="showShiny" type="checkbox" class="!toggle !toggle-primary">
+        <span class="text-sm font-medium select-none shrink-0">Show Shiny</span>
+      </label>
     </div>
     <div class="flex flex-wrap items-center justify-center gap-8 grow">
       <div v-for="i in Math.ceil(orderBy.length / 30)" :key="`box_${i}`" class="p-2 grow rounded-xl bg-base-300 max-w-fit">
@@ -282,11 +336,10 @@ const showLabel = (pok: Pokemon) => { //TODO: typeof brutto da fixare
             @click="catchedPok[parseInt(pok.ndex) - 1] = !catchedPok[parseInt(pok.ndex) - 1]">
             <img loading="lazy" class="w-12 h-12 mb-1 transition-all sm:w-16 sm:h-16" 
               :class="{ 'brightness-[.25]': catchedPok[parseInt(pok.ndex) - 1] }" 
-              :src="`/sprites/home/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_n.png`"
-              @error="(e) => (e.target as HTMLImageElement).src = '/sprites/home/poke_icon_0000_000_uk_n_00000000_f_n.png'">
-            <!--<img loading="lazy" class="w-12 h-12 mb-1 transition-all sm:w-16 sm:h-16" 
-              :class="{ 'brightness-[.25]': !catchedPok[parseInt(pok.ndex) - 1] }" 
-              :src="`/sprites/gen9/${parseInt(pok.form_index) > 0 ? `${parseInt(pok.ndex)}-${parseInt(pok.form_index)}` : parseInt(pok.ndex)}.png`">-->
+              :src="showShiny ? 
+                `/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_r.webp` : 
+                `/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_n.webp`"
+              @error="(e) => (e.target as HTMLImageElement).src = '/sprites/webps/poke_icon_0000_000_uk_n_00000000_f_n.webp'">
             <span class="font-semibold">#{{ pok.ndex }}</span>
             <span class="font-medium text-center whitespace-pre-wrap">{{ pok.name }}</span>
             <span v-if="showLabel(pok)" 
