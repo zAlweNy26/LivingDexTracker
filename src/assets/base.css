@@ -35,16 +35,6 @@
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 20 20'><path fill='%2327272A' d='M3 10a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Z'/></svg>") !important;
   }
 
-  .pincode::-webkit-outer-spin-button,
-  .pincode::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  .pincode[type="number"] {
-    -moz-appearance: textfield;
-  }
-
   .input-group-bordered {
     @apply input-group !rounded-lg overflow-hidden;
   }
