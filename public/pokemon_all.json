@@ -10155,7 +10155,7 @@
     {
         "index": 629,
         "name": "Arceus",
-        "form": "Default",
+        "form": "Normal",
         "form_type": "Default",
         "living_dex_type": "Living Dex",
         "gen": 4,
@@ -17272,22 +17272,6 @@
     {
         "index": 1072,
         "name": "Zygarde",
-        "form": "10% Forme - Power Construct Ability",
-        "form_type": "Indistinguishable",
-        "living_dex_type": "Hide",
-        "gen": 7,
-        "sub_gen": "A",
-        "game": 13,
-        "region": 6,
-        "ndex": "0718",
-        "form_index": "002",
-        "subform_index": "00000000",
-        "gender_id": "uk",
-        "gmax_id": "n"
-    },
-    {
-        "index": 1073,
-        "name": "Zygarde",
         "form": "50% Forme - Power Construct Ability",
         "form_type": "Indistinguishable",
         "living_dex_type": "Hide",
@@ -17297,6 +17281,22 @@
         "region": 6,
         "ndex": "0718",
         "form_index": "003",
+        "subform_index": "00000000",
+        "gender_id": "uk",
+        "gmax_id": "n"
+    },
+    {
+        "index": 1073,
+        "name": "Zygarde",
+        "form": "10% Forme - Power Construct Ability",
+        "form_type": "Indistinguishable",
+        "living_dex_type": "Hide",
+        "gen": 7,
+        "sub_gen": "A",
+        "game": 13,
+        "region": 6,
+        "ndex": "0718",
+        "form_index": "002",
         "subform_index": "00000000",
         "gender_id": "uk",
         "gmax_id": "n"
@@ -18235,6 +18235,7 @@
     {
         "index": 1132,
         "name": "Silvally",
+        "form": "Normal",
         "form_type": "Default",
         "living_dex_type": "Living Dex",
         "gen": 7,

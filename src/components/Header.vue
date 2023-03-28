@@ -20,7 +20,7 @@
 						</MenuItem>
 						<MenuItem as="li">
 							<a href="/guide">
-								<Icon icon="mdi:mushroom" class="w-5 h-5" aria-hidden="true" />
+								<Icon icon="ph:scroll-fill" class="w-5 h-5" aria-hidden="true" />
 								Guide
 							</a>
 						</MenuItem>

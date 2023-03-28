@@ -10,11 +10,13 @@ const pokJson: Pokemon[] = await fetch('/pokemon_all.json').then(d => d.json())
 
 const orderOptions = [ "National Dex", "Release", "Region", "Generation", "Alphabetical" ]
 const whereAltsOptions = [ "Hidden", "Near the original", /*"After everything"*/ ]
-const variantsOptions = [ "Regional", "Generic", "Gender", "Cap Pikachu", "Unown", "Vivillon", "Alcremie", "Totem", "Titan", "Partner LGPE" ]
-const transformsOptions = [ "Mega Evolution", "Primal Reversion", "Bond Phenomenon", "Ultra Burst", "Gigantamax", "Eternamax" ]
+const variantsOptions = [ "Generic", "Regional", "Gender", "Legendary", "Unown", "Vivillon", "Alcremie", ]
+const transformsOptions = [ "Generic", "Mega Evolution", "Primal Reversion", "Bond Phenomenon", "Ultra Burst", "Gigantamax", "Eternamax", ]
+const specialsOptions = [ "Totem", "Titan", "Partner LGPE", "Cap Pikachu", "Eternal Flower", "Furfrou Styles", "Arceus - Silvally", "Events", ]
 const selectWhereAlts = ref(whereAltsOptions[0])
 const selectVariants = ref<string[]>([])
 const selectTransforms = ref<string[]>([])
+const selectSpecials = ref<string[]>([])
 const selectOrder = ref(orderOptions[0])
 const isAllCollapsed = ref(false)
 
@@ -39,7 +41,7 @@ const onlyPrimal = (form: string) => form.includes("Primal")
 const onlyEterna = (form: string) => form.includes("Eternamax")
 const onlyCaps = (form: string) => form.includes("Cap")
 const onlyLGPE = (name: string, subGen: string) => subGen.includes("LGPE") && (name == "Pikachu" || name == "Eevee")
-const onlyAlcremie = (name: string, formType: string) => name == "Alcremie" && formType != "Default"
+const onlyAlcremie = (name: string, form: string) => name.includes("Alcremie") && !form.includes("Vanilla Cream - Strawberry Sweet")
 const onlyUnown = (name: string, formIndex: number) => name == 'Unown' && formIndex != 5
 const onlyVivillon = (name: string, formIndex: number) => {
   return ((name == 'Vivillon' && formIndex != 6) || (name == 'Scatterbug' && formIndex != 0))
@@ -85,13 +87,17 @@ const allPok = (JSON.parse(JSON.stringify(pokJson)) as typeof pokJson).filter(p 
 const catchedPok = ref<boolean[]>(new Array(allPok.length).fill(false))
 const boxNames = ref<string[][]>(new Array(Math.ceil(allPok.length / 30)).fill([]))
 const selectedPok = ref<typeof allPok[0]>()
-const showShiny = ref(false)
+const showShiny = ref(false), showOnlyIcons = ref(false)
 const modalCard = ref<InstanceType<typeof Modal>>()
 const searchItem = ref("")
 
-const searchForItem = () => {
-	console.log("search")
-}
+const searchFilter = computed(() => {
+  let filteredPok = JSON.parse(JSON.stringify(allPok)) as typeof pokJson
+
+  filteredPok = filteredPok.filter(v => v.name.toLowerCase().includes(searchItem.value.toLowerCase()))
+
+  return filteredPok
+})
 
 const orderBy = computed(() => {
   let orderedPok = JSON.parse(JSON.stringify(allPok)) as typeof pokJson
@@ -102,17 +108,17 @@ const orderBy = computed(() => {
     else {
       return !(
         (!selectVariants.value.includes("Regional") && onlyRegionals(p.form ?? "")) || 
-        (!selectVariants.value.includes("Totem") && onlyTotems(p.form ?? "")) ||
-        (!selectVariants.value.includes("Titan") && onlyTitan(p.form ?? "")) ||
+        (!selectSpecials.value.includes("Totem") && onlyTotems(p.form ?? "")) ||
+        (!selectSpecials.value.includes("Titan") && onlyTitan(p.form ?? "")) ||
         (!selectTransforms.value.includes("Mega Evolution") && onlyMega(p.form ?? "")) ||
         (!selectTransforms.value.includes("Gigantamax") && onlyGiga(p.form ?? "")) ||
         (!selectTransforms.value.includes("Bond Phenomenon") && onlyBonds(p.form ?? "")) ||
         (!selectTransforms.value.includes("Eternamax") && onlyEterna(p.form ?? "")) ||
         (!selectTransforms.value.includes("Primal Reversion") && onlyPrimal(p.form ?? "")) ||
         (!selectVariants.value.includes("Gender") && onlyFemale(p.form ?? "")) ||
-        (!selectVariants.value.includes("Cap Pikachu") && onlyCaps(p.form ?? "")) ||
-        (!selectVariants.value.includes("Partner LGPE") && onlyLGPE(p.name, p.sub_gen)) ||
-        (!selectVariants.value.includes("Alcremie") && onlyAlcremie(p.name, p.form_type)) ||
+        (!selectSpecials.value.includes("Cap Pikachu") && onlyCaps(p.form ?? "")) ||
+        (!selectSpecials.value.includes("Partner LGPE") && onlyLGPE(p.name, p.sub_gen)) ||
+        (!selectVariants.value.includes("Alcremie") && onlyAlcremie(p.name, p.form ?? "")) ||
         (!selectVariants.value.includes("Unown") && onlyUnown(p.name, parseInt(p.form_index))) ||
         (!selectVariants.value.includes("Vivillon") && onlyVivillon(p.name, parseInt(p.form_index))) ||
         (!selectVariants.value.includes("Generic") && onlyGeneric(p.name, parseInt(p.form_index)))
@@ -203,126 +209,184 @@ const showLabel = (pok: Pokemon) => {
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center w-full gap-8 grow">
-    <div class="flex flex-wrap items-center gap-4">
-      <div class="input-group-bordered w-min outline outline-offset-0 outline-secondary outline-2">
-        <input v-model="searchItem" type="text" class="input !input-sm" placeholder="Search a Pokémon..." @keyup.enter="searchForItem">
-        <button class="btn-secondary btn-square btn-sm btn" aria-label="Search a Pokémon" @click="searchForItem">
-          <Icon class="w-6 h-6" icon="fluent:search-24-filled" />
-        </button>
+  <div class="flex flex-col items-center justify-center w-full gap-4 grow">
+    <div class="flex flex-col items-center gap-4">
+      <div class="flex flex-wrap items-center gap-8">
+        <div class="input-group-bordered w-min outline outline-offset-0 outline-secondary outline-2">
+          <input v-model="searchItem" type="text" class="input !input-sm" placeholder="Search a Pokémon...">
+          <button class="btn-secondary btn-square btn-sm btn" aria-label="Search a Pokémon">
+            <Icon class="w-6 h-6" icon="fluent:search-24-filled" />
+          </button>
+        </div>
+        <label class="swap btn-secondary btn-sm btn swap-rotate" aria-label="Expand/Collapse">
+          <input type="checkbox" class="modal-toggle" :checked="isAllCollapsed" @click="isAllCollapsed = !isAllCollapsed">
+          <span class="ml-8 text-sm capitalize">{{ isAllCollapsed ? 'Expand' : 'Collapse' }} all</span>
+          <Icon icon="ion:chevron-expand" class="w-6 h-6 swap-on" />
+          <Icon icon="ion:chevron-collapse" class="w-6 h-6 swap-off" />
+        </label>
       </div>
-      <label class="swap btn-secondary btn-sm btn swap-rotate" aria-label="Expand/Collapse">
-        <input type="checkbox" class="modal-toggle" :checked="isAllCollapsed" @click="isAllCollapsed = !isAllCollapsed">
-        <span class="ml-8 text-sm capitalize">{{ isAllCollapsed ? 'Expand' : 'Collapse' }} all</span>
-        <Icon icon="ion:chevron-expand" class="w-6 h-6 swap-on" />
-        <Icon icon="ion:chevron-collapse" class="w-6 h-6 swap-off" />
-      </label>
-      <Listbox v-model="selectOrder">
-        <div class="relative flex flex-col">
-          <div class="px-2 py-1 text-sm font-medium text-center rounded-t-lg text-base-100 bg-secondary">
-            <span>Order by</span>
-          </div>
-          <ListboxButton class="flex items-center justify-between gap-2 px-2 py-1 text-sm rounded-b-lg shadow-lg cursor-pointer bg-base-200 outline-0">
-            <p class="font-semibold">{{ selectOrder }}</p>
-            <Icon icon="ion:chevron-expand" class="w-4 h-4 shrink-0" />
-          </ListboxButton>
-          <Transition
-            leave-active-class="transition duration-100 ease-in"
-            leave-from-class="opacity-100"
-            leave-to-class="opacity-0">
-            <ListboxOptions class="absolute z-40 w-full mt-2 overflow-hidden text-sm rounded-lg shadow-lg cursor-pointer min-w-max top-full bg-base-200">
-              <ListboxOption v-slot="{ active, selected }" v-for="option in orderOptions" :key="option" :value="option" as="template">
-                <li :class="{ 'bg-primary text-base-100': active, 'bg-secondary text-base-100 font-bold': selected }"
-                  class="flex items-center gap-2 px-2 py-1 font-medium transition-colors">
-                  <p class="truncate">
-                    {{ option }}
-                  </p>
-                </li>
-              </ListboxOption>
-            </ListboxOptions>
-          </Transition>
+      <div class="flex flex-wrap items-center gap-8">
+        <div class="flex flex-col items-center gap-2">
+          <Listbox v-model="selectOrder">
+            <div class="relative flex flex-col">
+              <div class="px-2 py-1 text-sm font-medium text-center rounded-t-lg text-base-100 bg-secondary">
+                <span>Order by</span>
+              </div>
+              <ListboxButton class="flex items-center justify-between gap-2 px-2 py-1 text-sm rounded-b-lg shadow-lg cursor-pointer bg-base-200 outline-0">
+                <p class="font-semibold">{{ selectOrder }}</p>
+                <Icon icon="ion:chevron-expand" class="w-4 h-4 shrink-0" />
+              </ListboxButton>
+              <Transition
+                leave-active-class="transition duration-100 ease-in"
+                leave-from-class="opacity-100"
+                leave-to-class="opacity-0">
+                <ListboxOptions class="absolute z-40 w-full mt-2 overflow-hidden text-sm rounded-lg shadow-lg cursor-pointer min-w-max top-full bg-base-200">
+                  <ListboxOption v-slot="{ active, selected }" v-for="option in orderOptions" :key="option" :value="option" as="template">
+                    <li :class="{ 'bg-primary text-base-100': active, 'bg-secondary text-base-100 font-bold': selected }"
+                      class="flex items-center gap-2 px-2 py-1 font-medium transition-colors">
+                      <p class="truncate">
+                        {{ option }}
+                      </p>
+                    </li>
+                  </ListboxOption>
+                </ListboxOptions>
+              </Transition>
+            </div>
+          </Listbox>
+          <Listbox v-model="selectWhereAlts">
+            <div class="relative flex flex-col">
+              <div class="px-2 py-1 text-sm font-medium text-center rounded-t-lg text-base-100 bg-secondary">
+                <span>Other Forms position</span>
+              </div>
+              <ListboxButton class="flex items-center justify-between gap-2 px-2 py-1 text-sm rounded-b-lg shadow-lg cursor-pointer bg-base-200 outline-0">
+                <p class="font-semibold">{{ selectWhereAlts }}</p>
+                <Icon icon="ion:chevron-expand" class="w-4 h-4 shrink-0" />
+              </ListboxButton>
+              <Transition
+                leave-active-class="transition duration-100 ease-in"
+                leave-from-class="opacity-100"
+                leave-to-class="opacity-0">
+                <ListboxOptions class="absolute z-40 w-full mt-2 overflow-hidden text-sm rounded-lg shadow-lg cursor-pointer min-w-max top-full bg-base-200">
+                  <ListboxOption v-slot="{ active, selected }" v-for="option in whereAltsOptions" :key="option" :value="option" as="template">
+                    <li :class="{ 'bg-primary text-base-100': active, 'bg-secondary text-base-100 font-bold': selected }"
+                      class="flex items-center gap-2 px-2 py-1 font-medium transition-colors">
+                      <p class="truncate">
+                        {{ option }}
+                      </p>
+                    </li>
+                  </ListboxOption>
+                </ListboxOptions>
+              </Transition>
+            </div>
+          </Listbox>
         </div>
-      </Listbox>
-      <Listbox v-model="selectWhereAlts">
-        <div class="relative flex flex-col">
-          <div class="px-2 py-1 text-sm font-medium text-center rounded-t-lg text-base-100 bg-secondary">
-            <span>Alt Forms position</span>
-          </div>
-          <ListboxButton class="flex items-center justify-between gap-2 px-2 py-1 text-sm rounded-b-lg shadow-lg cursor-pointer bg-base-200 outline-0">
-            <p class="font-semibold">{{ selectWhereAlts }}</p>
-            <Icon icon="ion:chevron-expand" class="w-4 h-4 shrink-0" />
-          </ListboxButton>
-          <Transition
-            leave-active-class="transition duration-100 ease-in"
-            leave-from-class="opacity-100"
-            leave-to-class="opacity-0">
-            <ListboxOptions class="absolute z-40 w-full mt-2 overflow-hidden text-sm rounded-lg shadow-lg cursor-pointer min-w-max top-full bg-base-200">
-              <ListboxOption v-slot="{ active, selected }" v-for="option in whereAltsOptions" :key="option" :value="option" as="template">
-                <li :class="{ 'bg-primary text-base-100': active, 'bg-secondary text-base-100 font-bold': selected }"
-                  class="flex items-center gap-2 px-2 py-1 font-medium transition-colors">
-                  <p class="truncate">
-                    {{ option }}
-                  </p>
-                </li>
-              </ListboxOption>
-            </ListboxOptions>
-          </Transition>
+        <div class="flex flex-col items-center gap-2">
+          <Listbox multiple v-model="selectVariants" v-if="selectWhereAlts != 'Hidden'">
+            <div class="relative flex flex-col">
+              <ListboxButton class="flex items-center gap-2 px-2 py-1 text-sm rounded-lg shadow-lg cursor-pointer bg-base-200 outline-0 disabled:bg-base-300">
+                <p class="font-semibold">Variants shown</p>
+                <Icon icon="ion:chevron-expand" class="w-4 h-4 shrink-0" />
+              </ListboxButton>
+              <Transition
+                leave-active-class="transition duration-100 ease-in"
+                leave-from-class="opacity-100"
+                leave-to-class="opacity-0">
+                <ListboxOptions class="absolute z-40 w-full mt-2 overflow-hidden text-sm rounded-lg shadow-lg cursor-pointer min-w-max top-full bg-base-200">
+                  <ListboxOption v-slot="{ active, selected }" v-for="option in variantsOptions" :key="option" :value="option" as="template">
+                    <li :class="{ 'bg-primary text-base-100': active }" class="flex items-center gap-2 px-2 py-1 font-medium transition-colors">
+                      <input type="checkbox" :checked="selected" class="border-2 checkbox checkbox-sm checkbox-secondary" />
+                      <p class="truncate">
+                        {{ option }}
+                      </p>
+                      <img class="w-auto h-4" :src="`/icons/${option.split(' ').join('_').toLowerCase()}.png`" />
+                    </li>
+                  </ListboxOption>
+                </ListboxOptions>
+              </Transition>
+            </div>
+          </Listbox>
+          <Listbox multiple v-model="selectTransforms" v-if="selectWhereAlts != 'Hidden'">
+            <div class="relative flex flex-col">
+              <ListboxButton class="flex items-center gap-2 px-2 py-1 text-sm rounded-lg shadow-lg cursor-pointer bg-base-200 outline-0 disabled:bg-base-300">
+                <p class="font-semibold">Transformations shown</p>
+                <Icon icon="ion:chevron-expand" class="w-4 h-4 shrink-0" />
+              </ListboxButton>
+              <Transition
+                leave-active-class="transition duration-100 ease-in"
+                leave-from-class="opacity-100"
+                leave-to-class="opacity-0">
+                <ListboxOptions class="absolute z-40 w-full mt-2 overflow-hidden text-sm rounded-lg shadow-lg cursor-pointer min-w-max top-full bg-base-200">
+                  <ListboxOption v-slot="{ active, selected }" v-for="option in transformsOptions" :key="option" :value="option" as="template">
+                    <li :class="{ 'bg-primary text-base-100': active }" class="flex items-center gap-2 px-2 py-1 font-medium transition-colors">
+                      <input type="checkbox" :checked="selected" class="border-2 checkbox checkbox-sm checkbox-secondary" />
+                      <p class="truncate">
+                        {{ option }}
+                      </p>
+                      <img class="w-auto h-4" :src="`/icons/${option.split(' ').join('_').toLowerCase()}.png`" />
+                    </li>
+                  </ListboxOption>
+                </ListboxOptions>
+              </Transition>
+            </div>
+          </Listbox>
+          <Listbox multiple v-model="selectSpecials" v-if="selectWhereAlts != 'Hidden'">
+            <div class="relative flex flex-col">
+              <ListboxButton class="flex items-center gap-2 px-2 py-1 text-sm rounded-lg shadow-lg cursor-pointer bg-base-200 outline-0 disabled:bg-base-300">
+                <p class="font-semibold">Specials shown</p>
+                <Icon icon="ion:chevron-expand" class="w-4 h-4 shrink-0" />
+              </ListboxButton>
+              <Transition
+                leave-active-class="transition duration-100 ease-in"
+                leave-from-class="opacity-100"
+                leave-to-class="opacity-0">
+                <ListboxOptions class="absolute z-40 w-full mt-2 overflow-hidden text-sm rounded-lg shadow-lg cursor-pointer min-w-max top-full bg-base-200">
+                  <ListboxOption v-slot="{ active, selected }" v-for="option in specialsOptions" :key="option" :value="option" as="template">
+                    <li :class="{ 'bg-primary text-base-100': active }" class="flex items-center gap-2 px-2 py-1 font-medium transition-colors">
+                      <input type="checkbox" :checked="selected" class="border-2 checkbox checkbox-sm checkbox-secondary" />
+                      <p class="truncate">
+                        {{ option }}
+                      </p>
+                      <img class="w-auto h-4" :src="`/icons/${option.split(' ').join('_').toLowerCase()}.png`" />
+                    </li>
+                  </ListboxOption>
+                </ListboxOptions>
+              </Transition>
+            </div>
+          </Listbox>
         </div>
-      </Listbox>
-      <Listbox multiple v-model="selectVariants" v-if="selectWhereAlts != 'Hidden'">
-        <div class="relative flex flex-col">
-          <ListboxButton class="flex items-center gap-2 px-2 py-1 text-sm rounded-lg shadow-lg cursor-pointer bg-base-200 outline-0 disabled:bg-base-300">
-            <p class="font-semibold">Variants shown</p>
-            <Icon icon="ion:chevron-expand" class="w-4 h-4 shrink-0" />
-          </ListboxButton>
-          <Transition
-            leave-active-class="transition duration-100 ease-in"
-            leave-from-class="opacity-100"
-            leave-to-class="opacity-0">
-            <ListboxOptions class="absolute z-40 w-full mt-2 overflow-hidden text-sm rounded-lg shadow-lg cursor-pointer min-w-max top-full bg-base-200">
-              <ListboxOption v-slot="{ active, selected }" v-for="option in variantsOptions" :key="option" :value="option" as="template">
-                <li :class="{ 'bg-primary text-base-100': active }" class="flex items-center gap-2 px-2 py-1 font-medium transition-colors">
-                  <input type="checkbox" :checked="selected" class="border-2 checkbox checkbox-sm checkbox-secondary" />
-                  <p class="truncate">
-                    {{ option }}
-                  </p>
-                </li>
-              </ListboxOption>
-            </ListboxOptions>
-          </Transition>
+        <div class="flex flex-col items-center gap-2">
+          <label class="flex items-center justify-between gap-2 cursor-pointer">
+            <input v-model="showOnlyIcons" type="checkbox" class="!toggle !toggle-primary">
+            <span class="text-sm font-medium select-none shrink-0">Show only icons</span>
+          </label>
+          <label class="flex items-center justify-between gap-2 cursor-pointer">
+            <input v-model="showShiny" type="checkbox" class="!toggle !toggle-primary">
+            <span class="text-sm font-medium select-none shrink-0">Show Shiny</span>
+          </label>
         </div>
-      </Listbox>
-      <Listbox multiple v-model="selectTransforms" v-if="selectWhereAlts != 'Hidden'">
-        <div class="relative flex flex-col">
-          <ListboxButton class="flex items-center gap-2 px-2 py-1 text-sm rounded-lg shadow-lg cursor-pointer bg-base-200 outline-0 disabled:bg-base-300">
-            <p class="font-semibold">Transformations shown</p>
-            <Icon icon="ion:chevron-expand" class="w-4 h-4 shrink-0" />
-          </ListboxButton>
-          <Transition
-            leave-active-class="transition duration-100 ease-in"
-            leave-from-class="opacity-100"
-            leave-to-class="opacity-0">
-            <ListboxOptions class="absolute z-40 w-full mt-2 overflow-hidden text-sm rounded-lg shadow-lg cursor-pointer min-w-max top-full bg-base-200">
-              <ListboxOption v-slot="{ active, selected }" v-for="option in transformsOptions" :key="option" :value="option" as="template">
-                <li :class="{ 'bg-primary text-base-100': active }" class="flex items-center gap-2 px-2 py-1 font-medium transition-colors">
-                  <input type="checkbox" :checked="selected" class="border-2 checkbox checkbox-sm checkbox-secondary" />
-                  <p class="truncate">
-                    {{ option }}
-                  </p>
-                </li>
-              </ListboxOption>
-            </ListboxOptions>
-          </Transition>
-        </div>
-      </Listbox>
-      <label class="flex items-center justify-between gap-2 cursor-pointer">
-        <input v-model="showShiny" type="checkbox" class="!toggle !toggle-primary">
-        <span class="text-sm font-medium select-none shrink-0">Show Shiny</span>
-      </label>
+      </div>
     </div>
-    <div class="flex flex-wrap items-center justify-center gap-8 grow">
-      <div v-if="searchItem" class="grid grid-cols-6 grid-rows-5 select-none justify-items-center text-2xs sm:text-xs sm:p-2">
-        Ciao
+    <div class="flex flex-wrap items-center justify-center gap-4 grow">
+      <div v-if="searchItem" class="flex flex-col items-center gap-4">
+        <p class="text-xl font-bold text-secondary">Search result:</p>
+        <div class="flex flex-wrap select-none rounded-xl bg-base-300 max-w-fit grow justify-items-center sm:p-2">
+          <div v-if="searchFilter.length" v-for="pok in searchFilter" :key="pok.index"
+            class="flex flex-col items-center justify-center w-20 h-auto cursor-pointer sm:w-24 sm:h-auto"
+            @contextmenu.prevent="openPokInfo(parseInt(pok.ndex))"
+            @click="catchedPok[parseInt(pok.ndex) - 1] = !catchedPok[parseInt(pok.ndex) - 1]">
+            <img loading="lazy" class="w-12 h-12 mb-1 transition-all sm:w-16 sm:h-16" 
+              :class="{ 'brightness-[.25]': catchedPok[parseInt(pok.ndex) - 1] }" 
+              :src="showShiny ? 
+                `/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_r.webp` : 
+                `/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_n.webp`"
+              @error="(e) => (e.target as HTMLImageElement).src = '/sprites/webps/poke_icon_0000_000_uk_n_00000000_f_n.webp'">
+            <span class="font-bold text-2xs sm:text-xs">#{{ pok.ndex }}</span>
+            <span class="font-medium text-center text-3xs sm:text-xs">{{ pok.name }}</span>
+            <!-- TODO: Aggiustare testi per mobile -->
+            <span class="font-medium text-center whitespace-pre-wrap text-neutral-focus text-3xs">{{ pok.form }}</span>
+          </div>
+          <p v-else class="font-medium">No Pokémons found!</p>
+        </div>
       </div>
       <Disclosure v-else v-for="i in Math.ceil(orderBy.length / 30)" :key="`box_${i}`" as="div" 
         v-slot="{ open }" :defaultOpen="true" class="flex flex-col self-stretch p-2 grow rounded-xl bg-base-300 max-w-fit">
@@ -356,10 +420,10 @@ const showLabel = (pok: Pokemon) => {
                   `/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_r.webp` : 
                   `/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_n.webp`"
                 @error="(e) => (e.target as HTMLImageElement).src = '/sprites/webps/poke_icon_0000_000_uk_n_00000000_f_n.webp'">
-              <span class="font-bold text-2xs sm:text-xs">#{{ pok.ndex }}</span>
-              <span class="font-medium text-center text-3xs sm:text-xs">{{ pok.name }}</span>
+              <span v-show="!showOnlyIcons" class="font-bold text-2xs sm:text-xs">#{{ pok.ndex }}</span>
+              <span v-show="!showOnlyIcons" class="font-medium text-center text-3xs sm:text-xs">{{ pok.name }}</span>
               <!-- TODO: Aggiustare testi per mobile -->
-              <span v-if="showLabel(pok)"
+              <span v-if="!showOnlyIcons && showLabel(pok)"
                 class="font-medium text-center whitespace-pre-wrap text-neutral-focus text-3xs">{{ pok.form }}</span>
             </div>
           </DisclosurePanel>
