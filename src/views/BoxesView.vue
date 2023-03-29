@@ -4,15 +4,16 @@ import { ref, computed } from 'vue'
 import Modal from '@components/Modal.vue'
 import { Listbox, ListboxButton, ListboxOptions, ListboxOption,
   Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
-import { Region, Game, Pokemon } from '@/utility'
+import { Region, Game } from '@/utility'
+import type { Pokemon } from '@/utility'
 
 const pokJson: Pokemon[] = await fetch('/pokemon_all.json').then(d => d.json())
 
-const orderOptions = [ "National Dex", "Release", "Region", "Generation", "Alphabetical" ]
+const orderOptions = [ "National Dex", "Release", "Region", "Generation", "Alphabetical", ]
 const whereAltsOptions = [ "Hidden", "Near the original", /*"After everything"*/ ]
-const variantsOptions = [ "Generic", "Regional", "Gender", "Legendary", "Unown", "Vivillon", "Alcremie", ]
+const variantsOptions = [ "Generic", "Regional", "Gender", "Fusions", "Unown", "Vivillon", "Alcremie", ]
 const transformsOptions = [ "Generic", "Mega Evolution", "Primal Reversion", "Bond Phenomenon", "Ultra Burst", "Gigantamax", "Eternamax", ]
-const specialsOptions = [ "Totem", "Titan", "Partner LGPE", "Cap Pikachu", "Eternal Flower", "Furfrou Styles", "Arceus - Silvally", "Events", ]
+const specialsOptions = [ "Totem", "Titan", "Partner LGPE", "Cap Pikachu", "Eternal Flower", "Furfrou Styles", "Arceus - Silvally", "Events", "Ability" ]
 const selectWhereAlts = ref(whereAltsOptions[0])
 const selectVariants = ref<string[]>([])
 const selectTransforms = ref<string[]>([])
@@ -40,6 +41,8 @@ const onlyFemale = (form: string) => form.includes("Female")
 const onlyPrimal = (form: string) => form.includes("Primal")
 const onlyEterna = (form: string) => form.includes("Eternamax")
 const onlyCaps = (form: string) => form.includes("Cap")
+const onlyBurst = (form: string) => form.includes("Ultra form")
+const onlyFusions = (form_type: string) => form_type.includes("Fusion")
 const onlyLGPE = (name: string, subGen: string) => subGen.includes("LGPE") && (name == "Pikachu" || name == "Eevee")
 const onlyAlcremie = (name: string, form: string) => name.includes("Alcremie") && !form.includes("Vanilla Cream - Strawberry Sweet")
 const onlyUnown = (name: string, formIndex: number) => name == 'Unown' && formIndex != 5
@@ -58,7 +61,7 @@ const onlyGeneric = (name: string, formIndex: number) => {
     (name == 'Deerling' && formIndex != 0) || (name == 'Sawsbuck' && formIndex != 0) || 
     (name == 'Darmanitan' && formIndex != 0) || (name == 'Tornadus' && formIndex != 0) || 
     (name == 'Thundurus' && formIndex != 0) || (name == 'Landorus' && formIndex != 0) || 
-    (name.includes('Kyurem') && formIndex != 0) || (name == 'Keldeo' && formIndex != 0) || 
+    (name == 'Keldeo' && formIndex != 0) || 
     (name == 'Meloetta' && formIndex != 0) || (name == 'Genesect' && formIndex != 0) ||
     (name == 'Flabébé' && formIndex != 0) || (name == 'Floette' && formIndex != 0) ||
     (name == 'Florges' && formIndex != 0) || (name == 'Furfrou' && formIndex != 0) ||
@@ -69,13 +72,13 @@ const onlyGeneric = (name: string, formIndex: number) => {
     (name == 'Lycanroc' && formIndex != 0) || (name == 'Wishiwashi' && formIndex != 0) || 
     (name == 'Hoopa' && formIndex != 0) || (name == 'Oricorio' && formIndex != 0) || 
     (name == 'Silvally' && formIndex != 0) || (name == 'Mimikyu' && ![0, 2].includes(formIndex)) || 
-    (name.includes("Necrozma") && formIndex != 0) || (name == 'Magearna' && formIndex != 0) ||
+    (name == 'Magearna' && formIndex != 0) ||
     (name == 'Sinistea' && formIndex != 0) || (name == 'Polteageist' && formIndex != 0) ||
     (name == 'Cramorant' && formIndex != 0) || (name == 'Toxtricity' && formIndex != 0) ||
     (name == 'Eiscue' && formIndex != 0) || (name == 'Morpeko' && formIndex != 0) ||
     (name == 'Zacian' && formIndex != 1) || (name == 'Zamazenta' && formIndex != 1) ||
     (name == 'Urshifu' && formIndex != 0) || (name.includes('Zarude') && formIndex != 0) ||
-    (name.includes('Calyrex') && formIndex != 0) || (name == 'Enamorus' && formIndex != 0) || 
+    (name == 'Enamorus' && formIndex != 0) || 
     (name == 'Maushold' && formIndex != 1) || (name == 'Squawkabilly' && formIndex != 0) ||
     (name == 'Palafin' && formIndex != 0) || (name == 'Tatsugiri' && formIndex != 0) ||
     (name == 'Dudunsparce' && formIndex != 0) || (name == 'Gimmighoul' && formIndex != 0) ||
@@ -94,7 +97,13 @@ const searchItem = ref("")
 const searchFilter = computed(() => {
   let filteredPok = JSON.parse(JSON.stringify(allPok)) as typeof pokJson
 
-  filteredPok = filteredPok.filter(v => v.name.toLowerCase().includes(searchItem.value.toLowerCase()))
+  const searchNum = parseInt(searchItem.value)
+
+  if (!isNaN(searchNum)) {
+    filteredPok = filteredPok.filter(p => parseInt(p.ndex) == parseInt(searchItem.value))
+  } else filteredPok = filteredPok.filter(p => p.name.toLowerCase().includes(searchItem.value.toLowerCase()))
+
+  filteredPok = filteredPok.sort((p1, p2) => p1.ndex.localeCompare(p2.ndex) || p1.form_index.localeCompare(p2.form_index))
 
   return filteredPok
 })
@@ -108,6 +117,7 @@ const orderBy = computed(() => {
     else {
       return !(
         (!selectVariants.value.includes("Regional") && onlyRegionals(p.form ?? "")) || 
+        (!selectVariants.value.includes("Fusions") && onlyFusions(p.form_type)) || 
         (!selectSpecials.value.includes("Totem") && onlyTotems(p.form ?? "")) ||
         (!selectSpecials.value.includes("Titan") && onlyTitan(p.form ?? "")) ||
         (!selectTransforms.value.includes("Mega Evolution") && onlyMega(p.form ?? "")) ||
@@ -115,6 +125,7 @@ const orderBy = computed(() => {
         (!selectTransforms.value.includes("Bond Phenomenon") && onlyBonds(p.form ?? "")) ||
         (!selectTransforms.value.includes("Eternamax") && onlyEterna(p.form ?? "")) ||
         (!selectTransforms.value.includes("Primal Reversion") && onlyPrimal(p.form ?? "")) ||
+        (!selectTransforms.value.includes("Ultra Burst") && onlyBurst(p.form ?? "")) ||
         (!selectVariants.value.includes("Gender") && onlyFemale(p.form ?? "")) ||
         (!selectSpecials.value.includes("Cap Pikachu") && onlyCaps(p.form ?? "")) ||
         (!selectSpecials.value.includes("Partner LGPE") && onlyLGPE(p.name, p.sub_gen)) ||
@@ -129,32 +140,32 @@ const orderBy = computed(() => {
   boxNames.value = new Array(Math.ceil(allPok.length / 30)).fill([])
 
   if (selectOrder.value == "Alphabetical") {
-    orderedPok = orderedPok.sort((p1, p2) => p1.name.localeCompare(p2.name))
+    orderedPok = orderedPok.sort((p1, p2) => p1.name.localeCompare(p2.name) || p1.form_index.localeCompare(p2.form_index))
     orderedPok.forEach((e, i) => {
       if (i > 0 && i % 30 == 0) boxNames.value[++j] = []
       if (!boxNames.value[j].includes(e.name[0])) boxNames.value[j].push(e.name[0])
     })
   } else if (selectOrder.value == "Region") {
-    orderedPok = orderedPok.sort((p1, p2) => p1.region - p2.region || p1.ndex.localeCompare(p2.ndex))
+    orderedPok = orderedPok.sort((p1, p2) => p1.region - p2.region || p1.ndex.localeCompare(p2.ndex) || p1.form_index.localeCompare(p2.form_index))
     orderedPok.forEach((e, i) => {
       if (i > 0 && i % 30 == 0) boxNames.value[++j] = []
       if (!boxNames.value[j].includes(Region[e.region])) boxNames.value[j].push(Region[e.region])
     })
   } else if (selectOrder.value == "Generation") {
-    orderedPok = orderedPok.sort((p1, p2) => p1.gen - p2.gen || p1.ndex.localeCompare(p2.ndex))
+    orderedPok = orderedPok.sort((p1, p2) => p1.gen - p2.gen || p1.ndex.localeCompare(p2.ndex) || p1.form_index.localeCompare(p2.form_index))
     orderedPok.forEach((e, i) => {
       if (i > 0 && i % 30 == 0) boxNames.value[++j] = []
       if (!boxNames.value[j].includes(`Gen. ${e.gen}`)) boxNames.value[j].push(`Gen. ${e.gen}`)
     })
   } else if (selectOrder.value == "National Dex") {
-    orderedPok = orderedPok.sort((p1, p2) => p1.ndex.localeCompare(p2.ndex))
+    orderedPok = orderedPok.sort((p1, p2) => p1.ndex.localeCompare(p2.ndex) || p1.form_index.localeCompare(p2.form_index))
     orderedPok.forEach((e, i) => {
       if ((i > 0 && (i - 29) % 30 == 0) || i == orderedPok.length - 1) boxNames.value[j].push(e.ndex) //TODO: ottimizzare codice (non so perchè funzioni)
       if ((i > 0 && i % 30 == 0)) boxNames.value[++j] = []
       if (boxNames.value[j].length == 0) boxNames.value[j].push(e.ndex)
     })
   } else if (selectOrder.value == "Release") {
-    orderedPok = orderedPok.sort((p1, p2) => p1.game - p2.game || p1.ndex.localeCompare(p2.ndex))
+    orderedPok = orderedPok.sort((p1, p2) => p1.game - p2.game || p1.ndex.localeCompare(p2.ndex) || p1.form_index.localeCompare(p2.form_index))
     orderedPok.forEach((e, i) => {
       if (i > 0 && i % 30 == 0) boxNames.value[++j] = []
       if (!boxNames.value[j].includes(Game[e.game])) boxNames.value[j].push(Game[e.game])
@@ -168,9 +179,26 @@ const orderBy = computed(() => {
   return orderedPok
 })
 
-const openPokInfo = (Dex: number) => {
-  selectedPok.value = allPok[Dex - 1]
+const openPokInfo = (index: number) => {
+  selectedPok.value = allPok[index - 1]
   modalCard.value?.openModal()
+}
+
+let timerLongTouch: ReturnType<typeof setTimeout>
+let isLongTouch = false
+
+const openPokInfoIOS = (event: "start" | "move" | "end", index: number) => {
+  if (event == "start") {
+    timerLongTouch = setTimeout(() => {
+      isLongTouch = true
+      openPokInfo(index)
+    }, 300)
+  } else if (event == "move") clearTimeout(timerLongTouch)
+  else if (event == "end") {
+    clearTimeout(timerLongTouch)
+    if (isLongTouch) isLongTouch = false
+    else catchedPok.value[index - 1] = !catchedPok.value[index - 1]
+  }
 }
 
 const showLabel = (pok: Pokemon) => {
@@ -181,9 +209,13 @@ const showLabel = (pok: Pokemon) => {
   const unownIncluded = selectVariants.value.includes("Unown")
   const alcremieIncluded = selectVariants.value.includes("Alcremie")
   const genericIncluded = selectVariants.value.includes("Generic")
-  const totemIncluded = selectVariants.value.includes("Totem")
+  const totemIncluded = selectSpecials.value.includes("Totem")
+  const fusionIncluded = selectVariants.value.includes("Fusions")
+  const burstIncluded = selectTransforms.value.includes("Ultra Burst")
   
   if (pok.form === 'Male') return genderIncluded
+  if (burstIncluded && parseInt(pok.ndex) == 800) return burstIncluded
+  if ([646, 800, 898].includes(parseInt(pok.ndex))) return fusionIncluded
   if ([664, 665, 666].includes(parseInt(pok.ndex))) return vivillonIncluded
   if (pok.form === 'F') return unownIncluded
   if (pok.name === 'Alcremie') return alcremieIncluded
@@ -210,10 +242,10 @@ const showLabel = (pok: Pokemon) => {
 
 <template>
   <div class="flex flex-col items-center justify-center w-full gap-4 grow">
-    <div class="flex flex-col items-center gap-4">
-      <div class="flex flex-wrap items-center gap-8">
-        <div class="input-group-bordered w-min outline outline-offset-0 outline-secondary outline-2">
-          <input v-model="searchItem" type="text" class="input !input-sm" placeholder="Search a Pokémon...">
+    <div class="flex flex-col items-center justify-center gap-4">
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <div class="w-min input-group-bordered">
+          <input v-model="searchItem" type="text" class="border-2 !border-secondary input !input-sm" placeholder="Search a Pokémon...">
           <button class="btn-secondary btn-square btn-sm btn" aria-label="Search a Pokémon">
             <Icon class="w-6 h-6" icon="fluent:search-24-filled" />
           </button>
@@ -225,8 +257,8 @@ const showLabel = (pok: Pokemon) => {
           <Icon icon="ion:chevron-collapse" class="w-6 h-6 swap-off" />
         </label>
       </div>
-      <div class="flex flex-wrap items-center gap-8">
-        <div class="flex flex-col items-center gap-2">
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <div class="flex flex-col items-center justify-center gap-2">
           <Listbox v-model="selectOrder">
             <div class="relative flex flex-col">
               <div class="px-2 py-1 text-sm font-medium text-center rounded-t-lg text-base-100 bg-secondary">
@@ -280,7 +312,7 @@ const showLabel = (pok: Pokemon) => {
             </div>
           </Listbox>
         </div>
-        <div class="flex flex-col items-center gap-2">
+        <div class="flex flex-col items-center justify-center gap-2">
           <Listbox multiple v-model="selectVariants" v-if="selectWhereAlts != 'Hidden'">
             <div class="relative flex flex-col">
               <ListboxButton class="flex items-center gap-2 px-2 py-1 text-sm rounded-lg shadow-lg cursor-pointer bg-base-200 outline-0 disabled:bg-base-300">
@@ -354,7 +386,7 @@ const showLabel = (pok: Pokemon) => {
             </div>
           </Listbox>
         </div>
-        <div class="flex flex-col items-center gap-2">
+        <div class="flex flex-col items-center justify-center gap-2">
           <label class="flex items-center justify-between gap-2 cursor-pointer">
             <input v-model="showOnlyIcons" type="checkbox" class="!toggle !toggle-primary">
             <span class="text-sm font-medium select-none shrink-0">Show only icons</span>
@@ -369,13 +401,17 @@ const showLabel = (pok: Pokemon) => {
     <div class="flex flex-wrap items-center justify-center gap-4 grow">
       <div v-if="searchItem" class="flex flex-col items-center gap-4">
         <p class="text-xl font-bold text-secondary">Search result:</p>
-        <div class="flex flex-wrap select-none rounded-xl bg-base-300 max-w-fit grow justify-items-center sm:p-2">
+        <div style="-webkit-touch-callout: none;"
+          class="flex flex-wrap select-none rounded-xl bg-base-300 max-w-fit grow justify-items-center sm:p-2">
           <div v-if="searchFilter.length" v-for="pok in searchFilter" :key="pok.index"
             class="flex flex-col items-center justify-center w-20 h-auto cursor-pointer sm:w-24 sm:h-auto"
-            @contextmenu.prevent="openPokInfo(parseInt(pok.ndex))"
-            @click="catchedPok[parseInt(pok.ndex) - 1] = !catchedPok[parseInt(pok.ndex) - 1]">
+            @touchstart.prevent="openPokInfoIOS('start', pok.index)"
+            @touchmove.prevent="openPokInfoIOS('move', pok.index)"
+            @touchend.prevent="openPokInfoIOS('end', pok.index)"
+            @contextmenu.prevent="openPokInfo(pok.index)"
+            @click="catchedPok[pok.index - 1] = !catchedPok[pok.index - 1]">
             <img loading="lazy" class="w-12 h-12 mb-1 transition-all sm:w-16 sm:h-16" 
-              :class="{ 'brightness-[.25]': catchedPok[parseInt(pok.ndex) - 1] }" 
+              :class="{ 'brightness-[.25]': !catchedPok[pok.index - 1] }" 
               :src="showShiny ? 
                 `/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_r.webp` : 
                 `/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_n.webp`"
@@ -409,13 +445,17 @@ const showLabel = (pok: Pokemon) => {
           leave-active-class="transition duration-500 ease-out"
           leave-from-class="transform scale-100 opacity-100"
           leave-to-class="transform scale-95 opacity-0">
-          <DisclosurePanel as="div" class="grid grid-cols-6 grid-rows-5 select-none grow justify-items-center sm:p-2">
+          <DisclosurePanel as="div" style="-webkit-touch-callout: none;"
+            class="grid grid-cols-6 grid-rows-5 select-none grow justify-items-center sm:p-2">
             <div v-for="pok in orderBy.slice((i - 1) * 30, i * 30)" :key="pok.index"
               class="flex flex-col items-center justify-center w-20 h-auto cursor-pointer sm:w-24 sm:h-auto"
-              @contextmenu.prevent="openPokInfo(parseInt(pok.ndex))"
-              @click="catchedPok[parseInt(pok.ndex) - 1] = !catchedPok[parseInt(pok.ndex) - 1]">
+              @touchstart.prevent="openPokInfoIOS('start', pok.index)"
+              @touchmove.prevent="openPokInfoIOS('move', pok.index)"
+              @touchend.prevent="openPokInfoIOS('end', pok.index)"
+              @contextmenu.prevent="openPokInfo(pok.index)"
+              @click="catchedPok[pok.index - 1] = !catchedPok[pok.index - 1]">
               <img loading="lazy" class="w-12 h-12 mb-1 transition-all sm:w-16 sm:h-16" 
-                :class="{ 'brightness-[.25]': catchedPok[parseInt(pok.ndex) - 1] }" 
+                :class="{ 'brightness-[.25]': !catchedPok[pok.index - 1] }" 
                 :src="showShiny ? 
                   `/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_r.webp` : 
                   `/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_n.webp`"
@@ -438,8 +478,8 @@ const showLabel = (pok: Pokemon) => {
         </div>
         <div class="flex justify-between gap-2">
           <label class="flex items-center justify-between gap-2 cursor-pointer">
-            <input type="checkbox" :checked="catchedPok[parseInt(selectedPok?.ndex ?? '')]"
-              @click="catchedPok[parseInt(selectedPok?.ndex ?? '')] = !catchedPok[parseInt(selectedPok?.ndex ?? '')]"
+            <input type="checkbox" :checked="catchedPok[selectedPok?.index ?? 0 - 1]"
+              @click="catchedPok[selectedPok?.index ?? 0 - 1] = !catchedPok[selectedPok?.index ?? 0 - 1]"
               class="border-2 checkbox checkbox-sm checkbox-secondary" />
             <span class="text-sm font-medium">Obtained</span> 
           </label>

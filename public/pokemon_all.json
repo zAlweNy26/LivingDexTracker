@@ -11575,7 +11575,7 @@
         "game": 9,
         "region": 4,
         "ndex": "0555",
-        "form_index": "001",
+        "form_index": "002",
         "subform_index": "00000000",
         "gender_id": "mf",
         "gmax_id": "n"
@@ -13158,6 +13158,7 @@
     {
         "index": 816,
         "name": "Kyurem",
+        "form": "Default",
         "form_type": "Default",
         "living_dex_type": "Living Dex",
         "gen": 5,
@@ -19166,6 +19167,7 @@
     {
         "index": 1190,
         "name": "Necrozma",
+        "form": "Default",
         "form_type": "Default",
         "living_dex_type": "Living Dex",
         "gen": 7,
@@ -20006,7 +20008,7 @@
         "game": 17,
         "region": 8,
         "ndex": "0555",
-        "form_index": "002",
+        "form_index": "003",
         "subform_index": "00000000",
         "gender_id": "mf",
         "gmax_id": "n"
@@ -20022,7 +20024,7 @@
         "game": 17,
         "region": 8,
         "ndex": "0555",
-        "form_index": "003",
+        "form_index": "005",
         "subform_index": "00000000",
         "gender_id": "mf",
         "gmax_id": "n"
@@ -24152,6 +24154,7 @@
     {
         "index": 1501,
         "name": "Calyrex",
+        "form": "Default",
         "form_type": "Default",
         "living_dex_type": "Living Dex",
         "gen": 8,
@@ -26390,7 +26393,7 @@
         "living_dex_type": "Living Form Dex",
         "gen": 9,
         "sub_gen": "A",
-        "game": 21,
+        "game": 16,
         "region": 10,
         "ndex": "0999",
         "form_index": "001",
@@ -26892,6 +26895,38 @@
         "form_index": "003",
         "subform_index": "00000000",
         "gender_id": "mo",
+        "gmax_id": "n"
+    },
+    {
+        "index": 1672,
+        "name": "Darmanitan",
+        "form": "Zen Mode Ability",
+        "form_type": "Indistinguishable",
+        "living_dex_type": "Hide",
+        "gen": 5,
+        "sub_gen": "A",
+        "game": 9,
+        "region": 4,
+        "ndex": "0555",
+        "form_index": "001",
+        "subform_index": "00000000",
+        "gender_id": "mf",
+        "gmax_id": "n"
+    },
+    {
+        "index": 1673,
+        "name": "Darmanitan",
+        "form": "Galarian Zen Mode Ability",
+        "form_type": "Indistinguishable",
+        "living_dex_type": "Hide",
+        "gen": 8,
+        "sub_gen": "A",
+        "game": 17,
+        "region": 8,
+        "ndex": "0555",
+        "form_index": "004",
+        "subform_index": "00000000",
+        "gender_id": "mf",
         "gmax_id": "n"
     }
 ]

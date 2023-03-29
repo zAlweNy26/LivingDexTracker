@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
-import { GenTitle, Pokemon } from '@/utility'
+import { GenTitle } from '@/utility'
+import type { Pokemon } from '@/utility'
 import { ref, computed } from 'vue'
 
 const pokJson: Pokemon[] = await fetch('/pokemon_all.json').then(d => d.json())
@@ -43,8 +44,8 @@ const searchFilter = computed(() => {
       <Icon icon="ic:baseline-catching-pokemon" class="w-6 h-6 swap-on" />
     </p>
     <div class="flex flex-wrap items-center gap-4">
-      <div class="input-group-bordered w-min outline outline-offset-0 outline-secondary outline-2">
-        <input v-model="searchItem" type="text" class="input !input-sm" placeholder="Search a Pokémon...">
+      <div class="w-min input-group-bordered">
+        <input v-model="searchItem" type="text" class="border-2 !border-secondary input !input-sm" placeholder="Search a Pokémon...">
         <button class="btn-secondary btn-square btn-sm btn" aria-label="Search a Pokémon">
           <Icon class="w-6 h-6" icon="fluent:search-24-filled" />
         </button>
