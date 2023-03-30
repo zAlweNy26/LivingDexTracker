@@ -28,7 +28,7 @@ defineExpose({
 						enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
 						leave-to="opacity-0 scale-95">
 						<DialogPanel
-							class="w-full max-w-lg p-4 text-left align-middle transition-all shadow-xl rounded-2xl bg-base-300 text-neutral">
+							class="w-full max-w-3xl p-4 text-left align-middle transition-all shadow-xl rounded-2xl bg-base-300 text-neutral">
 							<slot />
 						</DialogPanel>
 					</TransitionChild>

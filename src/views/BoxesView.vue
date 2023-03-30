@@ -4,21 +4,16 @@ import { ref, computed } from 'vue'
 import Modal from '@components/Modal.vue'
 import { Listbox, ListboxButton, ListboxOptions, ListboxOption,
   Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
-import { Region, Game } from '@/utility'
-import type { Pokemon } from '@/utility'
+import { Region, Game, OrderOptions, FormsPosition, VariantsOptions, TransformsOptions, SpecialsOptions } from '@/utility'
+import type { Pokemon, Order, Position, Variant, Transform, Special } from '@/utility'
 
 const pokJson: Pokemon[] = await fetch('/pokemon_all.json').then(d => d.json())
 
-const orderOptions = [ "National Dex", "Release", "Region", "Generation", "Alphabetical", ]
-const whereAltsOptions = [ "Hidden", "Near the original", /*"After everything"*/ ]
-const variantsOptions = [ "Generic", "Regional", "Gender", "Fusions", "Unown", "Vivillon", "Alcremie", ]
-const transformsOptions = [ "Generic", "Mega Evolution", "Primal Reversion", "Bond Phenomenon", "Ultra Burst", "Gigantamax", "Eternamax", ]
-const specialsOptions = [ "Totem", "Titan", "Partner LGPE", "Cap Pikachu", "Eternal Flower", "Furfrou Styles", "Arceus - Silvally", "Events", "Ability" ]
-const selectWhereAlts = ref(whereAltsOptions[0])
-const selectVariants = ref<string[]>([])
-const selectTransforms = ref<string[]>([])
-const selectSpecials = ref<string[]>([])
-const selectOrder = ref(orderOptions[0])
+const selectFormsPosition = ref<Position>("Hidden")
+const selectVariants = ref<Variant[]>([])
+const selectTransforms = ref<Transform[]>([])
+const selectSpecials = ref<Special[]>([])
+const selectOrder = ref<Order>("National Dex")
 const isAllCollapsed = ref(false)
 
 const basicFilter = (name: string, formIndex: number) => {
@@ -41,16 +36,37 @@ const onlyFemale = (form: string) => form.includes("Female")
 const onlyPrimal = (form: string) => form.includes("Primal")
 const onlyEterna = (form: string) => form.includes("Eternamax")
 const onlyCaps = (form: string) => form.includes("Cap")
-const onlyBurst = (form: string) => form.includes("Ultra form")
-const onlyFusions = (form_type: string) => form_type.includes("Fusion")
+const onlyFusions = (form: string, formType: string) => formType.includes("Fusion") || form.includes("Ultra form")
 const onlyLGPE = (name: string, subGen: string) => subGen.includes("LGPE") && (name == "Pikachu" || name == "Eevee")
 const onlyAlcremie = (name: string, form: string) => name.includes("Alcremie") && !form.includes("Vanilla Cream - Strawberry Sweet")
 const onlyUnown = (name: string, formIndex: number) => name == 'Unown' && formIndex != 5
+const onlyFurfrou = (name: string, formIndex: number) => name == 'Furfrou' && formIndex != 0
+const onlyAbility = (formType: string) => formType.includes("Ability")
+const onlyEvents = (formType: string) => formType.includes("Event")
 const onlyVivillon = (name: string, formIndex: number) => {
   return ((name == 'Vivillon' && formIndex != 6) || (name == 'Scatterbug' && formIndex != 0))
 }
-const onlyGeneric = (name: string, formIndex: number) => {
+const onlyVariantsGeneric = (name: string, formIndex: number) => {
   return (
+    (name == 'Deoxys' && formIndex != 0) || (name == 'Burmy' && formIndex != 0) || (name == 'Wormadam' && formIndex != 0) || 
+    (name == 'Shellos' && formIndex != 0) || (name == 'Gastrodon' && formIndex != 0) || (name.includes('Rotom') && formIndex != 0) || 
+    (name == 'Shaymin' && formIndex != 0) || (name == 'Basculin' && formIndex != 0) || 
+    (name == 'Deerling' && formIndex != 0) || (name == 'Sawsbuck' && formIndex != 0) || (name == 'Tornadus' && formIndex != 0) || 
+    (name == 'Thundurus' && formIndex != 0) || (name == 'Landorus' && formIndex != 0) || 
+    (name == 'Keldeo' && formIndex != 0) || (name == 'Flabébé' && formIndex != 0) || (name == 'Floette' && formIndex != 0) ||
+    (name == 'Florges' && formIndex != 0) || (name == 'Pumpkaboo' && formIndex != 0) ||
+    (name == 'Gourgeist' && formIndex != 0) || (name == 'Minior' && formIndex > 7) || (name == 'Zygarde' && formIndex == 1) ||
+    (name == 'Lycanroc' && formIndex != 0) || (name == 'Oricorio' && formIndex != 0) || 
+    (name == 'Sinistea' && formIndex != 0) || (name == 'Polteageist' && formIndex != 0) || (name == 'Toxtricity' && formIndex != 0) ||
+    (name == 'Urshifu' && formIndex != 0) || (name == 'Enamorus' && formIndex != 0) || 
+    (name == 'Maushold' && formIndex != 1) || (name == 'Squawkabilly' && formIndex != 0) || (name == 'Tatsugiri' && formIndex != 0) ||
+    (name == 'Dudunsparce' && formIndex != 0) || (name == 'Gimmighoul' && formIndex != 0)
+  )
+}
+const onlyTransformsGeneric = (name: string, formIndex: number) => {
+  return (
+    (name == "Minior" && formIndex == 0) || (name == "Zygarde" && formIndex == 4)
+  ) /*(
     (name == 'Castform' && formIndex != 0) || (name == 'Deoxys' && formIndex != 0) || 
     (name == 'Burmy' && formIndex != 0) ||  (name == 'Wormadam' && formIndex != 0) || 
     (name == 'Cherrim' && formIndex != 0) || (name == 'Shellos' && formIndex != 0) || 
@@ -83,7 +99,7 @@ const onlyGeneric = (name: string, formIndex: number) => {
     (name == 'Palafin' && formIndex != 0) || (name == 'Tatsugiri' && formIndex != 0) ||
     (name == 'Dudunsparce' && formIndex != 0) || (name == 'Gimmighoul' && formIndex != 0) ||
     (name == 'Koraidon' && formIndex != 0) || (name == 'Miraidon' && formIndex != 0)
-  )
+  )*/
 }
 
 const allPok = (JSON.parse(JSON.stringify(pokJson)) as typeof pokJson).filter(p => basicFilter(p.name, parseInt(p.form_index)))
@@ -113,26 +129,27 @@ const orderBy = computed(() => {
   let j = 0
 
   orderedPok = orderedPok.filter(p => {
-    if (selectWhereAlts.value === "Hidden") return p.original
+    if (selectFormsPosition.value === "Hidden") return p.original
     else {
       return !(
         (!selectVariants.value.includes("Regional") && onlyRegionals(p.form ?? "")) || 
-        (!selectVariants.value.includes("Fusions") && onlyFusions(p.form_type)) || 
+        (!selectVariants.value.includes("Special Ability") && onlyAbility(p.form_type)) || 
+        (!selectVariants.value.includes("Events") && onlyEvents(p.form_type)) || 
+        (!selectTransforms.value.includes("Fusions") && onlyFusions(p.form ?? "", p.form_type)) || 
+        (!selectVariants.value.includes("Furfrou Styles") && onlyFurfrou(p.name, parseInt(p.form_index))) || 
         (!selectSpecials.value.includes("Totem") && onlyTotems(p.form ?? "")) ||
         (!selectSpecials.value.includes("Titan") && onlyTitan(p.form ?? "")) ||
         (!selectTransforms.value.includes("Mega Evolution") && onlyMega(p.form ?? "")) ||
         (!selectTransforms.value.includes("Gigantamax") && onlyGiga(p.form ?? "")) ||
-        (!selectTransforms.value.includes("Bond Phenomenon") && onlyBonds(p.form ?? "")) ||
         (!selectTransforms.value.includes("Eternamax") && onlyEterna(p.form ?? "")) ||
         (!selectTransforms.value.includes("Primal Reversion") && onlyPrimal(p.form ?? "")) ||
-        (!selectTransforms.value.includes("Ultra Burst") && onlyBurst(p.form ?? "")) ||
         (!selectVariants.value.includes("Gender") && onlyFemale(p.form ?? "")) ||
-        (!selectSpecials.value.includes("Cap Pikachu") && onlyCaps(p.form ?? "")) ||
         (!selectSpecials.value.includes("Partner LGPE") && onlyLGPE(p.name, p.sub_gen)) ||
         (!selectVariants.value.includes("Alcremie") && onlyAlcremie(p.name, p.form ?? "")) ||
         (!selectVariants.value.includes("Unown") && onlyUnown(p.name, parseInt(p.form_index))) ||
         (!selectVariants.value.includes("Vivillon") && onlyVivillon(p.name, parseInt(p.form_index))) ||
-        (!selectVariants.value.includes("Generic") && onlyGeneric(p.name, parseInt(p.form_index)))
+        (!selectVariants.value.includes("Generic") && onlyVariantsGeneric(p.name, parseInt(p.form_index))) ||
+        (!selectTransforms.value.includes("Generic") && onlyTransformsGeneric(p.name, parseInt(p.form_index)))
       )
     }
   })
@@ -172,26 +189,26 @@ const orderBy = computed(() => {
     })
   }
 
-  /*if (selectWhereAlts.value == "After everything") { //TODO: Farlo funzionare
-    orderedPok = orderedPok.sort((p1, p2) => (((p2.original ?? false) ? 1 : 0) - ((p1.original ?? false) ? 1 : 0)) || p1.ndex.localeCompare(p2.ndex))
-  }*/
+  if (selectFormsPosition.value == "After everything") { //TODO: Funziona, ma non i titoli dei box
+    orderedPok = orderedPok.sort((p1, p2) => ((p1.original == p2.original) ? 0 : (p1.original ? -1 : 1)) || p1.ndex.localeCompare(p2.ndex))
+  }
 
   return orderedPok
 })
 
-const openPokInfo = (index: number) => {
-  selectedPok.value = allPok[index - 1]
+const openPokInfo = (ndex: number) => {
+  selectedPok.value = allPok.filter(p => p.original)[ndex - 1]
   modalCard.value?.openModal()
 }
 
 let timerLongTouch: ReturnType<typeof setTimeout>
 let isLongTouch = false
 
-const openPokInfoIOS = (event: "start" | "move" | "end", index: number) => {
+const openPokInfoIOS = (event: "start" | "move" | "end", index: number, ndex: number) => {
   if (event == "start") {
     timerLongTouch = setTimeout(() => {
       isLongTouch = true
-      openPokInfo(index)
+      openPokInfo(ndex)
     }, 300)
   } else if (event == "move") clearTimeout(timerLongTouch)
   else if (event == "end") {
@@ -202,27 +219,46 @@ const openPokInfoIOS = (event: "start" | "move" | "end", index: number) => {
 }
 
 const showLabel = (pok: Pokemon) => {
-  if (selectWhereAlts.value === "Hidden") return false
+  if (selectFormsPosition.value === "Hidden") return false
+
+  /*const regionalIncluded = selectVariants.value.includes("Regional")
+  if (regionalIncluded) return onlyRegionals(pok.form ?? "")
 
   const genderIncluded = selectVariants.value.includes("Gender")
+  if (genderIncluded) return ["Male", "Female"].includes(pok.form ?? "")
+
   const vivillonIncluded = selectVariants.value.includes("Vivillon")
   const unownIncluded = selectVariants.value.includes("Unown")
   const alcremieIncluded = selectVariants.value.includes("Alcremie")
-  const genericIncluded = selectVariants.value.includes("Generic")
+  const genericVariantsIncluded = selectVariants.value.includes("Generic")
+  const genericTransformsIncluded = selectTransforms.value.includes("Generic")
   const totemIncluded = selectSpecials.value.includes("Totem")
-  const fusionIncluded = selectVariants.value.includes("Fusions")
-  const burstIncluded = selectTransforms.value.includes("Ultra Burst")
+  const fusionIncluded = selectTransforms.value.includes("Fusions")
+  //const burstIncluded = selectTransforms.value.includes("Ultra Burst")
   
   if (pok.form === 'Male') return genderIncluded
-  if (burstIncluded && parseInt(pok.ndex) == 800) return burstIncluded
+  //if (burstIncluded && parseInt(pok.ndex) == 800) return burstIncluded
   if ([646, 800, 898].includes(parseInt(pok.ndex))) return fusionIncluded
   if ([664, 665, 666].includes(parseInt(pok.ndex))) return vivillonIncluded
   if (pok.form === 'F') return unownIncluded
   if (pok.name === 'Alcremie') return alcremieIncluded
-  if (pok.name === 'Mimikyu' && !pok.form?.includes("Totem")) return genericIncluded
+  if (pok.name === 'Mimikyu' && !pok.form?.includes("Totem")) return genericVariantsIncluded
   else if (pok.name === 'Mimikyu') return totemIncluded
 
-  if (!genericIncluded) {
+  if (genericVariantsIncluded) {
+    const excludedNames = [
+      "Deoxys", "Burmy", "Wormadam", "Shellos", "Gastrodon", 
+      "Rotom", "Shaymin", "Basculin", "Deerling", 
+      "Sawsbuck", "Tornadus", "Thundurus", "Landorus", "Keldeo", 
+      "Flabébé", "Floette", "Florges", "Pumpkaboo", "Gourgeist", "Minior",
+      "Zygarde", "Lycanroc", "Oricorio", 
+      "Sinistea", "Polteageist", "Toxtricity", "Urshifu",
+      "Enamorus", "Maushold", "Squawkabilly", "Tatsugiri", "Dudunsparce", "Gimmighoul"
+    ]
+    return excludedNames.includes(pok.name)
+  }
+
+  if (genericTransformsIncluded) {
     const excludedNames = [
       "Castform", "Deoxys", "Burmy", "Wormadam", "Cherrim", "Shellos", "Gastrodon", 
       "Rotom", "Dialga", "Palkia", "Giratina", "Shaymin", "Arceus", "Basculin", "Deerling", 
@@ -233,8 +269,8 @@ const showLabel = (pok: Pokemon) => {
       "Enamorus", "Maushold", "Squawkabilly", "Palafin", "Tatsugiri", "Dudunsparce", "Gimmighoul",
       "Koraidon", "Miraidon"
     ]
-    return !excludedNames.includes(pok.name)
-  }
+    return excludedNames.includes(pok.name)
+  }*/
   
   return true
 }
@@ -258,62 +294,60 @@ const showLabel = (pok: Pokemon) => {
         </label>
       </div>
       <div class="flex flex-wrap items-center justify-center gap-4">
-        <div class="flex flex-col items-center justify-center gap-2">
-          <Listbox v-model="selectOrder">
-            <div class="relative flex flex-col">
-              <div class="px-2 py-1 text-sm font-medium text-center rounded-t-lg text-base-100 bg-secondary">
-                <span>Order by</span>
-              </div>
-              <ListboxButton class="flex items-center justify-between gap-2 px-2 py-1 text-sm rounded-b-lg shadow-lg cursor-pointer bg-base-200 outline-0">
-                <p class="font-semibold">{{ selectOrder }}</p>
-                <Icon icon="ion:chevron-expand" class="w-4 h-4 shrink-0" />
-              </ListboxButton>
-              <Transition
-                leave-active-class="transition duration-100 ease-in"
-                leave-from-class="opacity-100"
-                leave-to-class="opacity-0">
-                <ListboxOptions class="absolute z-40 w-full mt-2 overflow-hidden text-sm rounded-lg shadow-lg cursor-pointer min-w-max top-full bg-base-200">
-                  <ListboxOption v-slot="{ active, selected }" v-for="option in orderOptions" :key="option" :value="option" as="template">
-                    <li :class="{ 'bg-primary text-base-100': active, 'bg-secondary text-base-100 font-bold': selected }"
-                      class="flex items-center gap-2 px-2 py-1 font-medium transition-colors">
-                      <p class="truncate">
-                        {{ option }}
-                      </p>
-                    </li>
-                  </ListboxOption>
-                </ListboxOptions>
-              </Transition>
+        <Listbox v-model="selectOrder">
+          <div class="relative flex flex-col">
+            <div class="px-2 py-1 text-sm font-medium text-center rounded-t-lg text-base-100 bg-secondary">
+              <span>Order by</span>
             </div>
-          </Listbox>
-          <Listbox v-model="selectWhereAlts">
-            <div class="relative flex flex-col">
-              <div class="px-2 py-1 text-sm font-medium text-center rounded-t-lg text-base-100 bg-secondary">
-                <span>Other Forms position</span>
-              </div>
-              <ListboxButton class="flex items-center justify-between gap-2 px-2 py-1 text-sm rounded-b-lg shadow-lg cursor-pointer bg-base-200 outline-0">
-                <p class="font-semibold">{{ selectWhereAlts }}</p>
-                <Icon icon="ion:chevron-expand" class="w-4 h-4 shrink-0" />
-              </ListboxButton>
-              <Transition
-                leave-active-class="transition duration-100 ease-in"
-                leave-from-class="opacity-100"
-                leave-to-class="opacity-0">
-                <ListboxOptions class="absolute z-40 w-full mt-2 overflow-hidden text-sm rounded-lg shadow-lg cursor-pointer min-w-max top-full bg-base-200">
-                  <ListboxOption v-slot="{ active, selected }" v-for="option in whereAltsOptions" :key="option" :value="option" as="template">
-                    <li :class="{ 'bg-primary text-base-100': active, 'bg-secondary text-base-100 font-bold': selected }"
-                      class="flex items-center gap-2 px-2 py-1 font-medium transition-colors">
-                      <p class="truncate">
-                        {{ option }}
-                      </p>
-                    </li>
-                  </ListboxOption>
-                </ListboxOptions>
-              </Transition>
+            <ListboxButton class="flex items-center justify-between gap-2 px-2 py-1 text-sm rounded-b-lg shadow-lg cursor-pointer bg-base-200 outline-0">
+              <p class="font-semibold">{{ selectOrder }}</p>
+              <Icon icon="ion:chevron-expand" class="w-4 h-4 shrink-0" />
+            </ListboxButton>
+            <Transition
+              leave-active-class="transition duration-100 ease-in"
+              leave-from-class="opacity-100"
+              leave-to-class="opacity-0">
+              <ListboxOptions class="absolute z-40 w-full mt-2 overflow-hidden text-sm rounded-lg shadow-lg cursor-pointer min-w-max top-full bg-base-200">
+                <ListboxOption v-slot="{ active, selected }" v-for="option in OrderOptions" :key="option" :value="option" as="template">
+                  <li :class="{ 'bg-primary text-base-100': active, 'bg-secondary text-base-100 font-bold': selected }"
+                    class="flex items-center gap-2 px-2 py-1 font-medium transition-colors">
+                    <p class="truncate">
+                      {{ option }}
+                    </p>
+                  </li>
+                </ListboxOption>
+              </ListboxOptions>
+            </Transition>
+          </div>
+        </Listbox>
+        <Listbox v-model="selectFormsPosition">
+          <div class="relative flex flex-col">
+            <div class="px-2 py-1 text-sm font-medium text-center rounded-t-lg text-base-100 bg-secondary">
+              <span>Other Forms position</span>
             </div>
-          </Listbox>
-        </div>
+            <ListboxButton class="flex items-center justify-between gap-2 px-2 py-1 text-sm rounded-b-lg shadow-lg cursor-pointer bg-base-200 outline-0">
+              <p class="font-semibold">{{ selectFormsPosition }}</p>
+              <Icon icon="ion:chevron-expand" class="w-4 h-4 shrink-0" />
+            </ListboxButton>
+            <Transition
+              leave-active-class="transition duration-100 ease-in"
+              leave-from-class="opacity-100"
+              leave-to-class="opacity-0">
+              <ListboxOptions class="absolute z-40 w-full mt-2 overflow-hidden text-sm rounded-lg shadow-lg cursor-pointer min-w-max top-full bg-base-200">
+                <ListboxOption v-slot="{ active, selected }" v-for="option in FormsPosition" :key="option" :value="option" as="template">
+                  <li :class="{ 'bg-primary text-base-100': active, 'bg-secondary text-base-100 font-bold': selected }"
+                    class="flex items-center gap-2 px-2 py-1 font-medium transition-colors">
+                    <p class="truncate">
+                      {{ option }}
+                    </p>
+                  </li>
+                </ListboxOption>
+              </ListboxOptions>
+            </Transition>
+          </div>
+        </Listbox>
         <div class="flex flex-col items-center justify-center gap-2">
-          <Listbox multiple v-model="selectVariants" v-if="selectWhereAlts != 'Hidden'">
+          <Listbox multiple v-model="selectVariants" v-if="selectFormsPosition != 'Hidden'">
             <div class="relative flex flex-col">
               <ListboxButton class="flex items-center gap-2 px-2 py-1 text-sm rounded-lg shadow-lg cursor-pointer bg-base-200 outline-0 disabled:bg-base-300">
                 <p class="font-semibold">Variants shown</p>
@@ -324,20 +358,20 @@ const showLabel = (pok: Pokemon) => {
                 leave-from-class="opacity-100"
                 leave-to-class="opacity-0">
                 <ListboxOptions class="absolute z-40 w-full mt-2 overflow-hidden text-sm rounded-lg shadow-lg cursor-pointer min-w-max top-full bg-base-200">
-                  <ListboxOption v-slot="{ active, selected }" v-for="option in variantsOptions" :key="option" :value="option" as="template">
+                  <ListboxOption v-slot="{ active, selected }" v-for="option in VariantsOptions" :key="option" :value="option" as="template">
                     <li :class="{ 'bg-primary text-base-100': active }" class="flex items-center gap-2 px-2 py-1 font-medium transition-colors">
                       <input type="checkbox" :checked="selected" class="border-2 checkbox checkbox-sm checkbox-secondary" />
                       <p class="truncate">
                         {{ option }}
                       </p>
-                      <img class="w-auto h-4" :src="`/icons/${option.split(' ').join('_').toLowerCase()}.png`" />
+                      <img class="w-auto h-4" :src="`/icons/variants/${option.split(' ').join('_').toLowerCase()}.png`" />
                     </li>
                   </ListboxOption>
                 </ListboxOptions>
               </Transition>
             </div>
           </Listbox>
-          <Listbox multiple v-model="selectTransforms" v-if="selectWhereAlts != 'Hidden'">
+          <Listbox multiple v-model="selectTransforms" v-if="selectFormsPosition != 'Hidden'">
             <div class="relative flex flex-col">
               <ListboxButton class="flex items-center gap-2 px-2 py-1 text-sm rounded-lg shadow-lg cursor-pointer bg-base-200 outline-0 disabled:bg-base-300">
                 <p class="font-semibold">Transformations shown</p>
@@ -348,20 +382,20 @@ const showLabel = (pok: Pokemon) => {
                 leave-from-class="opacity-100"
                 leave-to-class="opacity-0">
                 <ListboxOptions class="absolute z-40 w-full mt-2 overflow-hidden text-sm rounded-lg shadow-lg cursor-pointer min-w-max top-full bg-base-200">
-                  <ListboxOption v-slot="{ active, selected }" v-for="option in transformsOptions" :key="option" :value="option" as="template">
+                  <ListboxOption v-slot="{ active, selected }" v-for="option in TransformsOptions" :key="option" :value="option" as="template">
                     <li :class="{ 'bg-primary text-base-100': active }" class="flex items-center gap-2 px-2 py-1 font-medium transition-colors">
                       <input type="checkbox" :checked="selected" class="border-2 checkbox checkbox-sm checkbox-secondary" />
                       <p class="truncate">
                         {{ option }}
                       </p>
-                      <img class="w-auto h-4" :src="`/icons/${option.split(' ').join('_').toLowerCase()}.png`" />
+                      <img class="w-auto h-4" :src="`/icons/transforms/${option.split(' ').join('_').toLowerCase()}.png`" />
                     </li>
                   </ListboxOption>
                 </ListboxOptions>
               </Transition>
             </div>
           </Listbox>
-          <Listbox multiple v-model="selectSpecials" v-if="selectWhereAlts != 'Hidden'">
+          <Listbox multiple v-model="selectSpecials" v-if="selectFormsPosition != 'Hidden'">
             <div class="relative flex flex-col">
               <ListboxButton class="flex items-center gap-2 px-2 py-1 text-sm rounded-lg shadow-lg cursor-pointer bg-base-200 outline-0 disabled:bg-base-300">
                 <p class="font-semibold">Specials shown</p>
@@ -372,13 +406,13 @@ const showLabel = (pok: Pokemon) => {
                 leave-from-class="opacity-100"
                 leave-to-class="opacity-0">
                 <ListboxOptions class="absolute z-40 w-full mt-2 overflow-hidden text-sm rounded-lg shadow-lg cursor-pointer min-w-max top-full bg-base-200">
-                  <ListboxOption v-slot="{ active, selected }" v-for="option in specialsOptions" :key="option" :value="option" as="template">
+                  <ListboxOption v-slot="{ active, selected }" v-for="option in SpecialsOptions" :key="option" :value="option" as="template">
                     <li :class="{ 'bg-primary text-base-100': active }" class="flex items-center gap-2 px-2 py-1 font-medium transition-colors">
                       <input type="checkbox" :checked="selected" class="border-2 checkbox checkbox-sm checkbox-secondary" />
                       <p class="truncate">
                         {{ option }}
                       </p>
-                      <img class="w-auto h-4" :src="`/icons/${option.split(' ').join('_').toLowerCase()}.png`" />
+                      <img class="w-auto h-4" :src="`/icons/specials/${option.split(' ').join('_').toLowerCase()}.png`" />
                     </li>
                   </ListboxOption>
                 </ListboxOptions>
@@ -399,16 +433,16 @@ const showLabel = (pok: Pokemon) => {
       </div>
     </div>
     <div class="flex flex-wrap items-center justify-center gap-4 grow">
-      <div v-if="searchItem" class="flex flex-col items-center gap-4">
+      <div v-if="searchItem" class="flex flex-col items-center justify-center gap-4">
         <p class="text-xl font-bold text-secondary">Search result:</p>
         <div style="-webkit-touch-callout: none;"
-          class="flex flex-wrap select-none rounded-xl bg-base-300 max-w-fit grow justify-items-center sm:p-2">
+          class="flex flex-wrap justify-center select-none rounded-xl bg-base-300 max-w-fit grow justify-items-center sm:p-2">
           <div v-if="searchFilter.length" v-for="pok in searchFilter" :key="pok.index"
             class="flex flex-col items-center justify-center w-20 h-auto cursor-pointer sm:w-24 sm:h-auto"
-            @touchstart.prevent="openPokInfoIOS('start', pok.index)"
-            @touchmove.prevent="openPokInfoIOS('move', pok.index)"
-            @touchend.prevent="openPokInfoIOS('end', pok.index)"
-            @contextmenu.prevent="openPokInfo(pok.index)"
+            @touchstart.prevent="openPokInfoIOS('start', pok.index, parseInt(pok.ndex))"
+            @touchmove.prevent="openPokInfoIOS('move', pok.index, parseInt(pok.ndex))"
+            @touchend.prevent="openPokInfoIOS('end', pok.index, parseInt(pok.ndex))"
+            @contextmenu.prevent="openPokInfo(parseInt(pok.ndex))"
             @click="catchedPok[pok.index - 1] = !catchedPok[pok.index - 1]">
             <img loading="lazy" class="w-12 h-12 mb-1 transition-all sm:w-16 sm:h-16" 
               :class="{ 'brightness-[.25]': !catchedPok[pok.index - 1] }" 
@@ -449,10 +483,10 @@ const showLabel = (pok: Pokemon) => {
             class="grid grid-cols-6 grid-rows-5 select-none grow justify-items-center sm:p-2">
             <div v-for="pok in orderBy.slice((i - 1) * 30, i * 30)" :key="pok.index"
               class="flex flex-col items-center justify-center w-20 h-auto cursor-pointer sm:w-24 sm:h-auto"
-              @touchstart.prevent="openPokInfoIOS('start', pok.index)"
-              @touchmove.prevent="openPokInfoIOS('move', pok.index)"
-              @touchend.prevent="openPokInfoIOS('end', pok.index)"
-              @contextmenu.prevent="openPokInfo(pok.index)"
+              @touchstart.prevent="openPokInfoIOS('start', pok.index, parseInt(pok.ndex))"
+              @touchmove.prevent="openPokInfoIOS('move', pok.index, parseInt(pok.ndex))"
+              @touchend.prevent="openPokInfoIOS('end', pok.index, parseInt(pok.ndex))"
+              @contextmenu.prevent="openPokInfo(parseInt(pok.ndex))"
               @click="catchedPok[pok.index - 1] = !catchedPok[pok.index - 1]">
               <img loading="lazy" class="w-12 h-12 mb-1 transition-all sm:w-16 sm:h-16" 
                 :class="{ 'brightness-[.25]': !catchedPok[pok.index - 1] }" 
@@ -472,18 +506,34 @@ const showLabel = (pok: Pokemon) => {
     </div>
     <Modal ref="modalCard">
       <div class="flex flex-col gap-2">
-        <div class="flex flex-col">
-          <p class="text-sm font-semibold">#{{ selectedPok?.ndex }}</p>
-          <p class="text-xl font-medium">{{ selectedPok?.name }}</p>
+        <div class="flex items-center justify-between gap-2 text-xl">
+          <p class="font-bold">#{{ selectedPok?.ndex }} - {{ selectedPok?.name }}</p>
+          <button class="btn btn-sm btn-square btn-error" @click="modalCard?.closeModal()">
+            <Icon class="w-6 h-6" icon="eva:close-outline" />
+          </button>
         </div>
-        <div class="flex justify-between gap-2">
-          <label class="flex items-center justify-between gap-2 cursor-pointer">
-            <input type="checkbox" :checked="catchedPok[selectedPok?.index ?? 0 - 1]"
-              @click="catchedPok[selectedPok?.index ?? 0 - 1] = !catchedPok[selectedPok?.index ?? 0 - 1]"
-              class="border-2 checkbox checkbox-sm checkbox-secondary" />
-            <span class="text-sm font-medium">Obtained</span> 
-          </label>
+        <div class="flex flex-wrap justify-center gap-4">
+          <div v-for="pok in allPok.filter(p => p.ndex == selectedPok?.ndex)" :key="pok.index"
+            class="flex flex-col justify-between gap-1">
+            <div class="flex flex-col items-center justify-center w-20 h-auto cursor-pointer sm:w-24 sm:h-auto">
+              <img class="w-12 h-12 mb-1 transition-all sm:w-16 sm:h-16" 
+                :src="showShiny ? 
+                  `/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_r.webp` : 
+                  `/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_n.webp`"
+                @error="(e) => (e.target as HTMLImageElement).src = '/sprites/webps/poke_icon_0000_000_uk_n_00000000_f_n.webp'">
+              <span class="font-medium text-center text-3xs sm:text-xs">{{ pok.name }}</span>
+              <span class="font-medium text-center whitespace-pre-wrap text-neutral-focus text-3xs">{{ pok.form }}</span>
+            </div>
+            <label class="flex items-center gap-1 cursor-pointer">
+              <input type="checkbox" :checked="catchedPok[pok.index - 1]"
+                @click="catchedPok[pok.index - 1] = !catchedPok[pok.index - 1]"
+                class="border-2 checkbox checkbox-sm checkbox-secondary" />
+              <span class="text-sm font-medium">Obtained</span> 
+            </label>
+          </div>
         </div>
+        <p class="text-xl font-semibold text-secondary">Info:</p>
+        <p>{{ selectedPok }}</p>
       </div>
     </Modal>
   </div>

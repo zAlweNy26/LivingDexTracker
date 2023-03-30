@@ -19,6 +19,21 @@ enum GenTitle {
     "Gen. 9: <span style='color:#D90D19;'>Scarlet</span> - <span style='color:#842F8C;'>Violet</span>"
 }
 
+const OrderOptions = [ "National Dex", "Release", "Region", "Generation", "Alphabetical" ] as const
+type Order = typeof OrderOptions[number]
+
+const FormsPosition = [ "Hidden", "Near the original", "After everything" ] as const
+type Position = typeof FormsPosition[number]
+
+const VariantsOptions = [ "Generic", "Regional", "Gender", "Unown", "Vivillon", "Alcremie", "Furfrou Styles", "Special Ability", "Events" ] as const
+type Variant = typeof VariantsOptions[number]
+
+const TransformsOptions = [ "Generic", "Mega Evolution", "Gigantamax", "Fusions", "Primal Reversion", "Eternamax" ] as const
+type Transform = typeof TransformsOptions[number]
+
+const SpecialsOptions = [ "Totem", "Titan", "Arceus", "Silvally", "Partner LGPE", "Eternal Flower", "Stuck" ] as const
+type Special = typeof SpecialsOptions[number]
+
 type Pokemon = {
     index: number
     name: string
@@ -38,5 +53,6 @@ type Pokemon = {
 }
 
 export {
-    Game, GenTitle, Region, Pokemon
+    Game, GenTitle, Region, Pokemon, OrderOptions, Order, Position, Variant, Transform, Special,
+    FormsPosition, VariantsOptions, TransformsOptions, SpecialsOptions
 }

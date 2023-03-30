@@ -33,8 +33,9 @@
 				</a>
 			</div>
 		</div>
-		<div>
+		<div class="flex flex-col">
 			<p>Copyright © 2023-2024 LivingDex Tracker, All rights reserved.</p>
+			<p>Pokémon images, names, forms, and other relevant information are the property of The Pokémon Company</p>
 		</div>
 	</footer>
 </template>
