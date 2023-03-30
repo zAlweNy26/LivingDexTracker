@@ -31,18 +31,16 @@ const onlyTotems = (form: string) => form.includes("Totem")
 const onlyMega = (form: string) => form.includes("Mega")
 const onlyGiga = (form: string) => form.includes("Gigantamax")
 const onlyTitan = (form: string) => form.includes("Titan")
-const onlyBonds = (form: string) => form.includes("Battle Bond")
 const onlyFemale = (form: string) => form.includes("Female")
 const onlyPrimal = (form: string) => form.includes("Primal")
 const onlyEterna = (form: string) => form.includes("Eternamax")
-const onlyCaps = (form: string) => form.includes("Cap")
 const onlyFusions = (form: string, formType: string) => formType.includes("Fusion") || form.includes("Ultra form")
 const onlyLGPE = (name: string, subGen: string) => subGen.includes("LGPE") && (name == "Pikachu" || name == "Eevee")
 const onlyAlcremie = (name: string, form: string) => name.includes("Alcremie") && !form.includes("Vanilla Cream - Strawberry Sweet")
 const onlyUnown = (name: string, formIndex: number) => name == 'Unown' && formIndex != 5
 const onlyFurfrou = (name: string, formIndex: number) => name == 'Furfrou' && formIndex != 0
 const onlyAbility = (formType: string) => formType.includes("Ability")
-const onlyEvents = (formType: string) => formType.includes("Event")
+const onlyEvents = (form: string, formType: string) => formType.includes("Event") || form.includes("Cap")
 const onlyVivillon = (name: string, formIndex: number) => {
   return ((name == 'Vivillon' && formIndex != 6) || (name == 'Scatterbug' && formIndex != 0))
 }
@@ -103,7 +101,8 @@ const onlyTransformsGeneric = (name: string, formIndex: number) => {
 }
 
 const allPok = (JSON.parse(JSON.stringify(pokJson)) as typeof pokJson).filter(p => basicFilter(p.name, parseInt(p.form_index)))
-const catchedPok = ref<boolean[]>(new Array(allPok.length).fill(false))
+const catchedPok = ref<boolean[]>(new Array(pokJson.length).fill(false))
+const catchedPokShiny = ref<boolean[]>(new Array(pokJson.length).fill(false))
 const boxNames = ref<string[][]>(new Array(Math.ceil(allPok.length / 30)).fill([]))
 const selectedPok = ref<typeof allPok[0]>()
 const showShiny = ref(false), showOnlyIcons = ref(false)
@@ -134,7 +133,7 @@ const orderBy = computed(() => {
       return !(
         (!selectVariants.value.includes("Regional") && onlyRegionals(p.form ?? "")) || 
         (!selectVariants.value.includes("Special Ability") && onlyAbility(p.form_type)) || 
-        (!selectVariants.value.includes("Events") && onlyEvents(p.form_type)) || 
+        (!selectVariants.value.includes("Events") && onlyEvents(p.form ?? "", p.form_type)) || 
         (!selectTransforms.value.includes("Fusions") && onlyFusions(p.form ?? "", p.form_type)) || 
         (!selectVariants.value.includes("Furfrou Styles") && onlyFurfrou(p.name, parseInt(p.form_index))) || 
         (!selectSpecials.value.includes("Totem") && onlyTotems(p.form ?? "")) ||
@@ -154,43 +153,51 @@ const orderBy = computed(() => {
     }
   })
 
+  if (selectFormsPosition.value == "After everything") {
+    orderedPok = orderedPok.sort((p1, p2) => {
+      return ((p1.original == p2.original) ? 0 : (p1.original ? -1 : 1)) || 
+      (selectOrder.value == "National Dex" ? 0 : 0) ||
+      (selectOrder.value == "Alphabetical" ? p1.name.localeCompare(p2.name) : 0) ||
+      (selectOrder.value == "Region" ? p1.region - p2.region : 0) ||
+      (selectOrder.value == "Generation" ? p1.gen - p2.gen : 0) ||
+      (selectOrder.value == "Release" ? p1.game - p2.game : 0) ||
+      p1.ndex.localeCompare(p2.ndex) || p1.form_index.localeCompare(p2.form_index)
+    })
+  }
+
   boxNames.value = new Array(Math.ceil(allPok.length / 30)).fill([])
 
   if (selectOrder.value == "Alphabetical") {
-    orderedPok = orderedPok.sort((p1, p2) => p1.name.localeCompare(p2.name) || p1.form_index.localeCompare(p2.form_index))
+    if (selectFormsPosition.value != "After everything") orderedPok = orderedPok.sort((p1, p2) => p1.name.localeCompare(p2.name) || p1.form_index.localeCompare(p2.form_index))
     orderedPok.forEach((e, i) => {
       if (i > 0 && i % 30 == 0) boxNames.value[++j] = []
       if (!boxNames.value[j].includes(e.name[0])) boxNames.value[j].push(e.name[0])
     })
   } else if (selectOrder.value == "Region") {
-    orderedPok = orderedPok.sort((p1, p2) => p1.region - p2.region || p1.ndex.localeCompare(p2.ndex) || p1.form_index.localeCompare(p2.form_index))
+    if (selectFormsPosition.value != "After everything") orderedPok = orderedPok.sort((p1, p2) => p1.region - p2.region || p1.ndex.localeCompare(p2.ndex) || p1.form_index.localeCompare(p2.form_index))
     orderedPok.forEach((e, i) => {
       if (i > 0 && i % 30 == 0) boxNames.value[++j] = []
       if (!boxNames.value[j].includes(Region[e.region])) boxNames.value[j].push(Region[e.region])
     })
   } else if (selectOrder.value == "Generation") {
-    orderedPok = orderedPok.sort((p1, p2) => p1.gen - p2.gen || p1.ndex.localeCompare(p2.ndex) || p1.form_index.localeCompare(p2.form_index))
+    if (selectFormsPosition.value != "After everything") orderedPok = orderedPok.sort((p1, p2) => p1.gen - p2.gen || p1.ndex.localeCompare(p2.ndex) || p1.form_index.localeCompare(p2.form_index))
     orderedPok.forEach((e, i) => {
       if (i > 0 && i % 30 == 0) boxNames.value[++j] = []
       if (!boxNames.value[j].includes(`Gen. ${e.gen}`)) boxNames.value[j].push(`Gen. ${e.gen}`)
     })
   } else if (selectOrder.value == "National Dex") {
-    orderedPok = orderedPok.sort((p1, p2) => p1.ndex.localeCompare(p2.ndex) || p1.form_index.localeCompare(p2.form_index))
+    if (selectFormsPosition.value != "After everything") orderedPok = orderedPok.sort((p1, p2) => p1.ndex.localeCompare(p2.ndex) || p1.form_index.localeCompare(p2.form_index))
     orderedPok.forEach((e, i) => {
       if ((i > 0 && (i - 29) % 30 == 0) || i == orderedPok.length - 1) boxNames.value[j].push(e.ndex) //TODO: ottimizzare codice (non so perchè funzioni)
       if ((i > 0 && i % 30 == 0)) boxNames.value[++j] = []
       if (boxNames.value[j].length == 0) boxNames.value[j].push(e.ndex)
     })
   } else if (selectOrder.value == "Release") {
-    orderedPok = orderedPok.sort((p1, p2) => p1.game - p2.game || p1.ndex.localeCompare(p2.ndex) || p1.form_index.localeCompare(p2.form_index))
+    if (selectFormsPosition.value != "After everything") orderedPok = orderedPok.sort((p1, p2) => p1.game - p2.game || p1.ndex.localeCompare(p2.ndex) || p1.form_index.localeCompare(p2.form_index))
     orderedPok.forEach((e, i) => {
       if (i > 0 && i % 30 == 0) boxNames.value[++j] = []
       if (!boxNames.value[j].includes(Game[e.game])) boxNames.value[j].push(Game[e.game])
     })
-  }
-
-  if (selectFormsPosition.value == "After everything") { //TODO: Funziona, ma non i titoli dei box
-    orderedPok = orderedPok.sort((p1, p2) => ((p1.original == p2.original) ? 0 : (p1.original ? -1 : 1)) || p1.ndex.localeCompare(p2.ndex))
   }
 
   return orderedPok
@@ -202,19 +209,21 @@ const openPokInfo = (ndex: number) => {
 }
 
 let timerLongTouch: ReturnType<typeof setTimeout>
-let isLongTouch = false
+let isMoving = false
 
 const openPokInfoIOS = (event: "start" | "move" | "end", index: number, ndex: number) => {
   if (event == "start") {
-    timerLongTouch = setTimeout(() => {
-      isLongTouch = true
-      openPokInfo(ndex)
-    }, 300)
-  } else if (event == "move") clearTimeout(timerLongTouch)
-  else if (event == "end") {
+    isMoving = false
+    timerLongTouch = setTimeout(() => openPokInfo(ndex), 600)
+  } else if (event == "move") {
+    isMoving = true
     clearTimeout(timerLongTouch)
-    if (isLongTouch) isLongTouch = false
-    else catchedPok.value[index - 1] = !catchedPok.value[index - 1]
+  } else if (event == "end") {
+    clearTimeout(timerLongTouch)
+    if (!isMoving) {
+      isMoving = false
+      catchPok(index)
+    }
   }
 }
 
@@ -273,6 +282,29 @@ const showLabel = (pok: Pokemon) => {
   }*/
   
   return true
+}
+
+const orderSelected = computed(() => {
+  return allPok.filter(p => p.ndex == selectedPok.value?.ndex)
+    .sort((p1, p2) => p1.form_index.localeCompare(p2.form_index))
+})
+
+const catchPok = (index: number) => {
+  if (index < 0 || index >= pokJson.length) return
+  if (showShiny.value) catchedPokShiny.value[index - 1] = !catchedPokShiny.value[index - 1]
+  else catchedPok.value[index - 1] = !catchedPok.value[index - 1]
+}
+
+const isPokCaught = (index: number) => showShiny.value ? catchedPokShiny.value[index - 1] : catchedPok.value[index - 1]
+
+const scrollToTop = () => window.scrollTo({ behavior: 'smooth', left: 0, top: 0 })
+
+const isCompleted = (box: number) => {
+  const boxPok = orderBy.value.slice((box - 1) * 30, box * 30)
+  return (showShiny.value ? 
+    boxPok.every(p => catchedPokShiny.value[p.index - 1]) :
+    boxPok.every(p => catchedPok.value[p.index - 1])
+  )
 }
 </script>
 
@@ -438,21 +470,18 @@ const showLabel = (pok: Pokemon) => {
         <div style="-webkit-touch-callout: none;"
           class="flex flex-wrap justify-center select-none rounded-xl bg-base-300 max-w-fit grow justify-items-center sm:p-2">
           <div v-if="searchFilter.length" v-for="pok in searchFilter" :key="pok.index"
-            class="flex flex-col items-center justify-center w-20 h-auto cursor-pointer sm:w-24 sm:h-auto"
-            @touchstart.prevent="openPokInfoIOS('start', pok.index, parseInt(pok.ndex))"
-            @touchmove.prevent="openPokInfoIOS('move', pok.index, parseInt(pok.ndex))"
+            class="flex flex-col items-center justify-center w-auto h-auto gap-1 cursor-pointer md:w-24"
+            @touchstart="openPokInfoIOS('start', pok.index, parseInt(pok.ndex))"
+            @touchmove="openPokInfoIOS('move', pok.index, parseInt(pok.ndex))"
             @touchend.prevent="openPokInfoIOS('end', pok.index, parseInt(pok.ndex))"
             @contextmenu.prevent="openPokInfo(parseInt(pok.ndex))"
-            @click="catchedPok[pok.index - 1] = !catchedPok[pok.index - 1]">
+            @click="catchPok(pok.index)">
             <img loading="lazy" class="w-12 h-12 mb-1 transition-all sm:w-16 sm:h-16" 
-              :class="{ 'brightness-[.25]': !catchedPok[pok.index - 1] }" 
-              :src="showShiny ? 
-                `/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_r.webp` : 
-                `/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_n.webp`"
+              :class="{ 'brightness-[.25]': !isPokCaught(pok.index) }" 
+              :src="`/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_${showShiny ? 'r' : 'n'}.webp`"
               @error="(e) => (e.target as HTMLImageElement).src = '/sprites/webps/poke_icon_0000_000_uk_n_00000000_f_n.webp'">
             <span class="font-bold text-2xs sm:text-xs">#{{ pok.ndex }}</span>
             <span class="font-medium text-center text-3xs sm:text-xs">{{ pok.name }}</span>
-            <!-- TODO: Aggiustare testi per mobile -->
             <span class="font-medium text-center whitespace-pre-wrap text-neutral-focus text-3xs">{{ pok.form }}</span>
           </div>
           <p v-else class="font-medium">No Pokémons found!</p>
@@ -461,8 +490,9 @@ const showLabel = (pok: Pokemon) => {
       <Disclosure v-else v-for="i in Math.ceil(orderBy.length / 30)" :key="`box_${i}`" as="div" 
         v-slot="{ open }" :defaultOpen="true" class="flex flex-col self-stretch p-2 grow rounded-xl bg-base-300 max-w-fit">
         <div class="flex items-center justify-between gap-2">
-          <div class="text-xl font-bold text-secondary">
-            {{ boxNames[i - 1].join(" - ") }}
+          <div class="flex items-center gap-2">
+            <p class="text-xl font-bold text-secondary">{{ boxNames[i - 1].join(" - ") }}</p>
+            <Icon v-if="isCompleted(i)" icon="fluent:checkmark-circle-12-filled" class="w-6 h-6 text-success" />
           </div>
           <DisclosureButton as="template">
             <button class="swap btn-ghost btn-sm btn-square btn swap-rotate" aria-label="Expand/Collapse">
@@ -480,23 +510,20 @@ const showLabel = (pok: Pokemon) => {
           leave-from-class="transform scale-100 opacity-100"
           leave-to-class="transform scale-95 opacity-0">
           <DisclosurePanel as="div" style="-webkit-touch-callout: none;"
-            class="grid grid-cols-6 grid-rows-5 select-none grow justify-items-center sm:p-2">
+            class="grid grid-cols-6 grid-rows-5 p-1 select-none grow justify-items-center">
             <div v-for="pok in orderBy.slice((i - 1) * 30, i * 30)" :key="pok.index"
-              class="flex flex-col items-center justify-center w-20 h-auto cursor-pointer sm:w-24 sm:h-auto"
-              @touchstart.prevent="openPokInfoIOS('start', pok.index, parseInt(pok.ndex))"
-              @touchmove.prevent="openPokInfoIOS('move', pok.index, parseInt(pok.ndex))"
+              class="flex flex-col items-center justify-center w-auto h-auto gap-1 cursor-pointer md:w-24"
+              @touchstart="openPokInfoIOS('start', pok.index, parseInt(pok.ndex))"
+              @touchmove="openPokInfoIOS('move', pok.index, parseInt(pok.ndex))"
               @touchend.prevent="openPokInfoIOS('end', pok.index, parseInt(pok.ndex))"
               @contextmenu.prevent="openPokInfo(parseInt(pok.ndex))"
-              @click="catchedPok[pok.index - 1] = !catchedPok[pok.index - 1]">
+              @click="catchPok(pok.index)">
               <img loading="lazy" class="w-12 h-12 mb-1 transition-all sm:w-16 sm:h-16" 
-                :class="{ 'brightness-[.25]': !catchedPok[pok.index - 1] }" 
-                :src="showShiny ? 
-                  `/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_r.webp` : 
-                  `/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_n.webp`"
+                :class="{ 'brightness-[.25]': !isPokCaught(pok.index) }" 
+                :src="`/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_${showShiny ? 'r' : 'n'}.webp`"
                 @error="(e) => (e.target as HTMLImageElement).src = '/sprites/webps/poke_icon_0000_000_uk_n_00000000_f_n.webp'">
               <span v-show="!showOnlyIcons" class="font-bold text-2xs sm:text-xs">#{{ pok.ndex }}</span>
               <span v-show="!showOnlyIcons" class="font-medium text-center text-3xs sm:text-xs">{{ pok.name }}</span>
-              <!-- TODO: Aggiustare testi per mobile -->
               <span v-if="!showOnlyIcons && showLabel(pok)"
                 class="font-medium text-center whitespace-pre-wrap text-neutral-focus text-3xs">{{ pok.form }}</span>
             </div>
@@ -504,6 +531,10 @@ const showLabel = (pok: Pokemon) => {
         </Transition>
       </Disclosure>
     </div>
+    <button class="sticky z-50 self-end bottom-6 btn-secondary btn-circle btn" 
+      aria-label="Go at the top" @click="scrollToTop">
+      <Icon class="w-6 h-6" icon="ph:arrow-up-bold" />
+    </button>
     <Modal ref="modalCard">
       <div class="flex flex-col gap-2">
         <div class="flex items-center justify-between gap-2 text-xl">
@@ -513,20 +544,18 @@ const showLabel = (pok: Pokemon) => {
           </button>
         </div>
         <div class="flex flex-wrap justify-center gap-4">
-          <div v-for="pok in allPok.filter(p => p.ndex == selectedPok?.ndex)" :key="pok.index"
+          <div v-for="pok in orderSelected" :key="pok.index"
             class="flex flex-col justify-between gap-1">
-            <div class="flex flex-col items-center justify-center w-20 h-auto cursor-pointer sm:w-24 sm:h-auto">
+            <div class="flex flex-col items-center justify-center w-auto h-auto gap-1 cursor-pointer md:w-24">
               <img class="w-12 h-12 mb-1 transition-all sm:w-16 sm:h-16" 
-                :src="showShiny ? 
-                  `/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_r.webp` : 
-                  `/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_n.webp`"
+                :src="`/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_${showShiny ? 'r' : 'n'}.webp`"
                 @error="(e) => (e.target as HTMLImageElement).src = '/sprites/webps/poke_icon_0000_000_uk_n_00000000_f_n.webp'">
               <span class="font-medium text-center text-3xs sm:text-xs">{{ pok.name }}</span>
               <span class="font-medium text-center whitespace-pre-wrap text-neutral-focus text-3xs">{{ pok.form }}</span>
             </div>
             <label class="flex items-center gap-1 cursor-pointer">
-              <input type="checkbox" :checked="catchedPok[pok.index - 1]"
-                @click="catchedPok[pok.index - 1] = !catchedPok[pok.index - 1]"
+              <input type="checkbox" :checked="isPokCaught(pok.index)"
+                @click="catchPok(pok.index)"
                 class="border-2 checkbox checkbox-sm checkbox-secondary" />
               <span class="text-sm font-medium">Obtained</span> 
             </label>

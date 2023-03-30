@@ -5,31 +5,23 @@ import { GenTitle } from '@/utility'
 import type { Pokemon } from '@/utility'
 import { ref, computed } from 'vue'
 
-const pokJson: Pokemon[] = await fetch('/pokemon_all.json').then(d => d.json())
-
-console.log(pokJson.filter(p => {
-  return !p.original && 
-    p.form != "Female" && p.name != "Alcremie" && p.name != "Unown" && p.name != "Vivillon" &&
-    !["Alolan", "Galarian", "Hisuian", "Paldean"].some(r => p.form?.includes(r)) &&
-    !p.form?.includes("Mega") && !p.form?.includes("Gigantamax") &&
-    !p.form?.includes("Totem") && !p.form?.includes("Titan") && !p.form?.includes("Cap")
-}))
+const pokJson: Pokemon[] = await fetch('/pokemon_original.json').then(d => d.json())
 
 const isAllCollapsed = ref(false), showOnlyIcons = ref(false)
+const totGens = Math.max(...pokJson.map(p => p.gen))
+const pokGens: Pokemon[][] = []
 const searchItem = ref("")
 
-const allPok = pokJson.filter(p => p.original)
-const totGens = 9
-const pokGens: Pokemon[][] = []
-
 for (let i = 1; i <= totGens; i++) {
-  const first = allPok.findIndex(p => p.gen == i)
-  const last = i == totGens ? allPok.length : allPok.findIndex(p => p.gen == i + 1)
-  pokGens.push(allPok.slice(first, last))
+  const first = pokJson.findIndex(p => p.gen == i)
+  const last = i == totGens ? pokJson.length : pokJson.findIndex(p => p.gen == i + 1)
+  pokGens.push(pokJson.slice(first, last))
 }
 
+const scrollToTop = () => window.scrollTo({ behavior: 'smooth', left: 0, top: 0 })
+
 const searchFilter = computed(() => {
-  let filteredPok = JSON.parse(JSON.stringify(allPok)) as typeof pokJson
+  let filteredPok = JSON.parse(JSON.stringify(pokJson)) as typeof pokJson
 
   filteredPok = filteredPok.filter(v => v.name.toLowerCase().includes(searchItem.value.toLowerCase()))
 
@@ -40,7 +32,7 @@ const searchFilter = computed(() => {
 <template>
   <div class="flex flex-col items-center justify-center w-full gap-4 grow">
     <p class="flex items-center gap-2 font-medium">
-      <span>Total Pokémons: {{ allPok.length }}</span>
+      <span>Total Pokémons: {{ pokJson.length }}</span>
       <Icon icon="ic:baseline-catching-pokemon" class="w-6 h-6 swap-on" />
     </p>
     <div class="flex flex-wrap items-center gap-4">
@@ -101,9 +93,9 @@ const searchFilter = computed(() => {
           leave-active-class="transition duration-500 ease-out"
           leave-from-class="transform scale-100 opacity-100"
           leave-to-class="transform scale-95 opacity-0">
-          <DisclosurePanel as="div" class="flex flex-wrap items-center justify-center select-none text-2xs sm:text-xs sm:p-2">
+          <DisclosurePanel as="div" class="flex flex-wrap items-center justify-center select-none gap-y-4 text-2xs sm:text-xs sm:p-2">
             <div v-for="pok in gen" :key="pok.index"
-              class="flex flex-col items-center justify-center w-20 h-auto cursor-pointer sm:w-24 sm:h-auto">
+              class="flex flex-col items-center justify-center w-20 h-auto cursor-pointer sm:w-24">
               <img loading="lazy" class="w-12 h-12 mb-1 transition-all sm:w-16 sm:h-16" 
                 :src="`/sprites/gen9/${parseInt(pok.ndex)}.png`">
               <span v-show="!showOnlyIcons" class="font-bold">#{{ pok.ndex }}</span>
@@ -113,6 +105,10 @@ const searchFilter = computed(() => {
         </Transition>
       </Disclosure>
     </div>
+    <button class="sticky z-50 self-end bottom-6 btn-secondary btn-circle btn" 
+      aria-label="Go at the top" @click="scrollToTop">
+      <Icon class="w-6 h-6" icon="ph:arrow-up-bold" />
+    </button>
   </div>
 </template>
 

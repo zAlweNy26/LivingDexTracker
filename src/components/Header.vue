@@ -1,5 +1,5 @@
 <template>
-	<div class="navbar bg-base-200 min-h-fit">
+	<div class="sticky top-0 z-50 navbar bg-base-200 min-h-fit">
 		<div class="navbar-start">
 			<Menu v-slot="{ open }" as="div" class="relative inline-block font-medium rounded-lg md:hidden">
 				<MenuButton class="btn btn-ghost btn-square btn-sm" title="Menu">
