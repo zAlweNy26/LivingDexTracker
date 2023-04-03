@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
-import { ref, computed } from 'vue'
+import { ref, computed, onDeactivated, onActivated } from 'vue'
 import Modal from '@components/Modal.vue'
 import { Listbox, ListboxButton, ListboxOptions, ListboxOption,
   Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
@@ -306,6 +306,14 @@ const isCompleted = (box: number) => {
     boxPok.every(p => catchedPok.value[p.index - 1])
   )
 }
+
+onActivated(() => {
+  console.log("On activated")
+})
+
+onDeactivated(() => {
+  console.log("On deactivated")
+})
 </script>
 
 <template>

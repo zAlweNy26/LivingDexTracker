@@ -92,8 +92,8 @@
 		</div>
 		<div class="gap-2 navbar-end">
 			<ThemeButton class="block" />
-			<Menu as="div" class="relative inline-block font-medium rounded-lg">
-				<MenuButton class="btn btn-ghost btn-square btn-sm" title="Profile">
+			<Menu v-if="userInfo" as="div" class="relative inline-block font-medium rounded-lg">
+				<MenuButton class="btn btn-ghost btn-square btn-sm" :title="userInfo.name">
 					<Icon icon="mingcute:user-3-fill" class="w-6 h-6" aria-hidden="true" />
 				</MenuButton>
 				<Transition enter-active-class="transition duration-200 ease-out"
@@ -103,7 +103,7 @@
 					<MenuItems as="ul"
 						class="absolute right-0 z-50 flex flex-col items-end gap-2 p-2 mt-4 origin-top-right shadow-lg w-min menu menu-compact rounded-box bg-base-200">
 						<MenuItem as="li">
-							<a href="/">
+							<a href="/settings">
 								Settings
 								<Icon icon="ph:gear-six-fill" class="w-5 h-5" aria-hidden="true" />
 							</a>
@@ -120,15 +120,29 @@
 								<Icon icon="ic:round-paypal" class="w-5 h-5" aria-hidden="true" />
 							</a>
 						</MenuItem>
+						<MenuItem as="li">
+							<a href="/auth" @click="logoutAccount">
+								Log out
+								<Icon icon="eva:log-out-fill" class="w-5 h-5" aria-hidden="true" />
+							</a>
+						</MenuItem>
 					</MenuItems>
 				</Transition>
 			</Menu>
+			<a v-else class="btn btn-sm btn-primary btn-square" href="/auth" rel="prefetch">
+				<Icon icon="eva:log-in-fill" class="w-6 h-6" aria-hidden="true" />
+			</a>
 		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
-import ThemeButton from '@components/ThemeButton.vue'
 import { Icon } from '@iconify/vue'
+import ThemeButton from '@components/ThemeButton.vue'
+import { logoutAccount } from '@/firebase'
+import { storeToRefs } from 'pinia'
+import { useUserStore } from '@stores/userStore'
+
+const { userInfo } = storeToRefs(useUserStore())
 </script>

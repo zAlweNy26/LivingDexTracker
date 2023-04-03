@@ -7,8 +7,12 @@ import FaqView from '@views/FaqView.vue'
 import FeedbackView from '@views/FeedbackView.vue'
 import PokedexView from '@views/PokedexView.vue'
 import GuideView from '@views/GuideView.vue'
+import AuthView from '@views/AuthView.vue'
+import SettingsView from '@views/SettingsView.vue'
+import PrivacyView from '@views/PrivacyView.vue'
 import AttributionsView from '@views/AttributionsView.vue'
 import NotFoundView from '@views/NotFoundView.vue'
+import { getCurrentUser } from 'vuefire'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,6 +21,19 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView
+    },
+    {
+      path: '/auth',
+      name: 'auth',
+      component: AuthView
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: SettingsView,
+      meta: {
+        requireAuth: true
+      }
     },
     {
       path: '/pokedex',
@@ -54,16 +71,32 @@ const router = createRouter({
       component: TermsView
     },
     {
+      path: '/policy',
+      name: 'policy',
+      component: PrivacyView
+    },
+    {
       path: '/attributions',
       name: 'attributions',
       component: AttributionsView
     },
     {
       path: '/:pathMatch(.*)*',
-      name: 'notFound',
-      component: NotFoundView
+      name: 'error',
+      component: NotFoundView,
     }
   ]
+})
+
+router.beforeEach(async (to) => {
+  if (to.meta.requireAuth) {
+    const currentUser = await getCurrentUser()
+    if (!currentUser) {
+      return {
+        path: '/auth',
+      }
+    }
+  }
 })
 
 export default router

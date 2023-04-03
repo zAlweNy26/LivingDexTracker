@@ -46,6 +46,10 @@
   .input-group-bordered > span {
     @apply !px-2 justify-center;
   }
+
+  .add-border {
+    @apply border-0 focus:ring-2 transition focus:ring-primary disabled:cursor-not-allowed disabled:bg-neutral disabled:opacity-75;
+  }
 }
 
 @layer components {

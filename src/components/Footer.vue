@@ -22,6 +22,7 @@
 	</div>
 	<footer class="p-4 text-base-100 footer footer-center bg-gradient-r-amber-orange dark:bg-gradient-r-ube-purple gap-y-4">
 		<div class="grid grid-flow-col gap-4">
+			<a class="link link-hover" href="/policy">Privacy Policy</a>
 			<a class="link link-hover" href="/terms">Terms & Conditions</a>
 			<a class="link link-hover" href="/attributions">Attributions</a>
 			<a class="link link-hover" href="/contact">Contact Us</a>
@@ -34,8 +35,8 @@
 			</div>
 		</div>
 		<div class="flex flex-col">
-			<p>Copyright © 2023-2024 LivingDex Tracker, All rights reserved.</p>
-			<p>Pokémon images, names, forms, and other relevant information are the property of The Pokémon Company</p>
+			<p>Copyright © 2023-2024 <strong>LivingDex Tracker</strong>, All rights reserved.</p>
+			<p>Pokémon images, names, forms, and other relevant information are the property of <strong>The Pokémon Company</strong></p>
 		</div>
 	</footer>
 </template>

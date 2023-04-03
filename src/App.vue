@@ -8,9 +8,20 @@ import Footer from '@components/Footer.vue'
   <div class="flex flex-col min-h-screen transition-colors selection:bg-secondary-focus bg-base-100 scroll-smooth">
     <Header />
     <main class="flex flex-col items-center p-4 text-neutral grow">
-      <Suspense>
-        <RouterView />
-      </Suspense>
+      <RouterView v-slot="{ Component }">
+        <template v-if="Component">
+          <Transition mode="out-in">
+            <KeepAlive>
+              <Suspense>
+                <component :is="Component"></component>
+                <template #fallback>
+                  Loading...
+                </template>
+              </Suspense>
+            </KeepAlive>
+          </Transition>
+        </template>
+      </RouterView>
     </main>
     <Footer />
   </div>

@@ -38,6 +38,18 @@ const packages: Package[] = [
 		color: "#42D392"
 	},
 	{
+		name: "Firebase",
+		icon: "https://www.gstatic.com/devrel-devsite/prod/vc7c98be6f4d139e237c3cdaad6a00bb295b070a83e505cb2fa4435daae3d0901/firebase/images/favicon.png",
+		url: "https://firebase.google.com/",
+		color: "#FFCC30"
+	},
+	{
+		name: "Headless UI",
+		icon: "https://headlessui.com/favicon-32x32.png",
+		url: "https://headlessui.com/",
+		color: "#6BA1FC"
+	},
+	{
 		name: "ESLint",
 		icon: "https://eslint.org/favicon.ico",
 		url: "https://eslint.org",
@@ -61,6 +73,12 @@ const packages: Package[] = [
 		url: "https://playwright.dev",
 		color: "#1D8D22"
 	},
+	{
+		name: "Pinia",
+		icon: "https://pinia.vuejs.org/logo.svg",
+		url: "https://pinia.vuejs.org/",
+		color: "#FFD859"
+	}
 ]
 </script>
 
