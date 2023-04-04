@@ -10,15 +10,19 @@ import GuideView from '@views/GuideView.vue'
 import AuthView from '@views/AuthView.vue'
 import SettingsView from '@views/SettingsView.vue'
 import PrivacyView from '@views/PrivacyView.vue'
+import QuestView from '@views/QuestView.vue'
+import JumpView from '@views/JumpView.vue'
 import AttributionsView from '@views/AttributionsView.vue'
 import NotFoundView from '@views/NotFoundView.vue'
 import { getCurrentUser } from 'vuefire'
+import { RouterView } from 'vue-router'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
+      alias: '/home',
       name: 'home',
       component: HomeView
     },
@@ -79,6 +83,26 @@ const router = createRouter({
       path: '/attributions',
       name: 'attributions',
       component: AttributionsView
+    },
+    {
+      path: '/games',
+      name: 'games',
+      component: RouterView,
+      redirect: {
+        path: '/'
+      },
+      children: [
+        {
+          path: 'pokemon_quest',
+          name: 'pokemon_quest',
+          component: QuestView
+        },
+        {
+          path: 'magikarp_jump',
+          name: 'magikarp_jump',
+          component: JumpView
+        },
+      ]
     },
     {
       path: '/:pathMatch(.*)*',

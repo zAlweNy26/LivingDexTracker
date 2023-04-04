@@ -52,7 +52,24 @@ type Pokemon = {
     gmax_id: string
 }
 
+const QuestSpriteTypes = [ "Icon", "Model", "Shiny Model" ] as const
+type QuestSpriteType = typeof QuestSpriteTypes[number]
+
+type PokemonQuest = {
+    index: number,
+    name: string,
+    gen: number,
+    form_type?: string,
+    chinese: boolean,
+    obtainable: boolean,
+    ndex: string,
+    form_index?: string,
+    c_name: string,
+    style: string
+}
+
 export {
     Game, GenTitle, Region, Pokemon, OrderOptions, Order, Position, Variant, Transform, Special,
-    FormsPosition, VariantsOptions, TransformsOptions, SpecialsOptions
+    FormsPosition, VariantsOptions, TransformsOptions, SpecialsOptions, PokemonQuest,
+    QuestSpriteType, QuestSpriteTypes
 }

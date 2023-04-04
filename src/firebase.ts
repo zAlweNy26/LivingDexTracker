@@ -1,15 +1,13 @@
 import { FirebaseError, initializeApp } from 'firebase/app'
-import { useDatabaseList, useDatabaseObject } from 'vuefire'
 import { getDatabase, ref, set, child, get, update, remove, onValue } from 'firebase/database'
 import { getAuth, signOut, GoogleAuthProvider, signInWithPopup, TwitterAuthProvider,
     browserLocalPersistence, browserSessionPersistence, setPersistence,
-    createUserWithEmailAndPassword, signInWithEmailAndPassword,
-    deleteUser } from "firebase/auth"
+    createUserWithEmailAndPassword, signInWithEmailAndPassword, deleteUser } from "firebase/auth"
 import { ReCaptchaV3Provider, initializeAppCheck } from 'firebase/app-check'
 
 interface DataEntry {
-    catchedNormal: boolean[],
-    catchedShiny: boolean[]
+    catchedNormal: number[],
+    catchedShiny: number[]
 }
 
 interface UserEntry {
@@ -17,7 +15,7 @@ interface UserEntry {
     email: string,
     picture: string,
     createdAt: number,
-    data: DataEntry
+    data?: DataEntry
 }
 
 const firebaseApp = initializeApp({
@@ -37,8 +35,8 @@ initializeAppCheck(firebaseApp, {
 
 const db = getDatabase(firebaseApp)
 
-const writeUserData = (userId: string, name: string, email: string, imageUrl: string = "") => {
-    set(ref(db, `users/${userId}`), {
+const writeUserData = async (userId: string, name: string, email: string, imageUrl: string = "") => {
+    const userEntry: UserEntry = {
         username: name,
         email: email,
         picture: imageUrl,
@@ -47,17 +45,19 @@ const writeUserData = (userId: string, name: string, email: string, imageUrl: st
             catchedNormal: [],
             catchedShiny: []
         }
-    } satisfies UserEntry)
+    }
+    await set(ref(db, `users/${userId}`), userEntry)
+    return userEntry
 }
 
-const updateUserData = async (userId: string, entry: Partial<UserEntry>, path: string = "") => {
-    update(ref(db, `users/${path}${userId}`), entry)
+const updateUserData = async (userId: string, entry: Partial<UserEntry | DataEntry>, path: string = "") => {
+    update(ref(db, `users/${userId}${path}`), entry)
 }
 
 const getUserData = async (userId: string) => {
     const snapshot = await get(child(ref(db), `users/${userId}`))
     if (snapshot.exists()) return snapshot.val() as UserEntry
-    else throw new Error("No data available")
+    else return writeUserData(userId, auth.currentUser?.displayName ?? "", auth.currentUser?.email ?? "")
 }
 
 const listenForValue = <T>(userId: string, callback: (result: T) => void) => {
@@ -72,9 +72,6 @@ const deleteUserData = async () => {
         await deleteUser(auth.currentUser)
     }
 }
-
-const getDataObject = async <T>(path: string) => useDatabaseObject<T>(ref(db, path))
-const getDataList = async <T>(path: string) => useDatabaseList<T>(ref(db, path))
 
 const auth = getAuth()
 auth.useDeviceLanguage()
@@ -100,7 +97,7 @@ const loginAccount = async (remember: boolean, email: string, password: string) 
         return account.user
     } catch (error) {
         if (error instanceof FirebaseError) return new Error(error.code)
-        return new Error("Generic error") 
+        return new Error(error as string) 
     }
 }
 
@@ -109,7 +106,7 @@ const logoutAccount = async () => {
         await signOut(auth)
     } catch (error) {
         if (error instanceof FirebaseError) return new Error(error.code)
-        return new Error("Generic error") 
+        return new Error(error as string) 
     }
 }
 
@@ -123,7 +120,7 @@ const loginGoogle = async () => {
             const account = GoogleAuthProvider.credentialFromError(error)
             return account
         }
-        return new Error("Generic error")
+        return new Error(error as string)
     }
 }
 
@@ -137,12 +134,12 @@ const loginTwitter = async () => {
             const account = TwitterAuthProvider.credentialFromError(error)
             return account
         }
-        return new Error("Generic error")
+        return new Error(error as string)
     }
 }
 
 export {
-    firebaseApp, db, auth, writeUserData, getUserData, getDataObject, getDataList,
+    firebaseApp, db, auth, writeUserData, getUserData,
     createAccount, loginAccount, logoutAccount, loginGoogle, loginTwitter,
     deleteUserData, updateUserData, UserEntry, listenForValue
 }

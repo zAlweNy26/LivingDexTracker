@@ -62,8 +62,6 @@ const searchFilter = computed(() => {
             <img loading="lazy" class="w-12 h-12 mb-1 transition-all sm:w-16 sm:h-16" :src="`/sprites/gen9/${parseInt(pok.ndex)}.png`">
             <span class="font-bold text-2xs sm:text-xs">#{{ pok.ndex }}</span>
             <span class="font-medium text-center text-3xs sm:text-xs">{{ pok.name }}</span>
-            <!-- TODO: Aggiustare testi per mobile -->
-            <span class="font-medium text-center whitespace-pre-wrap text-neutral-focus text-3xs">{{ pok.form }}</span>
           </div>
           <p v-else class="font-medium">No Pokémons found!</p>
         </div>

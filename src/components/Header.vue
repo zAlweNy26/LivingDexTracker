@@ -13,12 +13,6 @@
 					<MenuItems as="ul"
 						class="absolute left-0 z-50 flex flex-col gap-2 p-2 mt-4 origin-top-left shadow-lg whitespace-nowrap w-min menu menu-compact rounded-box bg-base-200">
 						<MenuItem as="li">
-							<a href="/">
-								<Icon icon="fluent:home-24-filled" class="w-5 h-5" aria-hidden="true" />
-								Home
-							</a>
-						</MenuItem>
-						<MenuItem as="li">
 							<a href="/guide">
 								<Icon icon="ph:scroll-fill" class="w-5 h-5" aria-hidden="true" />
 								Guide
@@ -42,12 +36,40 @@
 								FAQ
 							</a>
 						</MenuItem>
-						<MenuItem as="li">
-							<a href="/feedback">
-								<Icon icon="ph:note-pencil-fill" class="w-5 h-5" aria-hidden="true" />
-								Feedback
-							</a>
-						</MenuItem>
+						<Menu v-slot="{ open }" as="li" class="relative inline-block rounded-lg">
+							<MenuButton class="flex items-center gap-2 rounded-lg">
+								<span>Other Games</span>
+								<Icon v-if="!open" icon="eva:arrow-ios-forward-fill" class="w-4 h-4 shrink-0"
+									aria-hidden="true" />
+								<Icon v-else icon="eva:arrow-ios-back-fill" class="w-4 h-4 shrink-0"
+									aria-hidden="true" />
+							</MenuButton>
+							<Transition enter-active-class="transition duration-200 ease-out"
+								enter-from-class="transform scale-90 opacity-0" enter-to-class="transform scale-100 opacity-100"
+								leave-active-class="transition duration-200 ease-in"
+								leave-from-class="transform scale-100 opacity-100"
+								leave-to-class="transform scale-90 opacity-0">
+								<MenuItems as="ul"
+									class="absolute top-0 z-50 flex flex-col gap-2 p-2 ml-4 origin-left shadow-lg left-full w-min menu menu-horizontal menu-compact rounded-box bg-base-200">
+									<MenuItem>
+										<li>
+											<a href="/games/pokemon_quest" class="flex items-center justify-center gap-2">
+												<img src="/pokemon_quest.webp" class="w-5 h-5" />
+												Pokémon Quest
+											</a>
+										</li>
+									</MenuItem>
+									<MenuItem>
+										<li>
+											<a href="/games/magikarp_jump" class="flex items-center justify-center gap-2">
+												<img src="/magikarp_jump.webp" class="w-5 h-5" />
+												Magikarp Jump
+											</a>
+										</li>
+									</MenuItem>
+								</MenuItems>
+							</Transition>
+						</Menu>
 					</MenuItems>
 				</Transition>
 			</Menu>
@@ -75,16 +97,47 @@
 				<li>
 					<a href="/faqs" class="rounded-lg">FAQ</a>
 				</li>
-				<li>
-					<a href="/feedback" class="rounded-lg">Feedback</a>
-				</li>
+				<Menu v-slot="{ open }" as="li" class="relative inline-block rounded-lg">
+					<MenuButton class="flex items-center gap-2 rounded-lg">
+						<span>Other Games</span>
+						<Icon v-if="!open" icon="eva:arrow-ios-downward-fill" class="w-4 h-4 shrink-0"
+							aria-hidden="true" />
+						<Icon v-else icon="eva:arrow-ios-upward-fill" class="w-4 h-4 shrink-0"
+							aria-hidden="true" />
+					</MenuButton>
+					<Transition enter-active-class="transition duration-200 ease-out"
+						enter-from-class="transform scale-90 opacity-0" enter-to-class="transform scale-100 opacity-100"
+						leave-active-class="transition duration-200 ease-in"
+						leave-from-class="transform scale-100 opacity-100"
+						leave-to-class="transform scale-90 opacity-0">
+						<MenuItems as="ul"
+							class="absolute left-0 z-50 flex flex-col gap-2 p-2 mt-4 origin-top-left shadow-lg w-min menu menu-compact rounded-box bg-base-200">
+							<MenuItem>
+								<li>
+									<a href="/games/pokemon_quest" class="flex items-center justify-center gap-2">
+										<img src="/pokemon_quest.webp" class="w-5 h-5" />
+										Pokémon Quest
+									</a>
+								</li>
+							</MenuItem>
+							<MenuItem>
+								<li>
+									<a href="/games/magikarp_jump" class="flex items-center justify-center gap-2">
+										<img src="/magikarp_jump.webp" class="w-5 h-5" />
+										Magikarp Jump
+									</a>
+								</li>
+							</MenuItem>
+						</MenuItems>
+					</Transition>
+				</Menu>
 			</ul>
-			<a class="hidden md:inline-flex btn btn-sm btn-square hover:bg-[#7289da] !border-[#7289da] text-[#7289da] btn-outline gap-2 sm:!w-auto sm:!px-3" 
+			<a v-if="!userInfo" class="hidden md:inline-flex btn btn-sm btn-square hover:bg-[#7289da] !border-[#7289da] text-[#7289da] btn-outline gap-2 sm:!w-auto sm:!px-3" 
 				target="_blank" href="https://discord.gg" aria-label="Dona con PayPal">
 				<Icon icon="logos:discord-icon" class="w-5 h-5 text-[#7289da]" aria-hidden="true" />
 				<span class="hidden lg:inline-block">Discord</span>
 			</a>
-			<a class="hidden md:inline-flex btn btn-sm btn-square hover:bg-[#0093d5] !border-[#0093d5] text-[#0093d5] btn-outline gap-2 sm:!w-auto sm:!px-3" 
+			<a v-if="!userInfo" class="hidden md:inline-flex btn btn-sm btn-square hover:bg-[#0093d5] !border-[#0093d5] text-[#0093d5] btn-outline gap-2 sm:!w-auto sm:!px-3" 
 				target="_blank" href="https://paypal.me/danyalwe" aria-label="Dona con PayPal">
 				<Icon icon="logos:paypal" class="w-5 h-5" aria-hidden="true" />
 				<span class="hidden lg:inline-block">PayPal</span>
@@ -121,7 +174,7 @@
 							</a>
 						</MenuItem>
 						<MenuItem as="li">
-							<a href="/auth" @click="logoutAccount">
+							<a href="/auth" @click="logOut">
 								Log out
 								<Icon icon="eva:log-out-fill" class="w-5 h-5" aria-hidden="true" />
 							</a>
@@ -145,4 +198,9 @@ import { storeToRefs } from 'pinia'
 import { useUserStore } from '@stores/userStore'
 
 const { userInfo } = storeToRefs(useUserStore())
+
+const logOut = async () => {
+	userInfo.value = undefined
+	await logoutAccount()
+}
 </script>

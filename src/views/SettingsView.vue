@@ -1,32 +1,40 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
-import { useFirebaseAuth } from 'vuefire'
-import { deleteUserData } from '@/firebase'
+import { deleteUserData, updateUserData } from '@/firebase'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia'
 import { useUserStore } from '@stores/userStore'
 
-const userStore = useUserStore()
+const { userInfo } = storeToRefs(useUserStore())
+const router = useRouter()
 
 const profileImage = "https://via.placeholder.com/144x144.png"
 
-const passwordInput = ref(""), emailInput = ref(""), nickInput = ref("")
+const passwordInput = ref(""), 
+  emailInput = ref(userInfo.value?.email ?? ""), 
+  nickInput = ref(userInfo.value?.name ?? "")
 const changeDetails = ref(false), showPassword = ref(false)
 
-useFirebaseAuth()?.onAuthStateChanged(updatedUser => {
-  if (updatedUser) {
-    emailInput.value = updatedUser.email ?? "",
-    nickInput.value = updatedUser.displayName ?? ""
-    userStore.userInfo = {
-      uid: updatedUser.uid,
+const saveDetails = () =>  {
+  if (userInfo.value) {
+    userInfo.value = {
+      uid: userInfo.value.uid,
       email: emailInput.value,
       name: nickInput.value
     }
+    updateUserData(userInfo.value.uid, {
+      email: emailInput.value,
+      username: nickInput.value
+    })
+    changeDetails.value = false
   }
-})
+}
 
-const saveDetails = () =>  {
-  console.log("saved")
-  changeDetails.value = false
+const deleteUser = async () => {
+  await deleteUserData()
+  userInfo.value = undefined
+  router.push({ name: "home" })
 }
 
 const changeImage = () => {
@@ -113,7 +121,7 @@ const changeImage = () => {
         <h3 class="text-lg font-bold text-center">Are you sure you want to delete this account?</h3>
         <p class="py-4 text-center">We're sorry to see you go, but if you're sure you'd like to delete your account you can do so by clicking the button below.</p>
         <p class="mb-2 text-sm text-error">This action cannot be undone.</p>
-        <label for="deleteModal" @click="deleteUserData" class="btn btn-error btn-sm">Delete!</label>
+        <label for="deleteModal" @click="deleteUser" class="btn btn-error btn-sm">Delete!</label>
       </label>
     </label>
   </div>

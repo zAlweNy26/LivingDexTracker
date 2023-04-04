@@ -1,0 +1,3051 @@
+[
+    {
+        "index": 1,
+        "name": "Bulbasaur",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0001",
+        "c_name": "妙蛙种子",
+        "style": "Melee"
+    },
+    {
+        "index": 2,
+        "name": "Ivysaur",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0002",
+        "c_name": "妙蛙草",
+        "style": "Melee"
+    },
+    {
+        "index": 3,
+        "name": "Venusaur",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0003",
+        "c_name": "妙蛙花",
+        "style": "Melee"
+    },
+    {
+        "index": 4,
+        "name": "Venusaur",
+        "form_type": "Clone",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0003",
+        "form_index": "M22",
+        "c_name": "妙蛙花（复制体）",
+        "style": "Melee"
+    },
+    {
+        "index": 5,
+        "name": "Charmander",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0004",
+        "c_name": "小火龙",
+        "style": "Melee"
+    },
+    {
+        "index": 6,
+        "name": "Charmeleon",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0005",
+        "c_name": "火恐龙",
+        "style": "Melee"
+    },
+    {
+        "index": 7,
+        "name": "Charizard",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0006",
+        "c_name": "喷火龙",
+        "style": "Melee"
+    },
+    {
+        "index": 8,
+        "name": "Charizard",
+        "form_type": "Clone",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0006",
+        "form_index": "M22",
+        "c_name": "喷火龙（复制体）",
+        "style": "Melee"
+    },
+    {
+        "index": 9,
+        "name": "Squirtle",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0007",
+        "c_name": "杰尼龟",
+        "style": "Melee"
+    },
+    {
+        "index": 10,
+        "name": "Wartortle",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0008",
+        "c_name": "卡咪龟",
+        "style": "Melee"
+    },
+    {
+        "index": 11,
+        "name": "Blastoise",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0009",
+        "c_name": "水箭龟",
+        "style": "Melee"
+    },
+    {
+        "index": 12,
+        "name": "Blastoise",
+        "form_type": "Clone",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0009",
+        "form_index": "M22",
+        "c_name": "水箭龟（复制体）",
+        "style": "Melee"
+    },
+    {
+        "index": 13,
+        "name": "Caterpie",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0010",
+        "c_name": "绿毛虫",
+        "style": "Melee"
+    },
+    {
+        "index": 14,
+        "name": "Metapod",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0011",
+        "c_name": "铁甲蛹",
+        "style": "Melee"
+    },
+    {
+        "index": 15,
+        "name": "Butterfree",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0012",
+        "c_name": "巴大蝶",
+        "style": "Melee"
+    },
+    {
+        "index": 16,
+        "name": "Weedle",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0013",
+        "c_name": "独角虫",
+        "style": "Melee"
+    },
+    {
+        "index": 17,
+        "name": "Kakuna",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0014",
+        "c_name": "铁壳蛹",
+        "style": "Melee"
+    },
+    {
+        "index": 18,
+        "name": "Beedrill",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0015",
+        "c_name": "大针蜂",
+        "style": "Melee"
+    },
+    {
+        "index": 19,
+        "name": "Pidgey",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0016",
+        "c_name": "波波",
+        "style": "Range"
+    },
+    {
+        "index": 20,
+        "name": "Pidgeotto",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0017",
+        "c_name": "比比鸟",
+        "style": "Range"
+    },
+    {
+        "index": 21,
+        "name": "Pidgeot",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0018",
+        "c_name": "大比鸟",
+        "style": "Range"
+    },
+    {
+        "index": 22,
+        "name": "Rattata",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0019",
+        "c_name": "小拉达",
+        "style": "Melee"
+    },
+    {
+        "index": 23,
+        "name": "Raticate",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0020",
+        "c_name": "拉达",
+        "style": "Melee"
+    },
+    {
+        "index": 24,
+        "name": "Spearow",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0021",
+        "c_name": "烈雀",
+        "style": "Melee"
+    },
+    {
+        "index": 25,
+        "name": "Fearow",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0022",
+        "c_name": "大嘴雀",
+        "style": "Melee"
+    },
+    {
+        "index": 26,
+        "name": "Ekans",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0023",
+        "c_name": "阿柏蛇",
+        "style": "Range"
+    },
+    {
+        "index": 27,
+        "name": "Arbok",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0024",
+        "c_name": "阿柏怪",
+        "style": "Range"
+    },
+    {
+        "index": 28,
+        "name": "Pikachu",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0025",
+        "c_name": "皮卡丘",
+        "style": "Melee"
+    },
+    {
+        "index": 29,
+        "name": "Pikachu",
+        "form_type": "Adventure Costume",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0025",
+        "form_index": "Sh",
+        "c_name": "探险装扮的皮卡丘",
+        "style": "Melee"
+    },
+    {
+        "index": 30,
+        "name": "Pikachu",
+        "form_type": "Cap",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0025",
+        "form_index": "Ca1",
+        "c_name": "戴着帽子的皮卡丘",
+        "style": "Melee"
+    },
+    {
+        "index": 31,
+        "name": "Raichu",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0026",
+        "c_name": "雷丘",
+        "style": "Melee"
+    },
+    {
+        "index": 32,
+        "name": "Sandshrew",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0027",
+        "c_name": "穿山鼠",
+        "style": "Melee"
+    },
+    {
+        "index": 33,
+        "name": "Sandslash",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0028",
+        "c_name": "穿山王",
+        "style": "Melee"
+    },
+    {
+        "index": 34,
+        "name": "Nidoran♀",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0029",
+        "c_name": "尼多兰",
+        "style": "Melee"
+    },
+    {
+        "index": 35,
+        "name": "Nidorina",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0030",
+        "c_name": "尼多娜",
+        "style": "Melee"
+    },
+    {
+        "index": 36,
+        "name": "Nidoqueen",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0031",
+        "c_name": "尼多后",
+        "style": "Melee"
+    },
+    {
+        "index": 37,
+        "name": "Nidoran♂",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0032",
+        "c_name": "尼多朗",
+        "style": "Melee"
+    },
+    {
+        "index": 38,
+        "name": "Nidorino",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0033",
+        "c_name": "尼多力诺",
+        "style": "Melee"
+    },
+    {
+        "index": 39,
+        "name": "Nidoking",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0034",
+        "c_name": "尼多王",
+        "style": "Melee"
+    },
+    {
+        "index": 40,
+        "name": "Clefairy",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0035",
+        "c_name": "皮皮",
+        "style": "Melee"
+    },
+    {
+        "index": 41,
+        "name": "Clefable",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0036",
+        "c_name": "皮可西",
+        "style": "Melee"
+    },
+    {
+        "index": 42,
+        "name": "Vulpix",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0037",
+        "c_name": "六尾",
+        "style": "Range"
+    },
+    {
+        "index": 43,
+        "name": "Vulpix",
+        "form_type": "Alolan form",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0037",
+        "form_index": "A",
+        "c_name": "阿罗拉六尾",
+        "style": "Range"
+    },
+    {
+        "index": 44,
+        "name": "Ninetales",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0038",
+        "c_name": "九尾",
+        "style": "Range"
+    },
+    {
+        "index": 45,
+        "name": "Ninetales",
+        "form_type": "Alolan form",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0038",
+        "form_index": "A",
+        "c_name": "阿罗拉九尾",
+        "style": "Range"
+    },
+    {
+        "index": 46,
+        "name": "Jigglypuff",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0039",
+        "c_name": "胖丁",
+        "style": "Melee"
+    },
+    {
+        "index": 47,
+        "name": "Wigglytuff",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0040",
+        "c_name": "胖可丁",
+        "style": "Melee"
+    },
+    {
+        "index": 48,
+        "name": "Zubat",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0041",
+        "c_name": "超音蝠",
+        "style": "Range"
+    },
+    {
+        "index": 49,
+        "name": "Golbat",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0042",
+        "c_name": "大嘴蝠",
+        "style": "Range"
+    },
+    {
+        "index": 50,
+        "name": "Oddish",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0043",
+        "c_name": "走路草",
+        "style": "Range"
+    },
+    {
+        "index": 51,
+        "name": "Gloom",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0044",
+        "c_name": "臭臭花",
+        "style": "Range"
+    },
+    {
+        "index": 52,
+        "name": "Vileplume",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0045",
+        "c_name": "霸王花",
+        "style": "Range"
+    },
+    {
+        "index": 53,
+        "name": "Paras",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0046",
+        "c_name": "派拉斯",
+        "style": "Range"
+    },
+    {
+        "index": 54,
+        "name": "Parasect",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0047",
+        "c_name": "派拉斯特",
+        "style": "Range"
+    },
+    {
+        "index": 55,
+        "name": "Venonat",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0048",
+        "c_name": "毛球",
+        "style": "Range"
+    },
+    {
+        "index": 56,
+        "name": "Venomoth",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0049",
+        "c_name": "摩鲁蛾",
+        "style": "Range"
+    },
+    {
+        "index": 57,
+        "name": "Diglett",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0050",
+        "c_name": "地鼠",
+        "style": "Range"
+    },
+    {
+        "index": 58,
+        "name": "Dugtrio",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0051",
+        "c_name": "三地鼠",
+        "style": "Range"
+    },
+    {
+        "index": 59,
+        "name": "Meowth",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0052",
+        "c_name": "喵喵",
+        "style": "Melee"
+    },
+    {
+        "index": 60,
+        "name": "Persian",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0053",
+        "c_name": "猫老大",
+        "style": "Melee"
+    },
+    {
+        "index": 61,
+        "name": "Psyduck",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0054",
+        "c_name": "可达鸭",
+        "style": "Range"
+    },
+    {
+        "index": 62,
+        "name": "Golduck",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0055",
+        "c_name": "哥达鸭",
+        "style": "Range"
+    },
+    {
+        "index": 63,
+        "name": "Mankey",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0056",
+        "c_name": "猴怪",
+        "style": "Melee"
+    },
+    {
+        "index": 64,
+        "name": "Primeape",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0057",
+        "c_name": "火暴猴",
+        "style": "Melee"
+    },
+    {
+        "index": 65,
+        "name": "Growlithe",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0058",
+        "c_name": "卡蒂狗",
+        "style": "Melee"
+    },
+    {
+        "index": 66,
+        "name": "Arcanine",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0059",
+        "c_name": "风速狗",
+        "style": "Melee"
+    },
+    {
+        "index": 67,
+        "name": "Poliwag",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0060",
+        "c_name": "蚊香蝌蚪",
+        "style": "Melee"
+    },
+    {
+        "index": 68,
+        "name": "Poliwhirl",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0061",
+        "c_name": "蚊香君",
+        "style": "Melee"
+    },
+    {
+        "index": 69,
+        "name": "Poliwrath",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0062",
+        "c_name": "蚊香泳士",
+        "style": "Melee"
+    },
+    {
+        "index": 70,
+        "name": "Abra",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0063",
+        "c_name": "凯西",
+        "style": "Range"
+    },
+    {
+        "index": 71,
+        "name": "Kadabra",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0064",
+        "c_name": "勇基拉",
+        "style": "Range"
+    },
+    {
+        "index": 72,
+        "name": "Alakazam",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0065",
+        "c_name": "胡地",
+        "style": "Range"
+    },
+    {
+        "index": 73,
+        "name": "Machop",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0066",
+        "c_name": "腕力",
+        "style": "Melee"
+    },
+    {
+        "index": 74,
+        "name": "Machoke",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0067",
+        "c_name": "豪力",
+        "style": "Melee"
+    },
+    {
+        "index": 75,
+        "name": "Machamp",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0068",
+        "c_name": "怪力",
+        "style": "Melee"
+    },
+    {
+        "index": 76,
+        "name": "Bellsprout",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0069",
+        "c_name": "喇叭芽",
+        "style": "Range"
+    },
+    {
+        "index": 77,
+        "name": "Weepinbell",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0070",
+        "c_name": "口呆花",
+        "style": "Range"
+    },
+    {
+        "index": 78,
+        "name": "Victreebel",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0071",
+        "c_name": "大食花",
+        "style": "Range"
+    },
+    {
+        "index": 79,
+        "name": "Tentacool",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0072",
+        "c_name": "玛瑙水母",
+        "style": "Melee"
+    },
+    {
+        "index": 80,
+        "name": "Tentacruel",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0073",
+        "c_name": "毒刺水母",
+        "style": "Melee"
+    },
+    {
+        "index": 81,
+        "name": "Geodude",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0074",
+        "c_name": "小拳石",
+        "style": "Melee"
+    },
+    {
+        "index": 82,
+        "name": "Graveler",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0075",
+        "c_name": "隆隆石",
+        "style": "Melee"
+    },
+    {
+        "index": 83,
+        "name": "Golem",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0076",
+        "c_name": "隆隆岩",
+        "style": "Melee"
+    },
+    {
+        "index": 84,
+        "name": "Ponyta",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0077",
+        "c_name": "小火马",
+        "style": "Melee"
+    },
+    {
+        "index": 85,
+        "name": "Rapidash",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0078",
+        "c_name": "烈焰马",
+        "style": "Melee"
+    },
+    {
+        "index": 86,
+        "name": "Slowpoke",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0079",
+        "c_name": "呆呆兽",
+        "style": "Melee"
+    },
+    {
+        "index": 87,
+        "name": "Slowbro",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0080",
+        "c_name": "呆壳兽",
+        "style": "Melee"
+    },
+    {
+        "index": 88,
+        "name": "Magnemite",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0081",
+        "c_name": "小磁怪",
+        "style": "Range"
+    },
+    {
+        "index": 89,
+        "name": "Magneton",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0082",
+        "c_name": "三合一磁怪",
+        "style": "Range"
+    },
+    {
+        "index": 90,
+        "name": "Farfetch'd",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0083",
+        "c_name": "大葱鸭",
+        "style": "Melee"
+    },
+    {
+        "index": 91,
+        "name": "Doduo",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0084",
+        "c_name": "嘟嘟",
+        "style": "Melee"
+    },
+    {
+        "index": 92,
+        "name": "Dodrio",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0085",
+        "c_name": "嘟嘟利",
+        "style": "Melee"
+    },
+    {
+        "index": 93,
+        "name": "Seel",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0086",
+        "c_name": "小海狮",
+        "style": "Melee"
+    },
+    {
+        "index": 94,
+        "name": "Dewgong",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0087",
+        "c_name": "白海狮",
+        "style": "Melee"
+    },
+    {
+        "index": 95,
+        "name": "Grimer",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0088",
+        "c_name": "臭泥",
+        "style": "Melee"
+    },
+    {
+        "index": 96,
+        "name": "Muk",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0089",
+        "c_name": "臭臭泥",
+        "style": "Melee"
+    },
+    {
+        "index": 97,
+        "name": "Shellder",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0090",
+        "c_name": "大舌贝",
+        "style": "Melee"
+    },
+    {
+        "index": 98,
+        "name": "Cloyster",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0091",
+        "c_name": "刺甲贝",
+        "style": "Melee"
+    },
+    {
+        "index": 99,
+        "name": "Gastly",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0092",
+        "c_name": "鬼斯",
+        "style": "Range"
+    },
+    {
+        "index": 100,
+        "name": "Haunter",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0093",
+        "c_name": "鬼斯通",
+        "style": "Range"
+    },
+    {
+        "index": 101,
+        "name": "Gengar",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0094",
+        "c_name": "耿鬼",
+        "style": "Range"
+    },
+    {
+        "index": 102,
+        "name": "Onix",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0095",
+        "c_name": "大岩蛇",
+        "style": "Melee"
+    },
+    {
+        "index": 103,
+        "name": "Drowzee",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0096",
+        "c_name": "催眠貘",
+        "style": "Range"
+    },
+    {
+        "index": 104,
+        "name": "Hypno",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0097",
+        "c_name": "引梦貘人",
+        "style": "Range"
+    },
+    {
+        "index": 105,
+        "name": "Krabby",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0098",
+        "c_name": "大钳蟹",
+        "style": "Range"
+    },
+    {
+        "index": 106,
+        "name": "Kingler",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0099",
+        "c_name": "巨钳蟹",
+        "style": "Range"
+    },
+    {
+        "index": 107,
+        "name": "Voltorb",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0100",
+        "c_name": "霹雳电球",
+        "style": "Melee"
+    },
+    {
+        "index": 108,
+        "name": "Electrode",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0101",
+        "c_name": "顽皮雷弹",
+        "style": "Melee"
+    },
+    {
+        "index": 109,
+        "name": "Exeggcute",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0102",
+        "c_name": "蛋蛋",
+        "style": "Range"
+    },
+    {
+        "index": 110,
+        "name": "Exeggutor",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0103",
+        "c_name": "椰蛋树",
+        "style": "Range"
+    },
+    {
+        "index": 111,
+        "name": "Cubone",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0104",
+        "c_name": "卡拉卡拉",
+        "style": "Melee"
+    },
+    {
+        "index": 112,
+        "name": "Marowak",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0105",
+        "c_name": "嘎啦嘎啦",
+        "style": "Melee"
+    },
+    {
+        "index": 113,
+        "name": "Hitmonlee",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0106",
+        "c_name": "飞腿郎",
+        "style": "Melee"
+    },
+    {
+        "index": 114,
+        "name": "Hitmonchan",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0107",
+        "c_name": "快拳郎",
+        "style": "Melee"
+    },
+    {
+        "index": 115,
+        "name": "Lickitung",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0108",
+        "c_name": "大舌头",
+        "style": "Melee"
+    },
+    {
+        "index": 116,
+        "name": "Koffing",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0109",
+        "c_name": "瓦斯弹",
+        "style": "Melee"
+    },
+    {
+        "index": 117,
+        "name": "Weezing",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0110",
+        "c_name": "双弹瓦斯",
+        "style": "Melee"
+    },
+    {
+        "index": 118,
+        "name": "Rhyhorn",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0111",
+        "c_name": "独角犀牛",
+        "style": "Melee"
+    },
+    {
+        "index": 119,
+        "name": "Rhydon",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0112",
+        "c_name": "钻角犀兽",
+        "style": "Melee"
+    },
+    {
+        "index": 120,
+        "name": "Chansey",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0113",
+        "c_name": "吉利蛋",
+        "style": "Melee"
+    },
+    {
+        "index": 121,
+        "name": "Tangela",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0114",
+        "c_name": "蔓藤怪",
+        "style": "Melee"
+    },
+    {
+        "index": 122,
+        "name": "Kangaskhan",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0115",
+        "c_name": "袋兽",
+        "style": "Melee"
+    },
+    {
+        "index": 123,
+        "name": "Horsea",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0116",
+        "c_name": "墨海马",
+        "style": "Range"
+    },
+    {
+        "index": 124,
+        "name": "Seadra",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0117",
+        "c_name": "海刺龙",
+        "style": "Range"
+    },
+    {
+        "index": 125,
+        "name": "Goldeen",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0118",
+        "c_name": "角金鱼",
+        "style": "Melee"
+    },
+    {
+        "index": 126,
+        "name": "Seaking",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0119",
+        "c_name": "金鱼王",
+        "style": "Melee"
+    },
+    {
+        "index": 127,
+        "name": "Staryu",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0120",
+        "c_name": "海星星",
+        "style": "Range"
+    },
+    {
+        "index": 128,
+        "name": "Starmie",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0121",
+        "c_name": "宝石海星",
+        "style": "Range"
+    },
+    {
+        "index": 129,
+        "name": "Mr. Mime",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0122",
+        "c_name": "魔墙人偶",
+        "style": "Melee"
+    },
+    {
+        "index": 130,
+        "name": "Scyther",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0123",
+        "c_name": "飞天螳螂",
+        "style": "Melee"
+    },
+    {
+        "index": 131,
+        "name": "Jynx",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0124",
+        "c_name": "迷唇姐",
+        "style": "Range"
+    },
+    {
+        "index": 132,
+        "name": "Electabuzz",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0125",
+        "c_name": "电击兽",
+        "style": "Melee"
+    },
+    {
+        "index": 133,
+        "name": "Magmar",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0126",
+        "c_name": "鸭嘴火兽",
+        "style": "Range"
+    },
+    {
+        "index": 134,
+        "name": "Pinsir",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0127",
+        "c_name": "凯罗斯",
+        "style": "Melee"
+    },
+    {
+        "index": 135,
+        "name": "Tauros",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0128",
+        "c_name": "肯泰罗",
+        "style": "Melee"
+    },
+    {
+        "index": 136,
+        "name": "Magikarp",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0129",
+        "c_name": "鲤鱼王",
+        "style": "Melee"
+    },
+    {
+        "index": 137,
+        "name": "Gyarados",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0130",
+        "c_name": "暴鲤龙",
+        "style": "Melee"
+    },
+    {
+        "index": 138,
+        "name": "Lapras",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0131",
+        "c_name": "拉普拉斯",
+        "style": "Range"
+    },
+    {
+        "index": 139,
+        "name": "Ditto",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0132",
+        "c_name": "百变怪",
+        "style": "Range"
+    },
+    {
+        "index": 140,
+        "name": "Eevee",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0133",
+        "c_name": "伊布",
+        "style": "Melee"
+    },
+    {
+        "index": 141,
+        "name": "Vaporeon",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0134",
+        "c_name": "水伊布",
+        "style": "Melee"
+    },
+    {
+        "index": 142,
+        "name": "Jolteon",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0135",
+        "c_name": "雷伊布",
+        "style": "Melee"
+    },
+    {
+        "index": 143,
+        "name": "Flareon",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0136",
+        "c_name": "火伊布",
+        "style": "Melee"
+    },
+    {
+        "index": 144,
+        "name": "Porygon",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0137",
+        "c_name": "多边兽",
+        "style": "Range"
+    },
+    {
+        "index": 145,
+        "name": "Omanyte",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0138",
+        "c_name": "菊石兽",
+        "style": "Range"
+    },
+    {
+        "index": 146,
+        "name": "Omastar",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0139",
+        "c_name": "多刺菊石兽",
+        "style": "Range"
+    },
+    {
+        "index": 147,
+        "name": "Kabuto",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0140",
+        "c_name": "化石盔",
+        "style": "Melee"
+    },
+    {
+        "index": 148,
+        "name": "Kabutops",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0141",
+        "c_name": "镰刀盔",
+        "style": "Melee"
+    },
+    {
+        "index": 149,
+        "name": "Aerodactyl",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0142",
+        "c_name": "化石翼龙",
+        "style": "Melee"
+    },
+    {
+        "index": 150,
+        "name": "Snorlax",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0143",
+        "c_name": "卡比兽",
+        "style": "Melee"
+    },
+    {
+        "index": 151,
+        "name": "Articuno",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0144",
+        "c_name": "急冻鸟",
+        "style": "Range"
+    },
+    {
+        "index": 152,
+        "name": "Zapdos",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0145",
+        "c_name": "闪电鸟",
+        "style": "Range"
+    },
+    {
+        "index": 153,
+        "name": "Moltres",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0146",
+        "c_name": "火焰鸟",
+        "style": "Range"
+    },
+    {
+        "index": 154,
+        "name": "Dratini",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0147",
+        "c_name": "迷你龙",
+        "style": "Melee"
+    },
+    {
+        "index": 155,
+        "name": "Dragonair",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0148",
+        "c_name": "哈克龙",
+        "style": "Melee"
+    },
+    {
+        "index": 156,
+        "name": "Dragonite",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0149",
+        "c_name": "快龙",
+        "style": "Melee"
+    },
+    {
+        "index": 157,
+        "name": "Mewtwo",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0150",
+        "c_name": "超梦",
+        "style": "Range"
+    },
+    {
+        "index": 158,
+        "name": "Mewtwo",
+        "form_type": "Armored",
+        "gen": 1,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0150",
+        "form_index": "M22",
+        "c_name": "武装超梦",
+        "style": "Range"
+    },
+    {
+        "index": 159,
+        "name": "Mew",
+        "gen": 1,
+        "chinese": false,
+        "obtainable": true,
+        "ndex": "0151",
+        "c_name": "梦幻",
+        "style": "Range"
+    },
+    {
+        "index": 160,
+        "name": "Chikorita",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0152",
+        "c_name": "菊草叶",
+        "style": "Melee"
+    },
+    {
+        "index": 161,
+        "name": "Bayleef",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0153",
+        "c_name": "月桂叶",
+        "style": "Melee"
+    },
+    {
+        "index": 162,
+        "name": "Meganium",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0154",
+        "c_name": "大竺葵",
+        "style": "Melee"
+    },
+    {
+        "index": 163,
+        "name": "Cyndaquil",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0155",
+        "c_name": "火球鼠",
+        "style": "Melee"
+    },
+    {
+        "index": 164,
+        "name": "Quilava",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0156",
+        "c_name": "火岩鼠",
+        "style": "Melee"
+    },
+    {
+        "index": 165,
+        "name": "Typhlosion",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0157",
+        "c_name": "火暴兽",
+        "style": "Melee"
+    },
+    {
+        "index": 166,
+        "name": "Totodile",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0158",
+        "c_name": "小锯鳄",
+        "style": "Melee"
+    },
+    {
+        "index": 167,
+        "name": "Croconaw",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0159",
+        "c_name": "蓝鳄",
+        "style": "Melee"
+    },
+    {
+        "index": 168,
+        "name": "Feraligatr",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0160",
+        "c_name": "大力鳄",
+        "style": "Melee"
+    },
+    {
+        "index": 169,
+        "name": "Chinchou",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0170",
+        "c_name": "灯笼鱼",
+        "style": "Range"
+    },
+    {
+        "index": 170,
+        "name": "Lanturn",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0171",
+        "c_name": "电灯怪",
+        "style": "Range"
+    },
+    {
+        "index": 171,
+        "name": "Togepi",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0175",
+        "c_name": "波克比",
+        "style": "Melee"
+    },
+    {
+        "index": 172,
+        "name": "Togetic",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0176",
+        "c_name": "波克基古",
+        "style": "Melee"
+    },
+    {
+        "index": 173,
+        "name": "Natu",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0177",
+        "c_name": "天然雀",
+        "style": "Range"
+    },
+    {
+        "index": 174,
+        "name": "Xatu",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0178",
+        "c_name": "天然鸟",
+        "style": "Range"
+    },
+    {
+        "index": 175,
+        "name": "Marill",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0183",
+        "c_name": "玛力露",
+        "style": "Melee"
+    },
+    {
+        "index": 176,
+        "name": "Azumarill",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0184",
+        "c_name": "玛力露丽",
+        "style": "Melee"
+    },
+    {
+        "index": 177,
+        "name": "Wooper",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0194",
+        "c_name": "乌波",
+        "style": "Range"
+    },
+    {
+        "index": 178,
+        "name": "Quagsire",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0195",
+        "c_name": "沼王",
+        "style": "Range"
+    },
+    {
+        "index": 179,
+        "name": "Espeon",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0196",
+        "c_name": "太阳伊布",
+        "style": "Melee"
+    },
+    {
+        "index": 180,
+        "name": "Umbreon",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0197",
+        "c_name": "月亮伊布",
+        "style": "Melee"
+    },
+    {
+        "index": 181,
+        "name": "Misdreavus",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0200",
+        "c_name": "梦妖",
+        "style": "Range"
+    },
+    {
+        "index": 182,
+        "name": "Wobbuffet",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0202",
+        "c_name": "果然翁",
+        "style": "Melee"
+    },
+    {
+        "index": 183,
+        "name": "Gligar",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0207",
+        "c_name": "天蝎",
+        "style": "Melee"
+    },
+    {
+        "index": 184,
+        "name": "Scizor",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0212",
+        "c_name": "巨钳螳螂",
+        "style": "Melee"
+    },
+    {
+        "index": 185,
+        "name": "Sneasel",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0215",
+        "c_name": "狃拉",
+        "style": "Melee"
+    },
+    {
+        "index": 186,
+        "name": "Corsola",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0222",
+        "c_name": "太阳珊瑚",
+        "style": "Melee"
+    },
+    {
+        "index": 187,
+        "name": "Remoraid",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0223",
+        "c_name": "铁炮鱼",
+        "style": "Range"
+    },
+    {
+        "index": 188,
+        "name": "Octillery",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0224",
+        "c_name": "章鱼桶",
+        "style": "Range"
+    },
+    {
+        "index": 189,
+        "name": "Delibird",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0225",
+        "c_name": "信使鸟",
+        "style": "Melee"
+    },
+    {
+        "index": 190,
+        "name": "Skarmory",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0227",
+        "c_name": "盔甲鸟",
+        "style": "Range"
+    },
+    {
+        "index": 191,
+        "name": "Houndour",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0228",
+        "c_name": "戴鲁比",
+        "style": "Melee"
+    },
+    {
+        "index": 192,
+        "name": "Houndoom",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0229",
+        "c_name": "黑鲁加",
+        "style": "Melee"
+    },
+    {
+        "index": 193,
+        "name": "Phanpy",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0231",
+        "c_name": "小小象",
+        "style": "Melee"
+    },
+    {
+        "index": 194,
+        "name": "Donphan",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0232",
+        "c_name": "顿甲",
+        "style": "Melee"
+    },
+    {
+        "index": 195,
+        "name": "Blissey",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0242",
+        "c_name": "幸福蛋",
+        "style": "Melee"
+    },
+    {
+        "index": 196,
+        "name": "Raikou",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0243",
+        "c_name": "雷公",
+        "style": "Melee"
+    },
+    {
+        "index": 197,
+        "name": "Entei",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0244",
+        "c_name": "炎帝",
+        "style": "Melee"
+    },
+    {
+        "index": 198,
+        "name": "Suicune",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0245",
+        "c_name": "水君",
+        "style": "Melee"
+    },
+    {
+        "index": 199,
+        "name": "Larvitar",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0246",
+        "c_name": "幼基拉斯",
+        "style": "Melee"
+    },
+    {
+        "index": 200,
+        "name": "Pupitar",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0247",
+        "c_name": "沙基拉斯",
+        "style": "Melee"
+    },
+    {
+        "index": 201,
+        "name": "Tyranitar",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0248",
+        "c_name": "班基拉斯",
+        "style": "Melee"
+    },
+    {
+        "index": 202,
+        "name": "Lugia",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0249",
+        "c_name": "洛奇亚",
+        "style": "Range"
+    },
+    {
+        "index": 203,
+        "name": "Ho-Oh",
+        "gen": 2,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0250",
+        "c_name": "凤王",
+        "style": "Range"
+    },
+    {
+        "index": 204,
+        "name": "Treecko",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0252",
+        "c_name": "木守宫",
+        "style": "Melee"
+    },
+    {
+        "index": 205,
+        "name": "Grovyle",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0253",
+        "c_name": "森林蜥蜴",
+        "style": "Melee"
+    },
+    {
+        "index": 206,
+        "name": "Sceptile",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0254",
+        "c_name": "蜥蜴王",
+        "style": "Melee"
+    },
+    {
+        "index": 207,
+        "name": "Torchic",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0255",
+        "c_name": "火稚鸡",
+        "style": "Melee"
+    },
+    {
+        "index": 208,
+        "name": "Combusken",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0256",
+        "c_name": "力壮鸡",
+        "style": "Melee"
+    },
+    {
+        "index": 209,
+        "name": "Blaziken",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0257",
+        "c_name": "火焰鸡",
+        "style": "Melee"
+    },
+    {
+        "index": 210,
+        "name": "Mudkip",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0258",
+        "c_name": "水跃鱼",
+        "style": "Melee"
+    },
+    {
+        "index": 211,
+        "name": "Marshtomp",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0259",
+        "c_name": "沼跃鱼",
+        "style": "Melee"
+    },
+    {
+        "index": 212,
+        "name": "Swampert",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0260",
+        "c_name": "巨沼怪",
+        "style": "Melee"
+    },
+    {
+        "index": 213,
+        "name": "Lotad",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0270",
+        "c_name": "莲叶童子",
+        "style": "Melee"
+    },
+    {
+        "index": 214,
+        "name": "Lombre",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0271",
+        "c_name": "莲帽小童",
+        "style": "Melee"
+    },
+    {
+        "index": 215,
+        "name": "Ludicolo",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0272",
+        "c_name": "乐天河童",
+        "style": "Melee"
+    },
+    {
+        "index": 216,
+        "name": "Taillow",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0276",
+        "c_name": "傲骨燕",
+        "style": "Range"
+    },
+    {
+        "index": 217,
+        "name": "Swellow",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0277",
+        "c_name": "大王燕",
+        "style": "Range"
+    },
+    {
+        "index": 218,
+        "name": "Wingull",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0278",
+        "c_name": "长翅鸥",
+        "style": "Range"
+    },
+    {
+        "index": 219,
+        "name": "Pelipper",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0279",
+        "c_name": "大嘴鸥",
+        "style": "Range"
+    },
+    {
+        "index": 220,
+        "name": "Ralts",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0280",
+        "c_name": "拉鲁拉丝",
+        "style": "Range"
+    },
+    {
+        "index": 221,
+        "name": "Kirlia",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0281",
+        "c_name": "奇鲁莉安",
+        "style": "Range"
+    },
+    {
+        "index": 222,
+        "name": "Gardevoir",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0282",
+        "c_name": "沙奈朵",
+        "style": "Range"
+    },
+    {
+        "index": 223,
+        "name": "Sableye",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0302",
+        "c_name": "勾魂眼",
+        "style": "Melee"
+    },
+    {
+        "index": 224,
+        "name": "Mawile",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0303",
+        "c_name": "大嘴娃",
+        "style": "Melee"
+    },
+    {
+        "index": 225,
+        "name": "Plusle",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0311",
+        "c_name": "正电拍拍",
+        "style": "Melee"
+    },
+    {
+        "index": 226,
+        "name": "Minun",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0312",
+        "c_name": "负电拍拍",
+        "style": "Melee"
+    },
+    {
+        "index": 227,
+        "name": "Carvanha",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0318",
+        "c_name": "利牙鱼",
+        "style": "Melee"
+    },
+    {
+        "index": 228,
+        "name": "Sharpedo",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0319",
+        "c_name": "巨牙鲨",
+        "style": "Melee"
+    },
+    {
+        "index": 229,
+        "name": "Wailmer",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0320",
+        "c_name": "吼吼鲸",
+        "style": "Melee"
+    },
+    {
+        "index": 230,
+        "name": "Wailord",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0321",
+        "c_name": "吼鲸王",
+        "style": "Melee"
+    },
+    {
+        "index": 231,
+        "name": "Numel",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0322",
+        "c_name": "呆火驼",
+        "style": "Melee"
+    },
+    {
+        "index": 232,
+        "name": "Camerupt",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0323",
+        "c_name": "喷火驼",
+        "style": "Melee"
+    },
+    {
+        "index": 233,
+        "name": "Torkoal",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0324",
+        "c_name": "煤炭龟",
+        "style": "Melee"
+    },
+    {
+        "index": 234,
+        "name": "Trapinch",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0328",
+        "c_name": "大颚蚁",
+        "style": "Melee"
+    },
+    {
+        "index": 235,
+        "name": "Vibrava",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0329",
+        "c_name": "超音波幼虫",
+        "style": "Melee"
+    },
+    {
+        "index": 236,
+        "name": "Flygon",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0330",
+        "c_name": "沙漠蜻蜓",
+        "style": "Melee"
+    },
+    {
+        "index": 237,
+        "name": "Swablu",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0333",
+        "c_name": "青绵鸟",
+        "style": "Range"
+    },
+    {
+        "index": 238,
+        "name": "Altaria",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0334",
+        "c_name": "七夕青鸟",
+        "style": "Range"
+    },
+    {
+        "index": 239,
+        "name": "Lunatone",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0337",
+        "c_name": "月石",
+        "style": "Melee"
+    },
+    {
+        "index": 240,
+        "name": "Solrock",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0338",
+        "c_name": "太阳岩",
+        "style": "Melee"
+    },
+    {
+        "index": 241,
+        "name": "Corphish",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0341",
+        "c_name": "龙虾小兵",
+        "style": "Melee"
+    },
+    {
+        "index": 242,
+        "name": "Crawdaunt",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0342",
+        "c_name": "铁螯龙虾",
+        "style": "Melee"
+    },
+    {
+        "index": 243,
+        "name": "Baltoy",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0343",
+        "c_name": "天秤偶",
+        "style": "Range"
+    },
+    {
+        "index": 244,
+        "name": "Claydol",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0344",
+        "c_name": "念力土偶",
+        "style": "Range"
+    },
+    {
+        "index": 245,
+        "name": "Feebas",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0349",
+        "c_name": "丑丑鱼",
+        "style": "Melee"
+    },
+    {
+        "index": 246,
+        "name": "Milotic",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0350",
+        "c_name": "美纳斯",
+        "style": "Melee"
+    },
+    {
+        "index": 247,
+        "name": "Tropius",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0357",
+        "c_name": "热带龙",
+        "style": "Range"
+    },
+    {
+        "index": 248,
+        "name": "Absol",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0359",
+        "c_name": "阿勃梭鲁",
+        "style": "Melee"
+    },
+    {
+        "index": 249,
+        "name": "Clamperl",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0366",
+        "c_name": "珍珠贝",
+        "style": "Melee"
+    },
+    {
+        "index": 250,
+        "name": "Huntail",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0367",
+        "c_name": "猎斑鱼",
+        "style": "Melee"
+    },
+    {
+        "index": 251,
+        "name": "Gorebyss",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0368",
+        "c_name": "樱花鱼",
+        "style": "Melee"
+    },
+    {
+        "index": 252,
+        "name": "Luvdisc",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0370",
+        "c_name": "爱心鱼",
+        "style": "Melee"
+    },
+    {
+        "index": 253,
+        "name": "Bagon",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0371",
+        "c_name": "宝贝龙",
+        "style": "Melee"
+    },
+    {
+        "index": 254,
+        "name": "Shelgon",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0372",
+        "c_name": "甲壳龙",
+        "style": "Melee"
+    },
+    {
+        "index": 255,
+        "name": "Salamence",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0373",
+        "c_name": "暴飞龙",
+        "style": "Melee"
+    },
+    {
+        "index": 256,
+        "name": "Beldum",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0374",
+        "c_name": "铁哑铃",
+        "style": "Melee"
+    },
+    {
+        "index": 257,
+        "name": "Metang",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0375",
+        "c_name": "金属怪",
+        "style": "Melee"
+    },
+    {
+        "index": 258,
+        "name": "Metagross",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0376",
+        "c_name": "巨金怪",
+        "style": "Melee"
+    },
+    {
+        "index": 259,
+        "name": "Regirock",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0377",
+        "c_name": "雷吉洛克",
+        "style": "Melee"
+    },
+    {
+        "index": 260,
+        "name": "Regice",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0378",
+        "c_name": "雷吉艾斯",
+        "style": "Melee"
+    },
+    {
+        "index": 261,
+        "name": "Registeel",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0379",
+        "c_name": "雷吉斯奇鲁",
+        "style": "Melee"
+    },
+    {
+        "index": 262,
+        "name": "Kyogre",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0382",
+        "c_name": "盖欧卡",
+        "style": "Melee"
+    },
+    {
+        "index": 263,
+        "name": "Groudon",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0383",
+        "c_name": "固拉多",
+        "style": "Melee"
+    },
+    {
+        "index": 264,
+        "name": "Rayquaza",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0384",
+        "c_name": "烈空坐",
+        "style": "Melee"
+    },
+    {
+        "index": 265,
+        "name": "Jirachi",
+        "gen": 3,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0385",
+        "c_name": "基拉祈",
+        "style": "Range"
+    },
+    {
+        "index": 266,
+        "name": "Mismagius",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0429",
+        "c_name": "梦妖魔",
+        "style": "Range"
+    },
+    {
+        "index": 267,
+        "name": "Gible",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0443",
+        "c_name": "圆陆鲨",
+        "style": "Melee"
+    },
+    {
+        "index": 268,
+        "name": "Gabite",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0444",
+        "c_name": "尖牙陆鲨",
+        "style": "Melee"
+    },
+    {
+        "index": 269,
+        "name": "Garchomp",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0445",
+        "c_name": "烈咬陆鲨",
+        "style": "Melee"
+    },
+    {
+        "index": 270,
+        "name": "Lucario",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0448",
+        "c_name": "路卡利欧",
+        "style": "Range"
+    },
+    {
+        "index": 271,
+        "name": "Weavile",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0461",
+        "c_name": "玛狃拉",
+        "style": "Melee"
+    },
+    {
+        "index": 272,
+        "name": "Togekiss",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0468",
+        "c_name": "波克基斯",
+        "style": "Melee"
+    },
+    {
+        "index": 273,
+        "name": "Leafeon",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0470",
+        "c_name": "叶伊布",
+        "style": "Melee"
+    },
+    {
+        "index": 274,
+        "name": "Glaceon",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0471",
+        "c_name": "冰伊布",
+        "style": "Melee"
+    },
+    {
+        "index": 275,
+        "name": "Gliscor",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0472",
+        "c_name": "天蝎王",
+        "style": "Melee"
+    },
+    {
+        "index": 276,
+        "name": "Regigigas",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0486",
+        "c_name": "雷吉奇卡斯",
+        "style": "Melee"
+    },
+    {
+        "index": 277,
+        "name": "Cresselia",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0488",
+        "c_name": "克雷色利亚",
+        "style": "Range"
+    },
+    {
+        "index": 278,
+        "name": "Shaymin",
+        "form_type": "Land Forme",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0492",
+        "c_name": "谢米-陆地",
+        "style": "Melee"
+    },
+    {
+        "index": 279,
+        "name": "Shaymin",
+        "form_type": "Sky Forme",
+        "gen": 4,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0492",
+        "form_index": "S",
+        "c_name": "谢米-天空",
+        "style": "Melee"
+    },
+    {
+        "index": 280,
+        "name": "Cottonee",
+        "gen": 5,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0546",
+        "c_name": "木棉球",
+        "style": "Range"
+    },
+    {
+        "index": 281,
+        "name": "Whimsicott",
+        "gen": 5,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0547",
+        "c_name": "风妖精",
+        "style": "Range"
+    },
+    {
+        "index": 282,
+        "name": "Sandile",
+        "gen": 5,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0551",
+        "c_name": "黑眼鳄",
+        "style": "Melee"
+    },
+    {
+        "index": 283,
+        "name": "Krokorok",
+        "gen": 5,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0552",
+        "c_name": "混混鳄",
+        "style": "Melee"
+    },
+    {
+        "index": 284,
+        "name": "Krookodile",
+        "gen": 5,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0553",
+        "c_name": "流氓鳄",
+        "style": "Melee"
+    },
+    {
+        "index": 285,
+        "name": "Zorua",
+        "gen": 5,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0570",
+        "c_name": "索罗亚",
+        "style": "Melee"
+    },
+    {
+        "index": 286,
+        "name": "Zoroark",
+        "gen": 5,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0571",
+        "c_name": "索罗亚克",
+        "style": "Melee"
+    },
+    {
+        "index": 287,
+        "name": "Ferroseed",
+        "gen": 5,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0597",
+        "c_name": "种子铁球",
+        "style": "Melee"
+    },
+    {
+        "index": 288,
+        "name": "Ferrothorn",
+        "gen": 5,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0598",
+        "c_name": "坚果哑铃",
+        "style": "Melee"
+    },
+    {
+        "index": 289,
+        "name": "Litwick",
+        "gen": 5,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0607",
+        "c_name": "烛光灵",
+        "style": "Melee"
+    },
+    {
+        "index": 290,
+        "name": "Lampent",
+        "gen": 5,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0608",
+        "c_name": "灯火幽灵",
+        "style": "Melee"
+    },
+    {
+        "index": 291,
+        "name": "Chandelure",
+        "gen": 5,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0609",
+        "c_name": "水晶灯火灵",
+        "style": "Melee"
+    },
+    {
+        "index": 292,
+        "name": "Deino",
+        "gen": 5,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0633",
+        "c_name": "单首龙",
+        "style": "Range"
+    },
+    {
+        "index": 293,
+        "name": "Zweilous",
+        "gen": 5,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0634",
+        "c_name": "双首暴龙",
+        "style": "Range"
+    },
+    {
+        "index": 294,
+        "name": "Hydreigon",
+        "gen": 5,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0635",
+        "c_name": "三首恶龙",
+        "style": "Range"
+    },
+    {
+        "index": 295,
+        "name": "Sylveon",
+        "gen": 6,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0700",
+        "c_name": "仙子伊布",
+        "style": "Melee"
+    },
+    {
+        "index": 296,
+        "name": "Dedenne",
+        "gen": 6,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0702",
+        "c_name": "咚咚鼠",
+        "style": "Melee"
+    },
+    {
+        "index": 297,
+        "name": "Pumpkaboo",
+        "gen": 6,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0710",
+        "c_name": "南瓜精",
+        "style": "Range"
+    },
+    {
+        "index": 298,
+        "name": "Gourgeist",
+        "gen": 6,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0711",
+        "c_name": "南瓜怪人",
+        "style": "Range"
+    },
+    {
+        "index": 299,
+        "name": "Grubbin",
+        "gen": 7,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0736",
+        "c_name": "强颚鸡母虫",
+        "style": "Melee"
+    },
+    {
+        "index": 300,
+        "name": "Charjabug",
+        "gen": 7,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0737",
+        "c_name": "虫电宝",
+        "style": "Melee"
+    },
+    {
+        "index": 301,
+        "name": "Vikavolt",
+        "gen": 7,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0738",
+        "c_name": "锹农炮虫",
+        "style": "Melee"
+    },
+    {
+        "index": 302,
+        "name": "Mimikyu",
+        "gen": 7,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0778",
+        "c_name": "谜拟丘",
+        "style": "Melee"
+    },
+    {
+        "index": 303,
+        "name": "Duraludon",
+        "gen": 8,
+        "chinese": true,
+        "obtainable": true,
+        "ndex": "0884",
+        "c_name": "铝钢龙",
+        "style": "Melee"
+    }
+]

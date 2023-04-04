@@ -7,11 +7,20 @@ export interface UserInfo {
     email: string
 }
 
+export interface UserData {
+    catchedNormal: number[],
+    catchedShiny: number[]
+}
+
 export const useUserStore = defineStore('user', () => {
     const userInfo = ref<UserInfo>()
+    const userData = ref<UserData>({
+        catchedNormal: [],
+        catchedShiny: []
+    })
 
     return {
-        userInfo
+        userInfo, userData
     }
 }, { persist: true })
 

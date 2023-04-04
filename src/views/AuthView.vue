@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
-import { loginAccount, loginGoogle, createAccount, loginTwitter, writeUserData } from '@/firebase'
+import { loginAccount, loginGoogle, createAccount, loginTwitter, writeUserData, getUserData } from '@/firebase'
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
 import { OAuthCredential, User } from 'firebase/auth'
+import { storeToRefs } from 'pinia'
 import { useUserStore } from '@stores/userStore'
 
-const userStore = useUserStore()
+const { userInfo, userData } = storeToRefs(useUserStore())
 const router = useRouter()
 
 const emailInput = ref(''), passwordInput = ref(''), nickInput = ref(''),
@@ -22,20 +23,27 @@ const validatePassword = () => {
 	isRightLong.value = passwordInput.value.length >= 8 && passwordInput.value.length <= 24
 }
 
-const successLogin = (user: User) => {
-  writeUserData(user.uid, nickInput.value, user.email ?? "")
-  userStore.userInfo = {
+const successLogin = async (user: User) => {
+  const userEntry = await getUserData(user.uid)
+  userInfo.value = {
     uid: user.uid,
-    name: nickInput.value,
-    email: user.email ?? ""
+    name: userEntry.username,
+    email: userEntry.email
   }
-  router.push({ name: "home" })
+  userData.value = {
+    catchedNormal: userEntry.data?.catchedNormal ?? [],
+    catchedShiny: userEntry.data?.catchedShiny ?? []
+  }
+  router.push({ name: "settings" })
 }
 
 const signUp = async () =>  {
   const user = await createAccount(saveDetails.value, emailInput.value, passwordInput.value)
   if (user instanceof Error) console.log(user.message)
-  else successLogin(user)
+  else {
+    writeUserData(user.uid, nickInput.value, user.email ?? "")
+    successLogin(user)
+  }
 }
 
 const signIn = async () =>  {

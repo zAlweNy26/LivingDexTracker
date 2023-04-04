@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
-import { ref, computed, onDeactivated, onActivated } from 'vue'
+import { ref, computed, onDeactivated, watch, onActivated } from 'vue'
 import Modal from '@components/Modal.vue'
+import { updateUserData } from '@/firebase'
 import { Listbox, ListboxButton, ListboxOptions, ListboxOption,
   Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
-import { Region, Game, OrderOptions, FormsPosition, VariantsOptions, TransformsOptions, SpecialsOptions } from '@/utility'
+import { Region, Game, OrderOptions, FormsPosition, 
+  VariantsOptions, TransformsOptions, SpecialsOptions } from '@/utility'
 import type { Pokemon, Order, Position, Variant, Transform, Special } from '@/utility'
+import { storeToRefs } from 'pinia'
+import { useUserStore } from '@stores/userStore'
+
+const { userInfo, userData } = storeToRefs(useUserStore())
 
 const pokJson: Pokemon[] = await fetch('/pokemon_all.json').then(d => d.json())
 
@@ -101,10 +107,9 @@ const onlyTransformsGeneric = (name: string, formIndex: number) => {
 }
 
 const allPok = (JSON.parse(JSON.stringify(pokJson)) as typeof pokJson).filter(p => basicFilter(p.name, parseInt(p.form_index)))
-const catchedPok = ref<boolean[]>(new Array(pokJson.length).fill(false))
-const catchedPokShiny = ref<boolean[]>(new Array(pokJson.length).fill(false))
 const boxNames = ref<string[][]>(new Array(Math.ceil(allPok.length / 30)).fill([]))
 const selectedPok = ref<typeof allPok[0]>()
+const catchedNormal = ref<number[]>([]), catchedShiny = ref<number[]>([])
 const showShiny = ref(false), showOnlyIcons = ref(false)
 const modalCard = ref<InstanceType<typeof Modal>>()
 const searchItem = ref("")
@@ -211,7 +216,7 @@ const openPokInfo = (ndex: number) => {
 let timerLongTouch: ReturnType<typeof setTimeout>
 let isMoving = false
 
-const openPokInfoIOS = (event: "start" | "move" | "end", index: number, ndex: number) => {
+const openPokInfoIOS = (event: "start" | "move" | "end", index: number, ndex: number)=> {
   if (event == "start") {
     isMoving = false
     timerLongTouch = setTimeout(() => openPokInfo(ndex), 600)
@@ -289,30 +294,53 @@ const orderSelected = computed(() => {
     .sort((p1, p2) => p1.form_index.localeCompare(p2.form_index))
 })
 
-const catchPok = (index: number) => {
-  if (index < 0 || index >= pokJson.length) return
-  if (showShiny.value) catchedPokShiny.value[index - 1] = !catchedPokShiny.value[index - 1]
-  else catchedPok.value[index - 1] = !catchedPok.value[index - 1]
+const catchPok = (index: number) => { //TODO: Optimize the complexity of the function
+  if (index < 0 || index > pokJson.length) return
+  if (showShiny.value) {
+    const valIndex = catchedShiny.value.indexOf(index)
+    if (valIndex != -1) catchedShiny.value.splice(valIndex, 1)
+    else catchedShiny.value.push(index)
+  } else {
+    const valIndex = catchedNormal.value.indexOf(index)
+    if (valIndex != -1) catchedNormal.value.splice(valIndex, 1)
+    else catchedNormal.value.push(index)
+  }
 }
 
-const isPokCaught = (index: number) => showShiny.value ? catchedPokShiny.value[index - 1] : catchedPok.value[index - 1]
+const isPokCaught = (index: number) => showShiny.value ? catchedShiny.value.includes(index) : catchedNormal.value.includes(index)
 
 const scrollToTop = () => window.scrollTo({ behavior: 'smooth', left: 0, top: 0 })
 
 const isCompleted = (box: number) => {
   const boxPok = orderBy.value.slice((box - 1) * 30, box * 30)
   return (showShiny.value ? 
-    boxPok.every(p => catchedPokShiny.value[p.index - 1]) :
-    boxPok.every(p => catchedPok.value[p.index - 1])
+    boxPok.every(p => catchedShiny.value.includes(p.index)) :
+    boxPok.every(p => catchedNormal.value.includes(p.index))
   )
 }
 
 onActivated(() => {
-  console.log("On activated")
+  catchedNormal.value = JSON.parse(JSON.stringify(userData.value.catchedNormal))
+  catchedShiny.value = JSON.parse(JSON.stringify(userData.value.catchedShiny))
 })
 
 onDeactivated(() => {
+  if (userInfo.value) {
+    updateUserData(userInfo.value.uid, {
+      catchedNormal: userData.value.catchedNormal = JSON.parse(JSON.stringify(catchedNormal.value)),
+      catchedShiny: userData.value.catchedShiny = JSON.parse(JSON.stringify(catchedShiny.value))
+    }, "/data")
+  }
   console.log("On deactivated")
+})
+
+watch(isAllCollapsed, () => {
+  if (userInfo.value) {
+    updateUserData(userInfo.value.uid, {
+      catchedNormal: userData.value.catchedNormal = catchedNormal.value,
+      catchedShiny: userData.value.catchedShiny = catchedShiny.value
+    }, "/data")
+  }
 })
 </script>
 
