@@ -108,7 +108,7 @@ const onlyTransformsGeneric = (name: string, formIndex: number) => {
 
 const allPok = (JSON.parse(JSON.stringify(pokJson)) as typeof pokJson).filter(p => basicFilter(p.name, parseInt(p.form_index)))
 const boxNames = ref<string[][]>(new Array(Math.ceil(allPok.length / 30)).fill([]))
-const selectedPok = ref<typeof allPok[0]>()
+const selectedPok = ref<Pokemon>()
 const catchedNormal = ref<number[]>([]), catchedShiny = ref<number[]>([])
 const showShiny = ref(false), showOnlyIcons = ref(false)
 const modalCard = ref<InstanceType<typeof Modal>>()

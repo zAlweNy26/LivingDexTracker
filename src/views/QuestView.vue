@@ -78,11 +78,14 @@ const searchFilter = computed(() => {
                 <div class="flex flex-col justify-center gap-2">
                     <label class="flex items-center gap-2 cursor-pointer">
                         <input v-model="showChineseExclusives" type="checkbox" class="!toggle !toggle-primary">
-                        <span class="text-sm font-medium select-none shrink-0">Show Chinese exclusives</span>
+                        <p class="text-sm font-medium select-none shrink-0">Show Chinese exclusives</p>
                     </label>
                     <label v-if="showChineseExclusives" class="flex items-center gap-2 cursor-pointer">
                         <input v-model="showChineseNames" type="checkbox" class="!toggle !toggle-primary">
-                        <span class="text-sm font-medium select-none shrink-0">Show Chinese names</span>
+                        <p class="flex items-center justify-center gap-2 text-sm font-medium select-none shrink-0">
+                            <span>Show Chinese names</span>
+                            <Icon class="w-6 h-6" icon="twemoji:flag-china" />
+                        </p>
                     </label>
                 </div>
             </div>

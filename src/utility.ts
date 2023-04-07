@@ -68,8 +68,17 @@ type PokemonQuest = {
     style: string
 }
 
+type MagikarpJump = {
+    index: number,
+    english_name: string,
+    japanese_name: string,
+    description: string,
+    type: string,
+    rod: string
+}
+
 export {
     Game, GenTitle, Region, Pokemon, OrderOptions, Order, Position, Variant, Transform, Special,
     FormsPosition, VariantsOptions, TransformsOptions, SpecialsOptions, PokemonQuest,
-    QuestSpriteType, QuestSpriteTypes
+    QuestSpriteType, QuestSpriteTypes, MagikarpJump
 }

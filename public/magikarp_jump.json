@@ -1,266 +1,266 @@
 [
-    {
-      "index": 1,
-      "english_name": "Standard",
-      "japanese_name": "ノーマル",
-      "description": "It's the familiar old Magikarp pattern loved by so many.",
-      "type": "Standard Pattern",
-      "Rod": "Old Rod\nAvailable from start"
-    },
-    {
-      "index": 2,
-      "english_name": "Skelly",
-      "japanese_name": "とげとげ",
-      "description": "This Magikarp is known for the spiny-looking white lines visible on it.",
-      "type": "Standard Pattern",
-      "Rod": "Old Rod\nAvailable from start"
-    },
-    {
-      "index": 3,
-      "english_name": "Calico Orange/White",
-      "japanese_name": "ニシキ（赤白）",
-      "description": "The basic example of a calico pattern has orange and white patches.",
-      "type": "Calico Pattern",
-      "Rod": "Old Rod\nAvailable from start"
-    },
-    {
-      "index": 4,
-      "english_name": "Calico Orange/White/Black",
-      "japanese_name": "ニシキ（赤白黒）",
-      "description": "This calico pattern Magikarp looks a bit extravagant with its three colors.",
-      "type": "Calico Pattern",
-      "Rod": "Old Rod\nAvailable from start"
-    },
-    {
-      "index": 5,
-      "english_name": "Calico White/Orange",
-      "japanese_name": "ニシキ（白赤）",
-      "description": "This slightly different calico pattern has orange patches on a white field.",
-      "type": "Calico Pattern",
-      "Rod": "Old Rod\nAvailable from start"
-    },
-    {
-      "index": 6,
-      "english_name": "Calico Orange/Gold",
-      "japanese_name": "ニシキ（赤金）",
-      "description": "You'll feel fortunate when you see this glittering gold and orange calico!",
-      "type": "Calico Pattern",
-      "Rod": "Old Rod\nAvailable from start"
-    },
-    {
-      "index": 7,
-      "english_name": "Orange Two-Tone",
-      "japanese_name": "ツートン（赤）",
-      "description": "This basic two-tone pattern has clearly divided sections of orange and white.",
-      "type": "Orange Pattern",
-      "Rod": "So-So Old Rod\nBeat the Quick League"
-    },
-    {
-      "index": 8,
-      "english_name": "Orange Orca",
-      "japanese_name": "シャチ（赤）",
-      "description": "This rather rare two-tone pattern looks like it would make for a swift swimmer.",
-      "type": "Orange Pattern",
-      "Rod": "So-So Old Rod\nBeat the Quick League"
-    },
-    {
-      "index": 9,
-      "english_name": "Orange Dapples",
-      "japanese_name": "ウェーブ（赤）",
-      "description": "This two-tone pattern is reminiscent of the spray thrown up by the ocean waves.",
-      "type": "Orange Pattern",
-      "Rod": "So-So Old Rod\nBeat the Quick League"
-    },
-    {
-      "index": 10,
-      "english_name": "Pink Two-Tone",
-      "japanese_name": "ツートン（ピンク）",
-      "description": "This cute two-tone pattern has clear fields of pink and white.",
-      "type": "Pink Pattern",
-      "Rod": "Good Old Rod\nBeat the Great League"
-    },
-    {
-      "index": 11,
-      "english_name": "Pink Orca",
-      "japanese_name": "シャチ（ピンク）",
-      "description": "This two-tone pattern manages to look both cute and cool at the same time.",
-      "type": "Pink Pattern",
-      "Rod": "Good Old Rod\nBeat the Great League"
-    },
-    {
-      "index": 12,
-      "english_name": "Pink Dapples",
-      "japanese_name": "ウェーブ（ピンク）",
-      "description": "This popular two-tone look is loved for its cute coloring and pattern.",
-      "type": "Pink Pattern",
-      "Rod": "Good Old Rod\nBeat the Great League"
-    },
-    {
-      "index": 13,
-      "english_name": "Gray Bubbles",
-      "japanese_name": "みずたま（グレー）",
-      "description": "This basic bubble pattern in an understated gray has many fans.",
-      "type": "Gray Pattern",
-      "Rod": "Great Old Rod\nBeat the Luxury League"
-    },
-    {
-      "index": 14,
-      "english_name": "Gray Diamonds",
-      "japanese_name": "ひしがた（グレー）",
-      "description": "This gray pattern would be right in line with a methodical mind.",
-      "type": "Gray Pattern",
-      "Rod": "Great Old Rod\nBeat the Luxury League"
-    },
-    {
-      "index": 15,
-      "english_name": "Gray Patches",
-      "japanese_name": "ジラフ（グレー）",
-      "description": "This rare gray pattern has an unusually complicated pattern.",
-      "type": "Gray Pattern",
-      "Rod": "Great Old Rod\nBeat the Luxury League"
-    },
-    {
-      "index": 16,
-      "english_name": "Purple Bubbles",
-      "japanese_name": "みずたま（パープル）",
-      "description": "This vivid purple pattern is dappled with lovely spots.",
-      "type": "Purple Pattern",
-      "Rod": "Great Old Rod\nBeat the Luxury League"
-    },
-    {
-      "index": 17,
-      "english_name": "Purple Diamonds",
-      "japanese_name": "ひしがた（パープル）",
-      "description": "This purple pattern is covered with spots that look like diamonds.",
-      "type": "Purple Pattern",
-      "Rod": "Great Old Rod\nBeat the Luxury League"
-    },
-    {
-      "index": 18,
-      "english_name": "Purple Patches",
-      "japanese_name": "ジラフ（パープル）",
-      "description": "This captivating pattern has patches of purple on a white field.",
-      "type": "Purple Pattern",
-      "Rod": "Great Old Rod\nBeat the Luxury League"
-    },
-    {
-      "index": 19,
-      "english_name": "Apricot Tiger",
-      "japanese_name": "とら（オレンジ）",
-      "description": "This wild striped pattern gives an impression of fierce strength.",
-      "type": "Apricot Pattern",
-      "Rod": "Rare Old Rod\nBeat the Heal League"
-    },
-    {
-      "index": 20,
-      "english_name": "Apricot Zebra",
-      "japanese_name": "ゼブラ（オレンジ）",
-      "description": "This striped pattern has real sense of personality captured in its winding lines.",
-      "type": "Apricot Pattern",
-      "Rod": "Rare Old Rod\nBeat the Heal League"
-    },
-    {
-      "index": 21,
-      "english_name": "Apricot Stripes",
-      "japanese_name": "たてじま（オレンジ）",
-      "description": "This basic striped pattern is simply striking, no matter how you look at it.",
-      "type": "Apricot Pattern",
-      "Rod": "Rare Old Rod\nBeat the Heal League"
-    },
-    {
-      "index": 22,
-      "english_name": "Brown Tiger",
-      "japanese_name": "とら（チョコ）",
-      "description": "This unusual striped pattern seems somehow sturdy and reliable.",
-      "type": "Brown Pattern",
-      "Rod": "Rare Old Rod\nBeat the Heal League"
-    },
-    {
-      "index": 23,
-      "english_name": "Brown Zebra",
-      "japanese_name": "ゼブラ（チョコ）",
-      "description": "This striped specimen seems quite pleased with its winding lines.",
-      "type": "Brown Pattern",
-      "Rod": "Rare Old Rod\nBeat the Heal League"
-    },
-    {
-      "index": 24,
-      "english_name": "Brown Stripes",
-      "japanese_name": "たてじま（チョコ）",
-      "description": "This brown striped pattern has the alluring sheen of liquid chocolate.",
-      "type": "Brown Pattern",
-      "Rod": "Rare Old Rod\nBeat the Heal League"
-    },
-    {
-      "index": 25,
-      "english_name": "Orange Forehead",
-      "japanese_name": "でこ（赤）",
-      "description": "This playful-looking pattern is known for the bright orange patch on its head.",
-      "type": "White Pattern",
-      "Rod": "Pro's Old Rod\nBeat the Ultra League"
-    },
-    {
-      "index": 26,
-      "english_name": "Orange Mask",
-      "japanese_name": "マスク（赤）",
-      "description": "This eye-catching pattern has a splash of coloration only on its face.",
-      "type": "White Pattern",
-      "Rod": "Pro's Old Rod\nBeat the Ultra League"
-    },
-    {
-      "index": 27,
-      "english_name": "Black Forehead",
-      "japanese_name": "でこ（黒）",
-      "description": "This rather reserved pattern has black only on its forehead.",
-      "type": "Black Pattern",
-      "Rod": "Pro's Old Rod\nBeat the Ultra League"
-    },
-    {
-      "index": 28,
-      "english_name": "Black Mask",
-      "japanese_name": "マスク（黒）",
-      "description": "This surprising pattern has just one patch of startling black across its face.",
-      "type": "Black Pattern",
-      "Rod": "Pro's Old Rod\nBeat the Ultra League"
-    },
-    {
-      "index": 29,
-      "english_name": "Saucy Blue",
-      "japanese_name": "みたらし（青）",
-      "description": "The splashy pattern on its back looks as though a bucket was upended onto it.",
-      "type": "Blue Pattern",
-      "Rod": "Supreme Old Rod\nBeat the Master League"
-    },
-    {
-      "index": 30,
-      "english_name": "Blue Raindrops",
-      "japanese_name": "レイニー（青）",
-      "description": "The drippy patterns decorating its back are exquisite.",
-      "type": "Blue Pattern",
-      "Rod": "Supreme Old Rod\nBeat the Master League"
-    },
-    {
-      "index": 31,
-      "english_name": "Saucy Violet",
-      "japanese_name": "みたらし（すみれ）",
-      "description": "The violet droplets running down its sides give it a sorrowful air.",
-      "type": "Violet Pattern",
-      "Rod": "Supreme Old Rod\nBeat the Master League"
-    },
-    {
-      "index": 32,
-      "english_name": "Violet Raindrops",
-      "japanese_name": "レイニー（すみれ）",
-      "description": "The eye-catching pattern on its back is popular with everyone.",
-      "type": "Violet Pattern",
-      "Rod": "Supreme Old Rod\nBeat the Master League"
-    },
-    {
-      "index": 99,
-      "english_name": "Gold",
-      "japanese_name": "きんぴか",
-      "description": "This rarely found Magikarp glitters like gold from front to tail fin.",
-      "type": "Gold Pattern",
-      "Rod": "Old Rod\nAvailable from start"
-    }
-   ]
+  {
+    "index": 1,
+    "english_name": "Standard",
+    "japanese_name": "ノーマル",
+    "description": "It's the familiar old Magikarp pattern loved by so many.",
+    "type": "Standard Pattern",
+    "rod": "Old Rod - Available from start"
+  },
+  {
+    "index": 2,
+    "english_name": "Skelly",
+    "japanese_name": "とげとげ",
+    "description": "This Magikarp is known for the spiny-looking white lines visible on it.",
+    "type": "Standard Pattern",
+    "rod": "Old Rod - Available from start"
+  },
+  {
+    "index": 3,
+    "english_name": "Calico Orange/White",
+    "japanese_name": "ニシキ（赤白）",
+    "description": "The basic example of a calico pattern has orange and white patches.",
+    "type": "Calico Pattern",
+    "rod": "Old Rod - Available from start"
+  },
+  {
+    "index": 4,
+    "english_name": "Calico Orange/White/Black",
+    "japanese_name": "ニシキ（赤白黒）",
+    "description": "This calico pattern Magikarp looks a bit extravagant with its three colors.",
+    "type": "Calico Pattern",
+    "rod": "Old Rod - Available from start"
+  },
+  {
+    "index": 5,
+    "english_name": "Calico White/Orange",
+    "japanese_name": "ニシキ（白赤）",
+    "description": "This slightly different calico pattern has orange patches on a white field.",
+    "type": "Calico Pattern",
+    "rod": "Old Rod - Available from start"
+  },
+  {
+    "index": 6,
+    "english_name": "Calico Orange/Gold",
+    "japanese_name": "ニシキ（赤金）",
+    "description": "You'll feel fortunate when you see this glittering gold and orange calico!",
+    "type": "Calico Pattern",
+    "rod": "Old Rod - Available from start"
+  },
+  {
+    "index": 7,
+    "english_name": "Orange Two-Tone",
+    "japanese_name": "ツートン（赤）",
+    "description": "This basic two-tone pattern has clearly divided sections of orange and white.",
+    "type": "Orange Pattern",
+    "rod": "So-So Old Rod - Beat the Quick League"
+  },
+  {
+    "index": 8,
+    "english_name": "Orange Orca",
+    "japanese_name": "シャチ（赤）",
+    "description": "This rather rare two-tone pattern looks like it would make for a swift swimmer.",
+    "type": "Orange Pattern",
+    "rod": "So-So Old Rod - Beat the Quick League"
+  },
+  {
+    "index": 9,
+    "english_name": "Orange Dapples",
+    "japanese_name": "ウェーブ（赤）",
+    "description": "This two-tone pattern is reminiscent of the spray thrown up by the ocean waves.",
+    "type": "Orange Pattern",
+    "rod": "So-So Old Rod - Beat the Quick League"
+  },
+  {
+    "index": 10,
+    "english_name": "Pink Two-Tone",
+    "japanese_name": "ツートン（ピンク）",
+    "description": "This cute two-tone pattern has clear fields of pink and white.",
+    "type": "Pink Pattern",
+    "rod": "Good Old Rod - Beat the Great League"
+  },
+  {
+    "index": 11,
+    "english_name": "Pink Orca",
+    "japanese_name": "シャチ（ピンク）",
+    "description": "This two-tone pattern manages to look both cute and cool at the same time.",
+    "type": "Pink Pattern",
+    "rod": "Good Old Rod - Beat the Great League"
+  },
+  {
+    "index": 12,
+    "english_name": "Pink Dapples",
+    "japanese_name": "ウェーブ（ピンク）",
+    "description": "This popular two-tone look is loved for its cute coloring and pattern.",
+    "type": "Pink Pattern",
+    "rod": "Good Old Rod - Beat the Great League"
+  },
+  {
+    "index": 13,
+    "english_name": "Gray Bubbles",
+    "japanese_name": "みずたま（グレー）",
+    "description": "This basic bubble pattern in an understated gray has many fans.",
+    "type": "Gray Pattern",
+    "rod": "Great Old Rod - Beat the Luxury League"
+  },
+  {
+    "index": 14,
+    "english_name": "Gray Diamonds",
+    "japanese_name": "ひしがた（グレー）",
+    "description": "This gray pattern would be right in line with a methodical mind.",
+    "type": "Gray Pattern",
+    "rod": "Great Old Rod - Beat the Luxury League"
+  },
+  {
+    "index": 15,
+    "english_name": "Gray Patches",
+    "japanese_name": "ジラフ（グレー）",
+    "description": "This rare gray pattern has an unusually complicated pattern.",
+    "type": "Gray Pattern",
+    "rod": "Great Old Rod - Beat the Luxury League"
+  },
+  {
+    "index": 16,
+    "english_name": "Purple Bubbles",
+    "japanese_name": "みずたま（パープル）",
+    "description": "This vivid purple pattern is dappled with lovely spots.",
+    "type": "Purple Pattern",
+    "rod": "Great Old Rod - Beat the Luxury League"
+  },
+  {
+    "index": 17,
+    "english_name": "Purple Diamonds",
+    "japanese_name": "ひしがた（パープル）",
+    "description": "This purple pattern is covered with spots that look like diamonds.",
+    "type": "Purple Pattern",
+    "rod": "Great Old Rod - Beat the Luxury League"
+  },
+  {
+    "index": 18,
+    "english_name": "Purple Patches",
+    "japanese_name": "ジラフ（パープル）",
+    "description": "This captivating pattern has patches of purple on a white field.",
+    "type": "Purple Pattern",
+    "rod": "Great Old Rod - Beat the Luxury League"
+  },
+  {
+    "index": 19,
+    "english_name": "Apricot Tiger",
+    "japanese_name": "とら（オレンジ）",
+    "description": "This wild striped pattern gives an impression of fierce strength.",
+    "type": "Apricot Pattern",
+    "rod": "Rare Old Rod - Beat the Heal League"
+  },
+  {
+    "index": 20,
+    "english_name": "Apricot Zebra",
+    "japanese_name": "ゼブラ（オレンジ）",
+    "description": "This striped pattern has real sense of personality captured in its winding lines.",
+    "type": "Apricot Pattern",
+    "rod": "Rare Old Rod - Beat the Heal League"
+  },
+  {
+    "index": 21,
+    "english_name": "Apricot Stripes",
+    "japanese_name": "たてじま（オレンジ）",
+    "description": "This basic striped pattern is simply striking, no matter how you look at it.",
+    "type": "Apricot Pattern",
+    "rod": "Rare Old Rod - Beat the Heal League"
+  },
+  {
+    "index": 22,
+    "english_name": "Brown Tiger",
+    "japanese_name": "とら（チョコ）",
+    "description": "This unusual striped pattern seems somehow sturdy and reliable.",
+    "type": "Brown Pattern",
+    "rod": "Rare Old Rod - Beat the Heal League"
+  },
+  {
+    "index": 23,
+    "english_name": "Brown Zebra",
+    "japanese_name": "ゼブラ（チョコ）",
+    "description": "This striped specimen seems quite pleased with its winding lines.",
+    "type": "Brown Pattern",
+    "rod": "Rare Old Rod - Beat the Heal League"
+  },
+  {
+    "index": 24,
+    "english_name": "Brown Stripes",
+    "japanese_name": "たてじま（チョコ）",
+    "description": "This brown striped pattern has the alluring sheen of liquid chocolate.",
+    "type": "Brown Pattern",
+    "rod": "Rare Old Rod - Beat the Heal League"
+  },
+  {
+    "index": 25,
+    "english_name": "Orange Forehead",
+    "japanese_name": "でこ（赤）",
+    "description": "This playful-looking pattern is known for the bright orange patch on its head.",
+    "type": "White Pattern",
+    "rod": "Pro's Old Rod - Beat the Ultra League"
+  },
+  {
+    "index": 26,
+    "english_name": "Orange Mask",
+    "japanese_name": "マスク（赤）",
+    "description": "This eye-catching pattern has a splash of coloration only on its face.",
+    "type": "White Pattern",
+    "rod": "Pro's Old Rod - Beat the Ultra League"
+  },
+  {
+    "index": 27,
+    "english_name": "Black Forehead",
+    "japanese_name": "でこ（黒）",
+    "description": "This rather reserved pattern has black only on its forehead.",
+    "type": "Black Pattern",
+    "rod": "Pro's Old Rod - Beat the Ultra League"
+  },
+  {
+    "index": 28,
+    "english_name": "Black Mask",
+    "japanese_name": "マスク（黒）",
+    "description": "This surprising pattern has just one patch of startling black across its face.",
+    "type": "Black Pattern",
+    "rod": "Pro's Old Rod - Beat the Ultra League"
+  },
+  {
+    "index": 29,
+    "english_name": "Saucy Blue",
+    "japanese_name": "みたらし（青）",
+    "description": "The splashy pattern on its back looks as though a bucket was upended onto it.",
+    "type": "Blue Pattern",
+    "rod": "Supreme Old Rod - Beat the Master League"
+  },
+  {
+    "index": 30,
+    "english_name": "Blue Raindrops",
+    "japanese_name": "レイニー（青）",
+    "description": "The drippy patterns decorating its back are exquisite.",
+    "type": "Blue Pattern",
+    "rod": "Supreme Old Rod - Beat the Master League"
+  },
+  {
+    "index": 31,
+    "english_name": "Saucy Violet",
+    "japanese_name": "みたらし（すみれ）",
+    "description": "The violet droplets running down its sides give it a sorrowful air.",
+    "type": "Violet Pattern",
+    "rod": "Supreme Old Rod - Beat the Master League"
+  },
+  {
+    "index": 32,
+    "english_name": "Violet Raindrops",
+    "japanese_name": "レイニー（すみれ）",
+    "description": "The eye-catching pattern on its back is popular with everyone.",
+    "type": "Violet Pattern",
+    "rod": "Supreme Old Rod - Beat the Master League"
+  },
+  {
+    "index": 33,
+    "english_name": "Gold",
+    "japanese_name": "きんぴか",
+    "description": "This rarely found Magikarp glitters like gold from front to tail fin.",
+    "type": "Gold Pattern",
+    "rod": "Old Rod - Available from start"
+  }
+]
