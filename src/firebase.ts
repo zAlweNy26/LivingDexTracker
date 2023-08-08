@@ -35,7 +35,7 @@ initializeAppCheck(firebaseApp, {
 
 const db = getDatabase(firebaseApp)
 
-const writeUserData = async (userId: string, name: string, email: string, imageUrl: string = "") => {
+const writeUserData = async (userId: string, name: string, email: string, imageUrl = "") => {
     const userEntry: UserEntry = {
         username: name,
         email: email,
@@ -50,7 +50,7 @@ const writeUserData = async (userId: string, name: string, email: string, imageU
     return userEntry
 }
 
-const updateUserData = async (userId: string, entry: Partial<UserEntry | DataEntry>, path: string = "") => {
+const updateUserData = async (userId: string, entry: Partial<UserEntry | DataEntry>, path = "") => {
     update(ref(db, `users/${userId}${path}`), entry)
 }
 
@@ -141,5 +141,7 @@ const loginTwitter = async () => {
 export {
     firebaseApp, db, auth, writeUserData, getUserData,
     createAccount, loginAccount, logoutAccount, loginGoogle, loginTwitter,
-    deleteUserData, updateUserData, UserEntry, listenForValue
+    deleteUserData, updateUserData, listenForValue
 }
+
+export type { UserEntry }

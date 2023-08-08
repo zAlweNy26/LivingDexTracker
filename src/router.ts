@@ -1,40 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@views/HomeView.vue'
-import AboutView from '@views/AboutView.vue'
-import TermsView from '@views/TermsView.vue'
-import BoxesView from '@views/BoxesView.vue'
-import FaqView from '@views/FaqView.vue'
-import FeedbackView from '@views/FeedbackView.vue'
-import PokedexView from '@views/PokedexView.vue'
-import GuideView from '@views/GuideView.vue'
-import AuthView from '@views/AuthView.vue'
-import SettingsView from '@views/SettingsView.vue'
-import PrivacyView from '@views/PrivacyView.vue'
-import QuestView from '@views/QuestView.vue'
-import JumpView from '@views/JumpView.vue'
-import AttributionsView from '@views/AttributionsView.vue'
-import NotFoundView from '@views/NotFoundView.vue'
 import { getCurrentUser } from 'vuefire'
-import { RouterView } from 'vue-router'
 
 const router = createRouter({
+  linkActiveClass: "active",
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
       alias: '/home',
       name: 'home',
-      component: HomeView
+      component: import("@views/HomeView.vue"),
     },
     {
       path: '/auth',
       name: 'auth',
-      component: AuthView
+      component: import("@views/AuthView.vue"),
     },
     {
       path: '/settings',
       name: 'settings',
-      component: SettingsView,
+      component: import("@views/SettingsView.vue"),
       meta: {
         requireAuth: true
       }
@@ -42,52 +27,51 @@ const router = createRouter({
     {
       path: '/pokedex',
       name: 'pokedex',
-      component: PokedexView
+      component: import("@views/PokedexView.vue"),
     },
     {
       path: '/faqs',
       name: 'faqs',
-      component: FaqView
+      component: import("@views/FaqView.vue"),
     },
     {
       path: '/feedback',
       name: 'feedback',
-      component: FeedbackView
+      component: import("@views/FeedbackView.vue"),
     },
     {
       path: '/guide',
       name: 'guide',
-      component: GuideView
+      component: import("@views/GuideView.vue"),
     },
     {
       path: '/boxes',
       name: 'boxes',
-      component: BoxesView
+      component: import("@views/BoxesView.vue"),
     },
     {
       path: '/contact',
       name: 'contact',
-      component: AboutView
+      component: import("@views/AboutView.vue"),
     },
     {
       path: '/terms',
       name: 'terms',
-      component: TermsView
+      component: import("@views/TermsView.vue"),
     },
     {
       path: '/policy',
       name: 'policy',
-      component: PrivacyView
+      component: import("@views/PrivacyView.vue"),
     },
     {
       path: '/attributions',
       name: 'attributions',
-      component: AttributionsView
+      component: import("@views/AttributionsView.vue"),
     },
     {
       path: '/games',
       name: 'games',
-      component: RouterView,
       redirect: {
         path: '/'
       },
@@ -95,19 +79,19 @@ const router = createRouter({
         {
           path: 'pokemon_quest',
           name: 'pokemon_quest',
-          component: QuestView
+          component: import("@views/QuestView.vue")
         },
         {
           path: 'magikarp_jump',
           name: 'magikarp_jump',
-          component: JumpView
+          component: import("@views/JumpView.vue")
         },
       ]
     },
     {
       path: '/:pathMatch(.*)*',
       name: 'error',
-      component: NotFoundView,
+      component: import("@views/NotFoundView.vue"),
     }
   ]
 })

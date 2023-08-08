@@ -78,7 +78,10 @@ type MagikarpJump = {
 }
 
 export {
-    Game, GenTitle, Region, Pokemon, OrderOptions, Order, Position, Variant, Transform, Special,
-    FormsPosition, VariantsOptions, TransformsOptions, SpecialsOptions, PokemonQuest,
-    QuestSpriteType, QuestSpriteTypes, MagikarpJump
+    Game, GenTitle, Region, OrderOptions, FormsPosition, VariantsOptions, TransformsOptions, SpecialsOptions, QuestSpriteTypes
+}
+
+export type {
+    Pokemon, Order, Position, Variant, Transform, Special, PokemonQuest,
+    QuestSpriteType, MagikarpJump
 }

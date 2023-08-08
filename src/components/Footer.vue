@@ -20,17 +20,17 @@
 			</svg>
 		</div>
 	</div>
-	<footer class="p-4 text-base-100 footer footer-center bg-gradient-r-amber-orange dark:bg-gradient-r-ube-purple gap-y-4">
+	<footer class="footer footer-center gap-y-4 p-4 text-base-100 bg-gradient-r-amber-orange dark:bg-gradient-r-ube-purple">
 		<div class="grid grid-flow-col gap-4">
-			<a class="link link-hover" href="/policy">Privacy Policy</a>
-			<a class="link link-hover" href="/terms">Terms & Conditions</a>
-			<a class="link link-hover" href="/attributions">Attributions</a>
-			<a class="link link-hover" href="/contact">Contact Us</a>
+			<a class="link-hover link" href="/policy">Privacy Policy</a>
+			<a class="link-hover link" href="/terms">Terms & Conditions</a>
+			<a class="link-hover link" href="/attributions">Attributions</a>
+			<a class="link-hover link" href="/contact">Contact Us</a>
 		</div>
 		<div>
 			<div class="grid grid-flow-col gap-4">
 				<a href="https://github.com/zAlweNy26/LivingDexTracker" aria-label="GitHub Link">
-					<Icon icon="bxl:github" class="w-8 h-8" />
+					<Icon icon="bxl:github" class="h-8 w-8" />
 				</a>
 			</div>
 		</div>
@@ -45,7 +45,7 @@
 import { Icon } from '@iconify/vue'
 </script>
 
-<style>
+<style scoped>
 	#stop0 {
 		stop-color: #B00832;
 		stop-opacity: 1;

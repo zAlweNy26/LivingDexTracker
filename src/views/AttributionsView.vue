@@ -83,16 +83,20 @@ const packages: Package[] = [
 </script>
 
 <template>
-	<div class="flex flex-col items-center justify-center gap-8 grow">
+	<div class="flex grow flex-col items-center justify-center gap-8">
 		<div class="flex flex-col items-center justify-center">
-			<h2 class="mb-4 text-4xl font-bold text-center text-primary">Attributions</h2>
-			<p class="text-center">This website was developed thanks to this projects!</p>
+			<h2 class="mb-4 text-center text-4xl font-bold text-primary">
+				Attributions
+			</h2>
+			<p class="text-center">
+				This website was developed thanks to this projects!
+			</p>
 		</div>
 		<div class="flex flex-wrap items-center justify-center gap-8">
 			<a v-for="pack in packages" :key="pack.name"
-				class="gap-4 py-2 normal-case bg-transparent border-2 btn btn-ghost text-neutral h-fit md:text-lg"
+				class="btn btn-ghost h-fit gap-4 border-2 bg-transparent py-2 normal-case text-neutral md:text-lg"
 				:href="pack.url" :style="`border-color: ${pack.color}`">
-				<img :alt="pack.name" class="w-6 h-6 rounded-sm" :src="pack.icon" />
+				<img :alt="pack.name" class="h-6 w-6 rounded-sm" :src="pack.icon">
 				{{ pack.name }}
 			</a>
 		</div>

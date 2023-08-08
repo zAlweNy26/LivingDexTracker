@@ -1,6 +1,6 @@
-/// <reference types="vite/client" />
+import { ImportMeta, ImportMetaEnv } from 'vite/types/importMeta'
 
-interface ImportMetaEnv {
+interface ImportMetaEnvCustom extends Readonly<Record<string, string>> {
     readonly PUBLIC_FIREBASE_API_KEY: string
     readonly PUBLIC_AUTH_DOMAIN: string
     readonly PUBLIC_DB_URL: string
@@ -11,6 +11,6 @@ interface ImportMetaEnv {
     readonly PUBLIC_CAPTCHA_KEY: string
 }
 
-interface ImportMeta {
-    readonly env: ImportMetaEnv
+interface ImportMeta extends ImportMeta {
+    readonly env: ImportMetaEnvCustom & ImportMetaEnv
 }

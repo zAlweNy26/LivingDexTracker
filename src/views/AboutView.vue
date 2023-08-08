@@ -50,20 +50,28 @@ const devTeam: Member[] = [
 </script>
 
 <template>
-	<div class="flex flex-col w-full gap-8 grow">
+	<div class="flex w-full grow flex-col gap-8">
 		<div class="flex flex-col text-center">
-			<h1 class="mb-4 text-4xl font-bold text-center text-primary">Development team</h1>
-			<p class="w-2/3 mx-auto leading-relaxed">Those behind this work, rest assured, have put their heart and soul into completing it and making it available to all.</p>
+			<h1 class="mb-4 text-center text-4xl font-bold text-primary">
+				Development team
+			</h1>
+			<p class="mx-auto w-2/3 leading-relaxed">
+				Those behind this work, rest assured, have put their heart and soul into completing it and making it available to all.
+			</p>
 		</div>
-		<div class="flex flex-wrap gap-4 justify-evenly">
-			<div v-for="dev in devTeam" class="flex flex-col items-center h-full text-center">
-				<img :src="dev.avatar" class="w-32 h-32 mb-4 shrink-0 rounded-2xl" :alt="dev.name" />
+		<div class="flex flex-wrap justify-evenly gap-4">
+			<div v-for="dev in devTeam" :key="dev.name" class="flex h-full flex-col items-center text-center">
+				<img :src="dev.avatar" class="mb-4 h-32 w-32 shrink-0 rounded-2xl" :alt="dev.name">
 				<div class="w-full">
-					<h2 class="text-lg font-semibold">{{ dev.name }}</h2>
-					<h3 class="mb-3 text-sm whitespace-pre-wrap">{{ dev.description }}</h3>
+					<h2 class="text-lg font-semibold">
+						{{ dev.name }}
+					</h2>
+					<h3 class="mb-3 whitespace-pre-wrap text-sm">
+						{{ dev.description }}
+					</h3>
 					<span class="inline-flex gap-2">
-						<a v-for="link in dev.links" :href="link.url">
-							<Icon class="w-6 h-6" :icon="link.icon" />
+						<a v-for="(link, index) in dev.links" :key="index" :href="link.url">
+							<Icon class="h-6 w-6" :icon="link.icon" />
 						</a>
 					</span>
 				</div>
