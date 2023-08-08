@@ -1,4 +1,4 @@
-import { ImportMeta, ImportMetaEnv } from 'vite/types/importMeta'
+import type { ImportMeta, ImportMetaEnv } from 'vite/types/importMeta'
 
 interface ImportMetaEnvCustom extends Readonly<Record<string, string>> {
     readonly PUBLIC_FIREBASE_API_KEY: string

@@ -24,7 +24,7 @@ import { Icon } from '@iconify/vue'
 			</svg>
 		</div>
 	</div>
-	<div class="footer footer-center gap-y-4 p-4 text-base-100 bg-gradient-r-amber-orange dark:bg-gradient-r-ube-purple">
+	<div class="footer footer-center gap-y-4 p-4 text-base-200 bg-gradient-r-amber-orange dark:bg-gradient-r-ube-purple">
 		<div class="grid grid-flow-col gap-4">
 			<a class="link-hover link" href="/policy">Privacy Policy</a>
 			<a class="link-hover link" href="/terms">Terms & Conditions</a>

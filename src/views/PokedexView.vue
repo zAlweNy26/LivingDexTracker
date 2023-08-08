@@ -108,9 +108,9 @@ const searchFilter = computed(() => {
 				</Transition>
 			</Disclosure>
 		</div>
-		<button class="btn btn-circle btn-secondary sticky bottom-6 z-50 self-end" aria-label="Go at the top"
+		<button class="btn btn-circle btn-secondary btn-sm sticky bottom-6 z-50 self-end" aria-label="Go at the top"
 			@click="scrollToTop">
-			<Icon class="h-6 w-6" icon="ph:arrow-up-bold" />
+			<Icon class="h-5 w-5" icon="ph:arrow-up-bold" />
 		</button>
 	</div>
 </template>

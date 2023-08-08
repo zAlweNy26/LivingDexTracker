@@ -27,7 +27,6 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": false,
-    "noEmit": true,
     "allowJs": true,
     "removeComments": true,
     "importHelpers": true,
@@ -35,7 +34,7 @@
     "esModuleInterop": true,
     "strict": true,
     "allowSyntheticDefaultImports": true,
-    "composite": false,
+    "composite": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
