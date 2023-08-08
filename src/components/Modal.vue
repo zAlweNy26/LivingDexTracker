@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { TransitionRoot, TransitionChild, Dialog, DialogPanel } from '@headlessui/vue'
-import { ref } from 'vue'
-
 const isOpen = ref(false)
 
 const openModal = () => isOpen.value = true

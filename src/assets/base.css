@@ -20,6 +20,13 @@ body {
 @tailwind components;
 @tailwind utilities;
 
+.animate__animated.animate__fastest {
+  -webkit-animation-duration: calc(1s / 4);
+  animation-duration: calc(1s / 4);
+  -webkit-animation-duration: calc(var(--animate-duration) / 4);
+  animation-duration: calc(var(--animate-duration) / 4);
+}
+
 @layer base {
   html {
     font-family: "Poppins", system-ui, sans-serif;

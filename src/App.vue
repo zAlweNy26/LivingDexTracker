@@ -1,21 +1,23 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
-import Header from '@components/Header.vue'
-import Footer from '@components/Footer.vue'
 </script>
 
 <template>
-	<div class="flex min-h-screen flex-col scroll-smooth bg-base-100 transition-colors selection:bg-secondary-focus">
+	<div class="flex min-h-screen flex-col scroll-smooth text-sm text-neutral transition-colors selection:bg-primary md:text-base">
 		<Header />
 		<main class="flex grow flex-col items-center p-4 text-neutral">
 			<RouterView v-slot="{ Component }">
 				<template v-if="Component">
-					<Transition mode="out-in">
+					<Transition mode="out-in"
+						enterActiveClass="animate__animated animate__fadeIn animate__fastest"
+						leaveActiveClass="animate__animated animate__fadeOut animate__fastest">
 						<KeepAlive>
 							<Suspense>
 								<component :is="Component" />
 								<template #fallback>
-									Loading...
+									<div class="flex flex-col items-center justify-center gap-2">
+										<span class="loading loading-spinner loading-lg text-primary" />
+										<span class="text-lg font-medium text-neutral">Loading...</span>
+									</div>
 								</template>
 							</Suspense>
 						</KeepAlive>

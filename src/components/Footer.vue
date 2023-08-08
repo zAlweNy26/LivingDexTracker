@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import { Icon } from '@iconify/vue'
+</script>
+
 <template>
 	<div class="relative mt-24">
 		<div class="wave-shape">
@@ -20,7 +24,7 @@
 			</svg>
 		</div>
 	</div>
-	<footer class="footer footer-center gap-y-4 p-4 text-base-100 bg-gradient-r-amber-orange dark:bg-gradient-r-ube-purple">
+	<div class="footer footer-center gap-y-4 p-4 text-base-100 bg-gradient-r-amber-orange dark:bg-gradient-r-ube-purple">
 		<div class="grid grid-flow-col gap-4">
 			<a class="link-hover link" href="/policy">Privacy Policy</a>
 			<a class="link-hover link" href="/terms">Terms & Conditions</a>
@@ -38,12 +42,8 @@
 			<p>Copyright © 2023-2024 <strong>LivingDex Tracker</strong>, All rights reserved.</p>
 			<p>Pokémon images, names, forms, and other relevant information are the property of <strong>The Pokémon Company</strong></p>
 		</div>
-	</footer>
+	</div>
 </template>
-
-<script setup lang="ts">
-import { Icon } from '@iconify/vue'
-</script>
 
 <style scoped>
 	#stop0 {

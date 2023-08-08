@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import { Icon } from '@iconify/vue'
+import { logoutAccount } from '@/firebase'
+import { useUserStore } from '@stores/userStore'
+
+const { userInfo } = storeToRefs(useUserStore())
+
+const logOut = async () => {
+	userInfo.value = undefined
+	await logoutAccount()
+}
+</script>
+
 <template>
 	<div class="navbar sticky top-0 z-50 min-h-fit bg-base-200">
 		<div class="navbar-start">
@@ -190,19 +203,3 @@
 		</div>
 	</div>
 </template>
-
-<script setup lang="ts">
-import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
-import { Icon } from '@iconify/vue'
-import ThemeButton from '@components/ThemeButton.vue'
-import { logoutAccount } from '@/firebase'
-import { storeToRefs } from 'pinia'
-import { useUserStore } from '@stores/userStore'
-
-const { userInfo } = storeToRefs(useUserStore())
-
-const logOut = async () => {
-	userInfo.value = undefined
-	await logoutAccount()
-}
-</script>

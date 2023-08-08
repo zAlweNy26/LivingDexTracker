@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
-import { ref, computed } from 'vue'
-import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from '@headlessui/vue'
-import { QuestSpriteTypes } from '@/utility'
-import type { PokemonQuest, QuestSpriteType } from '@/utility'
+import { QuestSpriteTypes, type PokemonQuest, type QuestSpriteType } from '@/utility'
 
 const pokJson: PokemonQuest[] = await fetch('/pokemon_quest.json').then(d => d.json())
 

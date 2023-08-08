@@ -2,7 +2,7 @@
 
 ## 📝 Description
 
-!
+With Pokedex Tracker, you can easily keep track of every Pokemon you've caught, from the original 151 to the latest additions. We also allow you to track regional forms and gender differences, so you can be sure you've caught every variant of your favorite Pokemon.
 
 ## 🚀 Used tools
 
@@ -25,12 +25,13 @@
 
 ## ✨ Functionalities
 
-- Idk
+- Account to save progress
+- Updated to latest generation
+- Other games (Pokémon Quest, Magikarp Jump)
 
 ## To-do list
 
-- [] Create logo
-- [] Finish homepage
+- Finish missing pages
 
 | Comando                | Azione                                             |
 | :--------------------- | :------------------------------------------------- |

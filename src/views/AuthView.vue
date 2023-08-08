@@ -1,10 +1,7 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 import { loginAccount, loginGoogle, createAccount, loginTwitter, writeUserData, getUserData } from '@/firebase'
-import { useRouter } from 'vue-router'
-import { ref } from 'vue'
 import { OAuthCredential, type User } from 'firebase/auth'
-import { storeToRefs } from 'pinia'
 import { useUserStore } from '@stores/userStore'
 
 const { userInfo, userData } = storeToRefs(useUserStore())

@@ -8,6 +8,7 @@ import { firebaseApp } from './firebase'
 import type { Router } from 'vue-router'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import '@assets/base.css'
+import 'animate.css'
 
 declare module 'pinia' {
     export interface PiniaCustomProperties {

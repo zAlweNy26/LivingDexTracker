@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 import Modal from '@components/Modal.vue'
-import { ref } from 'vue'
 import type { MagikarpJump } from '@/utility'
 
 const pokJson: MagikarpJump[] = await fetch('/magikarp_jump.json').then(d => d.json())

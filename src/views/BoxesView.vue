@@ -1,18 +1,13 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
-import { ref, computed, onDeactivated, watch, onActivated } from 'vue'
 import Modal from '@components/Modal.vue'
 import { updateUserData } from '@/firebase'
 import {
-	Listbox, ListboxButton, ListboxOptions, ListboxOption,
-	Disclosure, DisclosureButton, DisclosurePanel
-} from '@headlessui/vue'
-import {
 	Region, Game, OrderOptions, FormsPosition,
-	VariantsOptions, TransformsOptions, SpecialsOptions
+	VariantsOptions, TransformsOptions, SpecialsOptions,
+	type Pokemon, type Order, type Position, type Variant,
+	type Transform, type Special
 } from '@/utility'
-import type { Pokemon, Order, Position, Variant, Transform, Special } from '@/utility'
-import { storeToRefs } from 'pinia'
 import { useUserStore } from '@stores/userStore'
 
 const { userInfo, userData } = storeToRefs(useUserStore())

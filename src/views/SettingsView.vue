@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 import { deleteUserData, updateUserData } from '@/firebase'
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { storeToRefs } from 'pinia'
 import { useUserStore } from '@stores/userStore'
 
 const { userInfo } = storeToRefs(useUserStore())

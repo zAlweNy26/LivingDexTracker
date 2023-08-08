@@ -5,6 +5,8 @@
     "src/**/*.vue",
     "src/**/*.json",
     ".eslintrc.json",
+    "components.d.ts",
+    "auto-imports.d.ts",
     "unit/**/*.test.ts",
     "e2e/**/*.spec.ts", 
     "globals.d.ts",
