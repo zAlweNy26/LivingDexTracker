@@ -2,7 +2,9 @@
 import { Icon } from '@iconify/vue'
 import { GenTitle, type Pokemon } from '@helpers/utility'
 
-const pokJson: Pokemon[] = await fetch('/pokemon_original.json').then(d => d.json())
+let pokJson: Pokemon[] = await fetch('/pokemon_original.json').then(d => d.json())
+
+pokJson = pokJson.sort((p1, p2) => p1.ndex.localeCompare(p2.ndex) || p1.form_index.localeCompare(p2.form_index))
 
 const isAllCollapsed = ref(false), showOnlyIcons = ref(false)
 const totGens = Math.max(...pokJson.map(p => p.gen))
@@ -59,7 +61,7 @@ const searchFilter = computed(() => {
 				</p>
 				<div class="flex max-w-fit grow select-none flex-wrap justify-items-center rounded-xl bg-base-200 sm:p-2">
 					<template v-if="searchFilter.length">
-						<div v-for="pok in searchFilter" :key="pok.index"
+						<div v-for="(pok, index) in searchFilter" :key="index"
 							class="flex h-auto w-20 cursor-pointer flex-col items-center justify-center sm:h-auto sm:w-24">
 							<img loading="lazy" class="mb-1 h-12 w-12 transition-all sm:h-16 sm:w-16"
 								:src="`/sprites/gen9/${parseInt(pok.ndex)}.png`">
@@ -67,7 +69,7 @@ const searchFilter = computed(() => {
 							<span class="text-center text-3xs font-medium sm:text-xs">{{ pok.name }}</span>
 						</div>
 					</template>
-					<p v-else class="font-medium">
+					<p v-else class="p-2 font-medium">
 						No Pokémons found!
 					</p>
 				</div>
@@ -96,13 +98,12 @@ const searchFilter = computed(() => {
 					leave-to-class="transform scale-95 opacity-0">
 					<DisclosurePanel as="div"
 						class="flex select-none flex-wrap items-center justify-center gap-y-4 text-2xs sm:p-2 sm:text-xs">
-						<div v-for="pok in gen" :key="pok.index"
+						<div v-for="(pok, index) in gen" :key="index"
 							class="flex h-auto w-20 cursor-pointer flex-col items-center justify-center sm:w-24">
 							<img loading="lazy" class="mb-1 h-12 w-12 transition-all sm:h-16 sm:w-16"
 								:src="`/sprites/gen9/${parseInt(pok.ndex)}.png`">
 							<span v-show="!showOnlyIcons" class="font-bold">#{{ pok.ndex }}</span>
-							<span v-show="!showOnlyIcons" class="whitespace-pre-wrap text-center font-medium">{{ pok.name
-							}}</span>
+							<span v-show="!showOnlyIcons" class="whitespace-pre-wrap text-center font-medium">{{ pok.name }}</span>
 						</div>
 					</DisclosurePanel>
 				</Transition>

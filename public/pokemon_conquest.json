@@ -1,0 +1,1002 @@
+[
+    {
+        "rgal": "001",
+        "ndex": "0133",
+        "name": "Eevee"
+    },
+    {
+        "rgal": "002",
+        "ndex": "0134",
+        "name": "Vaporeon"
+    },
+    {
+        "rgal": "003",
+        "ndex": "0135",
+        "name": "Jolteon"
+    },
+    {
+        "rgal": "004",
+        "ndex": "0136",
+        "name": "Flareon"
+    },
+    {
+        "rgal": "005",
+        "ndex": "0196",
+        "name": "Espeon"
+    },
+    {
+        "rgal": "006",
+        "ndex": "0197",
+        "name": "Umbreon"
+    },
+    {
+        "rgal": "007",
+        "ndex": "0470",
+        "name": "Leafeon"
+    },
+    {
+        "rgal": "008",
+        "ndex": "0471",
+        "name": "Glaceon"
+    },
+    {
+        "rgal": "009",
+        "ndex": "0280",
+        "name": "Ralts"
+    },
+    {
+        "rgal": "010",
+        "ndex": "0281",
+        "name": "Kirlia"
+    },
+    {
+        "rgal": "011",
+        "ndex": "0282",
+        "name": "Gardevoir"
+    },
+    {
+        "rgal": "012",
+        "ndex": "0475",
+        "name": "Gallade"
+    },
+    {
+        "rgal": "013",
+        "ndex": "0129",
+        "name": "Magikarp"
+    },
+    {
+        "rgal": "014",
+        "ndex": "0130",
+        "name": "Gyarados"
+    },
+    {
+        "rgal": "015",
+        "ndex": "0172",
+        "name": "Pichu"
+    },
+    {
+        "rgal": "016",
+        "ndex": "0025",
+        "name": "Pikachu"
+    },
+    {
+        "rgal": "017",
+        "ndex": "0026",
+        "name": "Raichu"
+    },
+    {
+        "rgal": "018",
+        "ndex": "0194",
+        "name": "Wooper"
+    },
+    {
+        "rgal": "019",
+        "ndex": "0195",
+        "name": "Quagsire"
+    },
+    {
+        "rgal": "020",
+        "ndex": "0174",
+        "name": "Igglybuff"
+    },
+    {
+        "rgal": "021",
+        "ndex": "0039",
+        "name": "Jigglypuff"
+    },
+    {
+        "rgal": "022",
+        "ndex": "0040",
+        "name": "Wigglytuff"
+    },
+    {
+        "rgal": "023",
+        "ndex": "0041",
+        "name": "Zubat"
+    },
+    {
+        "rgal": "024",
+        "ndex": "0042",
+        "name": "Golbat"
+    },
+    {
+        "rgal": "025",
+        "ndex": "0169",
+        "name": "Crobat"
+    },
+    {
+        "rgal": "026",
+        "ndex": "0396",
+        "name": "Starly"
+    },
+    {
+        "rgal": "027",
+        "ndex": "0397",
+        "name": "Staravia"
+    },
+    {
+        "rgal": "028",
+        "ndex": "0398",
+        "name": "Staraptor"
+    },
+    {
+        "rgal": "029",
+        "ndex": "0399",
+        "name": "Bidoof"
+    },
+    {
+        "rgal": "030",
+        "ndex": "0400",
+        "name": "Bibarel"
+    },
+    {
+        "rgal": "031",
+        "ndex": "0543",
+        "name": "Venipede"
+    },
+    {
+        "rgal": "032",
+        "ndex": "0544",
+        "name": "Whirlipede"
+    },
+    {
+        "rgal": "033",
+        "ndex": "0545",
+        "name": "Scolipede"
+    },
+    {
+        "rgal": "034",
+        "ndex": "0403",
+        "name": "Shinx"
+    },
+    {
+        "rgal": "035",
+        "ndex": "0404",
+        "name": "Luxio"
+    },
+    {
+        "rgal": "036",
+        "ndex": "0405",
+        "name": "Luxray"
+    },
+    {
+        "rgal": "037",
+        "ndex": "0607",
+        "name": "Litwick"
+    },
+    {
+        "rgal": "038",
+        "ndex": "0608",
+        "name": "Lampent"
+    },
+    {
+        "rgal": "039",
+        "ndex": "0609",
+        "name": "Chandelure"
+    },
+    {
+        "rgal": "040",
+        "ndex": "0524",
+        "name": "Roggenrola"
+    },
+    {
+        "rgal": "041",
+        "ndex": "0525",
+        "name": "Boldore"
+    },
+    {
+        "rgal": "042",
+        "ndex": "0526",
+        "name": "Gigalith"
+    },
+    {
+        "rgal": "043",
+        "ndex": "0548",
+        "name": "Petilil"
+    },
+    {
+        "rgal": "044",
+        "ndex": "0549",
+        "name": "Lilligant"
+    },
+    {
+        "rgal": "045",
+        "ndex": "0179",
+        "name": "Mareep"
+    },
+    {
+        "rgal": "046",
+        "ndex": "0180",
+        "name": "Flaaffy"
+    },
+    {
+        "rgal": "047",
+        "ndex": "0181",
+        "name": "Ampharos"
+    },
+    {
+        "rgal": "048",
+        "ndex": "0546",
+        "name": "Cottonee"
+    },
+    {
+        "rgal": "049",
+        "ndex": "0547",
+        "name": "Whimsicott"
+    },
+    {
+        "rgal": "050",
+        "ndex": "0447",
+        "name": "Riolu"
+    },
+    {
+        "rgal": "051",
+        "ndex": "0448",
+        "name": "Lucario"
+    },
+    {
+        "rgal": "052",
+        "ndex": "0433",
+        "name": "Chingling"
+    },
+    {
+        "rgal": "053",
+        "ndex": "0358",
+        "name": "Chimecho"
+    },
+    {
+        "rgal": "054",
+        "ndex": "0023",
+        "name": "Ekans"
+    },
+    {
+        "rgal": "055",
+        "ndex": "0024",
+        "name": "Arbok"
+    },
+    {
+        "rgal": "056",
+        "ndex": "0204",
+        "name": "Pineco"
+    },
+    {
+        "rgal": "057",
+        "ndex": "0205",
+        "name": "Forretress"
+    },
+    {
+        "rgal": "058",
+        "ndex": "0052",
+        "name": "Meowth"
+    },
+    {
+        "rgal": "059",
+        "ndex": "0053",
+        "name": "Persian"
+    },
+    {
+        "rgal": "060",
+        "ndex": "0363",
+        "name": "Spheal"
+    },
+    {
+        "rgal": "061",
+        "ndex": "0364",
+        "name": "Sealeo"
+    },
+    {
+        "rgal": "062",
+        "ndex": "0365",
+        "name": "Walrein"
+    },
+    {
+        "rgal": "063",
+        "ndex": "0574",
+        "name": "Gothita"
+    },
+    {
+        "rgal": "064",
+        "ndex": "0575",
+        "name": "Gothorita"
+    },
+    {
+        "rgal": "065",
+        "ndex": "0576",
+        "name": "Gothitelle"
+    },
+    {
+        "rgal": "066",
+        "ndex": "0551",
+        "name": "Sandile"
+    },
+    {
+        "rgal": "067",
+        "ndex": "0552",
+        "name": "Krokorok"
+    },
+    {
+        "rgal": "068",
+        "ndex": "0553",
+        "name": "Krookodile"
+    },
+    {
+        "rgal": "069",
+        "ndex": "0355",
+        "name": "Duskull"
+    },
+    {
+        "rgal": "070",
+        "ndex": "0356",
+        "name": "Dusclops"
+    },
+    {
+        "rgal": "071",
+        "ndex": "0477",
+        "name": "Dusknoir"
+    },
+    {
+        "rgal": "072",
+        "ndex": "0517",
+        "name": "Munna"
+    },
+    {
+        "rgal": "073",
+        "ndex": "0518",
+        "name": "Musharna"
+    },
+    {
+        "rgal": "074",
+        "ndex": "0522",
+        "name": "Blitzle"
+    },
+    {
+        "rgal": "075",
+        "ndex": "0523",
+        "name": "Zebstrika"
+    },
+    {
+        "rgal": "076",
+        "ndex": "0147",
+        "name": "Dratini"
+    },
+    {
+        "rgal": "077",
+        "ndex": "0148",
+        "name": "Dragonair"
+    },
+    {
+        "rgal": "078",
+        "ndex": "0149",
+        "name": "Dragonite"
+    },
+    {
+        "rgal": "079",
+        "ndex": "0246",
+        "name": "Larvitar"
+    },
+    {
+        "rgal": "080",
+        "ndex": "0247",
+        "name": "Pupitar"
+    },
+    {
+        "rgal": "081",
+        "ndex": "0248",
+        "name": "Tyranitar"
+    },
+    {
+        "rgal": "082",
+        "ndex": "0374",
+        "name": "Beldum"
+    },
+    {
+        "rgal": "083",
+        "ndex": "0375",
+        "name": "Metang"
+    },
+    {
+        "rgal": "084",
+        "ndex": "0376",
+        "name": "Metagross"
+    },
+    {
+        "rgal": "085",
+        "ndex": "0443",
+        "name": "Gible"
+    },
+    {
+        "rgal": "086",
+        "ndex": "0444",
+        "name": "Gabite"
+    },
+    {
+        "rgal": "087",
+        "ndex": "0445",
+        "name": "Garchomp"
+    },
+    {
+        "rgal": "088",
+        "ndex": "0453",
+        "name": "Croagunk"
+    },
+    {
+        "rgal": "089",
+        "ndex": "0454",
+        "name": "Toxicroak"
+    },
+    {
+        "rgal": "090",
+        "ndex": "0633",
+        "name": "Deino"
+    },
+    {
+        "rgal": "091",
+        "ndex": "0634",
+        "name": "Zweilous"
+    },
+    {
+        "rgal": "092",
+        "ndex": "0635",
+        "name": "Hydreigon"
+    },
+    {
+        "rgal": "093",
+        "ndex": "0361",
+        "name": "Snorunt"
+    },
+    {
+        "rgal": "094",
+        "ndex": "0362",
+        "name": "Glalie"
+    },
+    {
+        "rgal": "095",
+        "ndex": "0478",
+        "name": "Froslass"
+    },
+    {
+        "rgal": "096",
+        "ndex": "0572",
+        "name": "Minccino"
+    },
+    {
+        "rgal": "097",
+        "ndex": "0573",
+        "name": "Cinccino"
+    },
+    {
+        "rgal": "098",
+        "ndex": "0066",
+        "name": "Machop"
+    },
+    {
+        "rgal": "099",
+        "ndex": "0067",
+        "name": "Machoke"
+    },
+    {
+        "rgal": "100",
+        "ndex": "0068",
+        "name": "Machamp"
+    },
+    {
+        "rgal": "101",
+        "ndex": "0532",
+        "name": "Timburr"
+    },
+    {
+        "rgal": "102",
+        "ndex": "0533",
+        "name": "Gurdurr"
+    },
+    {
+        "rgal": "103",
+        "ndex": "0534",
+        "name": "Conkeldurr"
+    },
+    {
+        "rgal": "104",
+        "ndex": "0613",
+        "name": "Cubchoo"
+    },
+    {
+        "rgal": "105",
+        "ndex": "0614",
+        "name": "Beartic"
+    },
+    {
+        "rgal": "106",
+        "ndex": "0501",
+        "name": "Oshawott"
+    },
+    {
+        "rgal": "107",
+        "ndex": "0502",
+        "name": "Dewott"
+    },
+    {
+        "rgal": "108",
+        "ndex": "0503",
+        "name": "Samurott"
+    },
+    {
+        "rgal": "109",
+        "ndex": "0004",
+        "name": "Charmander"
+    },
+    {
+        "rgal": "110",
+        "ndex": "0005",
+        "name": "Charmeleon"
+    },
+    {
+        "rgal": "111",
+        "ndex": "0006",
+        "name": "Charizard"
+    },
+    {
+        "rgal": "112",
+        "ndex": "0092",
+        "name": "Gastly"
+    },
+    {
+        "rgal": "113",
+        "ndex": "0093",
+        "name": "Haunter"
+    },
+    {
+        "rgal": "114",
+        "ndex": "0094",
+        "name": "Gengar"
+    },
+    {
+        "rgal": "115",
+        "ndex": "0390",
+        "name": "Chimchar"
+    },
+    {
+        "rgal": "116",
+        "ndex": "0391",
+        "name": "Monferno"
+    },
+    {
+        "rgal": "117",
+        "ndex": "0392",
+        "name": "Infernape"
+    },
+    {
+        "rgal": "118",
+        "ndex": "0495",
+        "name": "Snivy"
+    },
+    {
+        "rgal": "119",
+        "ndex": "0496",
+        "name": "Servine"
+    },
+    {
+        "rgal": "120",
+        "ndex": "0497",
+        "name": "Serperior"
+    },
+    {
+        "rgal": "121",
+        "ndex": "0498",
+        "name": "Tepig"
+    },
+    {
+        "rgal": "122",
+        "ndex": "0499",
+        "name": "Pignite"
+    },
+    {
+        "rgal": "123",
+        "ndex": "0500",
+        "name": "Emboar"
+    },
+    {
+        "rgal": "124",
+        "ndex": "0540",
+        "name": "Sewaddle"
+    },
+    {
+        "rgal": "125",
+        "ndex": "0541",
+        "name": "Swadloon"
+    },
+    {
+        "rgal": "126",
+        "ndex": "0542",
+        "name": "Leavanny"
+    },
+    {
+        "rgal": "127",
+        "ndex": "0063",
+        "name": "Abra"
+    },
+    {
+        "rgal": "128",
+        "ndex": "0064",
+        "name": "Kadabra"
+    },
+    {
+        "rgal": "129",
+        "ndex": "0065",
+        "name": "Alakazam"
+    },
+    {
+        "rgal": "130",
+        "ndex": "0252",
+        "name": "Treecko"
+    },
+    {
+        "rgal": "131",
+        "ndex": "0253",
+        "name": "Grovyle"
+    },
+    {
+        "rgal": "132",
+        "ndex": "0254",
+        "name": "Sceptile"
+    },
+    {
+        "rgal": "133",
+        "ndex": "0393",
+        "name": "Piplup"
+    },
+    {
+        "rgal": "134",
+        "ndex": "0394",
+        "name": "Prinplup"
+    },
+    {
+        "rgal": "135",
+        "ndex": "0395",
+        "name": "Empoleon"
+    },
+    {
+        "rgal": "136",
+        "ndex": "0511",
+        "name": "Pansage"
+    },
+    {
+        "rgal": "137",
+        "ndex": "0512",
+        "name": "Simisage"
+    },
+    {
+        "rgal": "138",
+        "ndex": "0513",
+        "name": "Pansear"
+    },
+    {
+        "rgal": "139",
+        "ndex": "0514",
+        "name": "Simisear"
+    },
+    {
+        "rgal": "140",
+        "ndex": "0515",
+        "name": "Panpour"
+    },
+    {
+        "rgal": "141",
+        "ndex": "0516",
+        "name": "Simipour"
+    },
+    {
+        "rgal": "142",
+        "ndex": "0554",
+        "name": "Darumaka"
+    },
+    {
+        "rgal": "143",
+        "ndex": "0555",
+        "name": "Darmanitan"
+    },
+    {
+        "rgal": "144",
+        "ndex": "0610",
+        "name": "Axew"
+    },
+    {
+        "rgal": "145",
+        "ndex": "0611",
+        "name": "Fraxure"
+    },
+    {
+        "rgal": "146",
+        "ndex": "0612",
+        "name": "Haxorus"
+    },
+    {
+        "rgal": "147",
+        "ndex": "0595",
+        "name": "Joltik"
+    },
+    {
+        "rgal": "148",
+        "ndex": "0596",
+        "name": "Galvantula"
+    },
+    {
+        "rgal": "149",
+        "ndex": "0304",
+        "name": "Aron"
+    },
+    {
+        "rgal": "150",
+        "ndex": "0305",
+        "name": "Lairon"
+    },
+    {
+        "rgal": "151",
+        "ndex": "0306",
+        "name": "Aggron"
+    },
+    {
+        "rgal": "152",
+        "ndex": "0529",
+        "name": "Drilbur"
+    },
+    {
+        "rgal": "153",
+        "ndex": "0530",
+        "name": "Excadrill"
+    },
+    {
+        "rgal": "154",
+        "ndex": "0570",
+        "name": "Zorua"
+    },
+    {
+        "rgal": "155",
+        "ndex": "0571",
+        "name": "Zoroark"
+    },
+    {
+        "rgal": "156",
+        "ndex": "0451",
+        "name": "Skorupi"
+    },
+    {
+        "rgal": "157",
+        "ndex": "0452",
+        "name": "Drapion"
+    },
+    {
+        "rgal": "158",
+        "ndex": "0624",
+        "name": "Pawniard"
+    },
+    {
+        "rgal": "159",
+        "ndex": "0625",
+        "name": "Bisharp"
+    },
+    {
+        "rgal": "160",
+        "ndex": "0111",
+        "name": "Rhyhorn"
+    },
+    {
+        "rgal": "161",
+        "ndex": "0112",
+        "name": "Rhydon"
+    },
+    {
+        "rgal": "162",
+        "ndex": "0464",
+        "name": "Rhyperior"
+    },
+    {
+        "rgal": "163",
+        "ndex": "0410",
+        "name": "Shieldon"
+    },
+    {
+        "rgal": "164",
+        "ndex": "0411",
+        "name": "Bastiodon"
+    },
+    {
+        "rgal": "165",
+        "ndex": "0559",
+        "name": "Scraggy"
+    },
+    {
+        "rgal": "166",
+        "ndex": "0560",
+        "name": "Scrafty"
+    },
+    {
+        "rgal": "167",
+        "ndex": "0425",
+        "name": "Drifloon"
+    },
+    {
+        "rgal": "168",
+        "ndex": "0426",
+        "name": "Drifblim"
+    },
+    {
+        "rgal": "169",
+        "ndex": "0627",
+        "name": "Rufflet"
+    },
+    {
+        "rgal": "170",
+        "ndex": "0628",
+        "name": "Braviary"
+    },
+    {
+        "rgal": "171",
+        "ndex": "0347",
+        "name": "Anorith"
+    },
+    {
+        "rgal": "172",
+        "ndex": "0348",
+        "name": "Armaldo"
+    },
+    {
+        "rgal": "173",
+        "ndex": "0636",
+        "name": "Larvesta"
+    },
+    {
+        "rgal": "174",
+        "ndex": "0637",
+        "name": "Volcarona"
+    },
+    {
+        "rgal": "175",
+        "ndex": "0095",
+        "name": "Onix"
+    },
+    {
+        "rgal": "176",
+        "ndex": "0208",
+        "name": "Steelix"
+    },
+    {
+        "rgal": "177",
+        "ndex": "0015",
+        "name": "Beedrill"
+    },
+    {
+        "rgal": "178",
+        "ndex": "0446",
+        "name": "Munchlax"
+    },
+    {
+        "rgal": "179",
+        "ndex": "0143",
+        "name": "Snorlax"
+    },
+    {
+        "rgal": "180",
+        "ndex": "0587",
+        "name": "Emolga"
+    },
+    {
+        "rgal": "181",
+        "ndex": "0215",
+        "name": "Sneasel"
+    },
+    {
+        "rgal": "182",
+        "ndex": "0461",
+        "name": "Weavile"
+    },
+    {
+        "rgal": "183",
+        "ndex": "0200",
+        "name": "Misdreavus"
+    },
+    {
+        "rgal": "184",
+        "ndex": "0429",
+        "name": "Mismagius"
+    },
+    {
+        "rgal": "185",
+        "ndex": "0531",
+        "name": "Audino"
+    },
+    {
+        "rgal": "186",
+        "ndex": "0455",
+        "name": "Carnivine"
+    },
+    {
+        "rgal": "187",
+        "ndex": "0442",
+        "name": "Spiritomb"
+    },
+    {
+        "rgal": "188",
+        "ndex": "0123",
+        "name": "Scyther"
+    },
+    {
+        "rgal": "189",
+        "ndex": "0212",
+        "name": "Scizor"
+    },
+    {
+        "rgal": "190",
+        "ndex": "0131",
+        "name": "Lapras"
+    },
+    {
+        "rgal": "191",
+        "ndex": "0639",
+        "name": "Terrakion"
+    },
+    {
+        "rgal": "192",
+        "ndex": "0144",
+        "name": "Articuno"
+    },
+    {
+        "rgal": "193",
+        "ndex": "0379",
+        "name": "Registeel"
+    },
+    {
+        "rgal": "194",
+        "ndex": "0383",
+        "name": "Groudon"
+    },
+    {
+        "rgal": "195",
+        "ndex": "0483",
+        "name": "Dialga"
+    },
+    {
+        "rgal": "196",
+        "ndex": "0150",
+        "name": "Mewtwo"
+    },
+    {
+        "rgal": "197",
+        "ndex": "0643",
+        "name": "Reshiram"
+    },
+    {
+        "rgal": "198",
+        "ndex": "0644",
+        "name": "Zekrom"
+    },
+    {
+        "rgal": "199",
+        "ndex": "0493",
+        "name": "Arceus"
+    },
+    {
+        "rgal": "200",
+        "ndex": "0384",
+        "name": "Rayquaza"
+    }
+]

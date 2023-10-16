@@ -15,8 +15,8 @@ magikarpTypes.forEach(t => pokTypes.push(pokJson.filter(p => p.type == t)))
 
 const scrollToTop = () => window.scrollTo({ behavior: 'smooth', left: 0, top: 0 })
 
-const openPokInfo = (ndex: number) => {
-    selectedPok.value = pokJson[ndex - 1]
+const openPokInfo = (index: number) => {
+    selectedPok.value = pokJson[index - 1]
     modalCard.value?.openModal()
 }
 </script>

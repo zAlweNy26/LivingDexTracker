@@ -6,7 +6,7 @@ const pokJson: PokemonQuest[] = await fetch('/pokemon_quest.json').then(d => d.j
 
 const searchItem = ref("")
 const showChineseNames = ref(false), showChineseExclusives = ref(true)
-const selectSpriteType = ref<QuestSpriteType>("Model")
+const selectSpriteType = ref<QuestSpriteType>("Icon")
 
 const scrollToTop = () => window.scrollTo({ behavior: 'smooth', left: 0, top: 0 })
 
@@ -94,9 +94,9 @@ const searchFilter = computed(() => {
 				<p class="text-xl font-bold text-secondary">
 					Search result:
 				</p>
-				<div class="flex max-w-fit grow select-none flex-wrap justify-items-center rounded-xl bg-base-200 sm:p-2">
+				<div class="flex max-w-fit grow flex-wrap justify-items-center rounded-xl bg-base-200 sm:p-2">
 					<template v-if="searchFilter.length">
-						<div v-for="pok in searchFilter" :key="pok.index"
+						<div v-for="(pok, index) in searchFilter" :key="index"
 							class="flex h-auto w-20 cursor-pointer flex-col items-center justify-center sm:h-auto sm:w-24">
 							<img v-if="selectSpriteType == 'Model'" loading="lazy" class="h-12 w-12 transition-all sm:h-16 sm:w-16"
 								:src="`/sprites/pokemon_quest/${parseInt(pok.ndex)}${pok.form_index ?? ''} Quest-2.png`">
@@ -108,19 +108,19 @@ const searchFilter = computed(() => {
 							<span class="text-center text-3xs font-medium sm:text-xs">{{ pok.name }}</span>
 						</div>
 					</template>
-					<p v-else class="font-medium">
+					<p v-else class="p-2 font-medium">
 						No Pokémons found!
 					</p>
 				</div>
 			</div>
 			<div v-else
-				class="flex max-w-fit select-none flex-wrap items-center justify-center gap-2 rounded-xl bg-base-200 p-2 text-2xs sm:p-4 sm:text-xs">
-				<div v-for="pok in resultPok()" :key="pok.index"
+				class="flex max-w-fit flex-wrap items-center justify-center gap-2 rounded-xl bg-base-200 p-2 text-2xs sm:p-4 sm:text-xs">
+				<div v-for="(pok, index) in resultPok()" :key="index"
 					class="flex h-auto w-20 cursor-pointer flex-col items-center justify-center sm:w-24">
-					<img v-if="selectSpriteType == 'Model'" loading="lazy" class="h-12 w-auto transition-all sm:h-16"
-						:src="`/sprites/pokemon_quest/${parseInt(pok.ndex)}${pok.form_index ?? ''} Quest-2.png`">
-					<img v-else-if="selectSpriteType == 'Icon'" loading="lazy" class="h-12 w-auto transition-all sm:h-16"
+					<img v-if="selectSpriteType == 'Icon'" loading="lazy" class="h-12 w-auto transition-all sm:h-16"
 						:src="`/sprites/pokemon_quest/${parseInt(pok.ndex)}${pok.form_index ?? ''} Quest-1.png`">
+					<img v-else-if="selectSpriteType == 'Model'" loading="lazy" class="h-12 w-auto transition-all sm:h-16"
+						:src="`/sprites/pokemon_quest/${parseInt(pok.ndex)}${pok.form_index ?? ''} Quest-2.png`">
 					<img v-else-if="selectSpriteType == 'Shiny Model'" loading="lazy" class="h-12 w-auto transition-all sm:h-16"
 						:src="`/sprites/pokemon_quest/${parseInt(pok.ndex)}${pok.form_index ?? ''} Quest-3.png`">
 					<span class="font-bold">#{{ pok.ndex }}</span>

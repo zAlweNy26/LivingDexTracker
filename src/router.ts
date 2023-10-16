@@ -15,6 +15,7 @@ import QuestView from '@views/QuestView.vue'
 import JumpView from '@views/JumpView.vue'
 import AttributionsView from '@views/AttributionsView.vue'
 import NotFoundView from '@views/NotFoundView.vue'
+import ConquestView from '@views/ConquestView.vue'
 
 const router = createRouter({
   linkActiveClass: "active",
@@ -100,6 +101,11 @@ const router = createRouter({
           path: 'magikarp_jump',
           name: 'magikarp_jump',
           component: JumpView
+        },
+        {
+          path: 'pokemon_conquest',
+          name: 'pokemon_conquest',
+          component: ConquestView
         },
       ]
     },

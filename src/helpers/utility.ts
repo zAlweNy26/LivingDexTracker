@@ -48,7 +48,7 @@ type Pokemon = {
     form_index: string
     subform_index: string
     gender_id: string
-    original: boolean | undefined
+    original: boolean
     gmax_id: string
 }
 
@@ -77,11 +77,17 @@ type MagikarpJump = {
     rod: string
 }
 
+type PokemonConquest = {
+    ndex: string,
+    rgal: string,
+    name: string
+}
+
 export {
     Game, GenTitle, Region, OrderOptions, FormsPosition, VariantsOptions, TransformsOptions, SpecialsOptions, QuestSpriteTypes
 }
 
 export type {
     Pokemon, Order, Position, Variant, Transform, Special, PokemonQuest,
-    QuestSpriteType, MagikarpJump
+    QuestSpriteType, MagikarpJump, PokemonConquest
 }

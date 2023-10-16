@@ -76,6 +76,12 @@ const logOut = async () => {
 											Magikarp Jump
 										</RouterLink>
 									</MenuItem>
+									<MenuItem as="li">
+										<RouterLink to="/games/pokemon_conquest" class="flex items-center justify-center gap-2">
+											<img src="/pokemon_conquest.webp" class="h-5 w-5">
+											Pokémon Conquest
+										</RouterLink>
+									</MenuItem>
 								</MenuItems>
 							</Transition>
 						</Menu>
@@ -141,6 +147,12 @@ const logOut = async () => {
 								<RouterLink to="/games/magikarp_jump" class="flex items-center justify-center gap-2">
 									<img src="/magikarp_jump.webp" class="h-5 w-5">
 									Magikarp Jump
+								</RouterLink>
+							</MenuItem>
+							<MenuItem as="li">
+								<RouterLink to="/games/pokemon_conquest" class="flex items-center justify-center gap-2">
+									<img src="/pokemon_conquest.webp" class="h-5 w-5">
+									Pokémon Conquest
 								</RouterLink>
 							</MenuItem>
 						</MenuItems>

@@ -27,7 +27,7 @@ const selectSpecials = ref<Special[]>([])
 const selectOrder = ref<Order>("National Dex")
 const isAllCollapsed = ref(false)
 
-const allPok = (JSON.parse(JSON.stringify(pokJson)) as typeof pokJson).filter(p => basicFilter(p.name, parseInt(p.form_index)))
+const allPok = reactive(pokJson.filter(p => basicFilter(p.name, parseInt(p.form_index))))
 const boxNames = ref<string[][]>(new Array(Math.ceil(allPok.length / 30)).fill([]))
 const selectedPok = ref<Pokemon>()
 const catchedNormal = ref<number[]>([]), catchedShiny = ref<number[]>([])
@@ -476,7 +476,7 @@ watch(isAllCollapsed, () => {
 								pok.form }}</span>
 						</div>
 					</template>
-					<p v-else class="font-medium">
+					<p v-else class="p-2 font-medium">
 						No Pokémons found!
 					</p>
 				</div>
@@ -518,8 +518,7 @@ watch(isAllCollapsed, () => {
 							<span v-show="!showOnlyIcons" class="text-center text-3xs font-medium sm:text-xs">{{ pok.name
 							}}</span>
 							<span v-if="!showOnlyIcons && showLabel(pok)"
-								class="whitespace-pre-wrap text-center text-3xs font-medium text-neutral-focus">{{ pok.form
-								}}</span>
+								class="whitespace-pre-wrap text-center text-3xs font-medium text-neutral-focus">{{ pok.form }}</span>
 						</div>
 					</DisclosurePanel>
 				</Transition>
