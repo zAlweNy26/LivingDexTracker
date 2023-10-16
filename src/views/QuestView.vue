@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
-import { QuestSpriteTypes, type PokemonQuest, type QuestSpriteType } from '@/utility'
+import { QuestSpriteTypes, type PokemonQuest, type QuestSpriteType } from '@helpers/utility'
 
 const pokJson: PokemonQuest[] = await fetch('/pokemon_quest.json').then(d => d.json())
 

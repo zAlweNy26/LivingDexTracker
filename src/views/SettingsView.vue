@@ -50,7 +50,7 @@ const changeImage = () => {
 				</div>
 				<div class="relative">
 					<img :src="profileImage" alt="Profile image" class="rounded-full object-cover">
-					<div class="absolute left-0 top-0 hidden rounded-full bg-black/25">
+					<div v-show="changeDetails" class="absolute left-0 top-0 rounded-full bg-black/25">
 						<label for="imageInputBox"
 							class="flex h-36 w-36 cursor-pointer justify-center rounded-full border-2 border-dashed border-neutral p-4 text-sm transition hover:border-neutral-focus focus:border-solid focus:border-primary focus:ring-1 focus:ring-primary disabled:cursor-not-allowed disabled:bg-neutral-content disabled:opacity-75">
 							<div class="flex flex-col items-center justify-center">

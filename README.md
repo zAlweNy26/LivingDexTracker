@@ -4,6 +4,8 @@
 
 With Pokedex Tracker, you can easily keep track of every Pokemon you've caught, from the original 151 to the latest additions. We also allow you to track regional forms and gender differences, so you can be sure you've caught every variant of your favorite Pokemon.
 
+Idea by @FedeDC512
+
 ## 🚀 Used tools
 
 - Firebase
@@ -32,6 +34,7 @@ With Pokedex Tracker, you can easily keep track of every Pokemon you've caught, 
 ## To-do list
 
 - Finish missing pages
+- Switch to Nuxt
 
 | Comando                | Azione                                             |
 | :--------------------- | :------------------------------------------------- |

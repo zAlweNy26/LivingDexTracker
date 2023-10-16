@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
-import { GenTitle, type Pokemon } from '@/utility'
+import { GenTitle, type Pokemon } from '@helpers/utility'
 
 const pokJson: Pokemon[] = await fetch('/pokemon_original.json').then(d => d.json())
 
