@@ -30,6 +30,5 @@ coverage
 test-results/
 playwright-report/
 .firebase/*
-public/sprites
 .env
 .env.*
