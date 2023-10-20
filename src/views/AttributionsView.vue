@@ -56,6 +56,12 @@ const packages: Package[] = [
 		color: "#4B32C3"
 	},
 	{
+		name: "Vitest",
+		icon: "https://vitest.dev/favicon.ico",
+		url: "https://vitest.dev",
+		color: "#94c56a"
+	},
+	{
 		name: "TypeScript",
 		icon: "https://www.typescriptlang.org/favicon-32x32.png",
 		url: "https://www.typescriptlang.org",

@@ -16,7 +16,7 @@ import { Icon } from '@iconify/vue'
 		</div>
 		<a class="btn btn-primary gap-2 text-lg" href="/">
 			<Icon class="h-6 w-6 shrink-0" icon="fluent:home-20-filled" />
-			Go back to Home!
+			Go back Home
 		</a>
 	</div>
 </template>

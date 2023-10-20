@@ -189,16 +189,16 @@ const logOut = async () => {
 							</RouterLink>
 						</MenuItem>
 						<MenuItem as="li">
-							<RouterLink to="https://discord.gg">
+							<a href="https://discord.gg">
 								Discord
 								<Icon icon="ic:round-discord" class="h-5 w-5" aria-hidden="true" />
-							</RouterLink>
+							</a>
 						</MenuItem>
 						<MenuItem as="li">
-							<RouterLink to="https://paypal.me/danyalwe">
+							<a href="https://paypal.me/danyalwe">
 								Donate
 								<Icon icon="ic:round-paypal" class="h-5 w-5" aria-hidden="true" />
-							</RouterLink>
+							</a>
 						</MenuItem>
 						<MenuItem as="li">
 							<RouterLink to="/auth" @click="logOut">

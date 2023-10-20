@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
 
 </script>
 
 <template>
 	<div class="flex grow flex-wrap items-center justify-center gap-8">
-		Nothing
+		Work in progress...
 	</div>
 </template>

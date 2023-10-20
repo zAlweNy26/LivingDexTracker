@@ -20,7 +20,7 @@ const searchFilter = computed(() => {
 <template>
 	<div class="flex w-full grow flex-col items-center justify-center gap-4">
 		<p class="flex items-center gap-2 font-medium">
-			<span>Total Pokémons: {{ pokJson.length }}</span>
+			<span>Ransei Gallery Pokémons: {{ pokJson.length }}</span>
 			<Icon icon="ic:baseline-catching-pokemon" class="swap-on h-6 w-6" />
 		</p>
 		<div class="flex flex-col items-center justify-center gap-4">
