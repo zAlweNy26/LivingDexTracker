@@ -9,12 +9,6 @@ import {
 	type Pokemon, type Order, type Position, type Variant,
 	type Transform, type Special
 } from '@helpers/utility'
-import {
-	basicFilter, onlyRegionals, onlyAbility, onlyAlcremie,
-	onlyEterna, onlyEvents, onlyFemale, onlyFurfrou, onlyFusions,
-	onlyGiga, onlyLGPE, onlyMega, onlyPrimal, onlyTitan, onlyTotems,
-	onlyTransformsGeneric, onlyUnown, onlyVariantsGeneric, onlyVivillon
-} from '@helpers/filters'
 
 const { userInfo, userData } = storeToRefs(useUserStore())
 
@@ -27,7 +21,7 @@ const selectSpecials = ref<Special[]>([])
 const selectOrder = ref<Order>("National Dex")
 const isAllCollapsed = ref(false)
 
-const allPok = reactive(pokJson.filter(p => basicFilter(p.name, parseInt(p.form_index))))
+const allPok = reactive(pokJson)
 const boxNames = ref<string[][]>(new Array(Math.ceil(allPok.length / 30)).fill([]))
 const selectedPok = ref<Pokemon>()
 const catchedNormal = ref<number[]>([]), catchedShiny = ref<number[]>([])
@@ -59,28 +53,7 @@ const orderBy = computed(() => {
 
 	orderedPok = orderedPok.filter(p => {
 		if (selectFormsPosition.value === "Hidden") return p.original
-		else {
-			return !(
-				(!selectVariants.value.includes("Regional") && onlyRegionals(p.form ?? "")) ||
-				(!selectVariants.value.includes("Special Ability") && onlyAbility(p.form_type)) ||
-				(!selectVariants.value.includes("Events") && onlyEvents(p.form ?? "", p.form_type)) ||
-				(!selectTransforms.value.includes("Fusions") && onlyFusions(p.form ?? "", p.form_type)) ||
-				(!selectVariants.value.includes("Furfrou Styles") && onlyFurfrou(p.name, parseInt(p.form_index))) ||
-				(!selectSpecials.value.includes("Totem") && onlyTotems(p.form ?? "")) ||
-				(!selectSpecials.value.includes("Titan") && onlyTitan(p.form ?? "")) ||
-				(!selectTransforms.value.includes("Mega Evolution") && onlyMega(p.form ?? "")) ||
-				(!selectTransforms.value.includes("Gigantamax") && onlyGiga(p.form ?? "")) ||
-				(!selectTransforms.value.includes("Eternamax") && onlyEterna(p.form ?? "")) ||
-				(!selectTransforms.value.includes("Primal Reversion") && onlyPrimal(p.form ?? "")) ||
-				(!selectVariants.value.includes("Gender") && onlyFemale(p.form ?? "")) ||
-				(!selectSpecials.value.includes("Partner LGPE") && onlyLGPE(p.name, p.sub_gen)) ||
-				(!selectVariants.value.includes("Alcremie") && onlyAlcremie(p.name, p.form ?? "")) ||
-				(!selectVariants.value.includes("Unown") && onlyUnown(p.name, parseInt(p.form_index))) ||
-				(!selectVariants.value.includes("Vivillon") && onlyVivillon(p.name, parseInt(p.form_index))) ||
-				(!selectVariants.value.includes("Generic") && onlyVariantsGeneric(p.name, parseInt(p.form_index))) ||
-				(!selectTransforms.value.includes("Generic") && onlyTransformsGeneric(p.name, parseInt(p.form_index)))
-			)
-		}
+		else return true
 	})
 
 	if (selectFormsPosition.value == "After everything") {
@@ -128,6 +101,13 @@ const orderBy = computed(() => {
 			if (i > 0 && i % 30 == 0) boxNames.value[++j] = []
 			if (!boxNames.value[j].includes(Game[e.game])) boxNames.value[j].push(Game[e.game])
 		})
+	} else if (selectOrder.value == "Index") {
+		if (selectFormsPosition.value != "After everything") orderedPok = orderedPok.sort((p1, p2) => p1.index - p2.index)
+		orderedPok.forEach((e, i) => {
+			if ((i > 0 && (i - 29) % 30 == 0) || i == orderedPok.length - 1) boxNames.value[j].push(e.index.toString()) //TODO: ottimizzare codice (non so perchè funzioni)
+			if ((i > 0 && i % 30 == 0)) boxNames.value[++j] = []
+			if (boxNames.value[j].length == 0) boxNames.value[j].push(e.index.toString())
+		})
 	}
 
 	return orderedPok
@@ -159,59 +139,6 @@ const openPokInfoIOS = (event: "start" | "move" | "end", index: number, ndex: nu
 
 const showLabel = (pok: Pokemon) => {
 	if (selectFormsPosition.value === "Hidden") return false
-
-	console.log(pok)
-	/*const regionalIncluded = selectVariants.value.includes("Regional")
-	if (regionalIncluded) return onlyRegionals(pok.form ?? "")
-
-	const genderIncluded = selectVariants.value.includes("Gender")
-	if (genderIncluded) return ["Male", "Female"].includes(pok.form ?? "")
-
-	const vivillonIncluded = selectVariants.value.includes("Vivillon")
-	const unownIncluded = selectVariants.value.includes("Unown")
-	const alcremieIncluded = selectVariants.value.includes("Alcremie")
-	const genericVariantsIncluded = selectVariants.value.includes("Generic")
-	const genericTransformsIncluded = selectTransforms.value.includes("Generic")
-	const totemIncluded = selectSpecials.value.includes("Totem")
-	const fusionIncluded = selectTransforms.value.includes("Fusions")
-	//const burstIncluded = selectTransforms.value.includes("Ultra Burst")
-    
-	if (pok.form === 'Male') return genderIncluded
-	//if (burstIncluded && parseInt(pok.ndex) == 800) return burstIncluded
-	if ([646, 800, 898].includes(parseInt(pok.ndex))) return fusionIncluded
-	if ([664, 665, 666].includes(parseInt(pok.ndex))) return vivillonIncluded
-	if (pok.form === 'F') return unownIncluded
-	if (pok.name === 'Alcremie') return alcremieIncluded
-	if (pok.name === 'Mimikyu' && !pok.form?.includes("Totem")) return genericVariantsIncluded
-	else if (pok.name === 'Mimikyu') return totemIncluded
-
-	if (genericVariantsIncluded) {
-	  const excludedNames = [
-		"Deoxys", "Burmy", "Wormadam", "Shellos", "Gastrodon", 
-		"Rotom", "Shaymin", "Basculin", "Deerling", 
-		"Sawsbuck", "Tornadus", "Thundurus", "Landorus", "Keldeo", 
-		"Flabébé", "Floette", "Florges", "Pumpkaboo", "Gourgeist", "Minior",
-		"Zygarde", "Lycanroc", "Oricorio", 
-		"Sinistea", "Polteageist", "Toxtricity", "Urshifu",
-		"Enamorus", "Maushold", "Squawkabilly", "Tatsugiri", "Dudunsparce", "Gimmighoul"
-	  ]
-	  return excludedNames.includes(pok.name)
-	}
-  
-	if (genericTransformsIncluded) {
-	  const excludedNames = [
-		"Castform", "Deoxys", "Burmy", "Wormadam", "Cherrim", "Shellos", "Gastrodon", 
-		"Rotom", "Dialga", "Palkia", "Giratina", "Shaymin", "Arceus", "Basculin", "Deerling", 
-		"Sawsbuck", "Darmanitan", "Tornadus", "Thundurus", "Landorus", "Keldeo", "Meloetta", "Genesect",
-		"Flabébé", "Floette", "Florges", "Furfrou", "Aegislash", "Pumpkaboo", "Gourgeist", "Xerneas",
-		"Zygarde", "Rockruff", "Lycanroc", "Wishiwashi", "Hoopa", "Oricorio", "Silvally",
-		"Sinistea", "Polteageist", "Toxtricity", "Eiscue", "Morpeko", "Zacian", "Zamazenta", "Urshifu",
-		"Enamorus", "Maushold", "Squawkabilly", "Palafin", "Tatsugiri", "Dudunsparce", "Gimmighoul",
-		"Koraidon", "Miraidon"
-	  ]
-	  return excludedNames.includes(pok.name)
-	}*/
-
 	return true
 }
 
@@ -272,6 +199,10 @@ watch(isAllCollapsed, () => {
 
 <template>
 	<div class="flex w-full grow flex-col items-center justify-center gap-4">
+		<p class="flex items-center gap-2 font-medium">
+			<span>Total Pokémons: {{ orderBy.length }}</span>
+			<Icon icon="ic:baseline-catching-pokemon" class="swap-on h-6 w-6" />
+		</p>
 		<div class="flex flex-col items-center justify-center gap-4">
 			<div class="flex flex-wrap items-center justify-center gap-4">
 				<div class="input-group-bordered w-min">
@@ -511,12 +442,12 @@ watch(isAllCollapsed, () => {
 							@touchend.prevent="openPokInfoIOS('end', pok.index, parseInt(pok.ndex))"
 							@contextmenu.prevent="openPokInfo(parseInt(pok.ndex))" @click="catchPok(pok.index)">
 							<img loading="lazy" class="mb-1 h-12 w-12 transition-all sm:h-16 sm:w-16"
-								:class="{ 'brightness-[.25]': !isPokCaught(pok.index) }"
 								:src="`/sprites/webps/poke_icon_${pok.ndex}_${pok.form_index}_${pok.gender_id}_${pok.gmax_id}_${pok.subform_index}_f_${showShiny ? 'r' : 'n'}.webp`"
 								@error="(e) => (e.target as HTMLImageElement).src = '/sprites/webps/poke_icon_0000_000_uk_n_00000000_f_n.webp'">
 							<span v-show="!showOnlyIcons" class="text-2xs font-bold sm:text-xs">#{{ pok.ndex }}</span>
 							<span v-show="!showOnlyIcons" class="text-center text-3xs font-medium sm:text-xs">{{ pok.name
 							}}</span>
+							<span class="text-center text-3xs font-medium sm:text-xs">{{ pok.index }}</span>
 							<span v-if="!showOnlyIcons && showLabel(pok)"
 								class="whitespace-pre-wrap text-center text-3xs font-medium text-neutral-focus">{{ pok.form }}</span>
 						</div>

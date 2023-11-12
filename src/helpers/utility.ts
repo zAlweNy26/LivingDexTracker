@@ -19,7 +19,7 @@ enum GenTitle {
     "Gen. 9: <span style='color:#D90D19;'>Scarlet</span> - <span style='color:#842F8C;'>Violet</span>"
 }
 
-const OrderOptions = [ "National Dex", "Release", "Region", "Generation", "Alphabetical" ] as const
+const OrderOptions = [ "National Dex", "Release", "Region", "Generation", "Alphabetical", "Index" ] as const
 type Order = typeof OrderOptions[number]
 
 const FormsPosition = [ "Hidden", "Near the original", "After everything" ] as const
