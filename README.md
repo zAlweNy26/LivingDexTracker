@@ -4,7 +4,9 @@
 
 With Pokedex Tracker, you can easily keep track of every Pokemon you've caught, from the original 151 to the latest additions. We also allow you to track regional forms and gender differences, so you can be sure you've caught every variant of your favorite Pokemon.
 
-Idea by @FedeDC512
+
+Design, Programming and Technical Lead by [zAlweNy26](https://github.com/zAlweNy26) 🐈  
+Idea and Creative Lead by [FedeDC512](https://github.com/FedeDC512) 🦎
 
 ## 🚀 Used tools
 
@@ -15,21 +17,17 @@ Idea by @FedeDC512
 
 ## 📚 Tailwind CSS libraries used
 
-[Myna UI](https://mynaui.com)
-
-[Daisy UI](https://daisyui.com/components)
-
-[Meraki UI](https://merakiui.com/components)
-
-[Kitwind](https://kitwind.io/products/kometa/components)
-
+[Myna UI](https://mynaui.com)  
+[Daisy UI](https://daisyui.com/components)  
+[Meraki UI](https://merakiui.com/components)  
+[Kitwind](https://kitwind.io/products/kometa/components)  
 [Tailwind UI](https://tailwindui.com/components)
 
 ## ✨ Functionalities
 
 - Account to save progress
 - Updated to latest generation
-- Other games (Pokémon Quest, Magikarp Jump)
+- Other games (Pokémon Quest, Magikarp Jump, Pokémon Conquest)
 
 ## To-do list
 
