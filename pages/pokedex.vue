@@ -43,42 +43,30 @@ function replaceGenTitle(gen: number) {
 			<NuSwitch v-model="onlySprites" :label="$t('pokedex.onlySprites')" />
 		</div>
 		<div class="flex flex-col gap-4">
-			<div v-if="searchItem" class="flex flex-col items-center gap-4">
-				<p class="text-xl font-bold text-secondary">{{ $t('search.result') }}</p>
-				<div v-if="searchFilter.length" class="flex flex-wrap gap-2 py-2 px-1 rounded-md bg-neutral-100 dark:bg-neutral-800">
-					<div v-for="(pok, j) in searchFilter" :key="`pok_${j}`"
-						class="flex cursor-pointer flex-col items-center justify-center">
-						<img loading="lazy" class="mb-1 size-12 transition-all md:size-16"
-							:alt="pok.name" :src="`/sprites/gen9/${parseInt(pok.ndex)}.png`" />
-						<span v-show="!onlySprites" class="font-bold text-sm">#{{ pok.ndex }}</span>
-						<span v-show="!onlySprites" class="whitespace-pre-wrap text-center text-xs font-medium">{{ pok.name }}</span>
-					</div>
+			<div v-if="searchItem" class="flex flex-col justify-center items-center gap-4">
+				<p class="text-xl font-bold">{{ $t('search.result') }}</p>
+				<div v-if="searchFilter.length" class="flex flex-wrap justify-center items-center gap-2 p-2 rounded-md bg-neutral-100 dark:bg-neutral-800">
+					<PokemonBox v-for="(pok, j) in searchFilter" :key="`pok_${j}`" v-bind="pok" :sprite="onlySprites" />
 				</div>
 				<p v-else class="p-2 font-medium">{{ $t('pokedex.empty') }}</p>
 			</div>
 			<template v-else>
 				<NuCollapsible v-for="(gen, i) in pokGens" :key="`gen_${i + 1}`">
-					<NuButton color="neutral" variant="subtle" trailingIcon="i-tabler-chevron-down" block :ui="{
+					<NuButton class="group" color="neutral" variant="subtle" trailingIcon="i-tabler-chevron-down" block :ui="{
 						trailingIcon: 'group-data-[state=open]:rotate-180 transition-transform duration-200'
 					}">
-						<div class="flex flex-col text-neutral">
+						<div class="flex flex-col items-start">
 							<div class="game-title text-xl font-bold" 
 								v-html="`${$t('pokedex.generation', [i + 1])} ${replaceGenTitle(i)}`" />
-							<p class="flex items-center gap-1 text-xs font-medium text-neutral-focus">
+							<div class="text-sm flex items-center gap-1 font-medium">
 								<span>{{ $t('pokedex.total', [gen.length]) }}</span>
-								<NuIcon name="i-tabler-pokeball" class="swap-on h-4 w-4" />
-							</p>
+								<NuIcon name="i-tabler-pokeball" class="size-4" />
+							</div>
 						</div>
 					</NuButton>
 					<template #content>
-						<div class="grid grid-cols-[repeat(auto-fit,minmax(4rem,1fr))] mt-2 gap-2 py-2 px-1 rounded-md bg-neutral-100 dark:bg-neutral-800">
-							<div v-for="(pok, j) in gen" :key="`gen_${i + 1}_pok_${j}`"
-								class="flex cursor-pointer flex-col items-center justify-center">
-								<img loading="lazy" class="mb-1 size-12 transition-all md:size-16"
-									:alt="pok.name" :src="`/sprites/gen9/${parseInt(pok.ndex)}.png`" />
-								<span v-show="!onlySprites" class="font-bold text-sm">#{{ pok.ndex }}</span>
-								<span v-show="!onlySprites" class="whitespace-pre-wrap text-center text-xs font-medium">{{ pok.name }}</span>
-							</div>
+						<div class="grid grid-cols-[repeat(auto-fit,minmax(min-content,5rem))] place-items-center mt-2 gap-2 p-2 rounded-md bg-neutral-100 dark:bg-neutral-800">
+							<PokemonBox v-for="(pok, j) in gen" :key="`gen_${i + 1}_pok_${j}`" v-bind="pok" :sprite="onlySprites" />
 						</div>
 					</template>
 				</NuCollapsible>

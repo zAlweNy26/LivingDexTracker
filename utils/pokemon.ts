@@ -3,7 +3,7 @@ export const Games = [
   "LGPE", "Go", "SwSh", "SwSh DLC1 IoA", "SwSh DLC2 CT", "PLA", "SV", "SV DLC1 TM", "SV DLC2 ID"
 ] as const
 
-export const Regions = ["Kanto", "Johto", "Hoenn", "Sinnoh", "Unova", "Kalos", "Alola", "Real World", "Galar", "Hisui", "Paldea" ] as const
+export const Regions = ["Kanto", "Johto", "Hoenn", "Sinnoh", "Unova", "Kalos", "Alola", "Real World", "Galar", "Hisui", "Paldea"] as const
 
 export const GenTitles = [
   "<span style='color:#FF1111;'>{0}</span> - <span style='color:#11BB11;'>{1}</span> - <span style='color:#1111FF;'>{2}</span> - <span style='color:#FFD733;'>{3}</span>",
@@ -35,7 +35,7 @@ export type Special = typeof SpecialsOptions[number]
 export type Pokemon = {
   index: number
   name: string
-  form: string | undefined
+  form?: string | undefined
   form_type: string
   living_dex_type: string
   gen: number
@@ -46,7 +46,6 @@ export type Pokemon = {
   form_index: string
   subform_index: string
   gender_id: string
-  original: boolean
   gmax_id: string
 }
 

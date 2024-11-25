@@ -6,10 +6,13 @@ export default defineAppConfig({
             secondary: 'scarlet' as any,
             neutral: 'stone'
         },
+        icons: {
+            close: 'i-tabler-x'
+        },
         button: {
             slots: {
                 base: ['cursor-pointer transition-all']
             }
-        }
+        },
     }
 })
