@@ -14,7 +14,7 @@ export const GenTitles = [
   "<span style='color:#025DA6;'>{0}</span> - <span style='color:#EA1A3E;'>{1}</span> - <span style='color:#AB2813;'>{2}</span> - <span style='color:#26649C;'>{3}</span>",
   "<span style='color:#F2952D;'>{0}</span> - <span style='color:#5599C8;'>{1}</span> - <span style='color:#EE7936;'>{2}</span> - <span style='color:#884799;'>{3}</span> - <span style='color:#ffcf11;'>{4}</span> - <span style='color:#c47e39;'>{5}</span>",
   "<span style='color:#00AEEF;'>{0}</span> - <span style='color:#ED1165;'>{1}</span> - <span style='color:#01A4E7;'>{2}</span> - <span style='color:#C584DD;'>{3}</span> - <span style='color:#CECDBE;'>{4}</span>",
-  "<span style='color:#D90D19;'>{0}</span> - <span style='color:#842F8C;'>{1}</span>"
+  "<span style='color:#D90D19;'>{0}</span> - <span style='color:#842F8C;'>{1}</span> - <span style='color:#1FE0B4;'>{2}</span>"
 ] as const
 
 export const OrderOptions = ["National Dex", "Release", "Region", "Generation", "Alphabetical"] as const

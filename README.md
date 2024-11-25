@@ -43,4 +43,6 @@ bun run preview
 
 ## Todos
 
-- [ ] Translate pokémon names in other languages
+- [ ] Translate pokémon, regions and games names in other languages
+- [ ] Add pokédex backgroud to modal with pokémon info
+- [ ] Add pokémon cry
