@@ -33,13 +33,50 @@ const items = computed<DropdownMenuItem[]>(() => [
     label: t('header.faqs'),
     to: localePath('faqs'),
     icon: 'i-tabler-question-mark'
+  },
+  {
+    label: t('header.games'),
+    icon: 'i-tabler-device-gamepad',
+    slot: 'games',
+    children: [
+      {
+        label: 'Pokémon Quest',
+        to: localePath('games-pokemon-quest'),
+        class: 'font-semibold',
+        avatar: {
+          ui: { root: 'rounded-none' },
+          src: '/pokemon-quest.webp',
+          alt: 'Pokémon Quest'
+        }
+      },
+      {
+        label: 'Magikarp Jump',
+        to: localePath('games-magikarp-jump'),
+        class: 'font-semibold',
+        avatar: {
+          ui: { root: 'rounded-none' },
+          src: '/magikarp-jump.webp',
+          alt: 'Pokémon Quest'
+        }
+      },
+      {
+        label: 'Pokémon Conquest',
+        to: localePath('games-pokemon-conquest'),
+        class: 'font-semibold',
+        avatar: {
+          ui: { root: 'rounded-none' },
+          src: '/pokemon-conquest.webp',
+          alt: 'Pokémon Quest'
+        }
+      },
+    ]
   }
 ])
 
 const userItems = computed<DropdownMenuItem[]>(() => [
   {
     label: t('account.profile', [user.value?.displayName || user.value?.email]),
-		disabled: true,
+		type: 'label' as const
   },
   {
     label: t('theme.toggle'),
@@ -63,19 +100,27 @@ const userItems = computed<DropdownMenuItem[]>(() => [
       <NuAvatar alt="App Logo" src="/logo.webp" />
     </NuLink>
     <div class="hidden h-full items-center gap-4 sm:flex">
-      <NuLink v-for="({ label, to, slot }) in items" :key="label"
-        class="nav-link relative font-title font-semibold text-gray-700 transition-all dark:text-gray-100"
-        :active="to === $route.path" activeClass="nav-link-active" :to>
-        {{ label }}
-      </NuLink>
+      <template v-for="({ label, to, children }) in items" :key="label">
+        <NuDropdownMenu v-if="children" v-slot="{ open }" :items="children" :content="{ align: 'start', sideOffset: 16 }">
+          <NuLink class="nav-link inline-flex items-center gap-1.5 relative font-semibold cursor-pointer text-gray-700 transition-all dark:text-gray-100"
+            :active="$route.path.includes('games')" activeClass="nav-link-active">
+            <span>{{ label }}</span>
+            <NuIcon class="transition-transform duration-200" :class="{ 'rotate-180': open }" name="i-tabler-chevron-down" />
+          </NuLink>
+        </NuDropdownMenu>
+        <NuLink v-else class="nav-link relative font-semibold text-gray-700 transition-all dark:text-gray-100"
+          :active="to === $route.path" activeClass="nav-link-active" :to>
+          {{ label }}
+        </NuLink>
+      </template>
     </div>
     <div class="items-center gap-2 flex">
+      <ThemeSwitch />
+      <LanguageSwitch />
       <NuDropdownMenu v-if="user" :items="userItems" :content="{ align: 'end', sideOffset: 16 }">
         <NuButton variant="ghost" color="neutral" icon="i-tabler-user-filled" />
       </NuDropdownMenu>
-      <NuButton v-else :to="$localePath('auth')" :label="$t('button.login')" />
-      <ThemeSwitch />
-      <LanguageSwitch />
+      <NuButton v-else :to="$localePath('auth')" icon="i-tabler-login-2" :label="$t('button.login')" />
     </div>
   </header>
 </template>

@@ -17,7 +17,8 @@
         "guide": "Guide",
         "boxes": "Dex Boxes",
         "faqs": "FAQs",
-        "auth": "Access"
+        "games": "Other Games",
+        "auth": "Log in"
     },
     "footer": {
         "privacy": "Privacy Policy",
