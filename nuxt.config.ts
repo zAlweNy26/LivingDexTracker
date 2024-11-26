@@ -20,13 +20,14 @@ export default defineNuxtConfig({
 		},
 	},
 	modules: [
-		'nuxt-vuefire',
-		'@nuxt/ui',
-		'@nuxtjs/i18n',
-		'@pinia/nuxt',
 		'@vueuse/nuxt',
+		'@pinia/nuxt',
+		'@nuxtjs/i18n',
+		'@nuxtjs/seo',
+		'@nuxt/ui',
 		'@nuxt/image',
 		'@nuxt/scripts',
+		'nuxt-vuefire',
 		'nuxt-security',
 	],
 	vuefire: {
@@ -54,6 +55,10 @@ export default defineNuxtConfig({
 	},
 	image: {
 		quality: 100
+	},
+	seo: {
+		redirectToCanonicalSiteUrl: true,
+		debug: process.env.NODE_ENV === 'development',
 	},
 	i18n: {
 		restructureDir: false, // TODO: Remove this when updating to Nuxt v4
@@ -113,9 +118,24 @@ export default defineNuxtConfig({
 			redirectOn: 'root',
 		},
 	},
+	nitro: {
+		routeRules: {
+			'/img/**': { headers: { 'cache-control': `public,max-age=${60 * 60 * 24 * 7},s-maxage=${60 * 60 * 24 * 7}` } },
+			'/_ipx/**': { headers: { 'cache-control': `public,max-age=${60 * 60 * 24 * 7},s-maxage=${60 * 60 * 24 * 7}` } },
+			'/_nuxt/**': { headers: { 'cache-control': `public,max-age=${60 * 60 * 24 * 7},s-maxage=${60 * 60 * 24 * 7}` } },
+		},
+	},
 	routeRules: {
-		'/': { isr: true },
+		'/': { prerender: true },
+		'/pokedex': { swr: true },
+		'/guide': { prerender: true },
+		'/faqs': { prerender: true },
 		'/boxes': { ssr: false },
 		'/auth': { ssr: false },
+		'/games/**': { swr: true },
+		'/attributions': { swr: true },
+		'/contacts': { swr: true },
+		'/privacy-policy': { prerender: true },
+		'/terms': { prerender: true },
 	}
 })

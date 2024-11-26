@@ -1,14 +1,1 @@
-{
-    "aria": {
-        "toggle": "Toggle",
-        "more": "More"
-    },
-    "theme": {
-        "light": "Light",
-        "dark": "Dark",
-        "toggle": "@:aria.toggle theme"
-    },
-    "language": {
-        "toggle": "@:aria.toggle language"
-    }
-}
+{}
