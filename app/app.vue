@@ -29,7 +29,7 @@ useHead({
         <NuxtPage />
         <NuButton v-if="topPosition > 0" class="fixed z-50 bottom-4 right-4 rounded-full" size="xl"
           square :aria-label="$t('aria.goTop')" @click="topPosition = 0">
-          <NuIcon name="i-tabler-arrow-up" class="size-4" />
+          <NuIcon name="i-tabler-arrow-up" class="size-4 md:size-6" />
         </NuButton>
       </main>
       <NavFooter />

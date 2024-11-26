@@ -5,8 +5,9 @@ export default defineNuxtConfig({
 	ssr: true,
 	experimental: {
 		typedPages: true,
-		sharedPrerenderData: true,
-		cookieStore: true,
+	},
+	future: {
+		compatibilityVersion: 4,
 	},
 	css: ['~/assets/main.css'],
 	app: {
@@ -61,7 +62,6 @@ export default defineNuxtConfig({
 		debug: process.env.NODE_ENV === 'development',
 	},
 	i18n: {
-		restructureDir: false, // TODO: Remove this when updating to Nuxt v4
 		experimental: {
 			typedOptionsAndMessages: 'all',
 			typedPages: true,

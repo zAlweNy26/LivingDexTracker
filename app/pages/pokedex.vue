@@ -26,7 +26,7 @@ function replaceGenTitle(gen: number) {
 	const title = GenTitles[gen]
 	const games = localeGames.value[String(gen + 1) as keyof typeof localeGames.value] as any[]
 	if (!games) return title
-	return title.replace(/{(\d+)}/g, (match, index) => {
+	return title?.replace(/{(\d+)}/g, (match, index) => {
 		return games[index] !== undefined ? games[index].loc.source : match;
 	})
 }
