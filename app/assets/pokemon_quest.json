@@ -32,7 +32,7 @@
 	{
 		"index": 4,
 		"name": "Venusaur",
-		"form_type": "Clone",
+		"formType": "Clone",
 		"gen": 1,
 		"chinese": true,
 		"obtainable": true,
@@ -74,7 +74,7 @@
 	{
 		"index": 8,
 		"name": "Charizard",
-		"form_type": "Clone",
+		"formType": "Clone",
 		"gen": 1,
 		"chinese": true,
 		"obtainable": true,
@@ -116,7 +116,7 @@
 	{
 		"index": 12,
 		"name": "Blastoise",
-		"form_type": "Clone",
+		"formType": "Clone",
 		"gen": 1,
 		"chinese": true,
 		"obtainable": true,
@@ -288,7 +288,7 @@
 	{
 		"index": 29,
 		"name": "Pikachu",
-		"form_type": "Adventure Costume",
+		"formType": "Adventure Costume",
 		"gen": 1,
 		"chinese": true,
 		"obtainable": true,
@@ -300,7 +300,7 @@
 	{
 		"index": 30,
 		"name": "Pikachu",
-		"form_type": "Cap",
+		"formType": "Cap",
 		"gen": 1,
 		"chinese": true,
 		"obtainable": true,
@@ -432,7 +432,7 @@
 	{
 		"index": 43,
 		"name": "Vulpix",
-		"form_type": "Alolan form",
+		"formType": "Alolan form",
 		"gen": 1,
 		"chinese": true,
 		"obtainable": true,
@@ -454,7 +454,7 @@
 	{
 		"index": 45,
 		"name": "Ninetales",
-		"form_type": "Alolan form",
+		"formType": "Alolan form",
 		"gen": 1,
 		"chinese": true,
 		"obtainable": true,
@@ -1586,7 +1586,7 @@
 	{
 		"index": 158,
 		"name": "Mewtwo",
-		"form_type": "Armored",
+		"formType": "Armored",
 		"gen": 1,
 		"chinese": true,
 		"obtainable": true,
@@ -2788,7 +2788,7 @@
 	{
 		"index": 278,
 		"name": "Shaymin",
-		"form_type": "Land Forme",
+		"formType": "Land Forme",
 		"gen": 4,
 		"chinese": true,
 		"obtainable": true,
@@ -2799,7 +2799,7 @@
 	{
 		"index": 279,
 		"name": "Shaymin",
-		"form_type": "Sky Forme",
+		"formType": "Sky Forme",
 		"gen": 4,
 		"chinese": true,
 		"obtainable": true,

@@ -61,6 +61,9 @@
     --color-neutral-800: var(--ui-color-neutral-800);
     --color-neutral-900: var(--ui-color-neutral-900);
     --color-neutral-950: var(--ui-color-neutral-950);
+
+    --text-2xs: 0.625rem;
+    --text-2xs--line-height: 0.75rem;
 }
 
 :root {

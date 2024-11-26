@@ -5,7 +5,7 @@ const { folder = 'gen9', card = true, suffix = '' } = defineProps<{
 	name: string
 	ndex: string
 	suffix?: string
-	form?: string
+	formType?: string
 	sprite?: boolean
 	folder?: string
 	card?: boolean
@@ -21,6 +21,6 @@ const modal = useModal()
 			:alt="name" :src="`/sprites/${folder}/${parseInt(ndex)}${suffix}.png`">
 		<span v-show="!sprite" class="font-bold text-sm">#{{ ndex }}</span>
 		<span v-show="!sprite" class="whitespace-pre-wrap text-center text-xs font-medium">{{ name }}</span>
-		<span v-show="!sprite" class="whitespace-pre-wrap text-center text-2xs font-medium">{{ form }}</span>
+		<span v-if="formType" v-show="!sprite" class="whitespace-pre-wrap text-center text-2xs font-medium">{{ formType }}</span>
 	</div>
 </template>
