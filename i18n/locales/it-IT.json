@@ -55,6 +55,11 @@
 		"magikarp": "Magikarp totali: {0}",
 		"patterns": "Pattern totali: {0}"
 	},
+	"pokemon": {
+		"icon": "Icona",
+		"model": "Modello",
+		"shiny": "Modello Shiny"
+	},
 	"pokedex": {
 		"empty": "Nessun Pokémon trovato.",
 		"search": "Cerca un Pokémon...",
@@ -71,5 +76,9 @@
 			"8": ["Spada", "Scudo", "Diamante Lucente", "Perla Splendente", "Leggende: Arceus"],
 			"9": ["Scarlatto", "Violetto", "Leggende: Z-A"]
 		}
+	},
+	"quest": {
+		"chineseNames": "Nomi cinesi",
+		"chineseExclusives": "Esclusivi cinesi"
 	}
 }

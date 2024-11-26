@@ -29,5 +29,10 @@ export default defineAppConfig({
 				base: ['cursor-pointer transition-all'],
 			},
 		},
+		select: {
+			slots: {
+				content: 'w-fit',
+			},
+		},
 	},
 })

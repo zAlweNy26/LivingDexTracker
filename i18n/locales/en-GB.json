@@ -55,6 +55,11 @@
 		"magikarp": "Total Magikarp: {0}",
 		"patterns": "Total Patterns: {0}"
 	},
+	"pokemon": {
+		"icon": "Icon",
+		"model": "Model",
+		"shiny": "Shiny Model"
+	},
 	"pokedex": {
 		"empty": "No Pokémon found.",
 		"search": "Search a Pokémon...",
@@ -71,5 +76,9 @@
 			"8": ["Sword", "Shield", "Brilliant Diamond", "Shining Pearl", "Legends: Arceus"],
 			"9": ["Scarlet", "Violet", "Legends: Z-A"]
 		}
+	},
+	"quest": {
+		"chineseNames": "Chinese Names",
+		"chineseExclusives": "Chinese Exclusives"
 	}
 }
