@@ -20,7 +20,7 @@ const modal = useModal()
 				<NuIcon name="i-tabler-fish" class="size-6" />
 			</div>
 		</div>
-		<div class="flex grow flex-wrap items-center justify-center gap-4 md:gap-8">
+		<div class="flex flex-wrap justify-center gap-4 md:gap-8">
 			<div v-for="(pattern, i) in pokPerPattern" :key="`pattern_${i}`">
 				<p class="text-lg font-semibold">
 					{{ i }}
