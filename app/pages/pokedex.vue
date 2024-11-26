@@ -35,7 +35,7 @@ function replaceGenTitle(gen: number) {
 <template>
 	<section class="flex w-full grow flex-col gap-4">
 		<div class="flex items-center self-center gap-2 font-medium">
-			<span>{{ $t('pokedex.total', [pokJson.length]) }}</span>
+			<span>{{ $t('total.pokemon', [pokJson.length]) }}</span>
 			<NuIcon name="i-tabler-pokeball" class="size-6" />
 		</div>
 		<div class="flex flex-wrap self-center items-center gap-4">
@@ -63,7 +63,7 @@ function replaceGenTitle(gen: number) {
 							<div class="game-title text-xl font-bold"
 								v-html="`${$t('pokedex.generation', [i + 1])} ${replaceGenTitle(i)}`" />
 							<div class="text-sm flex items-center gap-1 font-medium">
-								<span>{{ $t('pokedex.total', [gen.length]) }}</span>
+								<span>{{ $t('total.pokemon', [gen.length]) }}</span>
 								<NuIcon name="i-tabler-pokeball" class="size-4" />
 							</div>
 						</div>

@@ -45,6 +45,7 @@
 		"eslint-plugin-anti-trojan-source": "^1.1.1",
 		"eslint-plugin-security-node": "^1.1.4",
 		"eslint-plugin-vitest": "^0.5.4",
+		"nuxt-lodash": "^2.5.3",
 		"vitest": "^2.1.6",
 		"vue-tsc": "^2.1.10"
 	}

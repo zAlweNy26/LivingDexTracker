@@ -30,6 +30,7 @@ export default defineNuxtConfig({
 		'@nuxt/scripts',
 		'nuxt-vuefire',
 		'nuxt-security',
+		'nuxt-lodash',
 	],
 	vuefire: {
 		config: {

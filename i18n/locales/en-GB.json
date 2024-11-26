@@ -50,8 +50,12 @@
 	"search": {
 		"result": "Search results:"
 	},
+	"total": {
+		"pokemon": "Total Pokémons: {0}",
+		"magikarp": "Total Magikarp: {0}",
+		"patterns": "Total Patterns: {0}"
+	},
 	"pokedex": {
-		"total": "Total Pokémons: {0}",
 		"empty": "No Pokémon found.",
 		"search": "Search a Pokémon...",
 		"onlySprites": "Show only sprites",
