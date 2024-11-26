@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div>
-    {{ $t('footer.contacts') }}
-  </div>
+	<div>
+		{{ $t('footer.contacts') }}
+	</div>
 </template>

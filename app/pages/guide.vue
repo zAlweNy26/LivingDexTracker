@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div>
-    {{ $t('header.guide') }}
-  </div>
+	<div>
+		{{ $t('header.guide') }}
+	</div>
 </template>

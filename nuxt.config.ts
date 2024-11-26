@@ -33,16 +33,16 @@ export default defineNuxtConfig({
 	],
 	vuefire: {
 		config: {
-			apiKey: "",
-			authDomain: "",
-			databaseURL: "",
-			projectId: "",
-			storageBucket: "",
-			messagingSenderId: "",
-			appId: ""
+			apiKey: '',
+			authDomain: '',
+			databaseURL: '',
+			projectId: '',
+			storageBucket: '',
+			messagingSenderId: '',
+			appId: '',
 		},
 		auth: {
-			enabled: true
+			enabled: true,
 		},
 		appCheck: {
 			debug: process.env.NODE_ENV !== 'production',
@@ -55,7 +55,7 @@ export default defineNuxtConfig({
 		prefix: 'Nu',
 	},
 	image: {
-		quality: 100
+		quality: 100,
 	},
 	seo: {
 		redirectToCanonicalSiteUrl: true,
@@ -127,15 +127,12 @@ export default defineNuxtConfig({
 	},
 	routeRules: {
 		'/': { prerender: true },
-		'/pokedex': { swr: true },
 		'/guide': { prerender: true },
 		'/faqs': { prerender: true },
 		'/boxes': { ssr: false },
 		'/auth': { ssr: false },
-		'/games/**': { swr: true },
-		'/attributions': { swr: true },
-		'/contacts': { swr: true },
 		'/privacy-policy': { prerender: true },
 		'/terms': { prerender: true },
-	}
+		'/api/**': { cors: true },
+	},
 })

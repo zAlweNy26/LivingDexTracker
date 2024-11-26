@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div>
-    Magikarp Jump
-  </div>
+	<div>
+		Magikarp Jump
+	</div>
 </template>

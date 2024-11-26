@@ -4,17 +4,17 @@ import pokJson from 'assets/pokemon_original.json'
 type Pokemon = typeof pokJson[number]
 
 const { messages, locale } = useI18n()
-const localeGames = computed(() => 
-	messages.value[locale.value]?.pokedex?.games ?? messages.value['en'].pokedex.games)
+const localeGames = computed(() =>
+	messages.value[locale.value]?.pokedex?.games ?? messages.value.en.pokedex.games)
 
-const onlySprites = ref(false)
 const totGens = Math.max(...pokJson.map(p => p.gen))
 const pokGens: Pokemon[][] = []
-const searchItem = ref("")
+const onlySprites = ref(false)
+const searchItem = ref('')
 
 for (let i = 1; i <= totGens; i++) {
-	const first = pokJson.findIndex(p => p.gen == i)
-	const last = i == totGens ? pokJson.length : pokJson.findIndex(p => p.gen == i + 1)
+	const first = pokJson.findIndex(p => p.gen === i)
+	const last = i === totGens ? pokJson.length : pokJson.findIndex(p => p.gen === i + 1)
 	pokGens.push(pokJson.slice(first, last))
 }
 
@@ -26,8 +26,8 @@ function replaceGenTitle(gen: number) {
 	const title = GenTitles[gen]
 	const games = localeGames.value[String(gen + 1) as keyof typeof localeGames.value] as any[]
 	if (!games) return title
-	return title?.replace(/{(\d+)}/g, (match, index) => {
-		return games[index] !== undefined ? games[index].loc.source : match;
+	return title?.replace(/\{(\d+)\}/g, (match, index) => {
+		return games[index] !== undefined ? games[index].loc.source : match
 	})
 }
 </script>
@@ -44,19 +44,23 @@ function replaceGenTitle(gen: number) {
 		</div>
 		<div class="flex flex-col gap-4">
 			<div v-if="searchItem" class="flex flex-col justify-center items-center gap-4">
-				<p class="text-xl font-bold">{{ $t('search.result') }}</p>
+				<p class="text-xl font-bold">
+					{{ $t('search.result') }}
+				</p>
 				<div v-if="searchFilter.length" class="flex flex-wrap justify-center items-center gap-2 p-2 rounded-md bg-neutral-100 dark:bg-neutral-800">
 					<PokemonBox v-for="(pok, j) in searchFilter" :key="`pok_${j}`" v-bind="pok" :sprite="onlySprites" />
 				</div>
-				<p v-else class="p-2 font-medium">{{ $t('pokedex.empty') }}</p>
+				<p v-else class="p-2 font-medium">
+					{{ $t('pokedex.empty') }}
+				</p>
 			</div>
 			<template v-else>
 				<NuCollapsible v-for="(gen, i) in pokGens" :key="`gen_${i + 1}`">
 					<NuButton class="group" color="neutral" variant="subtle" trailingIcon="i-tabler-chevron-down" block :ui="{
-						trailingIcon: 'group-data-[state=open]:rotate-180 transition-transform duration-200'
+						trailingIcon: 'group-data-[state=open]:rotate-180 transition-transform duration-200',
 					}">
 						<div class="flex flex-col items-start">
-							<div class="game-title text-xl font-bold" 
+							<div class="game-title text-xl font-bold"
 								v-html="`${$t('pokedex.generation', [i + 1])} ${replaceGenTitle(i)}`" />
 							<div class="text-sm flex items-center gap-1 font-medium">
 								<span>{{ $t('pokedex.total', [gen.length]) }}</span>

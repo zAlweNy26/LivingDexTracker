@@ -1,36 +1,51 @@
 {
-  "name": "livindex-tracker",
-  "private": true,
-  "version": "1.0.0",
-  "type": "module",
-  "author": "zAlweNy26",
-  "license": "MIT",
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "dependencies": {
-    "@firebase/app-types": "^0.9.3",
-    "@nuxt/image": "^1.8.1",
-    "@nuxt/scripts": "^0.9.5",
-    "@nuxt/ui": "^3.0.0-alpha.9",
-    "@nuxtjs/i18n": "^9.1.0",
-    "@nuxtjs/seo": "^2.0.2",
-    "@pinia/nuxt": "^0.7.0",
-    "@vueuse/core": "^11.3.0",
-    "@vueuse/nuxt": "^11.3.0",
-    "firebase-admin": "^13.0.1",
-    "firebase-functions": "^6.1.1",
-    "nuxt": "^3.14.1592",
-    "nuxt-security": "^2.1.4",
-    "nuxt-vuefire": "^1.0.4",
-    "vue": "latest",
-    "vue-router": "latest"
-  },
-  "peerDependencies": {
-    "firebase": "^11.0.2"
-  }
+	"name": "livindex-tracker",
+	"type": "module",
+	"version": "1.0.0",
+	"private": true,
+	"author": "zAlweNy26",
+	"license": "MIT",
+	"scripts": {
+		"build": "nuxi build",
+		"dev": "nuxi dev",
+		"generate": "nuxi generate",
+		"preview": "nuxi preview",
+		"postinstall": "nuxi prepare",
+		"clean": "nuxi cleanup && nuxi prepare",
+		"typecheck": "nuxi typecheck",
+		"test": "vitest --run",
+		"lint": "eslint .",
+		"lint:fix": "eslint --fix ."
+	},
+	"peerDependencies": {
+		"firebase": "^11.0.2"
+	},
+	"dependencies": {
+		"@firebase/app-types": "^0.9.3",
+		"@nuxt/image": "^1.8.1",
+		"@nuxt/scripts": "^0.9.5",
+		"@nuxt/ui": "^3.0.0-alpha.9",
+		"@nuxtjs/i18n": "^9.1.0",
+		"@nuxtjs/seo": "^2.0.2",
+		"@pinia/nuxt": "^0.7.0",
+		"@vueuse/core": "^11.3.0",
+		"@vueuse/nuxt": "^11.3.0",
+		"firebase-admin": "^13.0.1",
+		"firebase-functions": "^6.1.1",
+		"nuxt": "^3.14.1592",
+		"nuxt-security": "^2.1.4",
+		"nuxt-vuefire": "^1.0.4",
+		"vue": "latest",
+		"vue-router": "latest"
+	},
+	"devDependencies": {
+		"@antfu/eslint-config": "^3.10.0",
+		"@iconify-json/tabler": "^1.2.8",
+		"eslint": "^9.15.0",
+		"eslint-plugin-anti-trojan-source": "^1.1.1",
+		"eslint-plugin-security-node": "^1.1.4",
+		"eslint-plugin-vitest": "^0.5.4",
+		"vitest": "^2.1.6",
+		"vue-tsc": "^2.1.10"
+	}
 }

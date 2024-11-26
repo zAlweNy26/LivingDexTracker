@@ -1,71 +1,71 @@
 {
-    "aria": {
-        "toggle": "Cambia",
-        "goTop": "Vai in alto",
-        "more": "Altro"
-    },
-    "theme": {
-        "light": "Chiaro",
-        "dark": "Scuro",
-        "toggle": "@:aria.toggle tema"
-    },
-    "language": {
-        "toggle": "@:aria.toggle lingua"
-    },
-    "header": {
-        "home": "Home",
-        "guide": "Guida",
-        "boxes": "Dex Box",
-        "faqs": "FAQ",
-        "games": "Altri Giochi",
-        "auth": "Accedi"
-    },
-    "footer": {
-        "privacy": "Informativa sulla Privacy",
-        "terms": "Termini di Servizio",
-        "attributions": "Attribuzioni",
-        "contacts": "Contattaci",
-        "copyright": "Copyright © 2023 {0} - Tutti i diritti riservati.",
-        "property": "Le immagini, i nomi, le forme e le altre informazioni relative ai Pokémon sono di proprietà di {0}."
-    },
-    "error": {
-        "routes": {
-            "title": "Errore - {0}",
-            "notAccessible": "Pagina non accessibile",
-            "fallback": "Si è verificato un errore durante il tentativo di accesso a questa pagina.\nRiprova più tardi.",
-            "401": "Non sei autenticato, quindi non puoi accedere a questa pagina.",
-            "403": "Non sei autorizzato ad accedere a questa pagina.",
-            "404": "La pagina che stai cercando non è stata trovata.",
-            "500": "Qualcosa è andato storto. Riprova più tardi."
-        }
-    },
-    "button": {
-        "backHome": "Torna alla @:header.home",
-        "login": "@:header.auth"
-    },
-    "account": {
-        "profile": "Accesso come {0}",
-        "logout": "Esci"
-    },
-    "search": {
-        "result": "Risultati di ricerca:"
-    },
-    "pokedex": {
-        "total": "Pokémon totali: {0}",
-        "empty": "Nessun Pokémon trovato.",
-        "search": "Cerca un Pokémon...",
-        "onlySprites": "Mostra solo sprite",
-        "generation": "Gen. {0}",
-        "games": {
-            "1": ["Rosso", "Verde", "Blu", "Giallo"],
-            "2": ["Oro", "Argento", "Cristallo"],
-            "3": ["Rubino", "Zaffiro", "Rosso Fuoco", "Verde Foglia", "Smeraldo"],
-            "4": ["Diamante", "Perla", "Platino", "HeartGold", "SoulSilver"],
-            "5": ["Nero", "Bianco", "Nero 2", "Bianco 2"],
-            "6": ["X", "Y", "Rubino Omega", "Zaffiro Alpha"],
-            "7": ["Sole", "Luna", "Ultrasole", "Ultraluna", "Let's Go Pikachu", "Let's Go Eevee"],
-            "8": ["Spada", "Scudo", "Diamante Lucente", "Perla Splendente", "Leggende: Arceus"],
-            "9": ["Scarlatto", "Violetto", "Leggende: Z-A"]
-        }
-    }
+	"aria": {
+		"toggle": "Cambia",
+		"goTop": "Vai in alto",
+		"more": "Altro"
+	},
+	"theme": {
+		"light": "Chiaro",
+		"dark": "Scuro",
+		"toggle": "@:aria.toggle tema"
+	},
+	"language": {
+		"toggle": "@:aria.toggle lingua"
+	},
+	"header": {
+		"home": "Home",
+		"guide": "Guida",
+		"boxes": "Dex Box",
+		"faqs": "FAQ",
+		"games": "Altri Giochi",
+		"auth": "Accedi"
+	},
+	"footer": {
+		"privacy": "Informativa sulla Privacy",
+		"terms": "Termini di Servizio",
+		"attributions": "Attribuzioni",
+		"contacts": "Contattaci",
+		"copyright": "Copyright © 2023 {0} - Tutti i diritti riservati.",
+		"property": "Le immagini, i nomi, le forme e le altre informazioni relative ai Pokémon sono di proprietà di {0}."
+	},
+	"error": {
+		"routes": {
+			"title": "Errore - {0}",
+			"notAccessible": "Pagina non accessibile",
+			"fallback": "Si è verificato un errore durante il tentativo di accesso a questa pagina.\nRiprova più tardi.",
+			"401": "Non sei autenticato, quindi non puoi accedere a questa pagina.",
+			"403": "Non sei autorizzato ad accedere a questa pagina.",
+			"404": "La pagina che stai cercando non è stata trovata.",
+			"500": "Qualcosa è andato storto. Riprova più tardi."
+		}
+	},
+	"button": {
+		"backHome": "Torna alla @:header.home",
+		"login": "@:header.auth"
+	},
+	"account": {
+		"profile": "Accesso come {0}",
+		"logout": "Esci"
+	},
+	"search": {
+		"result": "Risultati di ricerca:"
+	},
+	"pokedex": {
+		"total": "Pokémon totali: {0}",
+		"empty": "Nessun Pokémon trovato.",
+		"search": "Cerca un Pokémon...",
+		"onlySprites": "Mostra solo sprite",
+		"generation": "Gen. {0}",
+		"games": {
+			"1": ["Rosso", "Verde", "Blu", "Giallo"],
+			"2": ["Oro", "Argento", "Cristallo"],
+			"3": ["Rubino", "Zaffiro", "Rosso Fuoco", "Verde Foglia", "Smeraldo"],
+			"4": ["Diamante", "Perla", "Platino", "HeartGold", "SoulSilver"],
+			"5": ["Nero", "Bianco", "Nero 2", "Bianco 2"],
+			"6": ["X", "Y", "Rubino Omega", "Zaffiro Alpha"],
+			"7": ["Sole", "Luna", "Ultrasole", "Ultraluna", "Let's Go Pikachu", "Let's Go Eevee"],
+			"8": ["Spada", "Scudo", "Diamante Lucente", "Perla Splendente", "Leggende: Arceus"],
+			"9": ["Scarlatto", "Violetto", "Leggende: Z-A"]
+		}
+	}
 }

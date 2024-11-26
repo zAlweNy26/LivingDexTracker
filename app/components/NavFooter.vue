@@ -26,10 +26,18 @@ const { title } = useAppConfig()
 	</div>
 	<div class="flex flex-col items-center gap-4 text-center text-[var(--ui-bg)] p-4 text-base-200 bg-gradient-to-r from-primary-600 to-primary-800">
 		<div class="flex flex-wrap justify-center font-medium gap-4">
-			<NuLink class="hover:underline !text-[var(--ui-bg)]" :to="$localePath('privacy-policy')">{{ $t('footer.privacy') }}</NuLink>
-			<NuLink class="hover:underline !text-[var(--ui-bg)]" :to="$localePath('terms')">{{ $t('footer.terms') }}</NuLink>
-			<NuLink class="hover:underline !text-[var(--ui-bg)]" :to="$localePath('attributions')">{{ $t('footer.attributions') }}</NuLink>
-			<NuLink class="hover:underline !text-[var(--ui-bg)]" :to="$localePath('contacts')">{{ $t('footer.contacts') }}</NuLink>
+			<NuLink class="hover:underline !text-[var(--ui-bg)]" :to="$localePath('privacy-policy')">
+				{{ $t('footer.privacy') }}
+			</NuLink>
+			<NuLink class="hover:underline !text-[var(--ui-bg)]" :to="$localePath('terms')">
+				{{ $t('footer.terms') }}
+			</NuLink>
+			<NuLink class="hover:underline !text-[var(--ui-bg)]" :to="$localePath('attributions')">
+				{{ $t('footer.attributions') }}
+			</NuLink>
+			<NuLink class="hover:underline !text-[var(--ui-bg)]" :to="$localePath('contacts')">
+				{{ $t('footer.contacts') }}
+			</NuLink>
 		</div>
 		<div class="grid grid-flow-col gap-4">
 			<NuLink to="https://github.com/zAlweNy26/LivingDexTracker" external target="_blank" aria-label="GitHub Link">

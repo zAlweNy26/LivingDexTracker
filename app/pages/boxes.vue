@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div>
-    {{ $t('header.boxes') }}
-  </div>
+	<div>
+		{{ $t('header.boxes') }}
+	</div>
 </template>

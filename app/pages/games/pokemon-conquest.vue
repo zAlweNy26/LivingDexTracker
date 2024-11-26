@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div>
-    Pokémon Conquest
-  </div>
+	<div>
+		Pokémon Conquest
+	</div>
 </template>

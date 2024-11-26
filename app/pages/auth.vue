@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div>
-    {{ $t('header.auth') }}
-  </div>
+	<div>
+		{{ $t('header.auth') }}
+	</div>
 </template>

@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div>
-    {{ $t('footer.attributions') }}
-  </div>
+	<div>
+		{{ $t('footer.attributions') }}
+	</div>
 </template>

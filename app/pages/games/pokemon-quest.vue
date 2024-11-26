@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div>
-    Pokémon Quest
-  </div>
+	<div>
+		Pokémon Quest
+	</div>
 </template>

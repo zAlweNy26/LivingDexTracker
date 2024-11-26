@@ -25,12 +25,12 @@ const handleError = () => clearError({ redirect: localePath('index') })
 				<span class="text-[var(--ui-error)]">{{ error.statusCode }}</span>
 				<span>{{ $t('error.routes.notAccessible') }}</span>
 				<span class="whitespace-break-spaces text-2xl text-[var(--ui-error)]">
-                    {{ $t($te(errorMsg) ? errorMsg : 'error.routes.fallback') }}
-                </span>
+					{{ $t($te(errorMsg) ? errorMsg : 'error.routes.fallback') }}
+				</span>
 			</div>
 			<NuButton color="error" size="xl" @click="handleError">
-                {{ $t('button.backHome') }}
-            </NuButton>
+				{{ $t('button.backHome') }}
+			</NuButton>
 		</div>
 	</NuxtLayout>
 </template>

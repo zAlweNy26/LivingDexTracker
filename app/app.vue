@@ -14,25 +14,25 @@ const dir = computed(() => locales[locale.value].dir)
 const { y: topPosition } = useWindowScroll({ behavior: 'smooth' })
 
 useHead({
-  htmlAttrs: {
-    lang,
-    dir
-  }
+	htmlAttrs: {
+		lang,
+		dir,
+	},
 })
 </script>
 
 <template>
-  <NuxtLayout>
-    <NuApp :locale="locales[locale]">
-      <NavHeader />
-      <main class="flex grow flex-col p-1 md:p-2">
-        <NuxtPage />
-        <NuButton v-if="topPosition > 0" class="fixed z-50 bottom-4 right-4 rounded-full" size="xl"
-          square :aria-label="$t('aria.goTop')" @click="topPosition = 0">
-          <NuIcon name="i-tabler-arrow-up" class="size-4 md:size-6" />
-        </NuButton>
-      </main>
-      <NavFooter />
-    </NuApp>
-  </NuxtLayout>
+	<NuxtLayout>
+		<NuApp :locale="locales[locale]">
+			<NavHeader />
+			<main class="flex grow flex-col p-1 md:p-2">
+				<NuxtPage />
+				<NuButton v-if="topPosition > 0" class="fixed z-50 bottom-4 right-4 rounded-full" size="xl"
+					square :aria-label="$t('aria.goTop')" @click="topPosition = 0">
+					<NuIcon name="i-tabler-arrow-up" class="size-4 md:size-6" />
+				</NuButton>
+			</main>
+			<NavFooter />
+		</NuApp>
+	</NuxtLayout>
 </template>
