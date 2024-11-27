@@ -17,9 +17,10 @@ logs
 .DS_Store
 .fleet
 .idea
+service-account.json
+.eslintcache
 
 # Local env files
 .env
 .env.*
 !.env.example
-service-account.json
