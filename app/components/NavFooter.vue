@@ -40,8 +40,9 @@ const { title } = useAppConfig()
 			</NuLink>
 		</div>
 		<div class="grid grid-flow-col gap-4">
-			<NuLink to="https://github.com/zAlweNy26/LivingDexTracker" external target="_blank" aria-label="GitHub Link">
-				<NuIcon name="i-logos-github-icon" class="size-8" />
+			<NuLink class="!text-[var(--ui-bg)] hover:scale-110 transition-transform" to="https://github.com/zAlweNy26/LivingDexTracker"
+				external target="_blank" aria-label="GitHub Link">
+				<NuIcon name="i-tabler-brand-github" class="size-8" />
 			</NuLink>
 		</div>
 		<div class="text-sm">
