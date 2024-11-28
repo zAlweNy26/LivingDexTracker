@@ -31,7 +31,7 @@
 		"@nuxt/ui": "^3.0.0-alpha.9",
 		"@nuxtjs/i18n": "^9.1.0",
 		"@nuxtjs/seo": "^2.0.2",
-		"@pinia/nuxt": "^0.7.0",
+		"@pinia/nuxt": "^0.8.0",
 		"@vueuse/core": "^12.0.0",
 		"@vueuse/nuxt": "^12.0.0",
 		"firebase-admin": "^13.0.1",
@@ -39,12 +39,13 @@
 		"nuxt": "^3.14.1592",
 		"nuxt-security": "^2.1.4",
 		"nuxt-vuefire": "^1.0.4",
+		"pinia": "^2.2.8",
 		"vue": "latest",
 		"vue-router": "latest",
 		"zod": "^3.23.8"
 	},
 	"devDependencies": {
-		"@antfu/eslint-config": "^3.11.0",
+		"@antfu/eslint-config": "^3.11.2",
 		"@iconify-json/tabler": "^1.2.8",
 		"changelogen": "^0.5.7",
 		"eslint": "^9.15.0",

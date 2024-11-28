@@ -57,6 +57,9 @@ export default defineNuxtConfig({
 	ui: {
 		prefix: 'Nu',
 	},
+	colorMode: {
+		classSuffix: '',
+	},
 	image: {
 		quality: 100,
 	},

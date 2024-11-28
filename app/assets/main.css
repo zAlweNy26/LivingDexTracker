@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
     --color-scarlet-50: #fef3f2;
     --color-scarlet-100: #ffe3e1;

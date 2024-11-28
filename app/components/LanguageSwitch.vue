@@ -6,7 +6,7 @@ const { changeLocale } = settings
 const { locale, locales } = storeToRefs(useSettingsStore())
 
 const currentLocale = computed(() =>
-	locales.value.find(l => l.code === locale.value) ?? locales.value[0],
+	locales.value.find(l => l.code === locale.value) ?? locales.value[0]!,
 )
 
 const items = computed<DropdownMenuItem[]>(() => locales.value.map(l => ({
@@ -17,10 +17,15 @@ const items = computed<DropdownMenuItem[]>(() => locales.value.map(l => ({
 </script>
 
 <template>
-	<NuDropdownMenu :items :content="{ align: 'end', sideOffset: 16 }">
-		<NuButton variant="outline" color="neutral" square :label="currentLocale.domain" />
-		<template #item-trailing="{ item }">
-			<NuIcon v-if="item.checked" name="i-tabler-point-filled" class="size-4" />
+	<ClientOnly>
+		<NuDropdownMenu :items :content="{ align: 'end', sideOffset: 16 }">
+			<NuButton variant="outline" color="neutral" square :label="currentLocale.domain" />
+			<template #item-trailing="{ item }">
+				<NuIcon v-if="item.checked" name="i-tabler-point-filled" class="size-4" />
+			</template>
+		</NuDropdownMenu>
+		<template #fallback>
+			<div class="size-8" />
 		</template>
-	</NuDropdownMenu>
+	</ClientOnly>
 </template>
