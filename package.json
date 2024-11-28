@@ -14,6 +14,9 @@
 		"clean": "nuxi cleanup && nuxi prepare",
 		"typecheck": "nuxi typecheck",
 		"changelog": "changelogen",
+		"emulators": "firebase emulators:start",
+		"deploy": "bun run generate && firebase deploy",
+		"ci": "bun run lint && bun run typecheck && bun run test",
 		"test": "vitest --run",
 		"lint": "eslint --cache .",
 		"lint:fix": "eslint --cache --fix ."
@@ -37,7 +40,8 @@
 		"nuxt-security": "^2.1.4",
 		"nuxt-vuefire": "^1.0.4",
 		"vue": "latest",
-		"vue-router": "latest"
+		"vue-router": "latest",
+		"zod": "^3.23.8"
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "^3.11.0",

@@ -34,22 +34,24 @@ export default defineNuxtConfig({
 	],
 	vuefire: {
 		config: {
-			apiKey: '',
-			authDomain: '',
-			databaseURL: '',
-			projectId: '',
-			storageBucket: '',
-			messagingSenderId: '',
-			appId: '',
+			apiKey: 'AIzaSyDQmBfrWwj7P3iijKnHjRFKvyxz6m55Jhs',
+			authDomain: 'livingdextracker-fd.firebaseapp.com',
+			databaseURL: 'https://livingdextracker-fd-default-rtdb.europe-west1.firebasedatabase.app',
+			projectId: 'livingdextracker-fd',
+			storageBucket: 'livingdextracker-fd.firebasestorage.app',
+			messagingSenderId: '307153854667',
+			appId: '1:307153854667:web:9fa41f369f23d6a83c7b4e',
 		},
 		auth: {
 			enabled: true,
+			sessionCookie: true,
+			persistence: ['indexedDBLocal', 'browserLocal', 'browserSession'],
 		},
 		appCheck: {
 			debug: process.env.NODE_ENV !== 'production',
 			isTokenAutoRefreshEnabled: true,
 			provider: 'ReCaptchaV3',
-			key: '',
+			key: '6LeVF08lAAAAAJg3TXZejfbjBayM8VInUVei7nUy',
 		},
 	},
 	ui: {
