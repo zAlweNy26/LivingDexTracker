@@ -1,84 +1,88 @@
 {
-	"aria": {
-		"toggle": "Toggle",
-		"goTop": "Go to the top",
-		"more": "More"
-	},
-	"theme": {
-		"light": "Light",
-		"dark": "Dark",
-		"toggle": "@:aria.toggle theme"
-	},
-	"language": {
-		"toggle": "@:aria.toggle language"
-	},
-	"header": {
-		"home": "Home",
-		"guide": "Guide",
-		"boxes": "Dex Boxes",
-		"faqs": "FAQs",
-		"games": "Other Games",
-		"auth": "Log in"
-	},
-	"footer": {
-		"privacy": "Privacy Policy",
-		"terms": "Terms & Conditions",
-		"attributions": "Attributions",
-		"contacts": "Contact Us",
-		"copyright": "Copyright © 2023 {0} - All Rights Reserved.",
-		"property": "Pokémon images, names, forms, and other relevant information are the property of {0}."
-	},
-	"error": {
-		"routes": {
-			"title": "Error - {0}",
-			"notAccessible": "Page not accessible",
-			"fallback": "An error occurred while trying to access this page.\nPlease try again later.",
-			"401": "You are not authenticated, so you cannot access this page.",
-			"403": "You are not authorized to access this page.",
-			"404": "The page you are looking for does not exist.",
-			"500": "Something went wrong. Please try again later."
-		}
-	},
-	"button": {
-		"backHome": "Go back to @:header.home",
-		"login": "@:header.auth"
-	},
-	"account": {
-		"profile": "Logged as {0}",
-		"logout": "Log out"
-	},
-	"search": {
-		"result": "Search results:"
-	},
-	"total": {
-		"pokemon": "Total Pokémons: {0}",
-		"magikarp": "Total Magikarp: {0}",
-		"patterns": "Total Patterns: {0}"
-	},
-	"pokemon": {
-		"icon": "Icon",
-		"model": "Model",
-		"shiny": "Shiny Model"
-	},
-	"pokedex": {
-		"empty": "No Pokémon found.",
-		"search": "Search a Pokémon...",
-		"onlySprites": "Show only sprites",
-		"generation": "Gen. {0}",
-		"games": {
-			"1": ["Red", "Green", "Blue", "Yellow"],
-			"2": ["Gold", "Silver", "Crystal"],
-			"3": ["Ruby", "Sapphire", "FireRed", "LeafGreen", "Emerald"],
-			"4": ["Diamond", "Pearl", "Platinum", "HeartGold", "SoulSilver"],
-			"5": ["Black", "White", "Black 2", "White 2"],
-			"6": ["X", "Y", "Omega Ruby", "Alpha Sapphire"],
-			"7": ["Sun", "Moon", "Ultra Sun", "Ultra Moon", "Let's Go Pikachu", "Let's Go Eevee"],
-			"8": ["Sword", "Shield", "Brilliant Diamond", "Shining Pearl", "Legends: Arceus"],
-			"9": ["Scarlet", "Violet", "Legends: Z-A"]
-		}
-	},
-	"quest": {
-		"chineseNames": "Chinese Names",
-		"chineseExclusives": "Chinese Exclusives"
-	}
+  "aria": {
+    "goTop": "Go to the top",
+    "toggle": "Toggle",
+    "copy": "Copy to clipboard",
+    "clear": "Clear",
+    "password": "Hide password | Show password",
+    "more": "More"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "toggle": "@:aria.toggle theme"
+  },
+  "language": {
+    "toggle": "@:aria.toggle language"
+  },
+  "header": {
+    "home": "Home",
+    "guide": "Guide",
+    "pokedex": "Pokédex",
+    "boxes": "Dex Boxes",
+    "faqs": "FAQs",
+    "games": "Other Games",
+    "auth": "Log in"
+  },
+  "footer": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "attributions": "Attributions",
+    "contacts": "Contact Us",
+    "copyright": "Copyright © 2024-{0} {1} - All Rights Reserved.",
+    "property": "Pokémon images, names, forms, and other relevant information are the property of {0}."
+  },
+  "error": {
+    "routes": {
+      "title": "Error - {0}",
+      "notAccessible": "Page not accessible",
+      "fallback": "An error occurred while trying to access this page.\nPlease try again later.",
+      "401": "You are not authenticated, so you cannot access this page.",
+      "403": "You are not authorized to access this page.",
+      "404": "The page you are looking for does not exist.",
+      "500": "Something went wrong. Please try again later."
+    }
+  },
+  "button": {
+    "backHome": "Go back to @:header.home",
+    "login": "@:header.auth"
+  },
+  "account": {
+    "profile": "Logged as {0}",
+    "logout": "Log out"
+  },
+  "search": {
+    "result": "Search results:"
+  },
+  "total": {
+    "pokemon": "Total Pokémons: {0}",
+    "magikarp": "Total Magikarp: {0}",
+    "patterns": "Total Patterns: {0}"
+  },
+  "pokemon": {
+    "icon": "Icon",
+    "model": "Model",
+    "shiny": "Shiny Model"
+  },
+  "pokedex": {
+    "empty": "No Pokémon found.",
+    "search": "Search a Pokémon...",
+    "onlySprites": "Show only sprites",
+    "generation": "Gen. {0}",
+    "games": {
+      "1": ["Red", "Green", "Blue", "Yellow"],
+      "2": ["Gold", "Silver", "Crystal"],
+      "3": ["Ruby", "Sapphire", "FireRed", "LeafGreen", "Emerald"],
+      "4": ["Diamond", "Pearl", "Platinum", "HeartGold", "SoulSilver"],
+      "5": ["Black", "White", "Black 2", "White 2"],
+      "6": ["X", "Y", "Omega Ruby", "Alpha Sapphire"],
+      "7": ["Sun", "Moon", "Ultra Sun", "Ultra Moon", "Let's Go Pikachu", "Let's Go Eevee"],
+      "8": ["Sword", "Shield", "Brilliant Diamond", "Shining Pearl", "Legends: Arceus"],
+      "9": ["Scarlet", "Violet", "Legends: Z-A"]
+    }
+  },
+  "quest": {
+    "chineseNames": "Chinese Names",
+    "chineseExclusives": "Chinese Exclusives"
+  }
 }

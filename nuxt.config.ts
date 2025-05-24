@@ -1,144 +1,247 @@
+import pkg from './package.json'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	compatibilityDate: '2024-11-01',
-	devtools: { enabled: true },
-	ssr: true,
-	experimental: {
-		typedPages: true,
-	},
-	future: {
-		compatibilityVersion: 4,
-	},
-	css: ['~/assets/main.css'],
-	app: {
-		pageTransition: {
-			name: 'page',
-			mode: 'out-in',
-		},
-		layoutTransition: {
-			name: 'layout',
-			mode: 'out-in',
-		},
-	},
-	modules: [
-		'@vueuse/nuxt',
-		'@pinia/nuxt',
-		'@nuxtjs/i18n',
-		'@nuxtjs/seo',
-		'@nuxt/ui',
-		'@nuxt/image',
-		'@nuxt/scripts',
-		'nuxt-vuefire',
-		'nuxt-security',
-		'nuxt-lodash',
-	],
-	vuefire: {
-		config: {
-			apiKey: 'AIzaSyDQmBfrWwj7P3iijKnHjRFKvyxz6m55Jhs',
-			authDomain: 'livingdextracker-fd.firebaseapp.com',
-			databaseURL: 'https://livingdextracker-fd-default-rtdb.europe-west1.firebasedatabase.app',
-			projectId: 'livingdextracker-fd',
-			storageBucket: 'livingdextracker-fd.firebasestorage.app',
-			messagingSenderId: '307153854667',
-			appId: '1:307153854667:web:9fa41f369f23d6a83c7b4e',
-		},
-		auth: {
-			enabled: true,
-			sessionCookie: true,
-			persistence: ['indexedDBLocal', 'browserLocal', 'browserSession'],
-		},
-		appCheck: {
-			debug: process.env.NODE_ENV !== 'production',
-			isTokenAutoRefreshEnabled: true,
-			provider: 'ReCaptchaV3',
-			key: '6LeVF08lAAAAAJg3TXZejfbjBayM8VInUVei7nUy',
-		},
-	},
-	ui: {
-		prefix: 'Nu',
-	},
-	colorMode: {
-		classSuffix: '',
-	},
-	image: {
-		quality: 100,
-	},
-	seo: {
-		redirectToCanonicalSiteUrl: true,
-		debug: process.env.NODE_ENV === 'development',
-	},
-	i18n: {
-		experimental: {
-			typedOptionsAndMessages: 'all',
-			typedPages: true,
-		},
-		compilation: {
-			strictMessage: false,
-		},
-		locales: [
-			{
-				code: 'en',
-				language: 'en-GB',
-				name: 'English',
-				domain: '🇬🇧',
-				file: 'en-GB.json',
-				isCatchallLocale: true,
-			},
-			{
-				code: 'it',
-				language: 'it-IT',
-				name: 'Italiano',
-				file: 'it-IT.json',
-				domain: '🇮🇹',
-			},
-			{
-				code: 'es',
-				language: 'es-ES',
-				name: 'Español',
-				file: 'es-ES.json',
-				domain: '🇪🇸',
-			},
-			{
-				code: 'fr',
-				language: 'fr-FR',
-				name: 'Français',
-				file: 'fr-FR.json',
-				domain: '🇫🇷',
-			},
-			{
-				code: 'de',
-				language: 'de-DE',
-				name: 'Deutsch',
-				file: 'de-DE.json',
-				domain: '🇩🇪',
-			},
-		],
-		lazy: true,
-		defaultLocale: 'en',
-		langDir: './locales',
-		strategy: 'no_prefix',
-		detectBrowserLanguage: {
-			useCookie: true,
-			cookieKey: 'i18n_redirected',
-			alwaysRedirect: true,
-			redirectOn: 'root',
-		},
-	},
-	nitro: {
-		routeRules: {
-			'/img/**': { headers: { 'cache-control': `public,max-age=${60 * 60 * 24 * 7},s-maxage=${60 * 60 * 24 * 7}` } },
-			'/_ipx/**': { headers: { 'cache-control': `public,max-age=${60 * 60 * 24 * 7},s-maxage=${60 * 60 * 24 * 7}` } },
-			'/_nuxt/**': { headers: { 'cache-control': `public,max-age=${60 * 60 * 24 * 7},s-maxage=${60 * 60 * 24 * 7}` } },
-		},
-	},
-	routeRules: {
-		'/': { prerender: true },
-		'/guide': { prerender: true },
-		'/faqs': { prerender: true },
-		'/boxes': { ssr: false },
-		'/auth': { ssr: false },
-		'/privacy-policy': { prerender: true },
-		'/terms': { prerender: true },
-		'/api/**': { cors: true },
-	},
+  devtools: { enabled: true },
+
+  experimental: {
+    typedPages: true,
+  },
+
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        types: ['vitest/globals'],
+      },
+    },
+  },
+
+  sourcemap: {
+    client: 'hidden',
+  },
+
+  vite: {
+    build: {
+      rollupOptions: {
+        external: ['sharp'],
+      },
+    },
+  },
+
+  ssr: true,
+
+  modules: [
+    'magic-regexp/nuxt',
+    'motion-v/nuxt',
+    'nuxt-lodash',
+    'nuxt-security',
+    'nuxt-zod-i18n',
+    '@formkit/auto-animate/nuxt',
+    '@vueuse/nuxt',
+    '@pinia/nuxt',
+    '@nuxtjs/i18n',
+    '@nuxtjs/seo',
+    '@nuxt/test-utils',
+    '@nuxt/ui',
+    '@nuxthub/core',
+    '@nuxt/image',
+    '@nuxt/scripts',
+    '@nuxt/eslint',
+    '@compodium/nuxt',
+    'nuxt-vitalizer',
+  ],
+
+  runtimeConfig: {
+    public: {
+      version: pkg.version,
+      auth: {
+        redirectUserTo: '/dashboard',
+        redirectGuestTo: '/auth',
+      },
+    },
+  },
+
+  css: ['~/assets/main.css'],
+
+  future: {
+    compatibilityVersion: 4,
+  },
+
+  compatibilityDate: '2025-02-01',
+
+  app: {
+    pageTransition: {
+      name: 'page',
+      mode: 'out-in',
+    },
+    layoutTransition: {
+      name: 'layout',
+      mode: 'out-in',
+    },
+  },
+
+  compodium: {
+    includeLibraryCollections: true,
+    extras: {
+      colors: {
+        primary: 'emerald',
+        neutral: 'stone',
+      },
+    },
+  },
+
+  hub: {
+    analytics: true,
+    kv: true,
+    database: true,
+    blob: true,
+  },
+
+  image: {
+    quality: 100,
+  },
+
+  icon: {
+    serverBundle: 'local',
+  },
+
+  colorMode: {
+    classSuffix: '',
+    preference: 'system',
+    fallback: 'light',
+    disableTransition: false,
+  },
+
+  seo: {
+    redirectToCanonicalSiteUrl: true,
+    debug: process.env.NODE_ENV === 'development',
+  },
+
+  vitalizer: {
+    disablePrefetchLinks: true,
+  },
+
+  security: {
+    nonce: true,
+  },
+
+  lodash: {
+    prefix: '_',
+  },
+
+  zodI18n: {
+    dateFormat: {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    },
+    localeCodesMapping: {
+      'en-GB': 'en',
+      'en-US': 'en',
+      'it-IT': 'it',
+      'es-ES': 'es',
+      'fr-FR': 'fr',
+      'de-DE': 'de',
+    },
+  },
+
+  i18n: {
+    baseUrl: '',
+    bundle: {
+      optimizeTranslationDirective: false,
+    },
+    experimental: {
+      typedPages: true,
+      typedOptionsAndMessages: 'default',
+      generatedLocaleFilePathFormat: 'off',
+      alternateLinkCanonicalQueries: true,
+    },
+    compilation: {
+      strictMessage: false,
+    },
+    locales: [
+      {
+        code: 'en',
+        language: 'en-GB',
+        name: 'English',
+        file: 'en-GB.json',
+        isCatchallLocale: true,
+      },
+      {
+        code: 'it',
+        language: 'it-IT',
+        name: 'Italiano',
+        file: 'it-IT.json',
+      },
+      {
+        code: 'es',
+        language: 'es-ES',
+        name: 'Español',
+        file: 'es-ES.json',
+      },
+      {
+        code: 'fr',
+        language: 'fr-FR',
+        name: 'Français',
+        file: 'fr-FR.json',
+      },
+      {
+        code: 'de',
+        language: 'de-DE',
+        name: 'Deutsch',
+        file: 'de-DE.json',
+      },
+    ],
+    lazy: true,
+    defaultLocale: 'en',
+    strategy: 'no_prefix',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      alwaysRedirect: true,
+      redirectOn: 'root',
+    },
+  },
+
+  nitro: {
+    routeRules: {
+      '/img/**': { headers: { 'cache-control': `public,max-age=${60 * 60 * 24 * 7},s-maxage=${60 * 60 * 24 * 7}` } },
+      '/_ipx/**': { headers: { 'cache-control': `public,max-age=${60 * 60 * 24 * 7},s-maxage=${60 * 60 * 24 * 7}` } },
+      '/_nuxt/**': { headers: { 'cache-control': `public,max-age=${60 * 60 * 24 * 7},s-maxage=${60 * 60 * 24 * 7}` } },
+    },
+  },
+
+  routeRules: {
+    '/': { prerender: true },
+    '/guide': { prerender: true },
+    '/faqs': { prerender: true },
+    '/privacy-policy': { prerender: true },
+    '/terms': { prerender: true },
+    '/api/**': { cors: true },
+  },
+
+  $development: {
+    devtools: {
+      enabled: true,
+      timeline: {
+        enabled: true,
+      },
+    },
+    seo: {
+      debug: true,
+    },
+  },
+
+  $production: {
+    debug: false,
+    devtools: {
+      enabled: false,
+    },
+  },
+
+  $env: {
+    debug: {
+      debug: true,
+    },
+  },
 })

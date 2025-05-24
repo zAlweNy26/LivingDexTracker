@@ -1,9 +1,13 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+@plugin "@tailwindcss/typography";
+
 @variant dark (&:where(.dark, .dark *));
 
-@theme {
+@theme static {
+    --font-sans: 'Lato', sans-serif;
+
     --color-scarlet-50: #fef3f2;
     --color-scarlet-100: #ffe3e1;
     --color-scarlet-200: #ffcdc9;
@@ -33,7 +37,7 @@
     --color-primary-200: var(--ui-color-primary-200);
     --color-primary-300: var(--ui-color-primary-300);
     --color-primary-400: var(--ui-color-primary-400);
-    --color-primary-500: var(--ui-color-primary-500);
+    --color-primary: var(--ui-color-primary-500);
     --color-primary-600: var(--ui-color-primary-600);
     --color-primary-700: var(--ui-color-primary-700);
     --color-primary-800: var(--ui-color-primary-800);
@@ -45,7 +49,7 @@
     --color-secondary-200: var(--ui-color-secondary-200);
     --color-secondary-300: var(--ui-color-secondary-300);
     --color-secondary-400: var(--ui-color-secondary-400);
-    --color-secondary-500: var(--ui-color-secondary-500);
+    --color-secondary: var(--ui-color-secondary-500);
     --color-secondary-600: var(--ui-color-secondary-600);
     --color-secondary-700: var(--ui-color-secondary-700);
     --color-secondary-800: var(--ui-color-secondary-800);
@@ -57,7 +61,7 @@
     --color-neutral-200: var(--ui-color-neutral-200);
     --color-neutral-300: var(--ui-color-neutral-300);
     --color-neutral-400: var(--ui-color-neutral-400);
-    --color-neutral-500: var(--ui-color-neutral-500);
+    --color-neutral: var(--ui-color-neutral-500);
     --color-neutral-600: var(--ui-color-neutral-600);
     --color-neutral-700: var(--ui-color-neutral-700);
     --color-neutral-800: var(--ui-color-neutral-800);
@@ -66,8 +70,10 @@
 
     --text-2xs: 0.625rem;
     --text-2xs--line-height: 0.75rem;
+
+    --breakpoint-3xl: 120rem;
 }
 
 :root {
-    --ui-radius: var(--radius-md);
+    --ui-radius: 0.375rem;
 }

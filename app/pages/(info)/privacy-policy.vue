@@ -2,7 +2,7 @@
 </script>
 
 <template>
-	<div>
-		{{ $t('footer.privacy') }}
-	</div>
+  <div>
+    {{ $t('footer.privacy') }}
+  </div>
 </template>

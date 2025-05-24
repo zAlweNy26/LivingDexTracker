@@ -3,29 +3,24 @@ import type { DropdownMenuItem } from '#ui/types'
 
 const settings = useSettingsStore()
 const { changeLocale } = settings
-const { locale, locales } = storeToRefs(useSettingsStore())
-
-const currentLocale = computed(() =>
-	locales.value.find(l => l.code === locale.value) ?? locales.value[0]!,
-)
+const { locale, locales, currentLocale } = storeToRefs(settings)
 
 const items = computed<DropdownMenuItem[]>(() => locales.value.map(l => ({
-	label: `${l.domain} ${l.name}`,
-	onSelect: () => changeLocale(l.code),
-	checked: l.code === locale.value,
-} satisfies DropdownMenuItem)))
+  label: `${languagesFlags[l.code]} ${l.name}`,
+  type: 'checkbox',
+  onSelect: () => changeLocale(l.code),
+  checked: l.code === locale.value,
+})))
 </script>
 
 <template>
-	<ClientOnly>
-		<NuDropdownMenu :items :content="{ align: 'end', sideOffset: 16 }">
-			<NuButton variant="outline" color="neutral" square :label="currentLocale.domain" />
-			<template #item-trailing="{ item }">
-				<NuIcon v-if="item.checked" name="i-tabler-point-filled" class="size-4" />
-			</template>
-		</NuDropdownMenu>
-		<template #fallback>
-			<div class="size-8" />
-		</template>
-	</ClientOnly>
+  <ClientOnly>
+    <UDropdownMenu :items :content="{ align: 'end', sideOffset: 16 }">
+      <UButton variant="outline" color="neutral" :ui="{ label: 'size-5' }"
+               square :label="languagesFlags[currentLocale.code]" />
+    </UDropdownMenu>
+    <template #fallback>
+      <div class="size-8" />
+    </template>
+  </ClientOnly>
 </template>

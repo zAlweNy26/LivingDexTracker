@@ -90,5 +90,11 @@
 		"scss",
 		"pcss",
 		"postcss"
-	]
+	],
+	"i18n-ally.localesPaths": [
+		"i18n",
+		"i18n/locales"
+	],
+	"typescript.experimental.useTsgo": false,
+	"i18n-ally.keystyle": "nested"
 }
