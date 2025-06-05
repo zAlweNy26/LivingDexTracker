@@ -25,7 +25,7 @@ const searchFilter = computed(() => {
       <USwitch v-model="onlySprites" :label="$t('pokedex.onlySprites')" />
     </div>
     <div class="flex flex-wrap self-center items-center gap-4">
-      <USelect v-model="spriteType" highlight defaultValue="1" :items="[
+      <USelect v-model="spriteType" defaultValue="1" :items="[
         { label: $t('pokemon.icon'), value: '1' },
         { label: $t('pokemon.model'), value: '2' },
         { label: $t('pokemon.shiny'), value: '3' },

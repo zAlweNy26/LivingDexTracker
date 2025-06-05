@@ -12,9 +12,10 @@ const lang = computed(() => locales[locale.value].code)
 const dir = computed(() => locales[locale.value].dir)
 
 const seoTitle = computed(() => {
-  const routeName = String(route.name)
+  const routeName = String(route.name).replace('games-', '')
   if (error.value) return t('error.routes.title', [error.value.statusCode])
   if (!routeName || routeName === 'index') return t('header.home')
+  if (routeName in otherGames) return otherGames[routeName as keyof typeof otherGames]
   return t(`header.${routeName}`)
 })
 

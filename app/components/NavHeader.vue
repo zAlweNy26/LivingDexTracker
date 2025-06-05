@@ -40,33 +40,33 @@ const items = computed(() => [
     slot: 'games',
     children: [
       {
-        label: 'Pokémon Quest',
-        to: localePath('games-pokemon-quest'),
+        label: otherGames.quest,
+        to: localePath('games-quest'),
         class: 'font-semibold',
         avatar: {
           ui: { root: 'rounded-none' },
           src: '/pokemon-quest.webp',
-          alt: 'Pokémon Quest',
+          alt: otherGames.quest,
         },
       },
       {
-        label: 'Magikarp Jump',
+        label: otherGames['magikarp-jump'],
         to: localePath('games-magikarp-jump'),
         class: 'font-semibold',
         avatar: {
           ui: { root: 'rounded-none' },
           src: '/magikarp-jump.webp',
-          alt: 'Pokémon Quest',
+          alt: otherGames['magikarp-jump'],
         },
       },
       {
-        label: 'Pokémon Conquest',
-        to: localePath('games-pokemon-conquest'),
+        label: otherGames.conquest,
+        to: localePath('games-conquest'),
         class: 'font-semibold',
         avatar: {
           ui: { root: 'rounded-none' },
           src: '/pokemon-conquest.webp',
-          alt: 'Pokémon Quest',
+          alt: otherGames.conquest,
         },
       },
     ],
