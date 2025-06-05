@@ -99,9 +99,9 @@ async function signInUser(event: FormSubmitEvent<SignInSchema>) {
                   @click="switchAuth()">{{ $t('auth.signin.now') }}</span>
           </p>
           <div class="flex gap-4">
-            <UButton icon="i-logos-google-icon" square size="lg" variant="soft" loadingAuto class="rounded-full p-3" @click="signSocial('google')" />
-            <UButton icon="i-logos-microsoft-icon" square size="lg" variant="soft" loadingAuto class="rounded-full p-3" @click="signSocial('microsoft')" />
-            <UButton icon="i-logos-facebook" square size="lg" variant="soft" loadingAuto class="rounded-full p-3" @click="signSocial('facebook')" />
+            <UButton icon="i-logo-google" square size="lg" variant="soft" loadingAuto class="rounded-full p-3" @click="signSocial('google')" />
+            <UButton icon="i-logo-microsoft" square size="lg" variant="soft" loadingAuto class="rounded-full p-3" @click="signSocial('microsoft')" />
+            <UButton icon="i-logo-facebook" square size="lg" variant="soft" loadingAuto class="rounded-full p-3" @click="signSocial('facebook')" />
           </div>
           <span class="text-xs">{{ $t('auth.signin.info') }}</span>
           <UForm ref="inForm" class="flex flex-col items-stretch gap-2 w-full" :state="inState"
@@ -131,9 +131,9 @@ async function signInUser(event: FormSubmitEvent<SignInSchema>) {
                   @click="switchAuth()">{{ $t('auth.signup.now') }}</span>
           </p>
           <div class="flex gap-4">
-            <UButton icon="i-logos-google-icon" square size="lg" variant="soft" loadingAuto class="rounded-full p-3" @click="signSocial('google')" />
-            <UButton icon="i-logos-microsoft-icon" square size="lg" variant="soft" loadingAuto class="rounded-full p-3" @click="signSocial('microsoft')" />
-            <UButton icon="i-logos-facebook" square size="lg" variant="soft" loadingAuto class="rounded-full p-3" @click="signSocial('facebook')" />
+            <UButton icon="i-logo-google" square size="lg" variant="soft" loadingAuto class="rounded-full p-3" @click="signSocial('google')" />
+            <UButton icon="i-logo-microsoft" square size="lg" variant="soft" loadingAuto class="rounded-full p-3" @click="signSocial('microsoft')" />
+            <UButton icon="i-logo-facebook" square size="lg" variant="soft" loadingAuto class="rounded-full p-3" @click="signSocial('facebook')" />
           </div>
           <span class="text-xs">{{ $t('auth.signup.info') }}</span>
           <UForm ref="upForm" class="flex flex-col items-stretch gap-2 w-full" :state="upState"

@@ -116,7 +116,6 @@ const userItems = computed<DropdownMenuItem[]>(() => [
     </div>
     <div class="items-center gap-2 flex">
       <ThemeSwitch />
-      <LanguageSwitch />
       <UDropdownMenu v-if="user" :items="userItems" :content="{ align: 'end', sideOffset: 16 }">
         <UButton variant="ghost" color="neutral" icon="i-tabler-user-filled" />
       </UDropdownMenu>

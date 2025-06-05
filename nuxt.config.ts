@@ -103,6 +103,10 @@ export default defineNuxtConfig({
 
   icon: {
     serverBundle: 'local',
+    customCollections: [{
+      prefix: 'logo',
+      dir: './app/assets/icons',
+    }],
   },
 
   colorMode: {
