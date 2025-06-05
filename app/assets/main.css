@@ -1,0 +1,79 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@plugin "@tailwindcss/typography";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme static {
+    --font-sans: 'Lato', sans-serif;
+
+    --color-scarlet-50: #fef3f2;
+    --color-scarlet-100: #ffe3e1;
+    --color-scarlet-200: #ffcdc9;
+    --color-scarlet-300: #fea9a3;
+    --color-scarlet-400: #fc776d;
+    --color-scarlet-500: #f34134;
+    --color-scarlet-600: #e12e21;
+    --color-scarlet-700: #bd2318;
+    --color-scarlet-800: #9c2118;
+    --color-scarlet-900: #82211a;
+    --color-scarlet-950: #470c08;
+
+    --color-violet-50: #fbf6fe;
+    --color-violet-100: #f4ebfc;
+    --color-violet-200: #ebdafa;
+    --color-violet-300: #dcbcf6;
+    --color-violet-400: #c691ef;
+    --color-violet-500: #b167e5;
+    --color-violet-600: #9c47d6;
+    --color-violet-700: #8334b7;
+    --color-violet-800: #713099;
+    --color-violet-900: #5d287b;
+    --color-violet-950: #3f115a;
+
+    --color-primary-50: var(--ui-color-primary-50);
+    --color-primary-100: var(--ui-color-primary-100);
+    --color-primary-200: var(--ui-color-primary-200);
+    --color-primary-300: var(--ui-color-primary-300);
+    --color-primary-400: var(--ui-color-primary-400);
+    --color-primary: var(--ui-color-primary-500);
+    --color-primary-600: var(--ui-color-primary-600);
+    --color-primary-700: var(--ui-color-primary-700);
+    --color-primary-800: var(--ui-color-primary-800);
+    --color-primary-900: var(--ui-color-primary-900);
+    --color-primary-950: var(--ui-color-primary-950);
+
+    --color-secondary-50: var(--ui-color-secondary-50);
+    --color-secondary-100: var(--ui-color-secondary-100);
+    --color-secondary-200: var(--ui-color-secondary-200);
+    --color-secondary-300: var(--ui-color-secondary-300);
+    --color-secondary-400: var(--ui-color-secondary-400);
+    --color-secondary: var(--ui-color-secondary-500);
+    --color-secondary-600: var(--ui-color-secondary-600);
+    --color-secondary-700: var(--ui-color-secondary-700);
+    --color-secondary-800: var(--ui-color-secondary-800);
+    --color-secondary-900: var(--ui-color-secondary-900);
+    --color-secondary-950: var(--ui-color-secondary-950);
+
+    --color-neutral-50: var(--ui-color-neutral-50);
+    --color-neutral-100: var(--ui-color-neutral-100);
+    --color-neutral-200: var(--ui-color-neutral-200);
+    --color-neutral-300: var(--ui-color-neutral-300);
+    --color-neutral-400: var(--ui-color-neutral-400);
+    --color-neutral: var(--ui-color-neutral-500);
+    --color-neutral-600: var(--ui-color-neutral-600);
+    --color-neutral-700: var(--ui-color-neutral-700);
+    --color-neutral-800: var(--ui-color-neutral-800);
+    --color-neutral-900: var(--ui-color-neutral-900);
+    --color-neutral-950: var(--ui-color-neutral-950);
+
+    --text-2xs: 0.625rem;
+    --text-2xs--line-height: 0.75rem;
+
+    --breakpoint-3xl: 120rem;
+}
+
+:root {
+    --ui-radius: 0.375rem;
+}

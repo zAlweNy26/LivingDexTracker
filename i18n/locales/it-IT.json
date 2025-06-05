@@ -1,0 +1,151 @@
+{
+  "aria": {
+    "toggle": "Cambia",
+    "goTop": "Vai in alto",
+    "copy": "Copia negli appunti",
+    "clear": "Pulisci",
+    "password": "Nascondi password | Mostra password",
+    "more": "Altro"
+  },
+  "theme": {
+    "light": "Chiaro",
+    "dark": "Scuro",
+    "toggle": "@:aria.toggle tema"
+  },
+  "language": {
+    "toggle": "@:aria.toggle lingua"
+  },
+  "header": {
+    "home": "Home",
+    "guide": "Guida",
+    "pokedex": "Pokédex",
+    "boxes": "Dex Box",
+    "faqs": "FAQ",
+    "games": "Altri Giochi",
+    "auth": "Accedi"
+  },
+  "footer": {
+    "privacy": "Informativa sulla Privacy",
+    "terms": "Termini di Servizio",
+    "attributions": "Attribuzioni",
+    "contacts": "Contattaci",
+    "copyright": "Copyright © 2024-{0} {1} - Tutti i diritti riservati.",
+    "property": "Le immagini, i nomi, le forme e le altre informazioni relative ai Pokémon sono di proprietà di {0}."
+  },
+  "error": {
+    "routes": {
+      "title": "Errore - {0}",
+      "notAccessible": "Pagina non accessibile",
+      "fallback": "Si è verificato un errore durante il tentativo di accesso a questa pagina.\nRiprova più tardi.",
+      "401": "Non sei autenticato, quindi non puoi accedere a questa pagina.",
+      "403": "Non sei autorizzato ad accedere a questa pagina.",
+      "404": "La pagina che stai cercando non è stata trovata.",
+      "500": "Qualcosa è andato storto. Riprova più tardi."
+    }
+  },
+  "button": {
+    "backHome": "Torna alla @:header.home",
+    "login": "@:header.auth"
+  },
+  "account": {
+    "profile": "Accesso come {0}",
+    "logout": "Esci"
+  },
+  "search": {
+    "result": "Risultati di ricerca:"
+  },
+  "total": {
+    "pokemon": "Pokémon totali: {0}",
+    "magikarp": "Magikarp totali: {0}",
+    "patterns": "Pattern totali: {0}"
+  },
+  "pokemon": {
+    "icon": "Icona",
+    "model": "Modello",
+    "shiny": "Modello Shiny"
+  },
+  "home": {
+    "description": "Colleziona tutti i Pokémon in tutte le loro forme e varianti. Traccia i tuoi progressi e visualizza quali Pokémon ti mancano!"
+  },
+  "pokedex": {
+    "empty": "Nessun Pokémon trovato.",
+    "search": "Cerca un Pokémon...",
+    "onlySprites": "Mostra solo sprite",
+    "generation": "Gen. {0}",
+    "games": {
+      "1": ["Rosso", "Verde", "Blu", "Giallo"],
+      "2": ["Oro", "Argento", "Cristallo"],
+      "3": ["Rubino", "Zaffiro", "Rosso Fuoco", "Verde Foglia", "Smeraldo"],
+      "4": ["Diamante", "Perla", "Platino", "HeartGold", "SoulSilver"],
+      "5": ["Nero", "Bianco", "Nero 2", "Bianco 2"],
+      "6": ["X", "Y", "Rubino Omega", "Zaffiro Alpha"],
+      "7": ["Sole", "Luna", "Ultrasole", "Ultraluna", "Let's Go Pikachu", "Let's Go Eevee"],
+      "8": ["Spada", "Scudo", "Diamante Lucente", "Perla Splendente", "Leggende: Arceus"],
+      "9": ["Scarlatto", "Violetto", "Leggende: Z-A"]
+    }
+  },
+  "quest": {
+    "chineseNames": "Nomi cinesi",
+    "chineseExclusives": "Esclusivi cinesi"
+  },
+  "auth": {
+    "signin": {
+      "title": "Bentornato!",
+      "description": "Accedi al tuo account per continuare ad utilizzare {0}!",
+      "help": "Hai bisogno di un account? {0}",
+      "info": "o usa i dati del tuo account:",
+      "forgot": "Hai dimenticato la password?",
+      "now": "Registra un account!",
+      "submit": "Accedi",
+      "fields": {
+        "identifier": {
+          "label": "Email o telefono",
+          "placeholder": "Inserisci email o numero di telefono..."
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Inserisci la password..."
+        },
+        "rememberMe": "Ricorda accesso"
+      }
+    },
+    "signup": {
+      "title": "Crea un nuovo account",
+      "description": "Registrati per iniziare a utilizzare {0}!",
+      "help": "Hai già un account? {0}",
+      "info": "oppure compila i campi sottostanti:",
+      "now": "Accedi adesso!",
+      "submit": "Registrati",
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Inserisci la tua email..."
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Crea una password...",
+          "mustContain": "{0}. Deve contenere:",
+          "matched": "Requisito soddisfatto | Requisito non soddisfatto",
+          "scores": {
+            "empty": "Inserisci una password",
+            "weak": "Password debole",
+            "medium": "Password discreta",
+            "strong": "Password forte"
+          },
+          "requirements": {
+            "length": "Lunga almeno 8 caratteri",
+            "uppercase": "Contiene almeno una lettera maiuscola",
+            "lowercase": "Contiene almeno una lettera minuscola",
+            "number": "Contiene almeno un numero",
+            "special": "Contiene almeno un carattere speciale"
+          }
+        },
+        "confirmation": {
+          "label": "Ripeti Password",
+          "placeholder": "Riscrivi la password per confermare...",
+          "notMatch": "Le password non corrispondono"
+        }
+      }
+    }
+  }
+}
