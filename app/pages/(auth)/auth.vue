@@ -106,8 +106,8 @@ async function signInUser(event: FormSubmitEvent<SignInSchema>) {
           <span class="text-xs">{{ $t('auth.signin.info') }}</span>
           <UForm ref="inForm" class="flex flex-col items-stretch gap-2 w-full" :state="inState"
                  :validateOn="['blur']" :schema="signInSchema" @submit.prevent="signInUser">
-            <UFormField name="email" required :label="$t('auth.signin.fields.identifier.label')">
-              <UInput v-model="inState.email" :placeholder="$t('auth.signin.fields.identifier.placeholder')" class="w-full" />
+            <UFormField name="email" required :label="$t('auth.signin.fields.email.label')">
+              <UInput v-model="inState.email" :placeholder="$t('auth.signin.fields.email.placeholder')" class="w-full" />
             </UFormField>
             <UFormField name="password" required :label="$t('auth.signin.fields.password.label')">
               <InputPassword v-model="inState.password" :maxlength="32" :placeholder="$t('auth.signin.fields.password.placeholder')" class="w-full" />

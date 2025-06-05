@@ -64,6 +64,9 @@
     "model": "Model",
     "shiny": "Shiny Model"
   },
+  "home": {
+    "description": "Collect all Pokémon in all their forms and variations. Track your progress and see which Pokémon you are missing!"
+  },
   "pokedex": {
     "empty": "No Pokémon found.",
     "search": "Search a Pokémon...",
@@ -84,5 +87,65 @@
   "quest": {
     "chineseNames": "Chinese Names",
     "chineseExclusives": "Chinese Exclusives"
+  },
+  "auth": {
+    "signin": {
+      "title": "Welcome back!",
+      "description": "Log in to your account to continue using {0}!",
+      "help": "Need an account? {0}",
+      "info": "or use your account credentials:",
+      "forgot": "Forgot your password?",
+      "now": "Register an account now!",
+      "submit": "Log in",
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter your email..."
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter your password..."
+        },
+        "rememberMe": "Remember login"
+      }
+    },
+    "signup": {
+      "title": "Create a new account",
+      "description": "Sign up to start using {0}!",
+      "help": "Already have an account? {0}",
+      "info": "or fill in the fields below:",
+      "now": "Log in now!",
+      "submit": "Sign up",
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Company or personal email..."
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Create a password...",
+          "mustContain": "{0}. It must contain:",
+          "matched": "Requirement met | Requirement not met",
+          "scores": {
+            "empty": "Enter a password",
+            "weak": "Weak password",
+            "medium": "Fair password",
+            "strong": "Strong password"
+          },
+          "requirements": {
+            "length": "At least 8 characters long",
+            "uppercase": "Contains at least one uppercase letter",
+            "lowercase": "Contains at least one lowercase letter",
+            "number": "Contains at least one number",
+            "special": "Contains at least one special character"
+          }
+        },
+        "confirmation": {
+          "label": "Repeat Password",
+          "placeholder": "Re-enter the password to confirm...",
+          "notMatch": "Passwords do not match"
+        }
+      }
+    }
   }
 }

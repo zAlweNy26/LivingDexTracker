@@ -8,7 +8,7 @@ const settings = useSettingsStore()
 const { toggleTheme } = settings
 const { isDark } = storeToRefs(settings)
 
-const items = computed(() => [
+const items = computed<NavigationMenuItem[]>(() => [
   {
     label: t('header.home'),
     to: localePath('index'),
@@ -71,7 +71,7 @@ const items = computed(() => [
       },
     ],
   },
-] satisfies NavigationMenuItem[])
+])
 
 const userItems = computed<DropdownMenuItem[]>(() => [
   {

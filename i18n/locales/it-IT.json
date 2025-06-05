@@ -98,9 +98,9 @@
       "now": "Registra un account!",
       "submit": "Accedi",
       "fields": {
-        "identifier": {
-          "label": "Email o telefono",
-          "placeholder": "Inserisci email o numero di telefono..."
+        "email": {
+          "label": "Email",
+          "placeholder": "Inserisci la tua email..."
         },
         "password": {
           "label": "Password",

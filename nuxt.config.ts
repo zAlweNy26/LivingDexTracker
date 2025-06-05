@@ -216,11 +216,11 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/': { prerender: true },
-    '/guide': { prerender: true },
-    '/faqs': { prerender: true },
-    '/privacy-policy': { prerender: true },
-    '/terms': { prerender: true },
+    '/': { ssr: false },
+    '/guide': { ssr: false },
+    '/faqs': { ssr: false },
+    '/privacy-policy': { ssr: false },
+    '/terms': { ssr: false },
     '/api/**': { cors: true },
   },
 
