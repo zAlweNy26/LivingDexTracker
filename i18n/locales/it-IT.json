@@ -121,6 +121,10 @@
           "label": "Email",
           "placeholder": "Inserisci la tua email..."
         },
+        "username": {
+          "label": "Nome Utente",
+          "placeholder": "Crea un nome utente..."
+        },
         "password": {
           "label": "Password",
           "placeholder": "Crea una password...",

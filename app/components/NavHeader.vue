@@ -3,7 +3,7 @@ import type { DropdownMenuItem, NavigationMenuItem } from '#ui/types'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
-const { user } = useAuth()
+const { loggedIn, user } = useAuth()
 const settings = useSettingsStore()
 const { toggleTheme } = settings
 const { isDark } = storeToRefs(settings)
@@ -115,11 +115,13 @@ const userItems = computed<DropdownMenuItem[]>(() => [
       </template>
     </div>
     <div class="items-center gap-2 flex">
-      <ThemeSwitch />
-      <UDropdownMenu v-if="user" :items="userItems" :content="{ align: 'end', sideOffset: 16 }">
+      <UDropdownMenu v-if="loggedIn" :items="userItems" :content="{ align: 'end', sideOffset: 16 }">
         <UButton variant="ghost" color="neutral" icon="i-tabler-user-filled" />
       </UDropdownMenu>
-      <UButton v-else :to="$localePath('auth')" icon="i-tabler-login-2" :label="$t('button.login')" />
+      <template v-else>
+        <ThemeSwitch />
+        <UButton :to="$localePath('auth')" icon="i-tabler-login-2" :label="$t('button.login')" />
+      </template>
     </div>
   </header>
 </template>

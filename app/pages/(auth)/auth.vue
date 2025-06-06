@@ -54,7 +54,7 @@ function switchAuth() {
 async function signSocial(provider: 'google' | 'microsoft' | 'facebook') {
   await signIn.social({
     provider,
-    callbackURL: '/dashboard',
+    callbackURL: '/boxes',
   })
 }
 
@@ -64,10 +64,10 @@ async function signUpUser(event: FormSubmitEvent<SignUpSchema>) {
     email: data.email,
     name: data.username,
     password: data.password,
-    callbackURL: '/dashboard',
+    callbackURL: '/boxes',
   }, {
     async onSuccess() {
-      await navigateTo('/dashboard')
+      await navigateTo('/boxes')
     },
   })
 }
@@ -78,7 +78,7 @@ async function signInUser(event: FormSubmitEvent<SignInSchema>) {
     email: data.email,
     password: data.password,
     rememberMe: data.rememberMe,
-    callbackURL: '/dashboard',
+    callbackURL: '/boxes',
   })
 }
 </script>
@@ -105,7 +105,7 @@ async function signInUser(event: FormSubmitEvent<SignInSchema>) {
           </div>
           <span class="text-xs">{{ $t('auth.signin.info') }}</span>
           <UForm ref="inForm" class="flex flex-col items-stretch gap-2 w-full" :state="inState"
-                 :validateOn="['blur']" :schema="signInSchema" @submit.prevent="signInUser">
+                 :validateOn="['blur']" :schema="signInSchema" @submit="signInUser">
             <UFormField name="email" required :label="$t('auth.signin.fields.email.label')">
               <UInput v-model="inState.email" :placeholder="$t('auth.signin.fields.email.placeholder')" class="w-full" />
             </UFormField>
@@ -137,9 +137,12 @@ async function signInUser(event: FormSubmitEvent<SignInSchema>) {
           </div>
           <span class="text-xs">{{ $t('auth.signup.info') }}</span>
           <UForm ref="upForm" class="flex flex-col items-stretch gap-2 w-full" :state="upState"
-                 :validateOn="['blur']" :schema="signUpSchema" @submit.prevent="signUpUser">
+                 :validateOn="['blur']" :schema="signUpSchema" @submit="signUpUser">
             <UFormField name="email" required :label="$t('auth.signup.fields.email.label')">
               <UInput v-model="upState.email" :placeholder="$t('auth.signup.fields.email.placeholder')" class="w-full" />
+            </UFormField>
+            <UFormField name="username" required :label="$t('auth.signup.fields.username.label')">
+              <UInput v-model="upState.username" :placeholder="$t('auth.signup.fields.username.placeholder')" class="w-full" />
             </UFormField>
             <UFormField name="password" required :label="$t('auth.signup.fields.password.label')" :ui="{ container: 'space-y-2' }">
               <InputPassword v-model="upState.password" :placeholder="$t('auth.signup.fields.password.placeholder')"

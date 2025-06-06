@@ -55,7 +55,7 @@ export default defineNuxtConfig({
     public: {
       version: pkg.version,
       auth: {
-        redirectUserTo: '/dashboard',
+        redirectUserTo: '/boxes',
         redirectGuestTo: '/auth',
       },
     },

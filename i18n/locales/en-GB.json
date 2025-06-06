@@ -121,6 +121,10 @@
           "label": "Email",
           "placeholder": "Company or personal email..."
         },
+        "username": {
+          "label": "Username",
+          "placeholder": "Create a username..."
+        },
         "password": {
           "label": "Password",
           "placeholder": "Create a password...",
