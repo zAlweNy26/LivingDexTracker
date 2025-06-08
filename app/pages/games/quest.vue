@@ -1,12 +1,16 @@
 <script lang="ts" setup>
-import pokJson from 'assets/pokemon_quest.json'
+import type { QuestPokemon } from '#shared/utils/interfaces'
+
+const { data: pokJson } = useLazyFetch('/api/games/quest', {
+  default: () => [] as QuestPokemon[],
+})
 
 const onlySprites = ref(false), searchText = ref(''), spriteType = ref('1')
 const showChineseNames = ref(false), showChineseExclusives = ref(true)
 
 const filteredPoks = computed(() => {
-  if (!showChineseExclusives.value) return pokJson.filter(p => !p.chinese)
-  return pokJson
+  if (!showChineseExclusives.value) return pokJson.value.filter(p => !p.chinese)
+  return pokJson.value
 })
 
 const searchFilter = computed(() => {

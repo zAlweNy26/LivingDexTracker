@@ -216,11 +216,7 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/': { ssr: false },
-    '/guide': { ssr: false },
-    '/faqs': { ssr: false },
-    '/privacy-policy': { ssr: false },
-    '/terms': { ssr: false },
+    '/boxes': { ssr: false },
     '/api/**': { cors: true },
   },
 

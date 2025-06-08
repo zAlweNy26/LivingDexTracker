@@ -115,13 +115,15 @@ const userItems = computed<DropdownMenuItem[]>(() => [
       </template>
     </div>
     <div class="items-center gap-2 flex">
-      <UDropdownMenu v-if="loggedIn" :items="userItems" :content="{ align: 'end', sideOffset: 16 }">
-        <UButton variant="ghost" color="neutral" icon="i-tabler-user-filled" />
-      </UDropdownMenu>
-      <template v-else>
-        <ThemeSwitch />
-        <UButton :to="$localePath('auth')" icon="i-tabler-login-2" :label="$t('button.login')" />
-      </template>
+      <ClientOnly>
+        <UDropdownMenu v-if="loggedIn" :items="userItems" :content="{ align: 'end', sideOffset: 16 }">
+          <UButton variant="ghost" color="neutral" icon="i-tabler-user-filled" />
+        </UDropdownMenu>
+        <template v-else>
+          <ThemeSwitch />
+          <UButton :to="$localePath('auth')" icon="i-tabler-login-2" :label="$t('button.login')" />
+        </template>
+      </ClientOnly>
     </div>
   </header>
 </template>

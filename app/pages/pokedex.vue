@@ -1,7 +1,11 @@
 <script lang="ts" setup>
-import pokJson from 'assets/pokemon_original.json'
+import type { BasePokemon } from '#shared/utils/interfaces'
 
-const pokGens = _GroupBy(pokJson, p => p.gen)
+const { data: pokJson } = useLazyFetch('/api/pokemon/originals', {
+  default: () => [] as BasePokemon[],
+})
+
+const pokGens = computed(() => _GroupBy(pokJson.value, p => p.gen))
 
 const onlySprites = ref(false), searchText = ref('')
 
@@ -10,7 +14,7 @@ const localeGames = computed(() =>
   messages.value[locale.value]?.pokedex?.games ?? messages.value.en.pokedex.games)
 
 const searchFilter = computed(() => {
-  return pokJson.filter(v => v.name.toLowerCase().includes(searchText.value.toLowerCase()))
+  return pokJson.value.filter(v => v.name.toLowerCase().includes(searchText.value.toLowerCase()))
 })
 
 function replaceGenTitle(gen: number) {

@@ -1,10 +1,14 @@
 <script lang="ts" setup>
-import pokJson from 'assets/pokemon_conquest.json'
+import type { ConquestPokemon } from '#shared/utils/interfaces'
+
+const { data: pokJson } = useLazyFetch('/api/games/conquest', {
+  default: () => [] as ConquestPokemon[],
+})
 
 const onlySprites = ref(false), searchText = ref('')
 
 const searchFilter = computed(() => {
-  return pokJson.filter(v => v.name.toLowerCase().includes(searchText.value.toLowerCase()))
+  return pokJson.value.filter(v => v.name.toLowerCase().includes(searchText.value.toLowerCase()))
 })
 </script>
 

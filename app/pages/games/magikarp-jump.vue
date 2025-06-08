@@ -1,8 +1,12 @@
 <script lang="ts" setup>
+import type { MagikarpJump } from '#shared/utils/interfaces'
 import { MagikarpCard } from '#components'
-import pokJson from 'assets/magikarp_jump.json'
 
-const pokPerPattern = _GroupBy(pokJson, p => p.type)
+const { data: pokJson } = useLazyFetch('/api/games/magikarp-jump', {
+  default: () => [] as MagikarpJump[],
+})
+
+const pokPerPattern = computed(() => _GroupBy(pokJson.value, p => p.type))
 const totPatterns = Object.keys(pokPerPattern).length
 
 const modal = useOverlay().create(MagikarpCard)
