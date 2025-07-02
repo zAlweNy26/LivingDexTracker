@@ -73,15 +73,15 @@
     "onlySprites": "Show only sprites",
     "generation": "Gen. {0}",
     "games": {
-      "1": ["Red", "Green", "Blue", "Yellow"],
-      "2": ["Gold", "Silver", "Crystal"],
-      "3": ["Ruby", "Sapphire", "FireRed", "LeafGreen", "Emerald"],
-      "4": ["Diamond", "Pearl", "Platinum", "HeartGold", "SoulSilver"],
-      "5": ["Black", "White", "Black 2", "White 2"],
-      "6": ["X", "Y", "Omega Ruby", "Alpha Sapphire"],
-      "7": ["Sun", "Moon", "Ultra Sun", "Ultra Moon", "Let's Go Pikachu", "Let's Go Eevee"],
-      "8": ["Sword", "Shield", "Brilliant Diamond", "Shining Pearl", "Legends: Arceus"],
-      "9": ["Scarlet", "Violet", "Legends: Z-A"]
+      "1": "Red , Green , Blue , Yellow",
+      "2": "Gold , Silver , Crystal",
+      "3": "Ruby , Sapphire , FireRed , LeafGreen , Emerald",
+      "4": "Diamond , Pearl , Platinum , HeartGold , SoulSilver",
+      "5": "Black , White , Black 2 , White 2",
+      "6": "X , Y , Omega Ruby , Alpha Sapphire",
+      "7": "Sun , Moon , Ultra Sun , Ultra Moon , Let's Go Pikachu , Let's Go Eevee",
+      "8": "Sword , Shield , Brilliant Diamond , Shining Pearl , Legends: Arceus",
+      "9": "Scarlet , Violet , Legends: Z-A"
     }
   },
   "quest": {

@@ -73,15 +73,15 @@
     "onlySprites": "Mostra solo sprite",
     "generation": "Gen. {0}",
     "games": {
-      "1": ["Rosso", "Verde", "Blu", "Giallo"],
-      "2": ["Oro", "Argento", "Cristallo"],
-      "3": ["Rubino", "Zaffiro", "Rosso Fuoco", "Verde Foglia", "Smeraldo"],
-      "4": ["Diamante", "Perla", "Platino", "HeartGold", "SoulSilver"],
-      "5": ["Nero", "Bianco", "Nero 2", "Bianco 2"],
-      "6": ["X", "Y", "Rubino Omega", "Zaffiro Alpha"],
-      "7": ["Sole", "Luna", "Ultrasole", "Ultraluna", "Let's Go Pikachu", "Let's Go Eevee"],
-      "8": ["Spada", "Scudo", "Diamante Lucente", "Perla Splendente", "Leggende: Arceus"],
-      "9": ["Scarlatto", "Violetto", "Leggende: Z-A"]
+      "1": "Rosso , Verde , Blu , Giallo",
+      "2": "Oro , Argento , Cristallo",
+      "3": "Rubino , Zaffiro , Rosso Fuoco , Verde Foglia , Smeraldo",
+      "4": "Diamante , Perla , Platino , HeartGold , SoulSilver",
+      "5": "Nero , Bianco , Nero 2 , Bianco 2",
+      "6": "X , Y , Rubino Omega , Zaffiro Alpha",
+      "7": "Sole , Luna , Ultrasole , Ultraluna , Let's Go Pikachu , Let's Go Eevee",
+      "8": "Spada , Scudo , Diamante Lucente , Perla Splendente , Leggende: Arceus",
+      "9": "Scarlatto , Violetto , Leggende: Z-A"
     }
   },
   "quest": {

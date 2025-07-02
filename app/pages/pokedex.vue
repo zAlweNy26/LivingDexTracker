@@ -5,13 +5,10 @@ const { data: pokJson } = useLazyFetch('/api/pokemon/originals', {
   default: () => [] as BasePokemon[],
 })
 
-const pokGens = computed(() => _GroupBy(pokJson.value, p => p.gen))
-
+const { t } = useI18n()
 const onlySprites = ref(false), searchText = ref('')
 
-const { messages, locale } = useI18n()
-const localeGames = computed(() =>
-  messages.value[locale.value]?.pokedex?.games ?? messages.value.en.pokedex.games)
+const pokGens = computed(() => _GroupBy(pokJson.value, p => p.gen))
 
 const searchFilter = computed(() => {
   return pokJson.value.filter(v => v.name.toLowerCase().includes(searchText.value.toLowerCase()))
@@ -19,11 +16,8 @@ const searchFilter = computed(() => {
 
 function replaceGenTitle(gen: number) {
   const title = GenTitles[gen - 1]
-  const games = localeGames.value[String(gen) as keyof typeof localeGames.value] as any[]
-  if (!games) return title
-  return title?.replace(/\{(\d+)\}/g, (match, index) => {
-    return games[index] !== undefined ? games[index].loc.source : match
-  })
+  const games = t(`pokedex.games.${gen}`).split(' , ')
+  return title?.replace(/\{(\d+)\}/g, (match, index) => games[index] !== undefined ? games[index] : match)
 }
 </script>
 
@@ -56,7 +50,7 @@ function replaceGenTitle(gen: number) {
           }">
             <div class="flex flex-col items-start">
               <div class="game-title text-xl font-bold"
-                   v-html="`${$t('pokedex.generation', [Number(i)])} ${replaceGenTitle(Number(i))}`" />
+                   v-html="`${$t('pokedex.generation', [Number(i)])}: ${replaceGenTitle(Number(i))}`" />
               <div class="text-sm flex items-center gap-1 font-medium">
                 <span>{{ $t('total.pokemon', [gen.length]) }}</span>
                 <UIcon name="i-tabler-pokeball" class="size-4" />
