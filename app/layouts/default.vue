@@ -57,7 +57,6 @@ const head = useLocaleHead({
   dir: true,
   seo: true,
   lang: true,
-  key: 'id',
 })
 </script>
 
@@ -76,14 +75,11 @@ const head = useLocaleHead({
         </template>
       </Head>
       <Body class="scroll-smooth min-h-dvh antialiased transition-colors">
-        <UApp :locale="locales[locale]" :tooltip="{ delayDuration: 300 }"
-              :toaster="{ duration: 2000, position: 'bottom-right' }">
-          <NavHeader v-if="!error" />
-          <Slot class="grow p-2 md:p-4">
-            <slot />
-          </Slot>
-          <NavFooter />
-        </UApp>
+        <NavHeader v-if="!error" />
+        <Slot class="grow p-2 md:p-4">
+          <slot />
+        </Slot>
+        <NavFooter />
       </Body>
     </Html>
   </div>

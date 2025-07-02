@@ -117,7 +117,7 @@ const userItems = computed<DropdownMenuItem[]>(() => [
     <div class="items-center gap-2 flex">
       <ClientOnly>
         <UDropdownMenu v-if="loggedIn" :items="userItems" :content="{ align: 'end', sideOffset: 16 }">
-          <UButton variant="ghost" color="neutral" icon="i-tabler-user-filled" />
+          <UButton variant="subtle" class="rounded-full" color="neutral" icon="i-tabler-user-filled" />
         </UDropdownMenu>
         <template v-else>
           <ThemeSwitch />

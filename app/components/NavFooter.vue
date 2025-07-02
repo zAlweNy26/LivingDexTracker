@@ -32,13 +32,13 @@ const error = useError()
        :class="[error ? 'from-red-600 to-red-400' : 'from-primary-600 to-primary-400']">
     <div class="flex flex-wrap justify-center font-medium gap-4">
       <ULink class="hover:underline !text-(--ui-bg)" :to="$localePath('terms')">
-        {{ $t('footer.terms') }}
+        {{ $t('header.terms') }}
       </ULink>
-      <ULink class="hover:underline !text-(--ui-bg)" :to="$localePath('privacy-policy')">
-        {{ $t('footer.privacy') }}
+      <ULink class="hover:underline !text-(--ui-bg)" :to="$localePath('privacy')">
+        {{ $t('header.privacy') }}
       </ULink>
       <ULink class="hover:underline !text-(--ui-bg)" :to="$localePath('contacts')">
-        {{ $t('footer.contacts') }}
+        {{ $t('header.contacts') }}
       </ULink>
     </div>
     <i18n-t keypath="footer.property" tag="p">

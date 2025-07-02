@@ -17,6 +17,9 @@
   },
   "header": {
     "home": "Home",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "contacts": "Contact Us",
     "guide": "Guide",
     "pokedex": "Pokédex",
     "boxes": "Dex Boxes",
@@ -25,12 +28,8 @@
     "auth": "Log in"
   },
   "footer": {
-    "privacy": "Privacy Policy",
-    "terms": "Terms & Conditions",
-    "attributions": "Attributions",
-    "contacts": "Contact Us",
-    "copyright": "Copyright © 2024-{0} {1} - All Rights Reserved.",
-    "property": "Pokémon images, names, forms, and other relevant information are the property of {0}."
+    "copyright": "Copyright © 2023-{0} {1} - All Rights Reserved",
+    "property": "Pokémon images, names, forms, and other relevant information are the property of {0}"
   },
   "error": {
     "routes": {
