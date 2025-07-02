@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { DropdownMenuItem, NavigationMenuItem } from '#ui/types'
+import type { DropdownMenuItem } from '@nuxt/ui'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
@@ -8,7 +8,7 @@ const settings = useSettingsStore()
 const { toggleTheme } = settings
 const { isDark } = storeToRefs(settings)
 
-const items = computed<NavigationMenuItem[]>(() => [
+const items = computed<DropdownMenuItem[]>(() => [
   {
     label: t('header.home'),
     to: localePath('index'),
@@ -137,7 +137,9 @@ const userItems = computed<DropdownMenuItem[]>(() => [
   width: 0;
   height: 2px;
   background: var(--ui-primary);
-  transition: width 0.25s ease, left 0.25s ease;
+  transition:
+    width 0.25s ease,
+    left 0.25s ease;
 }
 
 .nav-link.nav-link-active::after {

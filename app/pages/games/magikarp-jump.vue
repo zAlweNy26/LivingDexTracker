@@ -45,16 +45,30 @@ const modal = useOverlay().create(MagikarpCard)
 
 <style>
 .magikarp-bounce {
-    animation: magikarp-bounce 1.5s cubic-bezier(0.280, 0.840, 0.420, 1);
+  animation: magikarp-bounce 1.5s cubic-bezier(0.28, 0.84, 0.42, 1);
 }
 
 @keyframes magikarp-bounce {
-    0%   { transform: scale(1, 1) translateY(0); }
-    10%  { transform: scale(1.1, .9) translateY(0); }
-    30%  { transform: scale(.9, 1.1) translateY(-50px); }
-    50%  { transform: scale(1.05, .95) translateY(0); }
-    57%  { transform: scale(1, 1) translateY(-7px); }
-    64%  { transform: scale(1, 1) translateY(0); }
-    100% { transform: scale(1, 1) translateY(0); }
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(1.1, 0.9) translateY(0);
+  }
+  30% {
+    transform: scale(0.9, 1.1) translateY(-50px);
+  }
+  50% {
+    transform: scale(1.05, 0.95) translateY(0);
+  }
+  57% {
+    transform: scale(1, 1) translateY(-7px);
+  }
+  64% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
 }
 </style>

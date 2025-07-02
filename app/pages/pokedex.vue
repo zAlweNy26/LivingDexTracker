@@ -76,14 +76,28 @@ function replaceGenTitle(gen: number) {
 
 <style>
 .game-title > span {
-  text-shadow: 0px 0px 3px #FFF, 0px -0px 3px #FFF, -0px 0px 3px #FFF,
-    -0px -0px 3px #FFF, 0px 0px 3px #FFF, 0px 0px 3px #FFF,
-    -0px 0px 3px #FFF, 0px -0px 3px #FFF, 0px 0px 3px #FFF;
+  text-shadow:
+    0px 0px 3px #fff,
+    0px -0px 3px #fff,
+    -0px 0px 3px #fff,
+    -0px -0px 3px #fff,
+    0px 0px 3px #fff,
+    0px 0px 3px #fff,
+    -0px 0px 3px #fff,
+    0px -0px 3px #fff,
+    0px 0px 3px #fff;
 }
 
 .dark .game-title > span {
-  text-shadow: 0px 0px 3px #000, 0px -0px 3px #000, -0px 0px 3px #000,
-    -0px -0px 3px #000, 0px 0px 3px #000, 0px 0px 3px #000,
-    -0px 0px 3px #000, 0px -0px 3px #000, 0px 0px 3px #000;
+  text-shadow:
+    0px 0px 3px #000,
+    0px -0px 3px #000,
+    -0px 0px 3px #000,
+    -0px -0px 3px #000,
+    0px 0px 3px #000,
+    0px 0px 3px #000,
+    -0px 0px 3px #000,
+    0px -0px 3px #000,
+    0px 0px 3px #000;
 }
 </style>

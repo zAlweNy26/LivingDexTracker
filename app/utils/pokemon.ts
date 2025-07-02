@@ -32,50 +32,5 @@ export type Transform = typeof TransformsOptions[number]
 export const SpecialsOptions = ['Totem', 'Titan', 'Arceus', 'Silvally', 'Partner LGPE', 'Eternal Flower', 'Stuck'] as const
 export type Special = typeof SpecialsOptions[number]
 
-export interface Pokemon {
-  index: number
-  name: string
-  form?: string | undefined
-  form_type: string
-  living_dex_type: string
-  gen: number
-  sub_gen: string
-  game: number
-  region: number
-  ndex: string
-  form_index: string
-  subform_index: string
-  gender_id: string
-  gmax_id: string
-}
-
 export const QuestSpriteTypes = ['Icon', 'Model', 'Shiny Model'] as const
 export type QuestSpriteType = typeof QuestSpriteTypes[number]
-
-export interface PokemonQuest {
-  index: number
-  name: string
-  gen: number
-  form_type?: string
-  chinese: boolean
-  obtainable: boolean
-  ndex: string
-  form_index?: string
-  c_name: string
-  style: string
-}
-
-export interface MagikarpJump {
-  index: number
-  english_name: string
-  japanese_name: string
-  description: string
-  type: string
-  rod: string
-}
-
-export interface PokemonConquest {
-  ndex: string
-  rgal: string
-  name: string
-}

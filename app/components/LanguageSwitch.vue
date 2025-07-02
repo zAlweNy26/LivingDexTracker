@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { DropdownMenuItem } from '#ui/types'
+import type { DropdownMenuItem } from '@nuxt/ui'
 
 const settings = useSettingsStore()
 const { changeLocale } = settings
