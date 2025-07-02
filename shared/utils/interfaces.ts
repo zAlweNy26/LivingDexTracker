@@ -15,7 +15,7 @@ export interface BasePokemon {
   gmax_id: string
 }
 
-export interface FullPokemon {
+export interface FullPokemon extends BasePokemon {
 
 }
 

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import type { Pokemon } from '#imports'
+import type { FullPokemon } from '#shared/utils/interfaces'
 
-defineProps<Pokemon>()
+defineProps<FullPokemon>()
 </script>
 
 <template>
