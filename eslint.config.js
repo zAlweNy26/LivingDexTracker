@@ -6,8 +6,19 @@ export default antfu({
     quotes: 'single',
   },
   typescript: true,
-  vue: true,
-  jsonc: true,
+  vue: {
+    a11y: true,
+    sfcBlocks: true,
+    vueVersion: 3,
+  },
+  formatters: {
+    html: true,
+    svg: true,
+    xml: true,
+    css: true,
+    markdown: true,
+  },
+  jsonc: false,
   yaml: true,
   markdown: true,
   rules: {
