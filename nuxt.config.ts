@@ -67,7 +67,7 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
 
-  compatibilityDate: '2025-02-01',
+  compatibilityDate: '2025-07-01',
 
   app: {
     pageTransition: {
@@ -208,6 +208,9 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    experimental: {
+      openAPI: true,
+    },
     routeRules: {
       '/img/**': { headers: { 'cache-control': `public,max-age=${60 * 60 * 24 * 7},s-maxage=${60 * 60 * 24 * 7}` } },
       '/_ipx/**': { headers: { 'cache-control': `public,max-age=${60 * 60 * 24 * 7},s-maxage=${60 * 60 * 24 * 7}` } },
