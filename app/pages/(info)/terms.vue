@@ -3,6 +3,6 @@
 
 <template>
   <div>
-    {{ $t('footer.terms') }}
+    {{ $t('header.terms') }}
   </div>
 </template>

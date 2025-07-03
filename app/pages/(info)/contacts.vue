@@ -3,6 +3,6 @@
 
 <template>
   <div>
-    {{ $t('footer.contacts') }}
+    {{ $t('header.contacts') }}
   </div>
 </template>

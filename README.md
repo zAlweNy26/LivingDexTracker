@@ -1,5 +1,7 @@
 # LivingDex Tracker
 
+![Score](./pagespeed.svg)
+
 With Pokedex Tracker, you can easily keep track of every Pokemon you've caught, from the original 151 to the latest additions. We also allow you to track regional forms and gender differences, so you can be sure you've caught every variant of your favorite Pokemon.
 
 Design, Programming and Technical Lead by [zAlweNy26](https://github.com/zAlweNy26) 🐈

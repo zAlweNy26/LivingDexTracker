@@ -3,6 +3,6 @@
 
 <template>
   <div>
-    {{ $t('footer.privacy') }}
+    {{ $t('header.privacy') }}
   </div>
 </template>
